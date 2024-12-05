@@ -27,6 +27,9 @@ Exemple d'utilisation de openlayers sur angular :
 
 > **https://dev.to/camptocamp-geo/openlayers-in-an-angular-application-mn1**
 
+### Installer le projet
+
+- Lancez la commande `npm install` pour installer les dépendences.
 
 ### Lancer le serveur de développement
 
