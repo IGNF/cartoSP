@@ -1,5 +1,7 @@
 # cartoSP
 
+$~$
+
 ## Présentation du projet
 
 Ce projet vise à développer un outil de cartographie des accueils de services publics et d'aide à la décision.
