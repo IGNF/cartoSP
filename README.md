@@ -18,6 +18,7 @@ Ce projet vise à développer un outil de cartographie des accueils de services 
 - __Propositions de fonctionnalités + retours sur les développements__ : [accès aux issues](https://github.com/IGNF/cartoSP/issues)  
 - __Roadmap + backlog__ : [accès au projet](https://github.com/IGNF/cartoSP/projects?query=is%3Aopen)
 
+$~$
 
 ## informations techniques
 
@@ -54,6 +55,8 @@ Exemple d'utilisation de openlayers sur angular :
 
 - Lancez `ng e2e` pour exécuter les tests end-to-end via la platforme choisie. 
 (TODO: To use this command, you need to first add a package that implements end-to-end testing capabilities.)
+
+$~$
 
 ## Plus d'aide
 
