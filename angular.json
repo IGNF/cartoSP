@@ -22,13 +22,28 @@
             "tsConfig": "tsconfig.app.json",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              {
+                "glob": "sun.svg",
+                "input": "./node_modules/@gouvfr/dsfr/dist/artwork/pictograms/environment",
+                "output": "artwork/pictograms/environment"
+              },
+              {
+                "glob": "moon.svg",
+                "input": "./node_modules/@gouvfr/dsfr/dist/artwork/pictograms/environment",
+                "output": "artwork/pictograms/environment"
+              },
+              {
+                "glob": "system.svg",
+                "input": "./node_modules/@gouvfr/dsfr/dist/artwork/pictograms/system",
+                "output": "artwork/pictograms/system"
+              }
             ],
             "styles": [
               "src/styles.css",
               "node_modules/ol/ol.css",
               "node_modules/@gouvfr/dsfr/dist/dsfr.css",
-              "node_modules/@gouvfr/dsfr/dist/utility/icons/icons.css",
+              "node_modules/@gouvfr/dsfr/dist/utility/utility.css",
               "node_modules/geopf-extensions-openlayers/css/Dsfr.css",
               "node_modules/geopf-extensions-openlayers/src/packages/CSS/Controls/LayerImport/GPFlayerImport.css",
               "node_modules/geopf-extensions-openlayers/src/packages/CSS/Controls/ToolBoxMeasure/GPFtoolBoxMeasure.css",
@@ -51,7 +66,7 @@
               "node_modules/geopf-extensions-openlayers/src/packages/CSS/Controls/Isochron/GPFisochron.css"
             ],
             "scripts": [
-              "./node_modules/@gouvfr/dsfr/dist/dsfr/dsfr.module.min.js"
+              "./node_modules/@gouvfr/dsfr/dist/dsfr/dsfr.module.js"
             ]
           },
           "configurations": {

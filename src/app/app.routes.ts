@@ -1,8 +1,6 @@
 import { Routes } from '@angular/router';
-import { CarteComponent } from './carte/carte.component';
+import { HomeComponent } from './home/home.component';
 
-export const routes: Routes = [  {
-    path: '',
-    component: CarteComponent
-  }, 
+export const routes: Routes = [ 
+  { path: '', component: HomeComponent },
 ];

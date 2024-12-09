@@ -1,0 +1,11 @@
+<div id="map-container" *ngIf="map">
+    <app-carte [map]="map"></app-carte>
+    <app-layerswitcher [map]="map"></app-layerswitcher>
+    <app-isochrone-simple [map]="map"></app-isochrone-simple>
+    <app-legende [map]="map"></app-legende>
+    <app-zoom [map]="map"></app-zoom>
+    <app-fullscreen [map]="map"></app-fullscreen>
+    <app-attribution [map]="map"></app-attribution>
+    <app-scaleline [map]="map"></app-scaleline>
+    <app-search [map]="map"></app-search>
+</div>

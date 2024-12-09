@@ -1,115 +1,116 @@
-<main class="main">
-  <dsfr-header
-  [serviceTitle]="'Carto SP'"
-  [logoLink]="'https://cartes.gouv.fr'"
-  [serviceTagline]="'Le service de cartographie des services publics'"
-  [menu]="[
+<dsfr-header
+[serviceTitle]="'Carto SP'"
+[logoLink]="'https://cartes.gouv.fr'"
+[serviceTagline]="'Le service de cartographie des services publics'"
+[menu]="[
+{
+  label: 'Commencer avec carto service public',
+  subItems: [
     {
-      label: 'Commencer avec carto service public',
-      subItems: [
-        {
-          label: 'Documentation',
-          link: 'https://cartes.gouv.fr/documentation'
-        },
-        { label: 'Offre', link: 'https://cartes.gouv.fr/offre' },
-        {
-          label: 'Nous rejoindre',
-          link: 'https://cartes.gouv.fr/nous-rejoindre'
-        }
-      ]
+      label: 'Documentation',
+      link: 'https://cartes.gouv.fr/documentation'
+    },
+    { label: 'Offre', link: 'https://cartes.gouv.fr/offre' },
+    {
+      label: 'Nous rejoindre',
+      link: 'https://cartes.gouv.fr/nous-rejoindre'
+    }
+  ]
+},
+{
+  label: 'Assistance',
+  subItems: [
+    { label: 'Questions fréquentes', link: 'https://cartes.gouv.fr/faq' },
+    { label: 'Nous écrire', link: 'https://cartes.gouv.fr/nous-ecrire' },
+    {
+      label: 'Niveau de service',
+      link: 'https://cartes.gouv.fr/niveau-de-service'
+    }
+  ]
+},
+{ label: 'À propos', link: 'https://cartes.gouv.fr/a-propos' }
+]"
+[headerToolsLinks]="[]"
+[beta]="true"
+></dsfr-header>
+  <main class="main">
+    <router-outlet></router-outlet>
+  </main>
+<dsfr-footer
+  [presentation]="
+    'Carto SP est développé par l’Institut national de l’information géographique et forestière (IGN) et ses partenaires. Le site s’appuie sur la Géoplateforme, la nouvelle infrastructure publique, ouverte et collaborative des données géographiques.'
+  "
+  [institutionalLinks]="[
+    {
+      label: 'info.gouv.fr',
+      link: 'https://info.gouv.fr',
+      tooltipMessage: 'info.gouv.fr - ouvre une nouvelle fenêtre',
+      target: '_blank'
     },
     {
-      label: 'Assistance',
-      subItems: [
-        { label: 'Questions fréquentes', link: 'https://cartes.gouv.fr/faq' },
-        { label: 'Nous écrire', link: 'https://cartes.gouv.fr/nous-ecrire' },
-        {
-          label: 'Niveau de service',
-          link: 'https://cartes.gouv.fr/niveau-de-service'
-        }
-      ]
+      label: 'service-public.fr',
+      link: 'https://service-public.fr',
+      tooltipMessage: 'service-public.fr- ouvre une nouvelle fenêtre',
+      target: '_blank'
     },
-    { label: 'À propos', link: 'https://cartes.gouv.fr/a-propos' }
+    {
+      label: 'legifrance.gouv.fr',
+      link: 'https://legifrance.gouv.fr',
+      tooltipMessage: 'legifrance.gouv.fr - ouvre une nouvelle fenêtre',
+      target: '_blank'
+    },
+    {
+      label: 'data.gouv.fr',
+      link: 'https://data.gouv.fr',
+      tooltipMessage: 'data.gouv.fr - ouvre une nouvelle fenêtre',
+      target: '_blank'
+    }
   ]"
-  [headerToolsLinks]="[]"
-  [beta]="true"
-  ></dsfr-header>
-  <router-outlet></router-outlet>
-  <dsfr-footer
-      [presentation]="
-        'Carto SP est développé par l’Institut national de l’information géographique et forestière (IGN) et ses partenaires. Le site s’appuie sur la Géoplateforme, la nouvelle infrastructure publique, ouverte et collaborative des données géographiques.'
-      "
-      [institutionalLinks]="[
-        {
-          label: 'info.gouv.fr',
-          link: 'https://info.gouv.fr',
-          tooltipMessage: 'info.gouv.fr - ouvre une nouvelle fenêtre',
-          target: '_blank'
-        },
-        {
-          label: 'service-public.fr',
-          link: 'https://service-public.fr',
-          tooltipMessage: 'service-public.fr- ouvre une nouvelle fenêtre',
-          target: '_blank'
-        },
-        {
-          label: 'legifrance.gouv.fr',
-          link: 'https://legifrance.gouv.fr',
-          tooltipMessage: 'legifrance.gouv.fr - ouvre une nouvelle fenêtre',
-          target: '_blank'
-        },
-        {
-          label: 'data.gouv.fr',
-          link: 'https://data.gouv.fr',
-          tooltipMessage: 'data.gouv.fr - ouvre une nouvelle fenêtre',
-          target: '_blank'
-        }
-      ]"
-      [mandatoryLinks]="[
-        { label: 'Plan du site', link: 'https://cartes.gouv.fr/plan-du-site' },
-        {
-          label: 'Accessibilité: partiellement conforme',
-          link: 'https://cartes.gouv.fr/accessibilite'
-        },
-        {
-          label: 'Mentions légales',
-          link: 'https://cartes.gouv.fr/mentions-legales'
-        },
-        {
-          label: 'Données personnelles',
-          link: 'https://cartes.gouv.fr/donnees-personnelles'
-        }
-      ]"
-      [partnersSub]="[
-        {
-          imagePath: 'assets/img/logo-ign.png',
-          imageAlt: 'IGN',
-          link: 'https://www.ign.fr'
-        },
-        {
-          imagePath: 'assets/img/logo-ministere-transformation.jpg',
-          imageAlt: 'MINISTÈRE DE LA TRANSFORMATION ET DE LA FONCTION PUBLIQUES',
-          link: 'https://www.transformation.gouv.fr/'
-        },
-        {
-          imagePath: 'assets/img/logo-ministere-ecologie.jpg',
-          imageAlt:
-            'MINISTÈRE DE LA TRANSITION ÉCOLOGIQUE ET DE LA COHÉSION DES TERRITOIRES',
-          link: 'https://www.ecologie.gouv.fr/'
-        },
-        {
-          imagePath: 'assets/img/logo-rf-cnig.jpg',
-          imageAlt: 'Conseil National de l’Information Géolocalisée',
-          link: 'https://cnig.gouv.fr/'
-        }
-      ]"
-      [reboundLinks]="[]"
-      [license]="
-        'Sauf mention explicite de propriété intellectuelle détenue par
-      des tiers, les contenus de ce site sont proposés sous &#60;a href=&#34;https://github.com/etalab/licence-ouverte/blob/master/LO.md&#34; target=&#34;_blank&#34; title=&#34;licence etalab-2.0 - ouvre une nouvelle fenêtre&#34;&#62;licence etalab-2.0&#60;/a&#62;'
-      "
-      [display]="true"
-    ></dsfr-footer>
-</main>
+  [mandatoryLinks]="[
+    { label: 'Plan du site', link: 'https://cartes.gouv.fr/plan-du-site' },
+    {
+      label: 'Accessibilité: partiellement conforme',
+      link: 'https://cartes.gouv.fr/accessibilite'
+    },
+    {
+      label: 'Mentions légales',
+      link: 'https://cartes.gouv.fr/mentions-legales'
+    },
+    {
+      label: 'Données personnelles',
+      link: 'https://cartes.gouv.fr/donnees-personnelles'
+    }
+  ]"
+  [partnersSub]="[
+    {
+      imagePath: 'assets/img/logo-ign.png',
+      imageAlt: 'IGN',
+      link: 'https://www.ign.fr'
+    },
+    {
+      imagePath: 'assets/img/logo-ministere-transformation.jpg',
+      imageAlt: 'MINISTÈRE DE LA TRANSFORMATION ET DE LA FONCTION PUBLIQUES',
+      link: 'https://www.transformation.gouv.fr/'
+    },
+    {
+      imagePath: 'assets/img/logo-ministere-ecologie.jpg',
+      imageAlt:
+        'MINISTÈRE DE LA TRANSITION ÉCOLOGIQUE ET DE LA COHÉSION DES TERRITOIRES',
+      link: 'https://www.ecologie.gouv.fr/'
+    },
+    {
+      imagePath: 'assets/img/logo-rf-cnig.jpg',
+      imageAlt: 'Conseil National de l’Information Géolocalisée',
+      link: 'https://cnig.gouv.fr/'
+    }
+  ]"
+  [reboundLinks]="[]"
+  [license]="
+    'Sauf mention explicite de propriété intellectuelle détenue par
+  des tiers, les contenus de ce site sont proposés sous &#60;a href=&#34;https://github.com/etalab/licence-ouverte/blob/master/LO.md&#34; target=&#34;_blank&#34; title=&#34;licence etalab-2.0 - ouvre une nouvelle fenêtre&#34;&#62;licence etalab-2.0&#60;/a&#62;'
+  "
+  [display]="true"
+></dsfr-footer>
+
 
 
