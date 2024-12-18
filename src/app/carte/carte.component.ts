@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, ElementRef } from '@angular/core';
 
 import Map from 'ol/Map';
-import { LayerWMS as GeoportalLayerWMS, LayerWMTS as GeoportalLayerWMTS,} from "geopf-extensions-openlayers/src";
+import { LayerWMS as GeoportalLayerWMS, LayerWMTS as GeoportalLayerWMTS, LayerWFS as GeoportalLayerWFS} from "geopf-extensions-openlayers/src";
 
 @Component({
   selector: 'app-carte',
@@ -18,17 +18,17 @@ export class CarteComponent implements OnInit {
   ngOnInit() {
     this.map.setLayers([
       new GeoportalLayerWMS({
-        apikey:"full",
         layer: "ORTHOIMAGERY.ORTHOPHOTOS",
       }),
       new GeoportalLayerWMS({
-        apikey:"full",
         layer: "GEOGRAPHICALGRIDSYSTEMS.PLANIGNV2",
       }),
       new GeoportalLayerWMTS({
-        apikey:"full",
         layer: "LIMITES_ADMINISTRATIVES_EXPRESS.LATEST",
       }),
+      new GeoportalLayerWFS({
+        layer: "poc_v5_carto_sp_interne_sans_z_gpkg_13-12-2024_wfs:carto_sp_interne",
+      })
     ]);
 
     this.map.setTarget(this.elementRef.nativeElement);

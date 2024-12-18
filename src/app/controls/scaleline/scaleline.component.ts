@@ -8,7 +8,7 @@ import ScaleLine from 'ol/control/ScaleLine';
   selector: 'app-scaleline',
   standalone: true,
   template: '',
-  styles: ['::ng-deep .ol-scale-line{left: 50px;}']
+  styles: ['::ng-deep .ol-scale-line{left: 60px;}']
 })
 export class ScalelineComponent implements OnInit {
   @Input() map!: Map;

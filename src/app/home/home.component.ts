@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
 import { CarteComponent } from './../carte/carte.component';
@@ -10,9 +11,14 @@ import { AttributionComponent } from './../controls/attribution/attribution.comp
 import { FullscreenComponent } from './../controls/fullscreen/fullscreen.component';
 import { ScalelineComponent } from './../controls/scaleline/scaleline.component';
 import { SearchComponent } from './../controls/search/search.component';
+import { LayerselectorComponent } from '../controls/layerselector/layerselector.component';
+
+import { GeocodageService } from './../services/geocodage.service';
 
 import Map from 'ol/Map';
 import View from 'ol/View';
+import GeoJSON from 'ol/format/GeoJSON';
+import { SimpleGeometry } from 'ol/geom';
 // @ts-ignore
 import Gp from 'geoportal-access-lib';
 
@@ -21,31 +27,50 @@ import Gp from 'geoportal-access-lib';
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
   standalone: true,
-  imports: [CommonModule, CarteComponent, LayerswitcherComponent, IsochroneSimpleComponent, LegendeComponent, ZoomComponent, FullscreenComponent, AttributionComponent, ScalelineComponent, SearchComponent]
+  imports: [CommonModule, CarteComponent, LayerswitcherComponent, IsochroneSimpleComponent, LegendeComponent, ZoomComponent, FullscreenComponent, AttributionComponent, ScalelineComponent, SearchComponent, LayerselectorComponent],
+  providers: [GeocodageService]
 })
 export class HomeComponent implements OnInit {
 
+  constructor(private GeocodageService: GeocodageService, private activatedRoute: ActivatedRoute) {}
+
   map!: Map;
+  GpServiceError: boolean = false;
+  defaultView: View = new View({
+    center: [288074.8449901076, 5900000.515792289],
+    zoom: 6,
+  });
+  defaultLocation: string|null = this.activatedRoute.snapshot.paramMap.get('location') || null;
 
   ngOnInit(): void {
     Gp.Services.getConfig({
-      customConfigFile: "https://raw.githubusercontent.com/IGNF/geoportal-configuration/new-url/dist/fullConfig.json",
+      customConfigFile: 'assets/customConfig.json',
       onSuccess: () => {
-        this.createMap();
+        // set view location
+        if(this.defaultLocation) this.locatedMap(this.defaultLocation);
+        
+        // set map and starting view
+        this.map = new Map({
+          view: this.defaultView
+        });
       },
       // @ts-ignore
-      onFailure : (e) => {
-        console.error(e);
+      onFailure : (error) => {
+        this.GpServiceError = true;
+        console.error('Error loading Gp config:', error);
       }
     });
   }
 
-  createMap() {
-    this.map = new Map({
-      view: new View({
-        center: [288074.8449901076, 6247982.515792289],
-        zoom: 5,
-      })
-    });
+  locatedMap(location: string) {
+    // set view map if different from default
+    this.GeocodageService.getSearchTrueGeometry(location).subscribe({
+        next : (response: any) => {
+            const locationGeom = new GeoJSON().readFeatures(response.features[0].properties.truegeometry, {featureProjection: 'EPSG:3857'})[0].getGeometry();
+            this.defaultView.fit(locationGeom as SimpleGeometry, {padding: [30,30,30,30]});
+        },
+        error : (error: any) => { console.error('Error fetching geocode datas:', error); this.GpServiceError = true; }
+  });
+
   }
 }
