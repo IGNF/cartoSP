@@ -37,6 +37,16 @@
                 "glob": "system.svg",
                 "input": "./node_modules/@gouvfr/dsfr/dist/artwork/pictograms/system",
                 "output": "artwork/pictograms/system"
+              },
+              {
+                "glob": "technical-error.svg",
+                "input": "./node_modules/@gouvfr/dsfr/dist/artwork/pictograms/system",
+                "output": "artwork/pictograms/system"
+              },
+              {
+                "glob": "ovoid.svg",
+                "input": "./node_modules/@gouvfr/dsfr/dist/artwork/background",
+                "output": "artwork/background"
               }
             ],
             "styles": [

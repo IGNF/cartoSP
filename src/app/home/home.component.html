@@ -1,11 +1,28 @@
-<div id="map-container" *ngIf="map">
-    <app-carte [map]="map"></app-carte>
-    <app-layerswitcher [map]="map"></app-layerswitcher>
-    <app-isochrone-simple [map]="map"></app-isochrone-simple>
-    <app-legende [map]="map"></app-legende>
-    <app-zoom [map]="map"></app-zoom>
-    <app-fullscreen [map]="map"></app-fullscreen>
-    <app-attribution [map]="map"></app-attribution>
-    <app-scaleline [map]="map"></app-scaleline>
-    <app-search [map]="map"></app-search>
-</div>
+@if (map){
+    <div id="map-container">
+        <app-carte [map]="map"></app-carte>
+        <app-layerswitcher [map]="map"></app-layerswitcher>
+        <app-isochrone-simple [map]="map"></app-isochrone-simple>
+        <app-legende [map]="map"></app-legende>
+        <app-zoom [map]="map"></app-zoom>
+        <app-fullscreen [map]="map"></app-fullscreen>
+        <app-attribution [map]="map"></app-attribution>
+        <app-scaleline [map]="map"></app-scaleline>
+        <app-search [map]="map"></app-search>
+        <app-layerselector [map]="map"></app-layerselector>
+    </div>
+}@else {
+    <div id="loading">
+        @if (GpServiceError){
+            <div class="loading-icon">
+                <span class="fr-icon--lg fr-icon-warning-fill" aria-hidden="true"></span> 
+            </div>
+            Une erreur est survenu pendant le chargement de l'application. Veuillez réessayer plus tard.
+        }@else {
+            <div class="loading-icon rotate">
+                <span class="fr-icon--lg fr-icon-refresh-line " aria-hidden="true"></span>
+            </div>
+            Chargement de l'application veuillez patienter...
+        }
+    </div>
+}

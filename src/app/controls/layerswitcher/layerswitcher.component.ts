@@ -9,7 +9,7 @@ import {LayerSwitcher} from "geopf-extensions-openlayers/src";
   standalone: true,
   imports: [],
   template: '',
-  styles: [],
+  styles: ['::ng-deep .GPlayerRemove{display: none;}'],
 })
 export class LayerswitcherComponent implements OnInit {
   @Input() map!: Map;

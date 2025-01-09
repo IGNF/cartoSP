@@ -1,7 +1,8 @@
 import { Component, OnInit, Input, ElementRef } from '@angular/core';
 
 import Map from 'ol/Map';
-import { LayerWMS as GeoportalLayerWMS, LayerWMTS as GeoportalLayerWMTS,} from "geopf-extensions-openlayers/src";
+import { bbox as bboxStrategy } from 'ol/loadingstrategy';
+import { LayerWMTS as GeoportalLayerWMTS, LayerWFS as GeoportalLayerWFS } from "geopf-extensions-openlayers/src";
 
 @Component({
   selector: 'app-carte',
@@ -17,18 +18,20 @@ export class CarteComponent implements OnInit {
 
   ngOnInit() {
     this.map.setLayers([
-      new GeoportalLayerWMS({
-        apikey:"full",
-        layer: "ORTHOIMAGERY.ORTHOPHOTOS",
-      }),
-      new GeoportalLayerWMS({
-        apikey:"full",
+      new GeoportalLayerWMTS({
         layer: "GEOGRAPHICALGRIDSYSTEMS.PLANIGNV2",
       }),
       new GeoportalLayerWMTS({
-        apikey:"full",
         layer: "LIMITES_ADMINISTRATIVES_EXPRESS.LATEST",
       }),
+      new GeoportalLayerWFS({
+        layer: "mvp_carto20241219_bis_gpkg_20-12-2024_wfs:mvp_carto20241219_bis",
+        olParams : {
+          sourceParams: {
+            strategy: bboxStrategy,
+          }
+        }
+      })
     ]);
 
     this.map.setTarget(this.elementRef.nativeElement);

@@ -1,4 +1,33 @@
-#map-container{
+#map-container, #loading{
     height: 800px;
     width: 100%;
+}
+
+#loading{
+    text-align: center;
+    vertical-align: middle;
+    line-height: 800px;
+    font-size: larger;
+    background-color: lightgray;
+}
+
+.loading-icon{
+    display: inline-block;
+}
+
+#loading > .loading-icon > .fr-icon-warning-fill{
+    color: red;
+} 
+
+.rotate {
+    animation: rotation 8s infinite linear;
+ }
+   
+@keyframes rotation {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(359deg);
+    }
 }
