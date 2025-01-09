@@ -2,33 +2,75 @@ import { Component, OnInit, Input, ElementRef } from '@angular/core';
 
 import Map from 'ol/Map';
 import Control from 'ol/control/Control';
+import { Catalog } from "geopf-extensions-openlayers/src";
 
 @Component({
   selector: 'app-layerselector',
   standalone: true,
   imports: [],
   template: '',
-  styles: [],
+  styles: ['::ng-deep dialog[id^="GPcatalogPanel-"] { top: unset !important; bottom:3px!important; }'],
 })
 export class LayerselectorComponent implements OnInit {
   @Input() map!: Map;
   control!: Control;
 
-  constructor(private elementRef: ElementRef) {}
+  constructor(private elementRef: ElementRef) { }
 
   ngOnInit() {
-    this.control = new LayerSelectorControl({ target : this.elementRef.nativeElement, position: 'bottom-left' });
+
+    this.control = new Catalog({
+      position: "bottom-left",
+      target: this.elementRef.nativeElement,
+      titlePrimary: "Sélectionnez vos couches de fond",
+      titleSecondary: "",
+      search: {
+        display: false
+      },
+      categories: [
+        {
+          title: "Fonds cartographiques",
+          id: "fonds",
+          items: [
+            {
+              title: "WMTS",
+              default: true,
+              filter: {
+                field: "service",
+                value: "WMTS"
+              }
+            },
+            {
+              title: "TMS",
+              default: false,
+              filter: {
+                field: "service",
+                value: "TMS"
+              }
+            },
+          ]
+        }
+      ],
+      configuration: {
+        type: "json",
+        urls: [
+          "assets/customConfig.json",
+        ]
+      }
+    });
+
     this.map.addControl(this.control);
   }
 
 }
 
-class LayerSelectorControl extends Control {
-  /**
-   * @param {Object} [opt_options] Control options.
-   */
-  // @ts-ignore
-  constructor(opt_options) {
+
+//class LayerSelectorControl extends Control {
+/**
+ * @param {Object} [opt_options] Control options.
+ */
+// @ts-ignore
+/*  constructor(opt_options) {
     const options = opt_options || {};
 
     // Button
@@ -50,30 +92,34 @@ class LayerSelectorControl extends Control {
     element.style.position = 'unset';
     element.appendChild(button);
 
+    // popup radio button
     const element2 = document.createElement('div');
     element2.id = "menu-layer-selector";
     element2.innerHTML = "voici mon message";
     element2.style.backgroundColor = 'white';
     element2.style.width = '150px';
-    element2.style.position = 'relative';
-    element2.style.left = '50px';
-    element2.style.bottom = '5px';
-    element2.style.visibility = 'hidden';
+    //element2.style.position = 'relative';
+    //element2.style.left = '50px';
+    //element2.style.bottom = '5px';
+    //element2.style.visibility = 'hidden';
+    element2.classList.add("GPpanel", "gpf-panel", "fr-modal");
     element.appendChild(element2);
+
+    //element.append(button, element2)
 
     // set element to target
     if (options.position) {
       var id = "position-container-" + options.position;
       if (!document.getElementById(id)) {
-          // Creation manuelle du container de position
-          var div = document.createElement("div");
-          div.id = id;
-          div.classList.add("position");
-          div.classList.add(id);
-          element.appendChild(div);   
+        // Creation manuelle du container de position
+        var div = document.createElement("div");
+        div.id = id;
+        div.classList.add("position");
+        div.classList.add(id);
+        element.appendChild(div);
       }
       // @ts-ignore
-      options.target = document.getElementById(id)?.appendChild(element);      
+      options.target = document.getElementById(id)?.appendChild(element);
     }
 
     super({
@@ -91,24 +137,25 @@ class LayerSelectorControl extends Control {
     e.target.parentNode.querySelector('#menu-layer-selector').style.visibility = "visible";
     // @ts-ignore
     this.getMap().getView().setZoom(2);
+    console.log(this.getMap()?.getAllLayers());
   }
-}
+}*/
 
 // html
 /*<div class="cc-selector">
-	<input checked="checked" id="visa" type="radio" name="credit-card" value="visa" />
-	<label class="drinkcard-cc visa" for="visa"></label>
-	<input id="mastercard" type="radio" name="credit-card" value="mastercard" />
-	<label class="drinkcard-cc mastercard"for="mastercard"></label>
+  <input checked="checked" id="visa" type="radio" name="credit-card" value="visa" />
+  <label class="drinkcard-cc visa" for="visa"></label>
+  <input id="mastercard" type="radio" name="credit-card" value="mastercard" />
+  <label class="drinkcard-cc mastercard"for="mastercard"></label>
 </div>
 
 
 // css    
 .cc-selector input{
-	margin:0;padding:0;
-	-webkit-appearance:none;
-	-moz-appearance:none;
-	appearance:none;
+  margin:0;padding:0;
+  -webkit-appearance:none;
+  -moz-appearance:none;
+  appearance:none;
 }
 
 

@@ -19,6 +19,7 @@ import Map from 'ol/Map';
 import View from 'ol/View';
 import GeoJSON from 'ol/format/GeoJSON';
 import { SimpleGeometry } from 'ol/geom';
+
 // @ts-ignore
 import Gp from 'geoportal-access-lib';
 
@@ -54,11 +55,10 @@ export class HomeComponent implements OnInit {
           view: this.defaultView
         });
       },
-      // @ts-ignore
-      onFailure : (error) => {
+      onFailure : (error: any) => {
         this.GpServiceError = true;
         console.error('Error loading Gp config:', error);
-      }
+      },
     });
   }
 
