@@ -71,7 +71,6 @@ jobs:
           file: Dockerfile
           pull: true
           push: ${{ github.event_name != 'pull_request' }}
-          target: prod
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=gha
