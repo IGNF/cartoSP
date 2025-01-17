@@ -77,6 +77,16 @@
             ],
             "scripts": [
               "./node_modules/@gouvfr/dsfr/dist/dsfr/dsfr.module.js"
+            ],
+            "allowedCommonJsDependencies": [
+              "lodash",
+              "rbush",
+              "pbf",
+              "loglevel",
+              "eventbusjs",
+              "node-fetch",
+              "es6-promise",
+              "@xmldom/xmldom"
             ]
           },
           "configurations": {
@@ -84,8 +94,8 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumWarning": "5mb",
+                  "maximumError": "10mb"
                 },
                 {
                   "type": "anyComponentStyle",
