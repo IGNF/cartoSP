@@ -12,9 +12,9 @@
   "dependencies": {
     "@edugouvfr/ngx-dsfr": "^1.12.6",
     "@gouvfr/dsfr": "^1.11.0",
-    "geopf-extensions-openlayers": "./lib/geopf-extensions-openlayers-1.0.0-beta.1-296.tgz",
+    "geopf-extensions-openlayers": "./lib/geopf-extensions-openlayers-1.0.0-beta.2-323.tgz",
     "geoportal-access-lib": "^3.4.4",
-    "ol": "^9.1.0"
+    "ol": "latest"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^17.3.6",
