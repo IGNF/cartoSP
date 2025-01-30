@@ -16,7 +16,7 @@ USER node
 FROM ${registry}/nginxinc/nginx-unprivileged:stable
 
 COPY --from=nodebuild /opt/cartosp/dist/cartosp/browser/ /usr/share/nginx/html
-COPY .docker/nginx.apps.conf /etc/nginx/conf.d/default.conf
+COPY --from=nodebuild /opt/cartosp/.docker/nginx.apps.conf /etc/nginx/conf.d/default.conf
 
 EXPOSE 8000
 
