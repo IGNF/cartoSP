@@ -15,6 +15,11 @@ USER node
 
 FROM ${registry}/nginxinc/nginx-unprivileged:stable
 
-# USER 101
 COPY --from=nodebuild /opt/cartosp/dist/cartosp/browser/ /usr/share/nginx/html
 COPY .docker/nginx.apps.conf /etc/nginx/conf.d/default.conf
+
+EXPOSE 8000
+
+USER nginx
+
+CMD ["nginx", "-g", "daemon off;"]
