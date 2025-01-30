@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, ElementRef } from '@angular/core';
 
 import Map from 'ol/Map';
+import Feature from 'ol/Feature';
 import { bbox as bboxStrategy } from 'ol/loadingstrategy';
 import { LayerWMTS as GeoportalLayerWMTS, LayerWFS as GeoportalLayerWFS } from "geopf-extensions-openlayers/src";
 
@@ -17,6 +18,7 @@ export class CarteComponent implements OnInit {
   constructor(private elementRef: ElementRef) {}
 
   ngOnInit() {
+
     this.map.setLayers([
       new GeoportalLayerWMTS({
         layer: "GEOGRAPHICALGRIDSYSTEMS.PLANIGNV2",
@@ -27,6 +29,10 @@ export class CarteComponent implements OnInit {
       new GeoportalLayerWFS({
         layer: "mvp_carto20241219_bis_gpkg_20-12-2024_wfs:mvp_carto20241219_bis",
         olParams : {
+          minZoom: 10,
+          style: function(feature: Feature){
+            return undefined;
+          },
           sourceParams: {
             strategy: bboxStrategy,
           }

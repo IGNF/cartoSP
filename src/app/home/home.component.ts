@@ -12,6 +12,7 @@ import { FullscreenComponent } from './../controls/fullscreen/fullscreen.compone
 import { ScalelineComponent } from './../controls/scaleline/scaleline.component';
 import { SearchComponent } from './../controls/search/search.component';
 import { LayerselectorComponent } from '../controls/layerselector/layerselector.component';
+import { SpwfsfilterComponent } from '../controls/spwfsfilter/spwfsfilter.component';
 
 import { GeocodageService } from './../services/geocodage.service';
 
@@ -28,7 +29,7 @@ import Gp from 'geoportal-access-lib';
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
   standalone: true,
-  imports: [CommonModule, CarteComponent, LayerswitcherComponent, IsochroneSimpleComponent, LegendeComponent, ZoomComponent, FullscreenComponent, AttributionComponent, ScalelineComponent, SearchComponent, LayerselectorComponent],
+  imports: [CommonModule, CarteComponent, LayerswitcherComponent, IsochroneSimpleComponent, LegendeComponent, ZoomComponent, FullscreenComponent, AttributionComponent, ScalelineComponent, SearchComponent, LayerselectorComponent, SpwfsfilterComponent],
   providers: [GeocodageService]
 })
 export class HomeComponent implements OnInit {
