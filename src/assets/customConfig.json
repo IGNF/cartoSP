@@ -1170,7 +1170,12 @@
       "queryable": false,
       "metadata": [],
       "styles": [],
-      "legends": [],
+      "legends": [
+        {
+          "format": "image/png",
+          "url": "https://data.geopf.fr/annexes/cartosp_ditp/legendes/legende_SP.png"
+        }
+      ],
       "formats": []
     },
     "services_publics_test_20250115:carto_sp_interne$GEOPORTAIL:OGC:WFS": {

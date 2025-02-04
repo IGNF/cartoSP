@@ -84,7 +84,7 @@ export class SpwfsfilterComponent implements OnInit {
 
     this.control = new WfsFilter({
       position: "top-left",
-      cartospLayerName: "mvp_carto20241219_bis_gpkg_20-12-2024_wfs:mvp_carto20241219_bis",
+      cartospLayerName: "services_publics_test_20250116_v2:carto_sp_interne",
       zoomLevelLimit: 10,
       cartospStyles: styleCache
     });

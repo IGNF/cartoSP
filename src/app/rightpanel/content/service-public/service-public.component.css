@@ -1,0 +1,57 @@
+:host > .fr-h3 {
+    margin-bottom: 5px;
+}
+
+:host > .fr-h6 {
+    font-weight: 300 !important;
+    font-size: 1.1rem !important;
+}
+
+.info-list {
+    display: flex;
+    align-items: center;
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+
+.info-list > .info-icon, .info-list > .info-content {
+    display: inline;
+}
+
+.info-list > .info-icon {
+    color: var(--text-action-high-blue-france);
+}
+
+.info-list > .info-content {
+    padding-left: 10px;
+    font-size: 0.9rem;
+}
+
+:host > dsfr-accordion > .fr-accordion{
+    margin-top: 20px;
+}
+
+#presentTab {
+    padding: 2rem 1.5rem;
+}
+
+
+.spopening {
+    display: flex;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.spopening-day{
+    width: 40%;
+    font-weight: 600;
+}
+
+.spopening-hours{
+    width: 60%;
+    text-align: right;
+}
+
+.spopening-hours > p {
+    margin-bottom: 0px;
+}

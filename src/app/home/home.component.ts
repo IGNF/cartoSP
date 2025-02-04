@@ -10,9 +10,10 @@ import { ZoomComponent } from './../controls/zoom/zoom.component';
 import { AttributionComponent } from './../controls/attribution/attribution.component';
 import { FullscreenComponent } from './../controls/fullscreen/fullscreen.component';
 import { ScalelineComponent } from './../controls/scaleline/scaleline.component';
-import { SearchComponent } from './../controls/search/search.component';
 import { LayerselectorComponent } from '../controls/layerselector/layerselector.component';
 import { SpwfsfilterComponent } from '../controls/spwfsfilter/spwfsfilter.component';
+import { RightpanelComponent } from '../rightpanel/rightpanel.component';
+import { SpselectorComponent } from '../controls/spselector/spselector.component';
 
 import { GeocodageService } from './../services/geocodage.service';
 
@@ -29,7 +30,7 @@ import Gp from 'geoportal-access-lib';
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
   standalone: true,
-  imports: [CommonModule, CarteComponent, LayerswitcherComponent, IsochroneSimpleComponent, LegendeComponent, ZoomComponent, FullscreenComponent, AttributionComponent, ScalelineComponent, SearchComponent, LayerselectorComponent, SpwfsfilterComponent],
+  imports: [CommonModule, CarteComponent, LayerswitcherComponent, IsochroneSimpleComponent, LegendeComponent, ZoomComponent, FullscreenComponent, AttributionComponent, ScalelineComponent, LayerselectorComponent, SpwfsfilterComponent, RightpanelComponent, SpselectorComponent],
   providers: [GeocodageService]
 })
 export class HomeComponent implements OnInit {
@@ -71,7 +72,6 @@ export class HomeComponent implements OnInit {
             this.defaultView.fit(locationGeom as SimpleGeometry, {padding: [30,30,30,30]});
         },
         error : (error: any) => { console.error('Error fetching geocode datas:', error); this.GpServiceError = true; }
-  });
-
+    });
   }
 }

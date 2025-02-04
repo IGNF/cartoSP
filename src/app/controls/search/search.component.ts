@@ -1,20 +1,14 @@
 import { Component, OnInit, Input, ElementRef } from '@angular/core';
 
 import Map from 'ol/Map';
-import Geometry from 'ol/geom/Geometry';
-import GeoJSON from 'ol/format/GeoJSON';
 import Control from 'ol/control/Control';
 import { SearchEngine } from "geopf-extensions-openlayers/src";
-// @ts-ignore
-import Gp from 'geoportal-access-lib';
-import { Extent } from 'ol/extent';
-import { SimpleGeometry } from 'ol/geom';
 
 @Component({
   selector: 'app-search',
   standalone: true,
   template: '',
-  styles: ['::ng-deep [id^="GPsearchEngine-"], ::ng-deep .GPsearchRadioContainer{right: 0px !important;top: 190px;left: unset !important;}']
+  styles: ['::ng-deep .gpf-widget { position: unset;} ::ng-deep div[id^="GPautoCompleteList"] { margin-left: 26px; top: 60px;}']
 })
 export class SearchComponent implements OnInit {
   @Input() map!: Map;

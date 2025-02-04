@@ -1,0 +1,59 @@
+<h3 class="fr-h3">{{ data.nom_service }}</h3>
+<h6 class="fr-h6">{{ data.thematique }}</h6>
+<dsfr-tabs
+  [selectedTabIndex]="selectedTabIndex"
+  [tabsAriaLabel]="tabsAriaLabel"
+  [fullViewport]="fullViewport"
+>
+  <!-- Onglet présentation du service public -->
+  <dsfr-tab
+    tabId="presentTab"
+    label="Présentation"
+    [disabled]="false"
+  >
+    <!-- Informations générales -->
+    <div class="info-list">
+        <span class="fr-icon-map-pin-2-fill fr-icon--md info-icon" aria-hidden="true"></span>
+        <div class="info-content"> {{ data.adresse || "Aucune information" }}</div>
+    </div>
+    <div class="info-list">
+        <span class="fr-icon-user-star-fill fr-icon--md info-icon" aria-hidden="true"></span>
+        <div class="info-content"> {{ data.responsable || "Aucune information" }}</div>
+    </div>
+    <div class="info-list">
+        <span class="fr-icon-phone-fill fr-icon--md info-icon" aria-hidden="true"></span>
+        <div class="info-content"> {{ data.numero || "Aucune information" }}</div>
+    </div>
+    <div class="info-list">
+        <span class="fr-icon-mail-fill fr-icon--md info-icon" aria-hidden="true"></span>
+        <div class="info-content"> {{ data.email || "Aucune information" }}</div>
+    </div>
+    <div class="info-list">
+        <span class="fr-icon-global-fill fr-icon--md info-icon" aria-hidden="true"></span>
+        <div class="info-content"> {{ data.site || "Aucune information" }}</div>
+    </div>
+    <br>
+    <!-- Horaires -->
+    <dsfr-accordion
+    [heading]="'Horaires'"
+    [headingAriaLabel]="'Horaires d\'ouverture'"
+    >     
+        @for (entry of tableTime; track entry.day) {
+            <div class="spopening">
+                <div class="spopening-day">{{ entry.day }}</div>
+                <div class="spopening-hours">
+                    @for (halfday of entry.time; track halfday) {
+                        <p>{{ halfday }}</p>
+                    } @empty {
+                        <p>Fermé</p>
+                    }
+                </div>
+            </div>
+        } @empty {
+            <div class="spopening">
+                Information indisponible pour ce service
+            </div>
+        }
+    </dsfr-accordion>
+  </dsfr-tab>
+</dsfr-tabs>

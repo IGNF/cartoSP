@@ -1,0 +1,15 @@
+<div class="rightpanel-body-container">
+    <div class="rightpanel-body">
+      <app-search [map]="map"></app-search>
+      <div id="rightpanel-content">
+        <ng-template rightpanelContentArea></ng-template>
+      </div>
+    </div>
+</div>
+
+<button
+  class="toggle-button gpf-btn fr-btn fr-icon-arrow-left-s-line"
+  (click)="this.rightpanelService.toggleRightpanel()"
+  [class.is-flipped]="rightpanelService.isExpanded"
+>
+</button>

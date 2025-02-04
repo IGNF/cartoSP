@@ -2,6 +2,8 @@
     display: flex;
     height: 800px;
     width: 100%;
+    flex-grow: 1;
+    overflow: hidden;
 }
 
 #map-container, #loading{
