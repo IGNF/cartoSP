@@ -5,7 +5,6 @@
     width: 0px;
     transition: width 0.6s cubic-bezier(0.02, 0.68, 0.63, 0.98);
     z-index: 1;
-    background-color: white;
     border-left: 1px solid var(--border-default-grey);
     position: sticky;
 }
@@ -13,7 +12,7 @@
 /* affichage plein écran sur petit écran */
 @media screen and (max-width: 576px) {
     :host.is-expanded {
-        width: 85%;
+        width: 95%;
         transition: width 0.6s cubic-bezier(0.02, 0.68, 0.63, 0.98);
     }
 }
@@ -21,7 +20,7 @@
 /* sur tout petit écran, on force 2 colonnes max */
 @media screen and (max-width: 382px) {
     :host.is-expanded {
-        width: 85%;
+        width: 95%;
         transition: width 0.6s cubic-bezier(0.02, 0.68, 0.63, 0.98);
     }
 }

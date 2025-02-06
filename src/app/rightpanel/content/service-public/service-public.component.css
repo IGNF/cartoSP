@@ -1,12 +1,16 @@
+/* Titre et sous-titre du SP */
 :host > .fr-h3 {
+    margin-top: 15px;
     margin-bottom: 5px;
 }
 
 :host > .fr-h6 {
     font-weight: 300 !important;
     font-size: 1.1rem !important;
+    margin-bottom: 10px;
 }
 
+/* Informations sur le SP */
 .info-list {
     display: flex;
     align-items: center;
@@ -35,7 +39,44 @@
     padding: 2rem 1.5rem;
 }
 
+/* Informations capacité/fréquence sur le SP et info accessibilite */
+#infos-cf {
+    display: flex;
+}
 
+#infos-cf > .capacite {
+    width: 50%;
+}
+
+#infos-cf > .frequence {
+    width: 50%;
+}
+
+#infos-cf > .capacite > span, #infos-cf > .frequence > span {
+    font-size: 1.1rem;
+    font-weight: 600;
+    display: block;
+}
+
+#infos-cf > .frequence > small {
+    font-size: 0.7rem;
+}
+
+#infos-cf > .capacite > p, #infos-cf > .frequence > p {
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+
+#info-accessibility {
+    display: flex;
+    padding-bottom: 20px;
+}
+
+#info-accessibility > .info-access {
+    padding-left: 20px;
+}
+
+/* Horaires sur le SP */
 .spopening {
     display: flex;
     padding-top: 10px;
@@ -54,4 +95,20 @@
 
 .spopening-hours > p {
     margin-bottom: 0px;
+}
+
+/* Style des tags */
+.tag-implantation {
+    color: var(--text-action-high-green-menthe);
+    background-color: var(--background-action-low-green-menthe);
+}
+
+.tag-itinerant {
+    color: var(--text-action-high-purple-glycine);
+    background-color: var(--background-action-low-purple-glycine);
+}
+
+.tag-permanence {
+    color: var(--text-action-high-pink-macaron);
+    background-color: var(--background-action-low-pink-macaron);
 }

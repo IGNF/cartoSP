@@ -1,5 +1,21 @@
+<!-- Tag de classification -->
+@if (data.classification == "Itinérant") {
+    <p class="fr-tag fr-tag--sm tag-itinerant fr-icon-git-branch-fill fr-tag--icon-left">Itinérant</p>
+} @else if (data.classification == "Permanence") {
+    <p class="fr-tag fr-tag--sm tag-permanence fr-icon-user-add-fill fr-tag--icon-left">Permanence</p>
+} @else {
+    <p class="fr-tag fr-tag--sm tag-implantation fr-icon-map-pin-2-fill fr-tag--icon-left">Implantation</p>
+}
+
+<!-- Titres -->
 <h3 class="fr-h3">{{ data.nom_service }}</h3>
 <h6 class="fr-h6">{{ data.thematique }}</h6>
+<!-- Informations d'accessibilités -->
+<div id="info-accessibility">
+    <div class="info-mobility fr-fi-arrow-right-line fr-tag--icon-left">accessibilité</div>
+    <div class="info-access fr-icon-calendar-event-fill fr-tag--icon-left">{{ data.modalite_d_accueil || "modalité rdv" }}</div>
+</div>
+<!-- Onglets d'informations -->
 <dsfr-tabs
   [selectedTabIndex]="selectedTabIndex"
   [tabsAriaLabel]="tabsAriaLabel"
@@ -31,6 +47,21 @@
     <div class="info-list">
         <span class="fr-icon-global-fill fr-icon--md info-icon" aria-hidden="true"></span>
         <div class="info-content"> {{ data.site || "Aucune information" }}</div>
+    </div>
+    <br>
+    <!-- Informations capacité et fréquence -->
+    <div id="infos-cf">
+        <div class="capacite">
+            <p>Capacité d'accueil (heure/semaine)</p>
+            <span>{{ data.capacite || "Inconnue" }}</span>
+        </div>
+        <div class="frequence">
+            <p>Fréquentation annuelle (visiteurs/an)</p>
+            <span>{{ data.frequentation_annuelle || "Inconnue" }}</span>
+            @if (data.frequentation_annuelle_ref) {
+                <small>(Année de référence: {{ data.frequentation_annuelle_ref }})</small>
+            } 
+        </div>
     </div>
     <br>
     <!-- Horaires -->

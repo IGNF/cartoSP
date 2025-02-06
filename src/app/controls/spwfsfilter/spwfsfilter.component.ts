@@ -30,6 +30,14 @@ export class SpwfsfilterComponent implements OnInit {
           src: 'assets/images/mapmarker/administrations-locales/implantation.svg',
         })
       }),
+      "Association, culture, jeunesse": new Style({
+        image: new Icon({
+          anchor: [0.5, 37],
+          anchorXUnits: 'fraction',
+          anchorYUnits: 'pixels',
+          src: 'assets/images/mapmarker/association-culture-jeunesse/implantation.svg',
+        })
+      }),
       "Droit, justice": new Style({
         image: new Icon({
           anchor: [0.5, 37],
@@ -51,7 +59,15 @@ export class SpwfsfilterComponent implements OnInit {
           anchor: [0.5, 37],
           anchorXUnits: 'fraction',
           anchorYUnits: 'pixels',
-          src: 'assets/images/mapmarker/droit-justice/implantation.svg',
+          src: 'assets/images/mapmarker/enseignement-recherche/implantation.svg',
+        })
+      }),
+      "Environnement, logement, transports": new Style({
+        image: new Icon({
+          anchor: [0.5, 37],
+          anchorXUnits: 'fraction',
+          anchorYUnits: 'pixels',
+          src: 'assets/images/mapmarker/environnement/implantation.svg',
         })
       }),
       "Social, santé" : new Style({
@@ -62,22 +78,12 @@ export class SpwfsfilterComponent implements OnInit {
           src: 'assets/images/mapmarker/social-sante/implantation.svg',
         })
       }),
-
       "Travail, emploi, formation": new Style({
         image: new Icon({
           anchor: [0.5, 37],
           anchorXUnits: 'fraction',
           anchorYUnits: 'pixels',
           src: 'assets/images/mapmarker/emploi-formation/implantation.svg',
-        })
-      }),
-
-      "Environnement, logement, transports": new Style({
-        image: new Icon({
-          anchor: [0.5, 37],
-          anchorXUnits: 'fraction',
-          anchorYUnits: 'pixels',
-          src: 'assets/images/mapmarker/environnement/implantation.svg',
         })
       })
     } as any;
