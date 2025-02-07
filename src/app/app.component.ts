@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
-import { DsfrHeaderModule } from '@edugouvfr/ngx-dsfr';
-import { DsfrFooterModule } from '@edugouvfr/ngx-dsfr';
+import { DsfrHeaderModule, DsfrFooterModule } from '@edugouvfr/ngx-dsfr';
 
 @Component({
   selector: 'app-root',

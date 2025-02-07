@@ -10,9 +10,10 @@
             <app-fullscreen [map]="map"></app-fullscreen>
             <app-attribution [map]="map"></app-attribution>
             <app-scaleline [map]="map"></app-scaleline>
-            <app-search [map]="map"></app-search>
             <app-layerselector [map]="map"></app-layerselector>
+            <app-spselector [map]="map"></app-spselector>
         </div>
+        <app-rightpanel [map]="map"></app-rightpanel>
     }@else {
         <div id="loading">
             @if (GpServiceError){

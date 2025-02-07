@@ -1,0 +1,70 @@
+:host {
+    height: 100%;
+    box-sizing: border-box;
+    float: right;
+    width: 0px;
+    transition: width 0.6s cubic-bezier(0.02, 0.68, 0.63, 0.98);
+    z-index: 1;
+    border-left: 1px solid var(--border-default-grey);
+    position: sticky;
+}
+
+/* affichage plein écran sur petit écran */
+@media screen and (max-width: 576px) {
+    :host.is-expanded {
+        width: 95%;
+        transition: width 0.6s cubic-bezier(0.02, 0.68, 0.63, 0.98);
+    }
+}
+
+/* sur tout petit écran, on force 2 colonnes max */
+@media screen and (max-width: 382px) {
+    :host.is-expanded {
+        width: 95%;
+        transition: width 0.6s cubic-bezier(0.02, 0.68, 0.63, 0.98);
+    }
+}
+
+@media screen and (min-width: 576px) {
+    :host.is-expanded {
+        width: 500px;
+        transition: width 0.6s cubic-bezier(0.02, 0.68, 0.63, 0.98);
+    }
+}
+
+.rightpanel-body-container {
+    overflow-y: auto;
+    height: 100%;
+    padding: 16px;
+    box-sizing: border-box;
+}
+
+.rightpanel-body {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+#rightpanel-content {
+    width: 100%;
+    display: inline-block;
+    padding-top: 20px;
+    height: 100%;
+}
+
+.toggle-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 25px;
+    height: 25px;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    bottom: 55%; 
+    left: -25px;
+    z-index: 2;
+}
+
+.toggle-button.is-flipped {
+    transform: rotate(-180deg);
+}
