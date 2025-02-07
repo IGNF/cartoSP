@@ -112,3 +112,7 @@
     color: var(--text-action-high-pink-macaron);
     background-color: var(--background-action-low-pink-macaron);
 }
+
+.fr-icon-itinerant::before{
+    mask-image: url("../../../../assets/images/side-menu/itinerant.svg");
+}
