@@ -9,11 +9,19 @@
     position: sticky;
 }
 
+:host > .rightpanel-body-container{
+    opacity: 0;
+}
+
 /* affichage plein écran sur petit écran */
 @media screen and (max-width: 576px) {
     :host.is-expanded {
         width: 95%;
         transition: width 0.4s cubic-bezier(0.02, 0.68, 0.63, 0.98);
+    }
+    :host.is-expanded > .rightpanel-body-container{
+        opacity: 100;
+        transition: opacity 0.8s ease-in-out;
     }
 }
 
@@ -23,12 +31,20 @@
         width: 95%;
         transition: width 0.4s cubic-bezier(0.02, 0.68, 0.63, 0.98);
     }
+    :host.is-expanded > .rightpanel-body-container{
+        opacity: 100;
+        transition: opacity 0.8s ease-in-out;
+    }
 }
 
 @media screen and (min-width: 576px) {
     :host.is-expanded {
         width: 500px;
         transition: width 0.4s cubic-bezier(0.02, 0.68, 0.63, 0.98);
+    }
+    :host.is-expanded > .rightpanel-body-container{
+        opacity: 100;
+        transition: opacity 0.8s ease-in-out;
     }
 }
 
