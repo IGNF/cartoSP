@@ -14,6 +14,7 @@ import { LayerselectorComponent } from '../controls/layerselector/layerselector.
 import { SpwfsfilterComponent } from '../controls/spwfsfilter/spwfsfilter.component';
 import { RightpanelComponent } from '../rightpanel/rightpanel.component';
 import { SpselectorComponent } from '../controls/spselector/spselector.component';
+import { IndicatorselectorComponent } from '../controls/indicatorselector/indicatorselector.component';
 
 import { GeocodageService } from './../services/geocodage.service';
 
@@ -30,7 +31,7 @@ import Gp from 'geoportal-access-lib';
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
   standalone: true,
-  imports: [CommonModule, CarteComponent, LayerswitcherComponent, IsochroneSimpleComponent, LegendeComponent, ZoomComponent, FullscreenComponent, AttributionComponent, ScalelineComponent, LayerselectorComponent, SpwfsfilterComponent, RightpanelComponent, SpselectorComponent],
+  imports: [CommonModule, CarteComponent, LayerswitcherComponent, IsochroneSimpleComponent, LegendeComponent, ZoomComponent, FullscreenComponent, AttributionComponent, ScalelineComponent, LayerselectorComponent, SpwfsfilterComponent, RightpanelComponent, SpselectorComponent, IndicatorselectorComponent],
   providers: [GeocodageService]
 })
 export class HomeComponent implements OnInit {

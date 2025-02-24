@@ -23,8 +23,8 @@ export class ServicePublicComponent implements OnInit {
   tableTime? : Array<days>;
 
   ngOnInit() {
-    if(this.data.horaires_ouverture.length > 4){
-      this.tableTime = this.buildTimeTable(this.data.horaires_ouverture);
+    if(this.data.service_horaires_ouverture.length > 4){
+      this.tableTime = this.buildTimeTable(this.data.service_horaires_ouverture);
     }
   }
 

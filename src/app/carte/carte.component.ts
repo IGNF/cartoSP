@@ -27,7 +27,7 @@ export class CarteComponent implements OnInit {
         layer: "LIMITES_ADMINISTRATIVES_EXPRESS.LATEST",
       }),
       new GeoportalLayerWFS({
-        layer: "services_publics_test_20250116_v2:carto_sp_interne",
+        layer: "services_publics_test_20250213:carto_sp_interne",
         olParams : {
           minZoom: 10,
           style: function(feature: Feature){

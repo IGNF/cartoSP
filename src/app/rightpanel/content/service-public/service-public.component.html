@@ -1,19 +1,25 @@
 <!-- Tag de classification -->
-@if (data.classification == "Itinérant") {
+@if (data.type_structure == "Itinérant") {
     <p class="fr-tag fr-tag--sm tag-itinerant fr-icon-itinerant fr-tag--icon-left">Itinérant</p>
-} @else if (data.classification == "Permanence") {
+} @else if (data.type_structure == "Permanence") {
     <p class="fr-tag fr-tag--sm tag-permanence fr-icon-user-add-fill fr-tag--icon-left">Permanence</p>
 } @else {
     <p class="fr-tag fr-tag--sm tag-implantation fr-icon-map-pin-2-fill fr-tag--icon-left">Implantation</p>
 }
 
 <!-- Titres -->
-<h3 class="fr-h3">{{ data.nom_service }}</h3>
-<h6 class="fr-h6">{{ data.thematique }}</h6>
+<h3 class="fr-h3">{{ data.service_nom }}</h3>
+<h6 class="fr-h6">{{ data.service_thematique }}</h6>
 <!-- Informations d'accessibilités -->
 <div id="info-accessibility">
-    <div class="info-mobility fr-fi-arrow-right-line fr-tag--icon-left">accessibilité</div>
-    <div class="info-access fr-icon-calendar-event-fill fr-tag--icon-left">{{ data.modalite_d_accueil || "modalité rdv" }}</div>
+    <div class="info-mobility">
+        <span class="fr-fi-arrow-right-line fr-icon--md info-icon" aria-hidden="true"></span>
+        <div class="info-content"> {{ data.lieu_accessibilite || "Aucune informations sur l'accessibilité" }}</div>
+    </div>
+    <div class="info-access">
+        <span class="fr-icon-calendar-event-fill fr-icon--md info-icon" aria-hidden="true"></span>
+        <div class="info-content"> {{ data.service_modalite_d_accueil || "Aucune informations sur les modalités d'accueil" }}</div>
+    </div>
 </div>
 <!-- Onglets d'informations -->
 <dsfr-tabs
@@ -30,7 +36,7 @@
     <!-- Informations générales -->
     <div class="info-list">
         <span class="fr-icon-map-pin-2-fill fr-icon--md info-icon" aria-hidden="true"></span>
-        <div class="info-content"> {{ data.adresse || "Aucune information" }}</div>
+        <div class="info-content"> {{ data.lieu_adresse || "Aucune information" }}</div>
     </div>
     <div class="info-list">
         <span class="fr-icon-user-star-fill fr-icon--md info-icon" aria-hidden="true"></span>
@@ -38,29 +44,28 @@
     </div>
     <div class="info-list">
         <span class="fr-icon-phone-fill fr-icon--md info-icon" aria-hidden="true"></span>
-        <div class="info-content"> {{ data.numero || "Aucune information" }}</div>
+        <div class="info-content"> {{ data.service_telephone || "Aucune information" }}</div>
     </div>
     <div class="info-list">
         <span class="fr-icon-mail-fill fr-icon--md info-icon" aria-hidden="true"></span>
-        <div class="info-content"> {{ data.email || "Aucune information" }}</div>
+        <div class="info-content"> {{ data.service_courriel || "Aucune information" }}</div>
     </div>
     <div class="info-list">
         <span class="fr-icon-global-fill fr-icon--md info-icon" aria-hidden="true"></span>
-        <div class="info-content"> {{ data.site || "Aucune information" }}</div>
+        <div class="info-content"> {{ data.service_site_internet || "Aucune information" }}</div>
     </div>
     <br>
     <!-- Informations capacité et fréquence -->
     <div id="infos-cf">
-        <div class="capacite">
-            <p>Capacité d'accueil (heure/semaine)</p>
-            <span>{{ data.capacite || "Inconnue" }}</span>
-        </div>
         <div class="frequence">
             <p>Fréquentation annuelle (visiteurs/an)</p>
-            <span>{{ data.frequentation_annuelle || "Inconnue" }}</span>
-            @if (data.frequentation_annuelle_ref) {
-                <small>(Année de référence: {{ data.frequentation_annuelle_ref }})</small>
-            } 
+            <div id="freq-small">
+                <span>{{ data.service_frequentation_annuelle || "Inconnue" }}</span>
+                @if (data.service_frequentation_annuelle_ref) {
+                    <br>
+                    <small>(Année de référence: {{ data.service_frequentation_annuelle_ref }})</small>
+                } 
+            </div>
         </div>
     </div>
     <br>
