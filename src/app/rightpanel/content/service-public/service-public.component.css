@@ -22,7 +22,7 @@
     display: inline;
 }
 
-.info-list > .info-icon {
+.info-list > .info-icon,  .info-mobility > .info-icon, .info-access > .info-icon{
     color: var(--text-action-high-blue-france);
 }
 
@@ -44,36 +44,53 @@
     display: flex;
 }
 
-#infos-cf > .capacite {
-    width: 50%;
-}
-
 #infos-cf > .frequence {
-    width: 50%;
+    width: 100%;
+    display: flex;
 }
 
-#infos-cf > .capacite > span, #infos-cf > .frequence > span {
+#infos-cf > .frequence > p{
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+    width: 55%;
+}
+
+#infos-cf > .frequence > span, #info-accessibility > .info-access > span, #info-accessibility > .info-mobility > span {
     font-size: 1.1rem;
     font-weight: 600;
     display: block;
 }
 
-#infos-cf > .frequence > small {
-    font-size: 0.7rem;
+#infos-cf > .frequence > #freq-small{
+    width: 45%;
 }
 
-#infos-cf > .capacite > p, #infos-cf > .frequence > p {
-    font-size: 0.9rem;
-    margin-bottom: 10px;
+#infos-cf > .frequence > #freq-small > small{
+    font-size: 0.68rem;
+}
+
+#infos-cf > .frequence > #freq-small > span{
+    font-weight: 800;
 }
 
 #info-accessibility {
-    display: flex;
-    padding-bottom: 20px;
+    padding-bottom: 30px;
+    padding-top: 10px;
 }
 
 #info-accessibility > .info-access {
-    padding-left: 20px;
+    padding-top: 10px;
+    display: flex;
+    align-items: center;
+}
+
+#info-accessibility > .info-mobility {
+    display: flex;
+    align-items: center;
+}
+
+#info-accessibility > .info-access > .info-content, #info-accessibility > .info-mobility > .info-content{
+    padding-left: 10px;
 }
 
 /* Horaires sur le SP */

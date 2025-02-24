@@ -3,7 +3,7 @@
     box-sizing: border-box;
     float: right;
     width: 0px;
-    transition: width 0.6s cubic-bezier(0.02, 0.68, 0.63, 0.98);
+    transition: width 0.4s cubic-bezier(0.02, 0.68, 0.63, 0.98);
     z-index: 1;
     border-left: 1px solid var(--border-default-grey);
     position: sticky;
@@ -13,7 +13,7 @@
 @media screen and (max-width: 576px) {
     :host.is-expanded {
         width: 95%;
-        transition: width 0.6s cubic-bezier(0.02, 0.68, 0.63, 0.98);
+        transition: width 0.4s cubic-bezier(0.02, 0.68, 0.63, 0.98);
     }
 }
 
@@ -21,14 +21,14 @@
 @media screen and (max-width: 382px) {
     :host.is-expanded {
         width: 95%;
-        transition: width 0.6s cubic-bezier(0.02, 0.68, 0.63, 0.98);
+        transition: width 0.4s cubic-bezier(0.02, 0.68, 0.63, 0.98);
     }
 }
 
 @media screen and (min-width: 576px) {
     :host.is-expanded {
         width: 500px;
-        transition: width 0.6s cubic-bezier(0.02, 0.68, 0.63, 0.98);
+        transition: width 0.4s cubic-bezier(0.02, 0.68, 0.63, 0.98);
     }
 }
 
@@ -63,8 +63,10 @@
     bottom: 55%; 
     left: -25px;
     z-index: 2;
+    border-radius: 5px 0px 0px 5px;
 }
 
 .toggle-button.is-flipped {
     transform: rotate(-180deg);
+    border-radius: 0px 5px 5px 0px;
 }
