@@ -3,7 +3,7 @@ import { Component, OnInit, Input, ElementRef } from '@angular/core';
 import Map from 'ol/Map';
 import Feature from 'ol/Feature';
 import { bbox as bboxStrategy } from 'ol/loadingstrategy';
-import { LayerWMTS as GeoportalLayerWMTS, LayerWFS as GeoportalLayerWFS } from "geopf-extensions-openlayers/src";
+import { LayerWMTS as GeoportalLayerWMTS, LayerWFS as GeoportalLayerWFS, LayerMapBox as GeoportalLayerTMS } from "geopf-extensions-openlayers/src";
 
 @Component({
   selector: 'app-carte',
@@ -20,8 +20,9 @@ export class CarteComponent implements OnInit {
   ngOnInit() {
 
     this.map.setLayers([
-      new GeoportalLayerWMTS({
-        layer: "GEOGRAPHICALGRIDSYSTEMS.PLANIGNV2",
+      new GeoportalLayerTMS({
+        layer: "PLAN.IGN",
+        style: "gris"
       }),
       new GeoportalLayerWMTS({
         layer: "LIMITES_ADMINISTRATIVES_EXPRESS.LATEST",

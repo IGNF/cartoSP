@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
 import { CarteComponent } from './../carte/carte.component';
+import { SearchComponent } from './../controls/search/search.component';
 import { LayerswitcherComponent } from './../controls/layerswitcher/layerswitcher.component';
 import { IsochroneSimpleComponent } from './../controls/isochrone-simple/isochrone-simple.component';
 import { LegendeComponent } from './../controls/legende/legende.component';
@@ -31,7 +32,7 @@ import Gp from 'geoportal-access-lib';
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
   standalone: true,
-  imports: [CommonModule, CarteComponent, LayerswitcherComponent, IsochroneSimpleComponent, LegendeComponent, ZoomComponent, FullscreenComponent, AttributionComponent, ScalelineComponent, LayerselectorComponent, SpwfsfilterComponent, RightpanelComponent, SpselectorComponent, IndicatorselectorComponent],
+  imports: [CommonModule, CarteComponent, SearchComponent, LayerswitcherComponent, IsochroneSimpleComponent, LegendeComponent, ZoomComponent, FullscreenComponent, AttributionComponent, ScalelineComponent, LayerselectorComponent, SpwfsfilterComponent, RightpanelComponent, SpselectorComponent, IndicatorselectorComponent],
   providers: [GeocodageService]
 })
 export class HomeComponent implements OnInit {

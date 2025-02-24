@@ -1,17 +1,15 @@
 import { Component, HostBinding, ViewChild, Input, AfterViewInit } from '@angular/core';
 
 import { RightpanelService } from './rightpanel.service';
-
 import { RightpanelContentAreaDirective } from './rightpanel-content-area.directive';
 
 import Map from 'ol/Map';
 import Control from 'ol/control/Control';
-import { SearchComponent } from './../controls/search/search.component';
 
 @Component({
   selector: 'app-rightpanel',
   standalone: true,
-  imports: [SearchComponent, RightpanelContentAreaDirective],
+  imports: [RightpanelContentAreaDirective],
   templateUrl: './rightpanel.component.html',
   styleUrl: './rightpanel.component.css',
 })

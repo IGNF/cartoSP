@@ -24,6 +24,7 @@ export class SearchComponent implements OnInit {
       splitResults: false,
       markerStyle: 'turquoiseBlue',
       zoomTo: 'auto',
+      position: "top-left",
       target: this.elementRef.nativeElement,
     });
    
