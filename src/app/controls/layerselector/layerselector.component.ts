@@ -2,7 +2,7 @@ import { Component, OnInit, Input, ElementRef } from '@angular/core';
 
 import Map from 'ol/Map';
 import Control from 'ol/control/Control';
-import { Catalog } from "geopf-extensions-openlayers/src";
+import { Layerselector } from "geopf-extensions-openlayers/src";
 
 @Component({
   selector: 'app-layerselector',
@@ -18,45 +18,16 @@ export class LayerselectorComponent implements OnInit {
   constructor(private elementRef: ElementRef) { }
 
   ngOnInit() {
+    var LayerSelectorList = [
+      {layername : "PLAN.IGN", title : "Gris", layertype : "TMS", style : "gris", img: "http://localhost:4200/assets/images/layerselector/Gris.png" },
+      {layername : "ORTHOIMAGERY.ORTHOPHOTOS", title : "Aérienne", layertype : "WMS", style : null, img: "http://localhost:4200/assets/images/layerselector/Aérienne.png" }, 
+      {layername : "GEOGRAPHICALGRIDSYSTEMS.PLANIGNV2", title : "Relief", layertype : "WMS", style : null, img: "http://localhost:4200/assets/images/layerselector/Relief.png" }   
+    ];
 
-    this.control = new Catalog({
+    this.control = new Layerselector({
       position: "bottom-left",
-      target: this.elementRef.nativeElement,
-      titlePrimary: "Sélectionnez vos couches de fond",
-      titleSecondary: "",
-      search: {
-        display: false
-      },
-      categories: [
-        {
-          title: "Fonds cartographiques",
-          id: "fonds",
-          items: [
-            {
-              title: "WMTS",
-              default: true,
-              filter: {
-                field: "service",
-                value: "WMTS"
-              }
-            },
-            {
-              title: "TMS",
-              default: false,
-              filter: {
-                field: "service",
-                value: "TMS"
-              }
-            },
-          ]
-        }
-      ],
-      configuration: {
-        type: "json",
-        urls: [
-          "assets/customConfig.json",
-        ]
-      }
+      panel: true,
+      layerSelectorList : LayerSelectorList
     });
 
     this.map.addControl(this.control);
