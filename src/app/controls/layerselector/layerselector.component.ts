@@ -19,9 +19,9 @@ export class LayerselectorComponent implements OnInit {
 
   ngOnInit() {
     var LayerSelectorList = [
-      {layername : "PLAN.IGN", title : "Gris", layertype : "TMS", style : "gris", img: "http://localhost:4200/assets/images/layerselector/Gris.png" },
-      {layername : "ORTHOIMAGERY.ORTHOPHOTOS", title : "Aérienne", layertype : "WMS", style : null, img: "http://localhost:4200/assets/images/layerselector/Aérienne.png" }, 
-      {layername : "GEOGRAPHICALGRIDSYSTEMS.PLANIGNV2", title : "Relief", layertype : "WMS", style : null, img: "http://localhost:4200/assets/images/layerselector/Relief.png" }   
+      {layername : "PLAN.IGN", title : "Gris", layertype : "TMS", style : "gris", img: "assets/images/layerselector/Gris.png" },
+      {layername : "ORTHOIMAGERY.ORTHOPHOTOS", title : "Aérienne", layertype : "WMS", style : null, img: "assets/images/layerselector/Aérienne.png" }, 
+      {layername : "GEOGRAPHICALGRIDSYSTEMS.PLANIGNV2", title : "Relief", layertype : "WMS", style : null, img: "assets/images/layerselector/Relief.png" }   
     ];
 
     this.control = new Layerselector({
