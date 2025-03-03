@@ -76,7 +76,8 @@
               "node_modules/geopf-extensions-openlayers/src/packages/CSS/Controls/Isochron/GPFisochron.css",
               "node_modules/geopf-extensions-openlayers/src/packages/CSS/Controls/CartospWfsFilter/GPFwfsFilter.css",
               "node_modules/geopf-extensions-openlayers/src/packages/CSS/Controls/Legends/GPFlegends.css",
-              "node_modules/geopf-extensions-openlayers/src/packages/CSS/Controls/Catalog/GPFcatalog.css"
+              "node_modules/geopf-extensions-openlayers/src/packages/CSS/Controls/Catalog/GPFcatalog.css",
+              "node_modules/geopf-extensions-openlayers/src/packages/CSS/Controls/CartospSearchdialog/GPFsearchdialog.css"
             ],
             "scripts": [
               "./node_modules/@gouvfr/dsfr/dist/dsfr/dsfr.module.js"

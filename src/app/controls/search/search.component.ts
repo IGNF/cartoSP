@@ -2,32 +2,40 @@ import { Component, OnInit, Input, ElementRef } from '@angular/core';
 
 import Map from 'ol/Map';
 import Control from 'ol/control/Control';
-import { SearchEngine } from "geopf-extensions-openlayers/src";
+import { SearchEngine, Searchdialog} from "geopf-extensions-openlayers/src";
 
 @Component({
   selector: 'app-search',
   standalone: true,
   template: '',
-  styles: ['::ng-deep .gpf-widget { position: unset;} ::ng-deep div[id^="GPautoCompleteList"] { margin-left: 26px; top: 60px;}']
+  styles: ['']
 })
 export class SearchComponent implements OnInit {
   @Input() map!: Map;
-  control!: Control;
+  search!: Control;
+  dialog!: Control;
 
   constructor(private elementRef: ElementRef) {}
 
   ngOnInit() {
-    this.control = new SearchEngine({
+
+    // Ajout du panel de recherche
+    this.dialog = new Searchdialog({
+        position: "top-left",
+        panel: true,
+    });
+    this.map.addControl(this.dialog);
+
+    // Ajout de l'outil de recherche dans le panel
+    this.search = new SearchEngine({
       displayButtonClose: false,
       displayButtonAdvancedSearch: false,
       collapsible: true,
       splitResults: false,
       markerStyle: 'turquoiseBlue',
       zoomTo: 'auto',
-      position: "top-left",
-      target: this.elementRef.nativeElement,
-    });
-   
-    this.map.addControl(this.control);
+      target: document.getElementById('searchmodal'),
+    });   
+    this.map.addControl(this.search);
   }
 }
