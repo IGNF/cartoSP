@@ -50,19 +50,16 @@ export class IndicatorselectorComponent implements OnInit {
             ]
         },
         {
-            thematique: "Santé et accès aux soins - Professionnels de premier recours",
+            thematique: "Santé et accès aux soins",
             indicators: [
+                {title:"Professionnels de premier recours", layername: ""}, // sous-theme
                 {title:"Médecins généralistes", layername: "total_sante_nb_generalistes"},
                 {title:"Infirmiers", layername: "total_sante_nb_infirmiers"},
                 {title:"Kinésithérapeuthes", layername: "total_sante_nb_kines"},
                 {title:"Chirurgiens-dentistes", layername: "total_sante_nb_dentistes"},
                 {title:"Orthophonistes", layername: "total_sante_nb_orthophonistes"},
                 {title:"Sages-femmes", layername: "total_sante_nb_sagesfemmes"},
-            ]
-        },
-        {
-            thematique: "Santé et accès aux soins - Territoire",
-            indicators: [
+                {title:"Territoire", layername: ""}, // sous-theme
                 {title:"Densité médicale", layername: "total_sante_densite_medicale"},
                 {title:"Moyenne d'âge des médecins", layername: "total_sante_moyenne_age_medecin"},
                 {title:"Accessibilité aux soins de premier recours", layername: "total_sante_accessibilite"},
