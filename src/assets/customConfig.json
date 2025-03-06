@@ -9,6 +9,7 @@
         "GEOGRAPHICALGRIDSYSTEMS.PLANIGNV2$GEOPORTAIL:OGC:WMS",
         "LIMITES_ADMINISTRATIVES_EXPRESS.LATEST$GEOPORTAIL:OGC:WMTS",
         "ORTHOIMAGERY.ORTHOPHOTOS$GEOPORTAIL:OGC:WMS",
+        "ORTHOIMAGERY.ORTHOPHOTOS.GRAPHE-MOSAIQUAGE$GEOPORTAIL:OGC:WMS",
         "BDTOPO_V3:batiment$GEOPORTAIL:OGC:WFS",
         "BDTOPO_V3:troncon_de_route$GEOPORTAIL:OGC:WFS",
         "CADASTRALPARCELS.PARCELLAIRE_EXPRESS:parcelle$GEOPORTAIL:OGC:WFS",
@@ -18,24 +19,24 @@
       "BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN": [
         "ANCT_QPV_wms$GEOPORTAIL:OGC:WMS",
         "CartoSP_MVP_SP_frequentation$GEOPORTAIL:OGC:WMS",
-        "total_pilotes_insee_densite_population$GEOPORTAIL:OGC:WMS",
-        "pilotes_insee_menages_pauvres$GEOPORTAIL:OGC:WMS",
-        "pilotes_insee_monoparentale$GEOPORTAIL:OGC:WMS",
-        "pilotes_insee_niveau_de_vie$GEOPORTAIL:OGC:WMS",
-        "pilotes_insee_partmoins18$GEOPORTAIL:OGC:WMS",
-        "pilotes_insee_partplus65$GEOPORTAIL:OGC:WMS",
         "pilotes_mednum_fragilite_numerique$GEOPORTAIL:OGC:WMS",
-        "sante_accessibilite$GEOPORTAIL:OGC:WMS",
-        "sante_densite_medicale$GEOPORTAIL:OGC:WMS",
-        "sante_moyenne_age_medecin$GEOPORTAIL:OGC:WMS",
-        "sante_nb_dentistes$GEOPORTAIL:OGC:WMS",
-        "sante_nb_generaliste$GEOPORTAIL:OGC:WMS",
-        "sante_nb_infirmiers$GEOPORTAIL:OGC:WMS",
-        "sante_nb_kines$GEOPORTAIL:OGC:WMS",
-        "sante_nb_orthophonistes$GEOPORTAIL:OGC:WMS",
-        "sante_nb_sagesfemmes$GEOPORTAIL:OGC:WMS",
+        "total_pilotes_insee_densite_population$GEOPORTAIL:OGC:WMS",
+        "total_pilotes_insee_menages_pauvres$GEOPORTAIL:OGC:WMS",
+        "total_pilotes_insee_monoparentale$GEOPORTAIL:OGC:WMS",
+        "total_pilotes_insee_niveau_de_vie$GEOPORTAIL:OGC:WMS",
+        "total_pilotes_insee_partmoins18$GEOPORTAIL:OGC:WMS",
+        "total_pilotes_insee_partplus65$GEOPORTAIL:OGC:WMS",
+        "total_sante_accessibilite$GEOPORTAIL:OGC:WMS",
+        "total_sante_densite_medicale$GEOPORTAIL:OGC:WMS",
+        "total_sante_moyenne_age_medecin$GEOPORTAIL:OGC:WMS",
+        "total_sante_nb_dentistes$GEOPORTAIL:OGC:WMS",
+        "total_sante_nb_generalistes$GEOPORTAIL:OGC:WMS",
+        "total_sante_nb_infirmiers$GEOPORTAIL:OGC:WMS",
+        "total_sante_nb_kines$GEOPORTAIL:OGC:WMS",
+        "total_sante_nb_orthophonistes$GEOPORTAIL:OGC:WMS",
+        "total_sante_nb_sagesfemmes$GEOPORTAIL:OGC:WMS",
         "carreaux_200m_met_gpkg_19-12-2024_wfs:carreaux_200m_met$GEOPORTAIL:OGC:WFS",
-        "services_publics_test_20250213:carto_sp_interne$GEOPORTAIL:OGC:WFS"
+        "services_publics_test_20250304:carto_sp_interne$GEOPORTAIL:OGC:WFS"
       ]
     }
   },
@@ -344,19 +345,19 @@
         }
       },
       "styles": [
-        {
-          "name": "normal",
-          "title": "Légende générique",
-          "current": true,
-          "url": null
-        }
+          {
+            "name": "normal",
+            "title": "Légende générique",
+            "current": true,
+            "url": null
+          }
       ],
       "legends": [
-        {
-          "format": "image/jpeg",
-          "url": "https://data.geopf.fr/annexes/ressources/legendes/LEGEND.jpg",
-          "minScaleDenominator": "200"
-        }
+          {
+              "format": "image/jpeg",
+              "url": "https://data.geopf.fr/annexes/ressources/legendes/LEGEND.jpg",
+              "minScaleDenominator": "200"
+          }
       ],
       "formats": [
         {
@@ -774,53 +775,73 @@
         }
       ]
     },
-    "ORTHOIMAGERY.ORTHOPHOTOS$GEOPORTAIL:OGC:WMS": {
-      "name": "ORTHOIMAGERY.ORTHOPHOTOS",
-      "title": "Photographies aériennes",
-      "description": "Photographies aériennes",
+    "ORTHOIMAGERY.ORTHOPHOTOS.GRAPHE-MOSAIQUAGE$GEOPORTAIL:OGC:WMS": {
+      "name": "ORTHOIMAGERY.ORTHOPHOTOS.GRAPHE-MOSAIQUAGE",
+      "title": "Graphe de mosaïquage France Entière de la BDORTHO.",
+      "description": "Graphe de mosaïquage France Entière de la BDORTHO.",
       "globalConstraint": {
-        "minScaleDenominator": 266.5911979812228,
-        "maxScaleDenominator": 559082264.0287179,
+        "minScaleDenominator": 0.0,
+        "maxScaleDenominator": 62236752975597,
         "bbox": {
-          "left": -180.0,
-          "right": 180.0,
-          "top": 80.0,
-          "bottom": -80.0
+          "left": -178.18541496,
+          "right": 55.85384065,
+          "top": 51.11183578,
+          "bottom": -21.42730308
         }
       },
       "serviceParams": {
         "id": "OGC:WMS",
         "version": "1.3.0",
         "serverUrl": {
-          "essentiels": "https://data.geopf.fr/wms-r/wms"
+          "essentiels": "https://data.geopf.fr/wms-v/ows"
         }
       },
-      "defaultProjection": "EPSG:3857",
+      "defaultProjection": "EPSG:4326",
       "queryable": true,
       "metadata": [],
       "styles": [
         {
-          "name": "normal",
-          "title": "Légende générique"
+          "name": "default-style-ORTHOIMAGERY.ORTHOPHOTOS.GRAPHE-MOSAIQUAGE",
+          "title": "ORTHOIMAGERY.ORTHOPHOTOS.GRAPHE-MOSAIQUAGE style"
         }
       ],
       "legends": [
         {
-          "format": "image/jpeg",
-          "url": "https://data.geopf.fr/annexes/ressources/legendes/LEGEND.jpg"
+          "format": "image/png",
+          "url": "https://data.geopf.fr/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=ORTHOIMAGERY.ORTHOPHOTOS.GRAPHE-MOSAIQUAGE"
         }
       ],
       "formats": [
         {
-          "name": "image/jpeg",
+          "name": "image/png",
           "current": true
         },
         {
-          "name": "image/png",
+          "name": "application/atom+xml",
           "current": false
         },
         {
-          "name": "image/tiff",
+          "name": "application/json;type=utfgrid",
+          "current": false
+        },
+        {
+          "name": "application/pdf",
+          "current": false
+        },
+        {
+          "name": "application/rss+xml",
+          "current": false
+        },
+        {
+          "name": "application/vnd.google-earth.kml+xml",
+          "current": false
+        },
+        {
+          "name": "application/vnd.google-earth.kml+xml;mode=networklink",
+          "current": false
+        },
+        {
+          "name": "application/vnd.google-earth.kmz",
           "current": false
         },
         {
@@ -828,7 +849,51 @@
           "current": false
         },
         {
-          "name": "image/x-bil;bits=32",
+          "name": "image/geotiff8",
+          "current": false
+        },
+        {
+          "name": "image/gif",
+          "current": false
+        },
+        {
+          "name": "image/jpeg",
+          "current": false
+        },
+        {
+          "name": "image/png; mode=8bit",
+          "current": false
+        },
+        {
+          "name": "image/svg+xml",
+          "current": false
+        },
+        {
+          "name": "image/tiff",
+          "current": false
+        },
+        {
+          "name": "image/tiff8",
+          "current": false
+        },
+        {
+          "name": "image/vnd.jpeg-png",
+          "current": false
+        },
+        {
+          "name": "image/vnd.jpeg-png8",
+          "current": false
+        },
+        {
+          "name": "text/html; subtype=openlayers",
+          "current": false
+        },
+        {
+          "name": "text/html; subtype=openlayers2",
+          "current": false
+        },
+        {
+          "name": "text/html; subtype=openlayers3",
           "current": false
         }
       ]
@@ -1287,744 +1352,6 @@
         }
       ]
     },
-    "total_pilotes_insee_densite_population$GEOPORTAIL:OGC:WMS": {
-      "name": "total_pilotes_insee_densite_population",
-      "title": "Densité de population",
-      "description": "Cette ressource  regroupe des indicateurs sur la population en vue d'une utilisation au sein du projet de cartographie des services publics",
-      "globalConstraint": {
-        "minScaleDenominator": 0.0,
-        "maxScaleDenominator": 62236752975597,
-        "bbox": {
-          "left": 0.8134375,
-          "right": 7.059375,
-          "top": 51.112695313,
-          "bottom": 44.159140625
-        }
-      },
-      "serviceParams": {
-        "id": "OGC:WMS",
-        "version": "1.3.0",
-        "serverUrl": {
-          "BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN": "https://data.geopf.fr/private/wms-v/ows"
-        }
-      },
-      "defaultProjection": "EPSG:4326",
-      "queryable": true,
-      "metadata": [],
-      "styles": [
-        {
-          "name": "default-style-total_pilotes_insee_densite_population",
-          "title": "total_pilotes_insee_densite_population style"
-        }
-      ],
-      "legends": [
-        {
-          "format": "image/png",
-          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=total_pilotes_insee_densite_population&apikey=BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN"
-        }
-      ],
-      "formats": [
-        {
-          "name": "image/png",
-          "current": true
-        },
-        {
-          "name": "application/atom+xml",
-          "current": false
-        },
-        {
-          "name": "application/json;type=utfgrid",
-          "current": false
-        },
-        {
-          "name": "application/pdf",
-          "current": false
-        },
-        {
-          "name": "application/rss+xml",
-          "current": false
-        },
-        {
-          "name": "application/vnd.google-earth.kml+xml",
-          "current": false
-        },
-        {
-          "name": "application/vnd.google-earth.kml+xml;mode=networklink",
-          "current": false
-        },
-        {
-          "name": "application/vnd.google-earth.kmz",
-          "current": false
-        },
-        {
-          "name": "image/geotiff",
-          "current": false
-        },
-        {
-          "name": "image/geotiff8",
-          "current": false
-        },
-        {
-          "name": "image/gif",
-          "current": false
-        },
-        {
-          "name": "image/jpeg",
-          "current": false
-        },
-        {
-          "name": "image/png; mode=8bit",
-          "current": false
-        },
-        {
-          "name": "image/svg+xml",
-          "current": false
-        },
-        {
-          "name": "image/tiff",
-          "current": false
-        },
-        {
-          "name": "image/tiff8",
-          "current": false
-        },
-        {
-          "name": "image/vnd.jpeg-png",
-          "current": false
-        },
-        {
-          "name": "image/vnd.jpeg-png8",
-          "current": false
-        },
-        {
-          "name": "text/html; subtype=openlayers",
-          "current": false
-        },
-        {
-          "name": "text/html; subtype=openlayers2",
-          "current": false
-        },
-        {
-          "name": "text/html; subtype=openlayers3",
-          "current": false
-        }
-      ]
-    },
-    "pilotes_insee_menages_pauvres$GEOPORTAIL:OGC:WMS": {
-      "name": "pilotes_insee_menages_pauvres",
-      "title": "Données INSEE pour Carto SP",
-      "description": "Cette ressource  regroupe des indicateurs sur la population en vue d'une utilisation au sein du projet de cartographie des services publics",
-      "globalConstraint": {
-        "minScaleDenominator": 0.0,
-        "maxScaleDenominator": 62236752975597,
-        "bbox": {
-          "left": 0.8134375,
-          "right": 7.059375,
-          "top": 51.112695313,
-          "bottom": 44.159140625
-        }
-      },
-      "serviceParams": {
-        "id": "OGC:WMS",
-        "version": "1.3.0",
-        "serverUrl": {
-          "BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN": "https://data.geopf.fr/private/wms-v/ows"
-        }
-      },
-      "defaultProjection": "EPSG:4326",
-      "queryable": true,
-      "metadata": [],
-      "styles": [
-        {
-          "name": "default-style-pilotes_insee_menages_pauvres",
-          "title": "pilotes_insee_menages_pauvres style"
-        }
-      ],
-      "legends": [
-        {
-          "format": "image/png",
-          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=pilotes_insee_menages_pauvres&apikey=BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN"
-        }
-      ],
-      "formats": [
-        {
-          "name": "image/png",
-          "current": true
-        },
-        {
-          "name": "application/atom+xml",
-          "current": false
-        },
-        {
-          "name": "application/json;type=utfgrid",
-          "current": false
-        },
-        {
-          "name": "application/pdf",
-          "current": false
-        },
-        {
-          "name": "application/rss+xml",
-          "current": false
-        },
-        {
-          "name": "application/vnd.google-earth.kml+xml",
-          "current": false
-        },
-        {
-          "name": "application/vnd.google-earth.kml+xml;mode=networklink",
-          "current": false
-        },
-        {
-          "name": "application/vnd.google-earth.kmz",
-          "current": false
-        },
-        {
-          "name": "image/geotiff",
-          "current": false
-        },
-        {
-          "name": "image/geotiff8",
-          "current": false
-        },
-        {
-          "name": "image/gif",
-          "current": false
-        },
-        {
-          "name": "image/jpeg",
-          "current": false
-        },
-        {
-          "name": "image/png; mode=8bit",
-          "current": false
-        },
-        {
-          "name": "image/svg+xml",
-          "current": false
-        },
-        {
-          "name": "image/tiff",
-          "current": false
-        },
-        {
-          "name": "image/tiff8",
-          "current": false
-        },
-        {
-          "name": "image/vnd.jpeg-png",
-          "current": false
-        },
-        {
-          "name": "image/vnd.jpeg-png8",
-          "current": false
-        },
-        {
-          "name": "text/html; subtype=openlayers",
-          "current": false
-        },
-        {
-          "name": "text/html; subtype=openlayers2",
-          "current": false
-        },
-        {
-          "name": "text/html; subtype=openlayers3",
-          "current": false
-        }
-      ]
-    },
-    "pilotes_insee_monoparentale$GEOPORTAIL:OGC:WMS": {
-      "name": "pilotes_insee_monoparentale",
-      "title": "Données INSEE pour Carto SP",
-      "description": "Cette ressource  regroupe des indicateurs sur la population en vue d'une utilisation au sein du projet de cartographie des services publics",
-      "globalConstraint": {
-        "minScaleDenominator": 0.0,
-        "maxScaleDenominator": 62236752975597,
-        "bbox": {
-          "left": 0.8134375,
-          "right": 7.059375,
-          "top": 51.112695313,
-          "bottom": 44.159140625
-        }
-      },
-      "serviceParams": {
-        "id": "OGC:WMS",
-        "version": "1.3.0",
-        "serverUrl": {
-          "BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN": "https://data.geopf.fr/private/wms-v/ows"
-        }
-      },
-      "defaultProjection": "EPSG:4326",
-      "queryable": true,
-      "metadata": [],
-      "styles": [
-        {
-          "name": "default-style-pilotes_insee_monoparentale",
-          "title": "pilotes_insee_monoparentale style"
-        }
-      ],
-      "legends": [
-        {
-          "format": "image/png",
-          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=pilotes_insee_monoparentale&apikey=BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN"
-        }
-      ],
-      "formats": [
-        {
-          "name": "image/png",
-          "current": true
-        },
-        {
-          "name": "application/atom+xml",
-          "current": false
-        },
-        {
-          "name": "application/json;type=utfgrid",
-          "current": false
-        },
-        {
-          "name": "application/pdf",
-          "current": false
-        },
-        {
-          "name": "application/rss+xml",
-          "current": false
-        },
-        {
-          "name": "application/vnd.google-earth.kml+xml",
-          "current": false
-        },
-        {
-          "name": "application/vnd.google-earth.kml+xml;mode=networklink",
-          "current": false
-        },
-        {
-          "name": "application/vnd.google-earth.kmz",
-          "current": false
-        },
-        {
-          "name": "image/geotiff",
-          "current": false
-        },
-        {
-          "name": "image/geotiff8",
-          "current": false
-        },
-        {
-          "name": "image/gif",
-          "current": false
-        },
-        {
-          "name": "image/jpeg",
-          "current": false
-        },
-        {
-          "name": "image/png; mode=8bit",
-          "current": false
-        },
-        {
-          "name": "image/svg+xml",
-          "current": false
-        },
-        {
-          "name": "image/tiff",
-          "current": false
-        },
-        {
-          "name": "image/tiff8",
-          "current": false
-        },
-        {
-          "name": "image/vnd.jpeg-png",
-          "current": false
-        },
-        {
-          "name": "image/vnd.jpeg-png8",
-          "current": false
-        },
-        {
-          "name": "text/html; subtype=openlayers",
-          "current": false
-        },
-        {
-          "name": "text/html; subtype=openlayers2",
-          "current": false
-        },
-        {
-          "name": "text/html; subtype=openlayers3",
-          "current": false
-        }
-      ]
-    },
-    "pilotes_insee_niveau_de_vie$GEOPORTAIL:OGC:WMS": {
-      "name": "pilotes_insee_niveau_de_vie",
-      "title": "Données INSEE pour Carto SP",
-      "description": "Cette ressource  regroupe des indicateurs sur la population en vue d'une utilisation au sein du projet de cartographie des services publics",
-      "globalConstraint": {
-        "minScaleDenominator": 0.0,
-        "maxScaleDenominator": 62236752975597,
-        "bbox": {
-          "left": 0.8134375,
-          "right": 7.059375,
-          "top": 51.112695313,
-          "bottom": 44.159140625
-        }
-      },
-      "serviceParams": {
-        "id": "OGC:WMS",
-        "version": "1.3.0",
-        "serverUrl": {
-          "BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN": "https://data.geopf.fr/private/wms-v/ows"
-        }
-      },
-      "defaultProjection": "EPSG:4326",
-      "queryable": true,
-      "metadata": [],
-      "styles": [
-        {
-          "name": "default-style-pilotes_insee_niveau_de_vie",
-          "title": "pilotes_insee_niveau_de_vie style"
-        }
-      ],
-      "legends": [
-        {
-          "format": "image/png",
-          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=pilotes_insee_niveau_de_vie&apikey=BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN"
-        }
-      ],
-      "formats": [
-        {
-          "name": "image/png",
-          "current": true
-        },
-        {
-          "name": "application/atom+xml",
-          "current": false
-        },
-        {
-          "name": "application/json;type=utfgrid",
-          "current": false
-        },
-        {
-          "name": "application/pdf",
-          "current": false
-        },
-        {
-          "name": "application/rss+xml",
-          "current": false
-        },
-        {
-          "name": "application/vnd.google-earth.kml+xml",
-          "current": false
-        },
-        {
-          "name": "application/vnd.google-earth.kml+xml;mode=networklink",
-          "current": false
-        },
-        {
-          "name": "application/vnd.google-earth.kmz",
-          "current": false
-        },
-        {
-          "name": "image/geotiff",
-          "current": false
-        },
-        {
-          "name": "image/geotiff8",
-          "current": false
-        },
-        {
-          "name": "image/gif",
-          "current": false
-        },
-        {
-          "name": "image/jpeg",
-          "current": false
-        },
-        {
-          "name": "image/png; mode=8bit",
-          "current": false
-        },
-        {
-          "name": "image/svg+xml",
-          "current": false
-        },
-        {
-          "name": "image/tiff",
-          "current": false
-        },
-        {
-          "name": "image/tiff8",
-          "current": false
-        },
-        {
-          "name": "image/vnd.jpeg-png",
-          "current": false
-        },
-        {
-          "name": "image/vnd.jpeg-png8",
-          "current": false
-        },
-        {
-          "name": "text/html; subtype=openlayers",
-          "current": false
-        },
-        {
-          "name": "text/html; subtype=openlayers2",
-          "current": false
-        },
-        {
-          "name": "text/html; subtype=openlayers3",
-          "current": false
-        }
-      ]
-    },
-    "pilotes_insee_partmoins18$GEOPORTAIL:OGC:WMS": {
-      "name": "pilotes_insee_partmoins18",
-      "title": "Données INSEE pour Carto SP",
-      "description": "Cette ressource  regroupe des indicateurs sur la population en vue d'une utilisation au sein du projet de cartographie des services publics",
-      "globalConstraint": {
-        "minScaleDenominator": 0.0,
-        "maxScaleDenominator": 62236752975597,
-        "bbox": {
-          "left": 0.8134375,
-          "right": 7.059375,
-          "top": 51.112695313,
-          "bottom": 44.159140625
-        }
-      },
-      "serviceParams": {
-        "id": "OGC:WMS",
-        "version": "1.3.0",
-        "serverUrl": {
-          "BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN": "https://data.geopf.fr/private/wms-v/ows"
-        }
-      },
-      "defaultProjection": "EPSG:4326",
-      "queryable": true,
-      "metadata": [],
-      "styles": [
-        {
-          "name": "default-style-pilotes_insee_partmoins18",
-          "title": "pilotes_insee_partmoins18 style"
-        }
-      ],
-      "legends": [
-        {
-          "format": "image/png",
-          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=pilotes_insee_partmoins18&apikey=BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN"
-        }
-      ],
-      "formats": [
-        {
-          "name": "image/png",
-          "current": true
-        },
-        {
-          "name": "application/atom+xml",
-          "current": false
-        },
-        {
-          "name": "application/json;type=utfgrid",
-          "current": false
-        },
-        {
-          "name": "application/pdf",
-          "current": false
-        },
-        {
-          "name": "application/rss+xml",
-          "current": false
-        },
-        {
-          "name": "application/vnd.google-earth.kml+xml",
-          "current": false
-        },
-        {
-          "name": "application/vnd.google-earth.kml+xml;mode=networklink",
-          "current": false
-        },
-        {
-          "name": "application/vnd.google-earth.kmz",
-          "current": false
-        },
-        {
-          "name": "image/geotiff",
-          "current": false
-        },
-        {
-          "name": "image/geotiff8",
-          "current": false
-        },
-        {
-          "name": "image/gif",
-          "current": false
-        },
-        {
-          "name": "image/jpeg",
-          "current": false
-        },
-        {
-          "name": "image/png; mode=8bit",
-          "current": false
-        },
-        {
-          "name": "image/svg+xml",
-          "current": false
-        },
-        {
-          "name": "image/tiff",
-          "current": false
-        },
-        {
-          "name": "image/tiff8",
-          "current": false
-        },
-        {
-          "name": "image/vnd.jpeg-png",
-          "current": false
-        },
-        {
-          "name": "image/vnd.jpeg-png8",
-          "current": false
-        },
-        {
-          "name": "text/html; subtype=openlayers",
-          "current": false
-        },
-        {
-          "name": "text/html; subtype=openlayers2",
-          "current": false
-        },
-        {
-          "name": "text/html; subtype=openlayers3",
-          "current": false
-        }
-      ]
-    },
-    "pilotes_insee_partplus65$GEOPORTAIL:OGC:WMS": {
-      "name": "pilotes_insee_partplus65",
-      "title": "Données INSEE pour Carto SP",
-      "description": "Cette ressource  regroupe des indicateurs sur la population en vue d'une utilisation au sein du projet de cartographie des services publics",
-      "globalConstraint": {
-        "minScaleDenominator": 0.0,
-        "maxScaleDenominator": 62236752975597,
-        "bbox": {
-          "left": 0.8134375,
-          "right": 7.059375,
-          "top": 51.112695313,
-          "bottom": 44.159140625
-        }
-      },
-      "serviceParams": {
-        "id": "OGC:WMS",
-        "version": "1.3.0",
-        "serverUrl": {
-          "BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN": "https://data.geopf.fr/private/wms-v/ows"
-        }
-      },
-      "defaultProjection": "EPSG:4326",
-      "queryable": true,
-      "metadata": [],
-      "styles": [
-        {
-          "name": "default-style-pilotes_insee_partplus65",
-          "title": "pilotes_insee_partplus65 style"
-        }
-      ],
-      "legends": [
-        {
-          "format": "image/png",
-          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=pilotes_insee_partplus65&apikey=BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN"
-        }
-      ],
-      "formats": [
-        {
-          "name": "image/png",
-          "current": true
-        },
-        {
-          "name": "application/atom+xml",
-          "current": false
-        },
-        {
-          "name": "application/json;type=utfgrid",
-          "current": false
-        },
-        {
-          "name": "application/pdf",
-          "current": false
-        },
-        {
-          "name": "application/rss+xml",
-          "current": false
-        },
-        {
-          "name": "application/vnd.google-earth.kml+xml",
-          "current": false
-        },
-        {
-          "name": "application/vnd.google-earth.kml+xml;mode=networklink",
-          "current": false
-        },
-        {
-          "name": "application/vnd.google-earth.kmz",
-          "current": false
-        },
-        {
-          "name": "image/geotiff",
-          "current": false
-        },
-        {
-          "name": "image/geotiff8",
-          "current": false
-        },
-        {
-          "name": "image/gif",
-          "current": false
-        },
-        {
-          "name": "image/jpeg",
-          "current": false
-        },
-        {
-          "name": "image/png; mode=8bit",
-          "current": false
-        },
-        {
-          "name": "image/svg+xml",
-          "current": false
-        },
-        {
-          "name": "image/tiff",
-          "current": false
-        },
-        {
-          "name": "image/tiff8",
-          "current": false
-        },
-        {
-          "name": "image/vnd.jpeg-png",
-          "current": false
-        },
-        {
-          "name": "image/vnd.jpeg-png8",
-          "current": false
-        },
-        {
-          "name": "text/html; subtype=openlayers",
-          "current": false
-        },
-        {
-          "name": "text/html; subtype=openlayers2",
-          "current": false
-        },
-        {
-          "name": "text/html; subtype=openlayers3",
-          "current": false
-        }
-      ]
-    },
     "pilotes_mednum_fragilite_numerique$GEOPORTAIL:OGC:WMS": {
       "name": "pilotes_mednum_fragilite_numerique",
       "title": "Données MedNum pour Carto SP",
@@ -2148,16 +1475,16 @@
         }
       ]
     },
-    "sante_accessibilite$GEOPORTAIL:OGC:WMS": {
-      "name": "sante_accessibilite",
-      "title": "Carto SP - Données Santé",
-      "description": "Cette ressource  regroupe des indicateurs sur la santé en vue d'une utilisation au sein du projet de cartographie des services publics",
+    "total_pilotes_insee_densite_population$GEOPORTAIL:OGC:WMS": {
+      "name": "total_pilotes_insee_densite_population",
+      "title": "Données INSEE pour Carto SP",
+      "description": "Cette ressource  regroupe des indicateurs sur la population en vue d'une utilisation au sein du projet de cartographie des services publics",
       "globalConstraint": {
         "minScaleDenominator": 0.0,
         "maxScaleDenominator": 62236752975597,
         "bbox": {
           "left": 0.8134375,
-          "right": 7.1384375,
+          "right": 7.059375,
           "top": 51.112695313,
           "bottom": 44.159140625
         }
@@ -2174,14 +1501,14 @@
       "metadata": [],
       "styles": [
         {
-          "name": "default-style-sante_accessibilite",
-          "title": "sante_accessibilite style"
+          "name": "default-style-total_pilotes_insee_densite_population",
+          "title": "total_pilotes_insee_densite_population style"
         }
       ],
       "legends": [
         {
           "format": "image/png",
-          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=sante_accessibilite&apikey=BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN"
+          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=total_pilotes_insee_densite_population&apikey=BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN"
         }
       ],
       "formats": [
@@ -2271,16 +1598,16 @@
         }
       ]
     },
-    "sante_densite_medicale$GEOPORTAIL:OGC:WMS": {
-      "name": "sante_densite_medicale",
-      "title": "Carto SP - Données Santé",
-      "description": "Cette ressource  regroupe des indicateurs sur la santé en vue d'une utilisation au sein du projet de cartographie des services publics",
+    "total_pilotes_insee_menages_pauvres$GEOPORTAIL:OGC:WMS": {
+      "name": "total_pilotes_insee_menages_pauvres",
+      "title": "Données INSEE pour Carto SP",
+      "description": "Cette ressource  regroupe des indicateurs sur la population en vue d'une utilisation au sein du projet de cartographie des services publics",
       "globalConstraint": {
         "minScaleDenominator": 0.0,
         "maxScaleDenominator": 62236752975597,
         "bbox": {
           "left": 0.8134375,
-          "right": 7.1384375,
+          "right": 7.059375,
           "top": 51.112695313,
           "bottom": 44.159140625
         }
@@ -2297,14 +1624,14 @@
       "metadata": [],
       "styles": [
         {
-          "name": "default-style-sante_densite_medicale",
-          "title": "sante_densite_medicale style"
+          "name": "default-style-total_pilotes_insee_menages_pauvres",
+          "title": "total_pilotes_insee_menages_pauvres style"
         }
       ],
       "legends": [
         {
           "format": "image/png",
-          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=sante_densite_medicale&apikey=BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN"
+          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=total_pilotes_insee_menages_pauvres&apikey=BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN"
         }
       ],
       "formats": [
@@ -2394,16 +1721,16 @@
         }
       ]
     },
-    "sante_moyenne_age_medecin$GEOPORTAIL:OGC:WMS": {
-      "name": "sante_moyenne_age_medecin",
-      "title": "Carto SP - Données Santé",
-      "description": "Cette ressource  regroupe des indicateurs sur la santé en vue d'une utilisation au sein du projet de cartographie des services publics",
+    "total_pilotes_insee_monoparentale$GEOPORTAIL:OGC:WMS": {
+      "name": "total_pilotes_insee_monoparentale",
+      "title": "Données INSEE pour Carto SP",
+      "description": "Cette ressource  regroupe des indicateurs sur la population en vue d'une utilisation au sein du projet de cartographie des services publics",
       "globalConstraint": {
         "minScaleDenominator": 0.0,
         "maxScaleDenominator": 62236752975597,
         "bbox": {
           "left": 0.8134375,
-          "right": 7.1384375,
+          "right": 7.059375,
           "top": 51.112695313,
           "bottom": 44.159140625
         }
@@ -2420,14 +1747,14 @@
       "metadata": [],
       "styles": [
         {
-          "name": "default-style-sante_moyenne_age_medecin",
-          "title": "sante_moyenne_age_medecin style"
+          "name": "default-style-total_pilotes_insee_monoparentale",
+          "title": "total_pilotes_insee_monoparentale style"
         }
       ],
       "legends": [
         {
           "format": "image/png",
-          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=sante_moyenne_age_medecin&apikey=BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN"
+          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=total_pilotes_insee_monoparentale&apikey=BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN"
         }
       ],
       "formats": [
@@ -2517,16 +1844,16 @@
         }
       ]
     },
-    "sante_nb_dentistes$GEOPORTAIL:OGC:WMS": {
-      "name": "sante_nb_dentistes",
-      "title": "Carto SP - Données Santé",
-      "description": "Cette ressource  regroupe des indicateurs sur la santé en vue d'une utilisation au sein du projet de cartographie des services publics",
+    "total_pilotes_insee_niveau_de_vie$GEOPORTAIL:OGC:WMS": {
+      "name": "total_pilotes_insee_niveau_de_vie",
+      "title": "Données INSEE pour Carto SP",
+      "description": "Cette ressource  regroupe des indicateurs sur la population en vue d'une utilisation au sein du projet de cartographie des services publics",
       "globalConstraint": {
         "minScaleDenominator": 0.0,
         "maxScaleDenominator": 62236752975597,
         "bbox": {
           "left": 0.8134375,
-          "right": 7.1384375,
+          "right": 7.059375,
           "top": 51.112695313,
           "bottom": 44.159140625
         }
@@ -2543,14 +1870,14 @@
       "metadata": [],
       "styles": [
         {
-          "name": "default-style-sante_nb_dentistes",
-          "title": "sante_nb_dentistes style"
+          "name": "default-style-total_pilotes_insee_niveau_de_vie",
+          "title": "total_pilotes_insee_niveau_de_vie style"
         }
       ],
       "legends": [
         {
           "format": "image/png",
-          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=sante_nb_dentistes&apikey=BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN"
+          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=total_pilotes_insee_niveau_de_vie&apikey=BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN"
         }
       ],
       "formats": [
@@ -2640,16 +1967,16 @@
         }
       ]
     },
-    "sante_nb_generaliste$GEOPORTAIL:OGC:WMS": {
-      "name": "sante_nb_generaliste",
-      "title": "Carto SP - Données Santé",
-      "description": "Cette ressource  regroupe des indicateurs sur la santé en vue d'une utilisation au sein du projet de cartographie des services publics",
+    "total_pilotes_insee_partmoins18$GEOPORTAIL:OGC:WMS": {
+      "name": "total_pilotes_insee_partmoins18",
+      "title": "Données INSEE pour Carto SP",
+      "description": "Cette ressource  regroupe des indicateurs sur la population en vue d'une utilisation au sein du projet de cartographie des services publics",
       "globalConstraint": {
         "minScaleDenominator": 0.0,
         "maxScaleDenominator": 62236752975597,
         "bbox": {
           "left": 0.8134375,
-          "right": 7.1384375,
+          "right": 7.059375,
           "top": 51.112695313,
           "bottom": 44.159140625
         }
@@ -2666,14 +1993,14 @@
       "metadata": [],
       "styles": [
         {
-          "name": "default-style-sante_nb_generaliste",
-          "title": "sante_nb_generaliste style"
+          "name": "default-style-total_pilotes_insee_partmoins18",
+          "title": "total_pilotes_insee_partmoins18 style"
         }
       ],
       "legends": [
         {
           "format": "image/png",
-          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=sante_nb_generaliste&apikey=BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN"
+          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=total_pilotes_insee_partmoins18&apikey=BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN"
         }
       ],
       "formats": [
@@ -2763,16 +2090,16 @@
         }
       ]
     },
-    "sante_nb_infirmiers$GEOPORTAIL:OGC:WMS": {
-      "name": "sante_nb_infirmiers",
-      "title": "Carto SP - Données Santé",
-      "description": "Cette ressource  regroupe des indicateurs sur la santé en vue d'une utilisation au sein du projet de cartographie des services publics",
+    "total_pilotes_insee_partplus65$GEOPORTAIL:OGC:WMS": {
+      "name": "total_pilotes_insee_partplus65",
+      "title": "Données INSEE pour Carto SP",
+      "description": "Cette ressource  regroupe des indicateurs sur la population en vue d'une utilisation au sein du projet de cartographie des services publics",
       "globalConstraint": {
         "minScaleDenominator": 0.0,
         "maxScaleDenominator": 62236752975597,
         "bbox": {
           "left": 0.8134375,
-          "right": 7.1384375,
+          "right": 7.059375,
           "top": 51.112695313,
           "bottom": 44.159140625
         }
@@ -2789,14 +2116,14 @@
       "metadata": [],
       "styles": [
         {
-          "name": "default-style-sante_nb_infirmiers",
-          "title": "sante_nb_infirmiers style"
+          "name": "default-style-total_pilotes_insee_partplus65",
+          "title": "total_pilotes_insee_partplus65 style"
         }
       ],
       "legends": [
         {
           "format": "image/png",
-          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=sante_nb_infirmiers&apikey=BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN"
+          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=total_pilotes_insee_partplus65&apikey=BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN"
         }
       ],
       "formats": [
@@ -2886,8 +2213,8 @@
         }
       ]
     },
-    "sante_nb_kines$GEOPORTAIL:OGC:WMS": {
-      "name": "sante_nb_kines",
+    "total_sante_accessibilite$GEOPORTAIL:OGC:WMS": {
+      "name": "total_sante_accessibilite",
       "title": "Carto SP - Données Santé",
       "description": "Cette ressource  regroupe des indicateurs sur la santé en vue d'une utilisation au sein du projet de cartographie des services publics",
       "globalConstraint": {
@@ -2912,14 +2239,14 @@
       "metadata": [],
       "styles": [
         {
-          "name": "default-style-sante_nb_kines",
-          "title": "sante_nb_kines style"
+          "name": "default-style-total_sante_accessibilite",
+          "title": "total_sante_accessibilite style"
         }
       ],
       "legends": [
         {
           "format": "image/png",
-          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=sante_nb_kines&apikey=BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN"
+          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=total_sante_accessibilite&apikey=BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN"
         }
       ],
       "formats": [
@@ -3009,8 +2336,8 @@
         }
       ]
     },
-    "sante_nb_orthophonistes$GEOPORTAIL:OGC:WMS": {
-      "name": "sante_nb_orthophonistes",
+    "total_sante_densite_medicale$GEOPORTAIL:OGC:WMS": {
+      "name": "total_sante_densite_medicale",
       "title": "Carto SP - Données Santé",
       "description": "Cette ressource  regroupe des indicateurs sur la santé en vue d'une utilisation au sein du projet de cartographie des services publics",
       "globalConstraint": {
@@ -3035,14 +2362,14 @@
       "metadata": [],
       "styles": [
         {
-          "name": "default-style-sante_nb_orthophonistes",
-          "title": "sante_nb_orthophonistes style"
+          "name": "default-style-total_sante_densite_medicale",
+          "title": "total_sante_densite_medicale style"
         }
       ],
       "legends": [
         {
           "format": "image/png",
-          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=sante_nb_orthophonistes&apikey=BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN"
+          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=total_sante_densite_medicale&apikey=BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN"
         }
       ],
       "formats": [
@@ -3132,8 +2459,8 @@
         }
       ]
     },
-    "sante_nb_sagesfemmes$GEOPORTAIL:OGC:WMS": {
-      "name": "sante_nb_sagesfemmes",
+    "total_sante_moyenne_age_medecin$GEOPORTAIL:OGC:WMS": {
+      "name": "total_sante_moyenne_age_medecin",
       "title": "Carto SP - Données Santé",
       "description": "Cette ressource  regroupe des indicateurs sur la santé en vue d'une utilisation au sein du projet de cartographie des services publics",
       "globalConstraint": {
@@ -3158,14 +2485,752 @@
       "metadata": [],
       "styles": [
         {
-          "name": "default-style-sante_nb_sagesfemmes",
-          "title": "sante_nb_sagesfemmes style"
+          "name": "default-style-total_sante_moyenne_age_medecin",
+          "title": "total_sante_moyenne_age_medecin style"
         }
       ],
       "legends": [
         {
           "format": "image/png",
-          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=sante_nb_sagesfemmes&apikey=BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN"
+          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=total_sante_moyenne_age_medecin&apikey=BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN"
+        }
+      ],
+      "formats": [
+        {
+          "name": "image/png",
+          "current": true
+        },
+        {
+          "name": "application/atom+xml",
+          "current": false
+        },
+        {
+          "name": "application/json;type=utfgrid",
+          "current": false
+        },
+        {
+          "name": "application/pdf",
+          "current": false
+        },
+        {
+          "name": "application/rss+xml",
+          "current": false
+        },
+        {
+          "name": "application/vnd.google-earth.kml+xml",
+          "current": false
+        },
+        {
+          "name": "application/vnd.google-earth.kml+xml;mode=networklink",
+          "current": false
+        },
+        {
+          "name": "application/vnd.google-earth.kmz",
+          "current": false
+        },
+        {
+          "name": "image/geotiff",
+          "current": false
+        },
+        {
+          "name": "image/geotiff8",
+          "current": false
+        },
+        {
+          "name": "image/gif",
+          "current": false
+        },
+        {
+          "name": "image/jpeg",
+          "current": false
+        },
+        {
+          "name": "image/png; mode=8bit",
+          "current": false
+        },
+        {
+          "name": "image/svg+xml",
+          "current": false
+        },
+        {
+          "name": "image/tiff",
+          "current": false
+        },
+        {
+          "name": "image/tiff8",
+          "current": false
+        },
+        {
+          "name": "image/vnd.jpeg-png",
+          "current": false
+        },
+        {
+          "name": "image/vnd.jpeg-png8",
+          "current": false
+        },
+        {
+          "name": "text/html; subtype=openlayers",
+          "current": false
+        },
+        {
+          "name": "text/html; subtype=openlayers2",
+          "current": false
+        },
+        {
+          "name": "text/html; subtype=openlayers3",
+          "current": false
+        }
+      ]
+    },
+    "total_sante_nb_dentistes$GEOPORTAIL:OGC:WMS": {
+      "name": "total_sante_nb_dentistes",
+      "title": "Carto SP - Données Santé",
+      "description": "Cette ressource  regroupe des indicateurs sur la santé en vue d'une utilisation au sein du projet de cartographie des services publics",
+      "globalConstraint": {
+        "minScaleDenominator": 0.0,
+        "maxScaleDenominator": 62236752975597,
+        "bbox": {
+          "left": 0.8134375,
+          "right": 7.1384375,
+          "top": 51.112695313,
+          "bottom": 44.159140625
+        }
+      },
+      "serviceParams": {
+        "id": "OGC:WMS",
+        "version": "1.3.0",
+        "serverUrl": {
+          "BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN": "https://data.geopf.fr/private/wms-v/ows"
+        }
+      },
+      "defaultProjection": "EPSG:4326",
+      "queryable": true,
+      "metadata": [],
+      "styles": [
+        {
+          "name": "default-style-total_sante_nb_dentistes",
+          "title": "total_sante_nb_dentistes style"
+        }
+      ],
+      "legends": [
+        {
+          "format": "image/png",
+          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=total_sante_nb_dentistes&apikey=BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN"
+        }
+      ],
+      "formats": [
+        {
+          "name": "image/png",
+          "current": true
+        },
+        {
+          "name": "application/atom+xml",
+          "current": false
+        },
+        {
+          "name": "application/json;type=utfgrid",
+          "current": false
+        },
+        {
+          "name": "application/pdf",
+          "current": false
+        },
+        {
+          "name": "application/rss+xml",
+          "current": false
+        },
+        {
+          "name": "application/vnd.google-earth.kml+xml",
+          "current": false
+        },
+        {
+          "name": "application/vnd.google-earth.kml+xml;mode=networklink",
+          "current": false
+        },
+        {
+          "name": "application/vnd.google-earth.kmz",
+          "current": false
+        },
+        {
+          "name": "image/geotiff",
+          "current": false
+        },
+        {
+          "name": "image/geotiff8",
+          "current": false
+        },
+        {
+          "name": "image/gif",
+          "current": false
+        },
+        {
+          "name": "image/jpeg",
+          "current": false
+        },
+        {
+          "name": "image/png; mode=8bit",
+          "current": false
+        },
+        {
+          "name": "image/svg+xml",
+          "current": false
+        },
+        {
+          "name": "image/tiff",
+          "current": false
+        },
+        {
+          "name": "image/tiff8",
+          "current": false
+        },
+        {
+          "name": "image/vnd.jpeg-png",
+          "current": false
+        },
+        {
+          "name": "image/vnd.jpeg-png8",
+          "current": false
+        },
+        {
+          "name": "text/html; subtype=openlayers",
+          "current": false
+        },
+        {
+          "name": "text/html; subtype=openlayers2",
+          "current": false
+        },
+        {
+          "name": "text/html; subtype=openlayers3",
+          "current": false
+        }
+      ]
+    },
+    "total_sante_nb_generalistes$GEOPORTAIL:OGC:WMS": {
+      "name": "total_sante_nb_generalistes",
+      "title": "Carto SP - Données Santé",
+      "description": "Cette ressource  regroupe des indicateurs sur la santé en vue d'une utilisation au sein du projet de cartographie des services publics",
+      "globalConstraint": {
+        "minScaleDenominator": 0.0,
+        "maxScaleDenominator": 62236752975597,
+        "bbox": {
+          "left": 0.8134375,
+          "right": 7.1384375,
+          "top": 51.112695313,
+          "bottom": 44.159140625
+        }
+      },
+      "serviceParams": {
+        "id": "OGC:WMS",
+        "version": "1.3.0",
+        "serverUrl": {
+          "BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN": "https://data.geopf.fr/private/wms-v/ows"
+        }
+      },
+      "defaultProjection": "EPSG:4326",
+      "queryable": true,
+      "metadata": [],
+      "styles": [
+        {
+          "name": "default-style-total_sante_nb_generalistes",
+          "title": "total_sante_nb_generalistes style"
+        }
+      ],
+      "legends": [
+        {
+          "format": "image/png",
+          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=total_sante_nb_generalistes&apikey=BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN"
+        }
+      ],
+      "formats": [
+        {
+          "name": "image/png",
+          "current": true
+        },
+        {
+          "name": "application/atom+xml",
+          "current": false
+        },
+        {
+          "name": "application/json;type=utfgrid",
+          "current": false
+        },
+        {
+          "name": "application/pdf",
+          "current": false
+        },
+        {
+          "name": "application/rss+xml",
+          "current": false
+        },
+        {
+          "name": "application/vnd.google-earth.kml+xml",
+          "current": false
+        },
+        {
+          "name": "application/vnd.google-earth.kml+xml;mode=networklink",
+          "current": false
+        },
+        {
+          "name": "application/vnd.google-earth.kmz",
+          "current": false
+        },
+        {
+          "name": "image/geotiff",
+          "current": false
+        },
+        {
+          "name": "image/geotiff8",
+          "current": false
+        },
+        {
+          "name": "image/gif",
+          "current": false
+        },
+        {
+          "name": "image/jpeg",
+          "current": false
+        },
+        {
+          "name": "image/png; mode=8bit",
+          "current": false
+        },
+        {
+          "name": "image/svg+xml",
+          "current": false
+        },
+        {
+          "name": "image/tiff",
+          "current": false
+        },
+        {
+          "name": "image/tiff8",
+          "current": false
+        },
+        {
+          "name": "image/vnd.jpeg-png",
+          "current": false
+        },
+        {
+          "name": "image/vnd.jpeg-png8",
+          "current": false
+        },
+        {
+          "name": "text/html; subtype=openlayers",
+          "current": false
+        },
+        {
+          "name": "text/html; subtype=openlayers2",
+          "current": false
+        },
+        {
+          "name": "text/html; subtype=openlayers3",
+          "current": false
+        }
+      ]
+    },
+    "total_sante_nb_infirmiers$GEOPORTAIL:OGC:WMS": {
+      "name": "total_sante_nb_infirmiers",
+      "title": "Carto SP - Données Santé",
+      "description": "Cette ressource  regroupe des indicateurs sur la santé en vue d'une utilisation au sein du projet de cartographie des services publics",
+      "globalConstraint": {
+        "minScaleDenominator": 0.0,
+        "maxScaleDenominator": 62236752975597,
+        "bbox": {
+          "left": 0.8134375,
+          "right": 7.1384375,
+          "top": 51.112695313,
+          "bottom": 44.159140625
+        }
+      },
+      "serviceParams": {
+        "id": "OGC:WMS",
+        "version": "1.3.0",
+        "serverUrl": {
+          "BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN": "https://data.geopf.fr/private/wms-v/ows"
+        }
+      },
+      "defaultProjection": "EPSG:4326",
+      "queryable": true,
+      "metadata": [],
+      "styles": [
+        {
+          "name": "default-style-total_sante_nb_infirmiers",
+          "title": "total_sante_nb_infirmiers style"
+        }
+      ],
+      "legends": [
+        {
+          "format": "image/png",
+          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=total_sante_nb_infirmiers&apikey=BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN"
+        }
+      ],
+      "formats": [
+        {
+          "name": "image/png",
+          "current": true
+        },
+        {
+          "name": "application/atom+xml",
+          "current": false
+        },
+        {
+          "name": "application/json;type=utfgrid",
+          "current": false
+        },
+        {
+          "name": "application/pdf",
+          "current": false
+        },
+        {
+          "name": "application/rss+xml",
+          "current": false
+        },
+        {
+          "name": "application/vnd.google-earth.kml+xml",
+          "current": false
+        },
+        {
+          "name": "application/vnd.google-earth.kml+xml;mode=networklink",
+          "current": false
+        },
+        {
+          "name": "application/vnd.google-earth.kmz",
+          "current": false
+        },
+        {
+          "name": "image/geotiff",
+          "current": false
+        },
+        {
+          "name": "image/geotiff8",
+          "current": false
+        },
+        {
+          "name": "image/gif",
+          "current": false
+        },
+        {
+          "name": "image/jpeg",
+          "current": false
+        },
+        {
+          "name": "image/png; mode=8bit",
+          "current": false
+        },
+        {
+          "name": "image/svg+xml",
+          "current": false
+        },
+        {
+          "name": "image/tiff",
+          "current": false
+        },
+        {
+          "name": "image/tiff8",
+          "current": false
+        },
+        {
+          "name": "image/vnd.jpeg-png",
+          "current": false
+        },
+        {
+          "name": "image/vnd.jpeg-png8",
+          "current": false
+        },
+        {
+          "name": "text/html; subtype=openlayers",
+          "current": false
+        },
+        {
+          "name": "text/html; subtype=openlayers2",
+          "current": false
+        },
+        {
+          "name": "text/html; subtype=openlayers3",
+          "current": false
+        }
+      ]
+    },
+    "total_sante_nb_kines$GEOPORTAIL:OGC:WMS": {
+      "name": "total_sante_nb_kines",
+      "title": "Carto SP - Données Santé",
+      "description": "Cette ressource  regroupe des indicateurs sur la santé en vue d'une utilisation au sein du projet de cartographie des services publics",
+      "globalConstraint": {
+        "minScaleDenominator": 0.0,
+        "maxScaleDenominator": 62236752975597,
+        "bbox": {
+          "left": 0.8134375,
+          "right": 7.1384375,
+          "top": 51.112695313,
+          "bottom": 44.159140625
+        }
+      },
+      "serviceParams": {
+        "id": "OGC:WMS",
+        "version": "1.3.0",
+        "serverUrl": {
+          "BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN": "https://data.geopf.fr/private/wms-v/ows"
+        }
+      },
+      "defaultProjection": "EPSG:4326",
+      "queryable": true,
+      "metadata": [],
+      "styles": [
+        {
+          "name": "default-style-total_sante_nb_kines",
+          "title": "total_sante_nb_kines style"
+        }
+      ],
+      "legends": [
+        {
+          "format": "image/png",
+          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=total_sante_nb_kines&apikey=BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN"
+        }
+      ],
+      "formats": [
+        {
+          "name": "image/png",
+          "current": true
+        },
+        {
+          "name": "application/atom+xml",
+          "current": false
+        },
+        {
+          "name": "application/json;type=utfgrid",
+          "current": false
+        },
+        {
+          "name": "application/pdf",
+          "current": false
+        },
+        {
+          "name": "application/rss+xml",
+          "current": false
+        },
+        {
+          "name": "application/vnd.google-earth.kml+xml",
+          "current": false
+        },
+        {
+          "name": "application/vnd.google-earth.kml+xml;mode=networklink",
+          "current": false
+        },
+        {
+          "name": "application/vnd.google-earth.kmz",
+          "current": false
+        },
+        {
+          "name": "image/geotiff",
+          "current": false
+        },
+        {
+          "name": "image/geotiff8",
+          "current": false
+        },
+        {
+          "name": "image/gif",
+          "current": false
+        },
+        {
+          "name": "image/jpeg",
+          "current": false
+        },
+        {
+          "name": "image/png; mode=8bit",
+          "current": false
+        },
+        {
+          "name": "image/svg+xml",
+          "current": false
+        },
+        {
+          "name": "image/tiff",
+          "current": false
+        },
+        {
+          "name": "image/tiff8",
+          "current": false
+        },
+        {
+          "name": "image/vnd.jpeg-png",
+          "current": false
+        },
+        {
+          "name": "image/vnd.jpeg-png8",
+          "current": false
+        },
+        {
+          "name": "text/html; subtype=openlayers",
+          "current": false
+        },
+        {
+          "name": "text/html; subtype=openlayers2",
+          "current": false
+        },
+        {
+          "name": "text/html; subtype=openlayers3",
+          "current": false
+        }
+      ]
+    },
+    "total_sante_nb_orthophonistes$GEOPORTAIL:OGC:WMS": {
+      "name": "total_sante_nb_orthophonistes",
+      "title": "Carto SP - Données Santé",
+      "description": "Cette ressource  regroupe des indicateurs sur la santé en vue d'une utilisation au sein du projet de cartographie des services publics",
+      "globalConstraint": {
+        "minScaleDenominator": 0.0,
+        "maxScaleDenominator": 62236752975597,
+        "bbox": {
+          "left": 0.8134375,
+          "right": 7.1384375,
+          "top": 51.112695313,
+          "bottom": 44.159140625
+        }
+      },
+      "serviceParams": {
+        "id": "OGC:WMS",
+        "version": "1.3.0",
+        "serverUrl": {
+          "BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN": "https://data.geopf.fr/private/wms-v/ows"
+        }
+      },
+      "defaultProjection": "EPSG:4326",
+      "queryable": true,
+      "metadata": [],
+      "styles": [
+        {
+          "name": "default-style-total_sante_nb_orthophonistes",
+          "title": "total_sante_nb_orthophonistes style"
+        }
+      ],
+      "legends": [
+        {
+          "format": "image/png",
+          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=total_sante_nb_orthophonistes&apikey=BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN"
+        }
+      ],
+      "formats": [
+        {
+          "name": "image/png",
+          "current": true
+        },
+        {
+          "name": "application/atom+xml",
+          "current": false
+        },
+        {
+          "name": "application/json;type=utfgrid",
+          "current": false
+        },
+        {
+          "name": "application/pdf",
+          "current": false
+        },
+        {
+          "name": "application/rss+xml",
+          "current": false
+        },
+        {
+          "name": "application/vnd.google-earth.kml+xml",
+          "current": false
+        },
+        {
+          "name": "application/vnd.google-earth.kml+xml;mode=networklink",
+          "current": false
+        },
+        {
+          "name": "application/vnd.google-earth.kmz",
+          "current": false
+        },
+        {
+          "name": "image/geotiff",
+          "current": false
+        },
+        {
+          "name": "image/geotiff8",
+          "current": false
+        },
+        {
+          "name": "image/gif",
+          "current": false
+        },
+        {
+          "name": "image/jpeg",
+          "current": false
+        },
+        {
+          "name": "image/png; mode=8bit",
+          "current": false
+        },
+        {
+          "name": "image/svg+xml",
+          "current": false
+        },
+        {
+          "name": "image/tiff",
+          "current": false
+        },
+        {
+          "name": "image/tiff8",
+          "current": false
+        },
+        {
+          "name": "image/vnd.jpeg-png",
+          "current": false
+        },
+        {
+          "name": "image/vnd.jpeg-png8",
+          "current": false
+        },
+        {
+          "name": "text/html; subtype=openlayers",
+          "current": false
+        },
+        {
+          "name": "text/html; subtype=openlayers2",
+          "current": false
+        },
+        {
+          "name": "text/html; subtype=openlayers3",
+          "current": false
+        }
+      ]
+    },
+    "total_sante_nb_sagesfemmes$GEOPORTAIL:OGC:WMS": {
+      "name": "total_sante_nb_sagesfemmes",
+      "title": "Carto SP - Données Santé",
+      "description": "Cette ressource  regroupe des indicateurs sur la santé en vue d'une utilisation au sein du projet de cartographie des services publics",
+      "globalConstraint": {
+        "minScaleDenominator": 0.0,
+        "maxScaleDenominator": 62236752975597,
+        "bbox": {
+          "left": 0.8134375,
+          "right": 7.1384375,
+          "top": 51.112695313,
+          "bottom": 44.159140625
+        }
+      },
+      "serviceParams": {
+        "id": "OGC:WMS",
+        "version": "1.3.0",
+        "serverUrl": {
+          "BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN": "https://data.geopf.fr/private/wms-v/ows"
+        }
+      },
+      "defaultProjection": "EPSG:4326",
+      "queryable": true,
+      "metadata": [],
+      "styles": [
+        {
+          "name": "default-style-total_sante_nb_sagesfemmes",
+          "title": "total_sante_nb_sagesfemmes style"
+        }
+      ],
+      "legends": [
+        {
+          "format": "image/png",
+          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=total_sante_nb_sagesfemmes&apikey=BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN"
         }
       ],
       "formats": [
@@ -3283,16 +3348,16 @@
       "legends": [],
       "formats": []
     },
-    "services_publics_test_20250213:carto_sp_interne$GEOPORTAIL:OGC:WFS": {
-      "name": "services_publics_test_20250213:carto_sp_interne",
-      "title": "CartoSP - Services publics",
+    "services_publics_test_20250304:carto_sp_interne$GEOPORTAIL:OGC:WFS": {
+      "name": "services_publics_test_20250304:carto_sp_interne",
+      "title": "Services publics jeu test du 4/03/2025",
       "description": "Ce jeu de données  est un jeu de données tests. Il contient les données de services publics sur trois départements pilotes Indre, Nord, Hautes Alpes.",
       "globalConstraint": {
         "minScaleDenominator": 0.0,
         "maxScaleDenominator": 62236752975597,
         "bbox": {
-          "left": -2.58625,
-          "right": 6.9803125,
+          "left": -4.48375,
+          "right": 7.2965625,
           "top": 51.112695313,
           "bottom": 42.695234375
         }
@@ -3308,12 +3373,7 @@
       "queryable": false,
       "metadata": [],
       "styles": [],
-      "legends": [
-        {
-          "format": "image/png",
-          "url": "https://data.geopf.fr/annexes/cartosp_ditp/legendes/legende_SP.png"
-        }
-      ],
+      "legends": [],
       "formats": []
     }
   },
