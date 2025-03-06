@@ -18,7 +18,7 @@
       "BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN": [
         "ANCT_QPV_wms$GEOPORTAIL:OGC:WMS",
         "CartoSP_MVP_SP_frequentation$GEOPORTAIL:OGC:WMS",
-        "pilotes_insee_densite_population$GEOPORTAIL:OGC:WMS",
+        "total_pilotes_insee_densite_population$GEOPORTAIL:OGC:WMS",
         "pilotes_insee_menages_pauvres$GEOPORTAIL:OGC:WMS",
         "pilotes_insee_monoparentale$GEOPORTAIL:OGC:WMS",
         "pilotes_insee_niveau_de_vie$GEOPORTAIL:OGC:WMS",
@@ -1287,9 +1287,9 @@
         }
       ]
     },
-    "pilotes_insee_densite_population$GEOPORTAIL:OGC:WMS": {
-      "name": "pilotes_insee_densite_population",
-      "title": "Données INSEE pour Carto SP",
+    "total_pilotes_insee_densite_population$GEOPORTAIL:OGC:WMS": {
+      "name": "total_pilotes_insee_densite_population",
+      "title": "Densité de population",
       "description": "Cette ressource  regroupe des indicateurs sur la population en vue d'une utilisation au sein du projet de cartographie des services publics",
       "globalConstraint": {
         "minScaleDenominator": 0.0,
@@ -1313,14 +1313,14 @@
       "metadata": [],
       "styles": [
         {
-          "name": "default-style-pilotes_insee_densite_population",
-          "title": "pilotes_insee_densite_population style"
+          "name": "default-style-total_pilotes_insee_densite_population",
+          "title": "total_pilotes_insee_densite_population style"
         }
       ],
       "legends": [
         {
           "format": "image/png",
-          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=pilotes_insee_densite_population&apikey=BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN"
+          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=total_pilotes_insee_densite_population&apikey=BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN"
         }
       ],
       "formats": [

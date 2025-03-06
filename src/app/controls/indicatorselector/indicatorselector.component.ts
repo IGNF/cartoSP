@@ -23,7 +23,7 @@ export class IndicatorselectorComponent implements OnInit {
         {
             thematique: "Démographie",
             indicators: [
-                {title:"Densité de population", layername: "pilotes_insee_densite_population"},
+                {title:"Densité de population", layername: "total_pilotes_insee_densite_population"},
                 {title:"Part des plus de 65 ans", layername: "pilotes_insee_partplus65"},
                 {title:"Part des moins de 18 ans", layername: "pilotes_insee_partmoins18"},
             ]

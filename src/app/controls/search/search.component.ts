@@ -35,6 +35,20 @@ export class SearchComponent implements OnInit {
       markerStyle: 'turquoiseBlue',
       zoomTo: 'auto',
       target: document.getElementById('searchmodal'),
+      resources : {
+        geocode : ["StreetAddress", "PositionOfInterest"],
+        autocomplete : ["PositionOfInterest"],
+        search: false
+      },
+      autocompleteOptions:{
+        //prettifyResults: true,
+        serviceOptions: {
+          filterOptions: {
+            type: "commune",
+            poiType: "commune"
+          }
+        }
+      }
     });   
     this.map.addControl(this.search);
   }
