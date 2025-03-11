@@ -1,0 +1,44 @@
+<h1 class="fr-h5">Zones visibles sur la carte :</h1>
+<dsfr-button
+  [label]="'France métropolitaine & outre mer'"
+  [type]="'button'"
+  [tooltipMessage]="''"
+  [variant]="'secondary'"
+  [size]="'SM'"
+  [icon]="'fr-icon-arrow-right-s-line'"
+  [iconPosition]="'right'"
+  [disabled]="false"
+  [ariaLabel]="''"
+  [invertedOutlineContrast]="false"
+  [id]="'buttonFranceEtOmer'"
+  [ariaControls]="''"
+  [customClass]="''"
+  id="buttonFranceEtOmer"
+></dsfr-button>
+
+<!-- Onglets d'informations -->
+<dsfr-tabs
+  [selectedTabIndex]="selectedTabIndex"
+  [tabsAriaLabel]="tabsAriaLabel"
+  [fullViewport]="fullViewport"
+>
+  <!-- Onglet présentation du service public -->
+  <dsfr-tab
+    tabId="departementTab"
+    label="Département"
+  >
+    <p>TODO</p>
+  </dsfr-tab>
+  <dsfr-tab
+  tabId="epciTab"
+  label="EPCI"
+    >
+    <p>TODO</p>
+  </dsfr-tab>
+  <dsfr-tab
+  tabId="communeTab"
+  label="Commune"
+    >
+    <p>TODO</p>
+  </dsfr-tab>
+</dsfr-tabs>
