@@ -1,6 +1,9 @@
 import { Component, Input, OnInit  } from '@angular/core';
 
-import { DsfrTabsModule, DsfrAccordionModule } from '@edugouvfr/ngx-dsfr';
+import { DsfrTabsModule, DsfrAccordionModule, DsfrButtonModule } from '@edugouvfr/ngx-dsfr';
+
+import { RightpanelService } from '../../rightpanel.service';
+import { LocalisationComponent } from '../../content/localisation/localisation.component';
 
 interface days {
   day: string;
@@ -11,11 +14,14 @@ interface days {
 @Component({
   selector: 'app-service-public',
   standalone: true,
-  imports: [DsfrTabsModule, DsfrAccordionModule],
+  imports: [DsfrTabsModule, DsfrAccordionModule, DsfrButtonModule],
   templateUrl: './service-public.component.html',
   styleUrl: './service-public.component.css'
 })
 export class ServicePublicComponent implements OnInit {
+  
+  constructor(private rightpanelService: RightpanelService) {}
+
   @Input() data!: any;    
   selectedTabIndex = 0;
   tabsAriaLabel = "Onglets informations SP"
@@ -23,9 +29,13 @@ export class ServicePublicComponent implements OnInit {
   tableTime? : Array<days>;
 
   ngOnInit() {
-    if(this.data.service_horaires_ouverture.length > 4){
-      this.tableTime = this.buildTimeTable(this.data.service_horaires_ouverture);
+    if(this.data.selectedSP.service_horaires_ouverture.length > 4 && this.data.selectedSP.service_horaires_ouverture != null){
+      this.tableTime = this.buildTimeTable(this.data.selectedSP.service_horaires_ouverture);
     }
+  }
+
+  onButtonBackLocationClic(){
+    this.rightpanelService.setContent(LocalisationComponent, this.data.map, "location");
   }
 
   buildTimeTable(data: string){

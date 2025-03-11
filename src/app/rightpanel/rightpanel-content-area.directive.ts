@@ -1,5 +1,4 @@
 import { Directive, ViewContainerRef } from '@angular/core';
-import { DefaultComponent } from './content/default/default.component';
 
 @Directive({
   selector: '[rightpanelContentArea]',

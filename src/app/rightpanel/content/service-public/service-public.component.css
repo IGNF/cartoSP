@@ -123,6 +123,7 @@
 .tag-itinerant {
     color: var(--text-action-high-purple-glycine);
     background-color: var(--background-action-low-purple-glycine);
+    padding-top: 15px;
 }
 
 .tag-permanence {
@@ -132,4 +133,9 @@
 
 .fr-icon-itinerant::before{
     mask-image: url("../../../../assets/images/side-menu/itinerant.svg");
+}
+
+#buttonBackLocation{
+    padding-bottom: 30px;
+    display: block;
 }

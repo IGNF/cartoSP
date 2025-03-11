@@ -8,7 +8,6 @@ import {Select} from 'ol/interaction';
 import { Feature } from 'ol';
 
 import { RightpanelService } from '../../rightpanel/rightpanel.service';
-import { DefaultComponent } from '../../rightpanel/content/default/default.component';
 import { ServicePublicComponent } from '../../rightpanel/content/service-public/service-public.component';
 
 
@@ -49,6 +48,7 @@ export class SpselectorComponent implements OnInit {
       
       if(features[0]){
         var newfeature = features[0] as Feature;
+        var data = {selectedSP: "", map: ""};
         
         // restore old style
         if(oldfeature){
@@ -60,10 +60,12 @@ export class SpselectorComponent implements OnInit {
         oldstyle = oldfeature.getStyle();
         
         newfeature.setStyle(selectStyle);
+
+        // show rightpanel with feature infos
         if(this.rightpanelService.isExpanded !== true ){
           this.rightpanelService.toggleRightpanel();
         }
-        this.rightpanelService.setContent(ServicePublicComponent, newfeature.getProperties());
+        this.rightpanelService.setContent(ServicePublicComponent, {selectedSP: newfeature.getProperties(), map: this.map}, "spinfos");
       }else{
         if(oldfeature){
           oldfeature.setStyle(oldstyle);

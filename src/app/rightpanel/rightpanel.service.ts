@@ -11,7 +11,9 @@ export class RightpanelService {
 
   constructor() {}
 
-  isExpanded = false;
+  isExpanded = true;
+
+  currentView: "location" | "locationinfos" | "spinfos" = "location";
 
   #contentArea?: RightpanelContentAreaDirective;
 
@@ -19,12 +21,17 @@ export class RightpanelService {
     this.isExpanded = !this.isExpanded;
   }
 
+  setCurrentView(selectedView: "location" | "locationinfos" | "spinfos"){
+    this.currentView = selectedView;
+  }
+
   setDynamicContentArea(host: RightpanelContentAreaDirective) {
     this.#contentArea = host;
   }
 
-  setContent(component: Component<unknown>, data: any): void {
+  setContent(component: Component<unknown>, data: any, view: "location" | "locationinfos" | "spinfos"): void {
     this.#contentArea?.viewContainerRef.clear();
     this.#contentArea?.viewContainerRef.createComponent(component).setInput('data', data);
+    this.currentView = view;
   }
 }
