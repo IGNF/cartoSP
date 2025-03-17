@@ -1,44 +1,56 @@
 <h1 class="fr-h5">Zones visibles sur la carte :</h1>
-<dsfr-button
-  [label]="'France métropolitaine & outre mer'"
-  [type]="'button'"
-  [tooltipMessage]="''"
-  [variant]="'secondary'"
-  [size]="'SM'"
-  [icon]="'fr-icon-arrow-right-s-line'"
-  [iconPosition]="'right'"
-  [disabled]="false"
-  [ariaLabel]="''"
-  [invertedOutlineContrast]="false"
-  [id]="'buttonFranceEtOmer'"
-  [ariaControls]="''"
-  [customClass]="''"
-  id="buttonFranceEtOmer"
-></dsfr-button>
 
 <!-- Onglets d'informations -->
 <dsfr-tabs
   [selectedTabIndex]="selectedTabIndex"
   [tabsAriaLabel]="tabsAriaLabel"
   [fullViewport]="fullViewport"
+  (tabSelect)="changeTab($event)"
 >
   <!-- Onglet présentation du service public -->
   <dsfr-tab
-    tabId="departementTab"
+    tabId="departement"
     label="Département"
   >
-    <p>TODO</p>
+    <div class="gpf-select">
+      @for (departement of departements; track departement.name) {
+        <p (mouseenter)="highlightLocation(departement.name)" (mouseleave)="unhighlightLocation(departement.id)" (click)="selectLocation(departement)" class="GPautoCompleteProposal gpf-panel__items gpf-panel__items_searchengine arrow-pull-right fr-icon-arrow-right-s-line">
+          {{departement.name}} - {{departement.number}}
+        </p>
+      }
+      @empty {
+        <p>Déplacez-vous sur la carte afin de faire apparaitre des localisations</p>
+      }
+    </div>
   </dsfr-tab>
   <dsfr-tab
-  tabId="epciTab"
+  tabId="epci"
   label="EPCI"
     >
-    <p>TODO</p>
+    <div class="gpf-select">
+      @for (epci of epcis; track epci.name) {
+        <p (mouseenter)="highlightLocation(epci.name)" (mouseleave)="unhighlightLocation(epci.name)" (click)="selectLocation(epci)" class="GPautoCompleteProposal gpf-panel__items gpf-panel__items_searchengine arrow-pull-right fr-icon-arrow-right-s-line">
+          {{epci.name}}
+        </p>
+      }
+      @empty {
+        <p>Zoomez et déplacez-vous sur la carte afin de faire apparaitre des epci</p>
+      }
+    </div>
   </dsfr-tab>
   <dsfr-tab
-  tabId="communeTab"
+  tabId="commune"
   label="Commune"
     >
-    <p>TODO</p>
+    <div class="gpf-select">
+      @for (commune of communes; track commune.name) {
+        <p (mouseenter)="highlightLocation(commune.name)" (mouseleave)="unhighlightLocation(commune.name)" (click)="selectLocation(commune)" class="GPautoCompleteProposal gpf-panel__items gpf-panel__items_searchengine arrow-pull-right fr-icon-arrow-right-s-line">
+          {{commune.name}}
+        </p>
+      }
+      @empty {
+        <p>Zoomez et déplacez-vous sur la carte afin de faire apparaitre des communes</p>
+      }
+    </div>
   </dsfr-tab>
 </dsfr-tabs>

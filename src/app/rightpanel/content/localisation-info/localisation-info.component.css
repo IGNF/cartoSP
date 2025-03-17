@@ -1,0 +1,11 @@
+/* Titre et sous-titre localisation */
+:host > .fr-h3 {
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+:host > .fr-h6 {
+    font-weight: 300 !important;
+    font-size: 1.1rem !important;
+    margin-bottom: 10px;
+}

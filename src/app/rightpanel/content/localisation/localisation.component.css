@@ -1,4 +1,12 @@
-#buttonFranceEtOmer{
-    margin-bottom: 15px;
-    display: block;
+.GPautoCompleteProposal{
+    color: var(--text-action-high-blue-france);
+}
+
+.GPautoCompleteProposal:hover{
+    background-color: var(--hover-tint);
+    color: var(--text-action-high-grey);
+}
+
+.arrow-pull-right::before {
+    float: right;
 }

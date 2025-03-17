@@ -12,7 +12,7 @@ export class GeocodageService {
 
   constructor(private http: HttpClient) {}
 
-  // Fetch all users
+  // Geometry
   getSearchTrueGeometry(query: string): Observable<any> {
     return this.http.get(this.apiUrl,{
       params:{
