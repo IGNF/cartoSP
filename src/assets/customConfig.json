@@ -1007,6 +1007,12 @@
           "title": "Style adminexpress",
           "current": true,
           "url": "https://data.geopf.fr/annexes/ressources/vectorTiles/styles/ADMIN_EXPRESS/adminexpress.json"
+        },
+        {
+          "name": "simpleadminexpress",
+          "title": "Style adminexpress simplifié",
+          "current": true,
+          "url": "/assets/admin-express-simple.json"
         }
       ],
       "globalConstraint": {
@@ -1090,6 +1096,12 @@
           "title": "Style sans toponymes",
           "current": false,
           "url": "https://data.geopf.fr/annexes/ressources/vectorTiles/styles/PLAN.IGN/sans_toponymes.json"
+        },
+        {
+          "name": "desatured-ign",
+          "title": "Style plan ign simplifié",
+          "current": true,
+          "url": "/assets/destured-plan-ign.json"
         }
       ],
       "globalConstraint": {
