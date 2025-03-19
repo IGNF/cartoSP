@@ -27,17 +27,7 @@
 <!-- Titres -->
 <h3 class="fr-h3">{{ data.selectedSP.service_nom }}</h3>
 <h6 class="fr-h6">{{ data.selectedSP.service_thematique }}</h6>
-<!-- Informations d'accessibilités -->
-<div id="info-accessibility">
-    <div class="info-mobility">
-        <span class="fr-fi-arrow-right-line fr-icon--md info-icon" aria-hidden="true"></span>
-        <div class="info-content"> {{ data.selectedSP.lieu_accessibilite || "Aucune informations sur l'accessibilité" }}</div>
-    </div>
-    <div class="info-access">
-        <span class="fr-icon-calendar-event-fill fr-icon--md info-icon" aria-hidden="true"></span>
-        <div class="info-content"> {{ data.selectedSP.service_modalite_d_accueil || "Aucune informations sur les modalités d'accueil" }}</div>
-    </div>
-</div>
+<h6 class="fr-h7">{{ data.selectedSP.service_typologie }}</h6>
 <!-- Onglets d'informations -->
 <dsfr-tabs
   [selectedTabIndex]="selectedTabIndex"
@@ -56,10 +46,6 @@
         <div class="info-content"> {{ data.selectedSP.lieu_adresse || "Aucune information" }}</div>
     </div>
     <div class="info-list">
-        <span class="fr-icon-user-star-fill fr-icon--md info-icon" aria-hidden="true"></span>
-        <div class="info-content"> {{ data.selectedSP.responsable || "Aucune information" }}</div>
-    </div>
-    <div class="info-list">
         <span class="fr-icon-phone-fill fr-icon--md info-icon" aria-hidden="true"></span>
         <div class="info-content"> {{ data.selectedSP.service_telephone || "Aucune information" }}</div>
     </div>
@@ -71,7 +57,10 @@
         <span class="fr-icon-global-fill fr-icon--md info-icon" aria-hidden="true"></span>
         <div class="info-content"> {{ data.selectedSP.service_site_internet || "Aucune information" }}</div>
     </div>
-    <br>
+    <div class="info-list">
+        <span class="fr-icon-accessibility  fr-icon--md info-icon" aria-hidden="true"></span>
+        <div class="info-content"> {{ data.selectedSP.lieu_accessibilite || "Aucune informations sur l'accessibilité" }}</div>
+    </div>
     <!-- Informations capacité et fréquence -->
     <div id="infos-cf">
         <div class="frequence">
@@ -85,11 +74,16 @@
             </div>
         </div>
     </div>
-    <br>
+    <!-- Modalités d'accès -->
+    <div class="info-list info-modalite">
+        <span class="fr-icon-calendar-event-fill fr-icon--md info-icon" aria-hidden="true"></span>
+        <div class="info-content"> {{ data.selectedSP.service_modalite_d_accueil || "Aucune informations sur les modalités d'accueil" }}</div>
+    </div>
     <!-- Horaires -->
     <dsfr-accordion
     [heading]="'Horaires'"
     [headingAriaLabel]="'Horaires d\'ouverture'"
+    [expanded]="true"
     >     
         @for (entry of tableTime; track entry.day) {
             <div class="spopening">

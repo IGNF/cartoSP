@@ -60,49 +60,12 @@ export class LocalisationComponent implements OnInit {
   ngOnInit() {
     var self = this;
 
+    // On charge une première fois la liste
+    self.searchLocations(this.data);
+
     // Ajout event on loadend de la carte pour charger les listes de localisation
     this.data.on('loadend', function(e: any){
-      if(self.rightpanelService.isExpanded && self.rightpanelService.currentView == "location"){
-        if (self.currentTab == "epci"){
-          if (e.map.getView().getZoom() > 10){
-            self.WfsService.getEpciFromBbox(e.map.getView().calculateExtent(e.map.getSize()).toString()).subscribe({
-              next : (response: any) => {
-                  self.epcis = [];
-                  response.features.forEach( (feature: { properties: { id: any; nom: any; }; }) => {
-                    self.epcis.push({id: feature.properties.id , name: feature.properties.nom });
-                  });
-              },
-              error : (error: any) => { console.error('Error fetching epci datas:', error); }
-            });
-          } else {
-            self.epcis = [];
-          }
-        } else if (self.currentTab == "commune") {
-          if (e.map.getView().getZoom() > 12){
-            self.WfsService.getCommuneFromBbox(e.map.getView().calculateExtent(e.map.getSize()).toString()).subscribe({
-              next : (response: any) => {  
-                  self.communes = [];
-                  response.features.forEach( (feature: { properties: { id: any; nom: any; insee_dep: any; }; }) => {
-                    self.communes.push({id: feature.properties.id , name: feature.properties.nom });
-                  });
-              },
-              error : (error: any) => { console.error('Error fetching commune datas:', error); }
-            });
-          } else {
-            self.communes = [];
-          }
-        } else {
-          self.WfsService.getDepartementFromBbox(e.map.getView().calculateExtent(e.map.getSize()).toString()).subscribe({
-            next : (response: any) => {  
-                self.departements = [];
-                response.features.forEach( (feature: { properties: { id: any; nom: any; insee_dep: any; }; }) => {
-                  self.departements.push({id: feature.properties.id , name: feature.properties.nom, number: feature.properties.insee_dep });
-                });
-            },
-            error : (error: any) => { console.error('Error fetching departement datas:', error); }
-          });
-        }
-      } 
+      self.searchLocations(e.map);
     }); 
   }
 
@@ -126,6 +89,7 @@ export class LocalisationComponent implements OnInit {
 
   // ajouter le highlight sur une localisation
   highlightLocation(name: any) {
+    this.data.removeLayer(this.highlightLayer);
     this.highlightSource = new VectorSource({});
     this.GeocodageService.getSearchTrueGeometry(name).subscribe({
       next : (response: any) => {
@@ -141,5 +105,51 @@ export class LocalisationComponent implements OnInit {
   // supprimer le highlight sur une localisation
   unhighlightLocation(name: any) {
     this.data.removeLayer(this.highlightLayer);
+  }
+
+  searchLocations(e: any) {
+    var self = this;
+
+    if(self.rightpanelService.isExpanded && self.rightpanelService.currentView == "location"){
+      if (self.currentTab == "epci"){
+        if (e.getView().getZoom() > 10){
+          self.WfsService.getEpciFromBbox(e.getView().calculateExtent(e.getSize()).toString()).subscribe({
+            next : (response: any) => {
+                self.epcis = [];
+                response.features.forEach( (feature: { properties: { id: any; nom: any; }; }) => {
+                  self.epcis.push({id: feature.properties.id , name: feature.properties.nom });
+                });
+            },
+            error : (error: any) => { console.error('Error fetching epci datas:', error); }
+          });
+        } else {
+          self.epcis = [];
+        }
+      } else if (self.currentTab == "commune") {
+        if (e.getView().getZoom() > 12){
+          self.WfsService.getCommuneFromBbox(e.getView().calculateExtent(e.getSize()).toString()).subscribe({
+            next : (response: any) => {  
+                self.communes = [];
+                response.features.forEach( (feature: { properties: { id: any; nom: any; insee_dep: any; }; }) => {
+                  self.communes.push({id: feature.properties.id , name: feature.properties.nom });
+                });
+            },
+            error : (error: any) => { console.error('Error fetching commune datas:', error); }
+          });
+        } else {
+          self.communes = [];
+        }
+      } else {
+        self.WfsService.getDepartementFromBbox(e.getView().calculateExtent(e.getSize()).toString()).subscribe({
+          next : (response: any) => {  
+              self.departements = [];
+              response.features.forEach( (feature: { properties: { id: any; nom: any; insee_dep: any; }; }) => {
+                self.departements.push({id: feature.properties.id , name: feature.properties.nom, number: feature.properties.insee_dep });
+              });
+          },
+          error : (error: any) => { console.error('Error fetching departement datas:', error); }
+        });
+      }
+    } 
   }
 }

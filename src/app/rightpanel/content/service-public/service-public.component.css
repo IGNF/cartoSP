@@ -7,7 +7,12 @@
 :host > .fr-h6 {
     font-weight: 300 !important;
     font-size: 1.1rem !important;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
+}
+
+:host > .fr-h7 {
+    font-size: 1.1rem !important;
+    margin-bottom: 20px;
 }
 
 /* Informations sur le SP */
@@ -22,7 +27,7 @@
     display: inline;
 }
 
-.info-list > .info-icon,  .info-mobility > .info-icon, .info-access > .info-icon{
+.info-list > .info-icon, .info-access > .info-icon{
     color: var(--text-action-high-blue-france);
 }
 
@@ -31,8 +36,8 @@
     font-size: 0.9rem;
 }
 
-:host > dsfr-accordion > .fr-accordion{
-    margin-top: 20px;
+.info-modalite {
+    padding-bottom: 20px;
 }
 
 #presentTab {
@@ -42,6 +47,8 @@
 /* Informations capacité/fréquence sur le SP et info accessibilite */
 #infos-cf {
     display: flex;
+    padding-bottom: 10px;
+    padding-top: 20px;
 }
 
 #infos-cf > .frequence {
@@ -55,12 +62,6 @@
     width: 55%;
 }
 
-#infos-cf > .frequence > span, #info-accessibility > .info-access > span, #info-accessibility > .info-mobility > span {
-    font-size: 1.1rem;
-    font-weight: 600;
-    display: block;
-}
-
 #infos-cf > .frequence > #freq-small{
     width: 45%;
 }
@@ -71,26 +72,6 @@
 
 #infos-cf > .frequence > #freq-small > span{
     font-weight: 800;
-}
-
-#info-accessibility {
-    padding-bottom: 30px;
-    padding-top: 10px;
-}
-
-#info-accessibility > .info-access {
-    padding-top: 10px;
-    display: flex;
-    align-items: center;
-}
-
-#info-accessibility > .info-mobility {
-    display: flex;
-    align-items: center;
-}
-
-#info-accessibility > .info-access > .info-content, #info-accessibility > .info-mobility > .info-content{
-    padding-left: 10px;
 }
 
 /* Horaires sur le SP */
@@ -133,6 +114,10 @@
 
 .fr-icon-itinerant::before{
     mask-image: url("../../../../assets/images/side-menu/itinerant.svg");
+}
+
+.fr-icon-accessibility::before{
+    mask-image: url("../../../../assets/images/side-menu/wheelchair.svg");
 }
 
 #buttonBackLocation{

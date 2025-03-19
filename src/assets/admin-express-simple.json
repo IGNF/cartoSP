@@ -1,0 +1,72 @@
+{
+  "version": 8,
+  "name": "ADMIN_EXPRESS",
+  "glyphs": "https://data.geopf.fr/annexes/ressources/vectorTiles/fonts/{fontstack}/{range}.pbf",
+  "metadata": {"maputnik:renderer": "ol"},
+  "sources": {
+        "adminexpress": {
+          "type": "vector",
+          "tiles": [
+          "https://data.geopf.fr/tms/1.0.0/ADMIN_EXPRESS/{z}/{x}/{y}.pbf"
+          ],
+          "minzoom": 0,
+      	  "maxzoom": 20,
+      	  "scheme": "xyz"
+        }
+      },
+  "transition": {"duration": 300, "delay": 0},
+  "layers": [
+    {
+      "id": "commune_limites",
+      "type": "line",
+      "source": "adminexpress",
+      "source-layer": "commune",
+      "minzoom": 12,
+      "paint": {
+        "line-color": "rgba(165, 165, 165, 1)",
+        "line-opacity": ["interpolate", ["linear"], ["zoom"], 12, 0, 12.3, 1],
+        "line-width": 2      
+      }
+    },
+    {
+      "id": "epci_limites",
+      "type": "line",
+      "source": "adminexpress",
+      "source-layer": "epci",
+      "minzoom": 10,
+      "maxzoom": 12.5,
+      "paint": {
+        "line-color": "rgba(165, 165, 165, 1)",
+        "line-opacity": ["interpolate", ["linear"], ["zoom"], 10, 0, 10.3, 1],
+        "line-width": ["interpolate", ["linear"], ["zoom"], 6, 1, 12, 2]
+      }
+    },
+    {
+      "id": "departement",
+      "type": "line",
+      "source": "adminexpress",
+      "source-layer": "departement",
+      "minzoom": 7.5,
+      "maxzoom": 10.5,
+      "paint": {
+        "line-color": "rgba(165, 165, 165, 1)",
+        "line-opacity": ["interpolate", ["linear"], ["zoom"], 7.5, 0, 7.8, 1],
+        "line-width": ["interpolate", ["linear"], ["zoom"], 6, 1, 12, 2]
+      }
+    },
+    {
+      "id": "region",
+      "type": "line",
+      "source": "adminexpress",
+      "source-layer": "region",
+      "minzoom": 6,
+      "maxzoom": 8,
+      "paint": {
+        "line-color": "rgba(165, 165, 165, 1)",
+        "line-opacity": ["interpolate", ["linear"], ["zoom"], 6, 0, 6.3, 1],
+        "line-width": ["interpolate", ["linear"], ["zoom"], 6, 1, 12, 2]
+      }
+    }
+  ]
+}
+

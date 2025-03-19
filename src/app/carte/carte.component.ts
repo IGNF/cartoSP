@@ -3,7 +3,7 @@ import { Component, OnInit, Input, ElementRef } from '@angular/core';
 import Map from 'ol/Map';
 import Feature from 'ol/Feature';
 import { bbox as bboxStrategy } from 'ol/loadingstrategy';
-import { LayerWMTS as GeoportalLayerWMTS, LayerWFS as GeoportalLayerWFS, LayerMapBox as GeoportalLayerTMS } from "geopf-extensions-openlayers/src";
+import { LayerWFS as GeoportalLayerWFS, LayerMapBox as GeoportalLayerTMS } from "geopf-extensions-openlayers/src";  
 
 @Component({
   selector: 'app-carte',
@@ -22,10 +22,11 @@ export class CarteComponent implements OnInit {
     this.map.setLayers([
       new GeoportalLayerTMS({
         layer: "PLAN.IGN",
-        style: "gris"
+        style: "desatured-ign"
       }),
-      new GeoportalLayerWMTS({
-        layer: "LIMITES_ADMINISTRATIVES_EXPRESS.LATEST",
+      new GeoportalLayerTMS({
+        layer: "ADMIN_EXPRESS",
+        style: "simpleadminexpress"
       }),
       new GeoportalLayerWFS({
         layer: "services_publics_test_20250304:carto_sp_interne",
@@ -39,7 +40,7 @@ export class CarteComponent implements OnInit {
           }
         }
       })
-    ]);
+    ]); 
 
     this.map.setTarget(this.elementRef.nativeElement);
   }
