@@ -49,6 +49,8 @@ export class LocalisationComponent implements OnInit {
   communes: Commune[] = [];
   
   highlightLayer = new VectorLayer({
+    //@ts-ignore
+    name: "highlight",
     style: {
       'stroke-color': 'red',
       'stroke-width': 3,
@@ -59,6 +61,12 @@ export class LocalisationComponent implements OnInit {
 
   ngOnInit() {
     var self = this;
+
+    this.data.getLayers().forEach((layer : any) => {
+      if (layer.values_.name == "highlight") {
+        this.data.removeLayer(layer);
+      }
+    });
 
     // On charge une première fois la liste
     self.searchLocations(this.data);
@@ -81,7 +89,6 @@ export class LocalisationComponent implements OnInit {
       next : (response: any) => {
           const locationGeom = new GeoJSON().readFeatures(response.features[0].properties.truegeometry, {featureProjection: 'EPSG:3857'})[0].getGeometry();
           this.data.getView().fit(locationGeom as SimpleGeometry, {padding: [30,30,30,30]});
-          this.data.removeLayer(this.highlightLayer);
           this.rightpanelService.setContent(LocalisationInfoComponent, {map : this.data, location: selected, type: this.currentTab}, "locationinfo");
       },
       error : (error: any) => { console.error('Error fetching location geometry:', error) }
