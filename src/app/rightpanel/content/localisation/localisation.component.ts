@@ -89,17 +89,17 @@ export class LocalisationComponent implements OnInit {
 
   // ajouter le highlight sur une localisation
   highlightLocation(name: any) {
-    this.data.removeLayer(this.highlightLayer);
-    this.highlightSource = new VectorSource({});
     this.GeocodageService.getSearchTrueGeometry(name).subscribe({
       next : (response: any) => {
           const locationGeom = new GeoJSON().readFeatures(response.features[0].properties.truegeometry, {featureProjection: 'EPSG:3857'});
+          this.data.removeLayer(this.highlightLayer);
+          this.highlightSource = new VectorSource({});
           this.highlightSource?.addFeatures(locationGeom);
+          this.highlightLayer.setSource(this.highlightSource);
+          this.data.addLayer(this.highlightLayer);
       },
       error : (error: any) => { console.error('Error fetching location geometry:', error) }
     });
-    this.highlightLayer.setSource(this.highlightSource);
-    this.data.addLayer(this.highlightLayer);
   }
 
   // supprimer le highlight sur une localisation
