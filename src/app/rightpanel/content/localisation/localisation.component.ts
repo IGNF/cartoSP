@@ -72,6 +72,7 @@ export class LocalisationComponent implements OnInit {
   // Changer d'onglet
   changeTab(tab: any) {
     this.currentTab = tab;
+    this.data.removeLayer(this.highlightLayer);
   }
 
   // Sélectionner une localisation
