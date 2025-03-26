@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-
 @Injectable({
   providedIn: 'root'
 })
@@ -35,7 +34,7 @@ export class WfsService {
   getEpciFromBbox(bbox: string): Observable<any> {
     var req = Object.assign(this.defaultParams, {
         TYPENAME: "ADMINEXPRESS-COG.LATEST:epci",
-        PROPERTYNAME: "id,nom",
+        PROPERTYNAME: "id,nom,code_siren",
         BBOX: bbox + ",EPSG:3857"
     });
 

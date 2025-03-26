@@ -58,6 +58,8 @@
 .rightpanel-body {
     width: 100%;
     overflow-x: hidden;
+    max-height: 95%;
+    overflow-y: scroll;
 }
 
 #rightpanel-content {

@@ -34,13 +34,149 @@
     label="Présentation"
     [disabled]="false"
   >
-    <!-- Informations générales -->
-    <h5 class="fr-h5">En chiffres</h5>
-    <p>(en développement)</p>
+  <!-- Informations générales -->
+    <!-- Informations socio économique -->
+    <h6 class="fr-h6">Données socio-économiques</h6>
+      <!-- Nombre d'habitants -->
+      <div class="group-location-info">
+        <div class="location-info">
+          <div class="data-title">Nbr. d'habitants</div>
+          <div class="data-value">{{ apidata.population_recensement || "Inconnue" }}</div>
+        </div>
+        <div class="national-info">
+          <div class="data-title">moy. nat.</div>
+          @if (data.type === "departement"){  
+            <div class="data-value">{{ moynat.departement.population_recensement || "Inconnue" }}</div>
+          } @else if (data.type === "epci") {
+            <div class="data-value">{{ moynat.epci.population_recensement || "Inconnue" }}</div>
+          } @else {
+            <div class="data-value">{{ moynat.commune.population_recensement || "Inconnue" }}</div>
+          }
+        </div>
+      </div>
+      <!-- Densité -->
+      <div class="group-location-info">
+        <div class="location-info">
+          <div class="data-title">Densité (habitants/km2)</div>
+          <div class="data-value">{{ apidata.population_densite || "Inconnue" }}</div>
+        </div>
+        <div class="national-info">
+          <div class="data-title">moy. nat.</div>
+          @if (data.type === "departement"){  
+            <div class="data-value">{{ moynat.departement.population_densite || "Inconnue" }}</div>
+          } @else if (data.type === "epci") {
+            <div class="data-value">{{ moynat.epci.population_densite || "Inconnue" }}</div>
+          } @else {
+            <div class="data-value">{{ moynat.commune.population_densite || "Inconnue" }}</div>
+          }
+        </div>
+      </div>
+      <!-- Évolution annuel de la population -->
+      <div class="group-location-info">
+        <div class="location-info">
+          <div class="data-title">Évolution annuel de la population (%)</div>
+          <div class="data-value">{{ apidata.population_evolution || "Inconnue" }}</div>
+        </div>
+        <div class="national-info">
+          <div class="data-title">moy. nat.</div>
+          @if (data.type === "departement"){  
+            <div class="data-value">{{ moynat.departement.population_evolution || "Inconnue" }}</div>
+          } @else if (data.type === "epci") {
+            <div class="data-value">{{ moynat.epci.population_evolution || "Inconnue" }}</div>
+          } @else {
+            <div class="data-value">{{ moynat.commune.population_evolution || "Inconnue" }}</div>
+          }
+        </div>
+      </div>
+      <!-- QPV -->
+      <div class="group-location-info">
+        <div class="location-info">
+          <div class="data-title">Nbr. de QPV</div>
+          <div class="data-value">{{ apidata.nb_qpv || "Inconnue" }}</div>
+        </div>
+        <div class="national-info">
+          <div class="data-title">moy. nat.</div>
+          @if (data.type === "departement"){  
+            <div class="data-value">{{ moynat.departement.nb_qpv || "Inconnue" }}</div>
+          } @else if (data.type === "epci") {
+            <div class="data-value">{{ moynat.epci.nb_qpv || "Inconnue" }}</div>
+          } @else {
+            <div class="data-value">{{ moynat.commune.nb_qpv || "Inconnue" }}</div>
+          }
+        </div>
+      </div>
+      <!-- Taux de pauvreté -->
+      <div class="group-location-info">
+        <div class="location-info">
+          <div class="data-title">Taux de pauvreté</div>
+          <div class="data-value">{{ apidata.taux_pauvrete || "Inconnue" }}</div>
+        </div>
+        <div class="national-info">
+          <div class="data-title">moy. nat.</div>
+          @if (data.type === "departement"){  
+            <div class="data-value">{{ moynat.departement.taux_pauvrete || "Inconnue" }}</div>
+          } @else if (data.type === "epci") {
+            <div class="data-value">{{ moynat.epci.taux_pauvrete || "Inconnue" }}</div>
+          } @else {
+            <div class="data-value">{{ moynat.commune.taux_pauvrete || "Inconnue" }}</div>
+          }
+        </div>
+      </div>
+      <!-- Taux de chomage -->
+      <div class="group-location-info">
+        <div class="location-info">
+          <div class="data-title">Taux de chomage</div>
+          <div class="data-value">{{ apidata.taux_chomage || "Inconnue" }}</div>
+        </div>
+        <div class="national-info">
+          <div class="data-title">moy. nat.</div>
+          @if (data.type === "departement"){  
+            <div class="data-value">{{ moynat.departement.taux_chomage || "Inconnue" }}</div>
+          } @else if (data.type === "epci") {
+            <div class="data-value">{{ moynat.epci.taux_chomage || "Inconnue" }}</div>
+          } @else {
+            <div class="data-value">{{ moynat.commune.taux_chomage || "Inconnue" }}</div>
+          }
+        </div>
+      </div>
+      <!-- Vieillissement -->
+      <div class="group-location-info">
+        <div class="location-info">
+          <div class="data-title">Indice de vieillissement</div>
+          <div class="data-value">{{ apidata.vieillissement_indice }}</div>
+        </div>
+        <div class="national-info">
+          <div class="data-title">moy. nat.</div>
+          @if (data.type === "departement"){  
+            <div class="data-value">{{ moynat.departement.vieillissement_indice || "Inconnue" }}</div>
+          } @else if (data.type === "epci") {
+            <div class="data-value">{{ moynat.epci.vieillissement_indice || "Inconnue" }}</div>
+          } @else {
+            <div class="data-value">{{ moynat.commune.vieillissement_indice || "Inconnue" }}</div>
+          }
+        </div>
+      </div>
+    <br>
+    @if (data.type === "departement" || data.type === "epci"){ 
+      <!-- Informations administratives -->
+      <h6 class="fr-h6">Données administratives</h6>
+      <div class="group-location-info">
+        <div class="admin-info">
+          <div class="data-title">Nbr. de communes</div>
+          <div class="data-value">{{ apidata.nb_commune || "Inconnue" }}</div>
+        </div>
+        @if (data.type === "departement"){  
+        <div class="admin-info">
+          <div class="data-title">Nbr. d'epci</div>
+          <div class="data-value">{{ apidata.nb_epci || "Inconnue"  }}</div>
+        </div>
+        }
+      </div>
+    }
     <br>
   </dsfr-tab>
-    <!-- Onglet présentation du service public -->
-<dsfr-tab
+  <!-- Onglet accès aux service public -->
+  <dsfr-tab
     tabId="spsTab"
     label="Services publics"
     [disabled]="false"

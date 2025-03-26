@@ -1,11 +1,43 @@
 /* Titre et sous-titre localisation */
 :host > .fr-h3 {
     margin-top: 15px;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
 
 :host > .fr-h6 {
     font-weight: 300 !important;
     font-size: 1.1rem !important;
     margin-bottom: 10px;
+}
+
+/* info location */
+.group-location-info{
+    width: 100%;
+    padding: 5px 2px;
+}
+
+.group-location-info > .national-info{
+    color: var(--text-action-high-blue-france);
+    display: inline-block;
+    width: 40%;
+}
+
+.group-location-info > .location-info{
+    display: inline-block;
+    width: 60%;
+}
+
+.group-location-info > .admin-info{
+  display: inline-block;
+  width: 50%;
+}
+
+.group-location-info > .location-info > .data-value, .group-location-info > .national-info > .data-value, .group-location-info > .admin-info >.data-value{
+    font-weight: 600;
+    font-size: 1.2em;
+}
+
+.group-location-info > .location-info > .data-title, .group-location-info > .national-info> .data-title, .group-location-info > .admin-info > .data-title{
+    font-weight: 100;
+    font-size: 0.8em;
 }

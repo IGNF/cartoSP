@@ -20,11 +20,13 @@ export interface Departement {
 export interface Epci {
   id: number;
   name: string;
+  number: string;
 }
 
 export interface Commune {
   id: number;
   name: string;
+  number: string;
 }
 
 @Component({
@@ -89,6 +91,9 @@ export class LocalisationComponent implements OnInit {
       next : (response: any) => {
           const locationGeom = new GeoJSON().readFeatures(response.features[0].properties.truegeometry, {featureProjection: 'EPSG:3857'})[0].getGeometry();
           this.data.getView().fit(locationGeom as SimpleGeometry, {padding: [30,30,30,30]});
+          if(this.currentTab == "commune"){
+            selected.number = response.features[0].properties.citycode[0];
+          }
           this.rightpanelService.setContent(LocalisationInfoComponent, {map : this.data, location: selected, type: this.currentTab}, "locationinfo");
       },
       error : (error: any) => { console.error('Error fetching location geometry:', error) }
@@ -124,8 +129,8 @@ export class LocalisationComponent implements OnInit {
           self.WfsService.getEpciFromBbox(e.getView().calculateExtent(e.getSize()).toString()).subscribe({
             next : (response: any) => {
                 self.epcis = [];
-                response.features.forEach( (feature: { properties: { id: any; nom: any; }; }) => {
-                  self.epcis.push({id: feature.properties.id , name: feature.properties.nom });
+                response.features.forEach( (feature: { properties: { id: any; nom: any; code_siren: any; }; }) => {
+                  self.epcis.push({id: feature.properties.id , name: feature.properties.nom, number: feature.properties.code_siren });
                 });
             },
             error : (error: any) => { console.error('Error fetching epci datas:', error); }
@@ -139,7 +144,7 @@ export class LocalisationComponent implements OnInit {
             next : (response: any) => {  
                 self.communes = [];
                 response.features.forEach( (feature: { properties: { id: any; nom: any; insee_dep: any; }; }) => {
-                  self.communes.push({id: feature.properties.id , name: feature.properties.nom });
+                  self.communes.push({id: feature.properties.id , name: feature.properties.nom, number: feature.properties.insee_dep  });
                 });
             },
             error : (error: any) => { console.error('Error fetching commune datas:', error); }
@@ -148,7 +153,12 @@ export class LocalisationComponent implements OnInit {
           self.communes = [];
         }
       } else {
-        self.WfsService.getDepartementFromBbox(e.getView().calculateExtent(e.getSize()).toString()).subscribe({
+        self.departements = [];
+        self.departements.push({id: 5 , name: "Hautes-Alpes", number: "05"});
+        self.departements.push({id: 36 , name: "Indre", number: "36"});
+        self.departements.push({id: 59 , name: "Nord", number: "59"});
+        // pour la france entière décommenter ce morceau de code (pour l'instant on utilise les 3 départements témoins)
+        /*self.WfsService.getDepartementFromBbox(e.getView().calculateExtent(e.getSize()).toString()).subscribe({
           next : (response: any) => {  
               self.departements = [];
               response.features.forEach( (feature: { properties: { id: any; nom: any; insee_dep: any; }; }) => {
@@ -156,7 +166,7 @@ export class LocalisationComponent implements OnInit {
               });
           },
           error : (error: any) => { console.error('Error fetching departement datas:', error); }
-        });
+        });*/
       }
     } 
   }
