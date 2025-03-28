@@ -182,7 +182,16 @@
     [disabled]="false"
   >
     <!-- Informations générales -->
-    <p>(en développement)</p>
+    <dsfr-form-select
+      [label]="'Choisissez un service public'"
+      [value]="'tous'"
+      [options]="selectSpList"
+      (selectChange)="selectSpChange($event)"
+    ></dsfr-form-select>
     <br>
+    <h6 class="fr-h6">Données administratives</h6>
+    <div><strong>{{ nbimplantations || 0 }}</strong> implantations</div>
+    <div><strong>{{ nbpermanences || 0 }}</strong> permanences</div>
+    <div><strong>{{ nbitinerants || 0 }}</strong> dispositifs itinérants</div>
   </dsfr-tab>
 </dsfr-tabs>

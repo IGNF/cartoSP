@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -24,5 +24,12 @@ export class ApicartospService {
     // Get epci info
     getEpciInfos(query: string): Observable<any> {
         return this.http.get(this.apiUrl + "/epcis/" + query);
+    }
+
+    // Get SP type count
+    getTypeCount(options: any): Observable<any> {
+        return this.http.get(this.apiUrl + "/services_publics",{
+            params: options
+        });
     }
 }
