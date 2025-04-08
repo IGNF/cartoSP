@@ -36,6 +36,7 @@
         "total_sante_nb_orthophonistes$GEOPORTAIL:OGC:WMS",
         "total_sante_nb_sagesfemmes$GEOPORTAIL:OGC:WMS",
         "carreaux_200m_met_gpkg_19-12-2024_wfs:carreaux_200m_met$GEOPORTAIL:OGC:WFS",
+        "services_publics_test_20250331_v2:carto_sp_interne$GEOPORTAIL:OGC:WFS",
         "services_publics_test_20250304:carto_sp_interne$GEOPORTAIL:OGC:WFS"
       ]
     }
@@ -3358,6 +3359,40 @@
       "metadata": [],
       "styles": [],
       "legends": [],
+      "formats": []
+    },
+    "services_publics_test_20250331_v2:carto_sp_interne$GEOPORTAIL:OGC:WFS": {
+      "name": "services_publics_test_20250331_v2:carto_sp_interne",
+      "title": "Services publics jeu test du 31/03/2025",
+      "description": "Ce jeu de données  est un jeu de données tests. Il contient les données de services publics sur trois départements pilotes Indre, Nord, Hautes Alpes.",
+      "globalConstraint": {
+        "minScaleDenominator": 0.0,
+        "maxScaleDenominator": 62236752975597,
+        "bbox": {
+          "left": -4.48375,
+          "right": 7.2965625,
+          "top": 51.112695313,
+          "bottom": 42.695234375
+        }
+      },
+      "serviceParams": {
+        "id": "OGC:WFS",
+        "version": "2.0.0",
+        "serverUrl": {
+          "BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN": "https://data.geopf.fr/private/wfs/wfs"
+        }
+      },
+      "defaultProjection": "EPSG:2154",
+      "queryable": false,
+      "metadata": [],
+      "styles": [],
+      "legends": [
+        {
+          "format": "image/jpeg",
+          "url": "https://data.geopf.fr/annexes/cartosp_ditp/legendes/legende_SP.png",
+          "minScaleDenominator": "200"
+        }
+      ],
       "formats": []
     },
     "services_publics_test_20250304:carto_sp_interne$GEOPORTAIL:OGC:WFS": {
