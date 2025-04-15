@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -7,28 +7,28 @@ import { Observable } from 'rxjs';
 })
 export class ApicartospService {
 
-    private apiUrl = 'http://localhost:8000/api';
+    private apiUrl = '/api';
 
     constructor(private http: HttpClient) {}
 
     // Get commune infos
     getCommuneInfos(query: string): Observable<any> {
-        return this.http.get(this.apiUrl + "/communes/" + query);
+        return this.http.get(this.apiUrl + "/commune/" + query);
     }
 
     // Get departement infos
     getDepartementInfos(query: string): Observable<any> {
-        return this.http.get(this.apiUrl + "/departements/" + query);
+        return this.http.get(this.apiUrl + "/departement/" + query);
     }
 
     // Get epci info
     getEpciInfos(query: string): Observable<any> {
-        return this.http.get(this.apiUrl + "/epcis/" + query);
+        return this.http.get(this.apiUrl + "/epci/" + query);
     }
 
     // Get SP type count
     getTypeCount(options: any): Observable<any> {
-        return this.http.get(this.apiUrl + "/services_publics",{
+        return this.http.get(this.apiUrl + "/services_publics/count",{
             params: options
         });
     }

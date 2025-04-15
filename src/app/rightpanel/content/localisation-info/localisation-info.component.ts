@@ -201,7 +201,7 @@ export class LocalisationInfoComponent implements OnInit {
 
     this.apicartospService.getTypeCount(Object.assign(options, {type_structure: "Implantation"})).subscribe({
       next : (response: any) => {
-        this.nbimplantations = response.totalItems;
+        this.nbimplantations = response;
       },
       error : (error: any) => { console.error('Error fetching Implantation count info:', error) }
     });
@@ -209,14 +209,14 @@ export class LocalisationInfoComponent implements OnInit {
     this.apicartospService.getTypeCount(Object.assign(options, {type_structure: "Permanence"})).subscribe({
       next : (response: any) => {
         console.log(response.totalItems);
-        this.nbpermanences = response.totalItems;
+        this.nbpermanences = response;
       },
       error : (error: any) => { console.error('Error fetching Permanence count info:', error) }
     });
 
     this.apicartospService.getTypeCount(Object.assign(options, {type_structure: "Itinérant"})).subscribe({
       next : (response: any) => {
-        this.nbitinerants = response.totalItems;
+        this.nbitinerants = response;
       },
       error : (error: any) => { console.error('Error fetching Itinérant count info:', error) }
     });
