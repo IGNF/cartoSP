@@ -208,7 +208,6 @@ export class LocalisationInfoComponent implements OnInit {
 
     this.apicartospService.getTypeCount(Object.assign(options, {type_structure: "Permanence"})).subscribe({
       next : (response: any) => {
-        console.log(response.totalItems);
         this.nbpermanences = response;
       },
       error : (error: any) => { console.error('Error fetching Permanence count info:', error) }
