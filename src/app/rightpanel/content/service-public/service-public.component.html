@@ -25,9 +25,9 @@
 }
 
 <!-- Titres -->
-<h3 class="fr-h3">{{ data.selectedSP.service_nom }}</h3>
-<h6 class="fr-h7">{{ data.selectedSP.service_typologie }}</h6>
-<h6 class="fr-h6">{{ data.selectedSP.service_thematique }}</h6>
+<h3 class="fr-h3">{{ data.selectedSP.permanence_nom || data.selectedSP.service_nom }}</h3>
+<h6 class="fr-h7">{{ data.selectedSP.permanence_typologie || data.selectedSP.service_typologie }}</h6>
+<h6 class="fr-h6">{{ data.selectedSP.permanence_thematique || data.selectedSP.service_thematique }}</h6>
 <!-- Onglets d'informations -->
 <dsfr-tabs
   [selectedTabIndex]="selectedTabIndex"
@@ -66,10 +66,10 @@
         <div class="frequence">
             <p>Fréquentation annuelle (visiteurs/an)</p>
             <div id="freq-small">
-                <span>{{ data.selectedSP.service_frequentation_annuelle || "Inconnue" }}</span>
-                @if (data.selectedSP.service_frequentation_annuelle_ref) {
+                <span>{{ data.selectedSP.permanence_frequentation_annuelle || data.selectedSP.service_frequentation_annuelle || "Inconnue" }}</span>
+                @if (data.selectedSP.service_frequentation_annuelle_ref || data.selectedSP.permanence_frequentation_annuelle_ref) {
                     <br>
-                    <small>(Année de référence: {{ data.selectedSP.service_frequentation_annuelle_ref }})</small>
+                    <small>(Année de référence: {{ data.selectedSP.service_frequentation_annuelle_ref || data.selectedSP.permanence_frequentation_annuelle_ref }})</small>
                 } 
             </div>
         </div>
@@ -77,7 +77,7 @@
     <!-- Modalités d'accès -->
     <div class="info-list info-modalite">
         <span class="fr-icon-calendar-event-fill fr-icon--md info-icon" aria-hidden="true"></span>
-        <div class="info-content"> {{ data.selectedSP.service_modalite_d_accueil || "Aucune informations sur les modalités d'accueil" }}</div>
+        <div class="info-content"> {{ data.selectedSP.permanence_modalite_d_accueil  || data.selectedSP.service_modalite_d_accueil || "Aucune informations sur les modalités d'accueil" }}</div>
     </div>
     <!-- Horaires -->
     <dsfr-accordion
