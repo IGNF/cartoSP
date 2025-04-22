@@ -106,7 +106,6 @@
 .tag-itinerant {
     color: var(--text-action-high-purple-glycine);
     background-color: var(--background-action-low-purple-glycine);
-    padding-top: 15px;
 }
 
 .tag-permanence {
