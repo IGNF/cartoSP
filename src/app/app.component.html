@@ -1,34 +1,29 @@
 <dsfr-header
 [serviceTitle]="'Carto SP'"
-[logoLink]="'https://cartes.gouv.fr'"
-[serviceTagline]="'Le service de cartographie des services publics'"
+[logoLink]="'https://cartosp.modernisation.gouv.fr'"
+[serviceTagline]="'La cartographie des services publics'"
 [menu]="[
 {
-  label: 'Commencer avec carto service public',
+  label: 'Première prise en main',
   subItems: [
     {
-      label: 'Documentation',
-      link: 'https://cartes.gouv.fr/documentation'
+      label: 'Guide dutilisation',
+      link: '/guide-d-utilisation'
     },
-    { label: 'Offre', link: 'https://cartes.gouv.fr/offre' },
     {
-      label: 'Nous rejoindre',
-      link: 'https://cartes.gouv.fr/nous-rejoindre'
+      label: 'Téléchargement des données',
+      link: '/telechargement-des-donnees'
     }
   ]
 },
+{ label: 'À propos', link: '/a-propos' },
 {
   label: 'Assistance',
   subItems: [
-    { label: 'Questions fréquentes', link: 'https://cartes.gouv.fr/faq' },
-    { label: 'Nous écrire', link: 'https://cartes.gouv.fr/nous-ecrire' },
-    {
-      label: 'Niveau de service',
-      link: 'https://cartes.gouv.fr/niveau-de-service'
-    }
+    { label: 'Foire aux questions', link: '/foire-aux-questions' },
+    { label: 'Nous contacter', link: '/nous-contacter' }
   ]
-},
-{ label: 'À propos', link: 'https://cartes.gouv.fr/a-propos' }
+}
 ]"
 [headerToolsLinks]="[]"
 [beta]="true"
@@ -38,7 +33,7 @@
   </main>
 <dsfr-footer
   [presentation]="
-    'Carto SP est développé par l’Institut national de l’information géographique et forestière (IGN) et ses partenaires. Le site s’appuie sur la Géoplateforme, la nouvelle infrastructure publique, ouverte et collaborative des données géographiques.'
+    'Carto SP est un projet coordonné par la Direction interministérielle de la transformation publique (DITP) en lien avec l’Institut national de l’information géographique et forestière (IGN). Le site s’appuie sur la Géoplateforme, la nouvelle infrastructure publique, ouverte et collaborative des données géographiques.'
   "
   [institutionalLinks]="[
     {
@@ -67,18 +62,22 @@
     }
   ]"
   [mandatoryLinks]="[
-    { label: 'Plan du site', link: 'https://cartes.gouv.fr/plan-du-site' },
+    { label: 'Plan du site', link: '/plan-du-site' },
     {
       label: 'Accessibilité: partiellement conforme',
-      link: 'https://cartes.gouv.fr/accessibilite'
+      link: '/accessibilite'
+    },
+    {
+      label: 'Conditions générales d’utilisation',
+      link: '/cgu'
     },
     {
       label: 'Mentions légales',
-      link: 'https://cartes.gouv.fr/mentions-legales'
+      link: '/mentions-legales'
     },
     {
       label: 'Données personnelles',
-      link: 'https://cartes.gouv.fr/donnees-personnelles'
+      link: '/donnees-personnelles'
     }
   ]"
   [partnerMain]="{imagePath: 'assets/images/logos/ditp.svg', imageAlt: 'logo DITP', link: 'https://www.modernisation.gouv.fr/'}"

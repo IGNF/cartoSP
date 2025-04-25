@@ -4,6 +4,11 @@
     margin-bottom: 5px;
 }
 
+.fr-h4-tab {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
 :host > .fr-h6 {
     font-weight: 300 !important;
     font-size: 1.1rem !important;

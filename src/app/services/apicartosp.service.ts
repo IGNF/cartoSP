@@ -32,4 +32,19 @@ export class ApicartospService {
             params: options
         });
     }
+
+    // Get Implantation by service_code
+    getServiceImplantation(query: string): Observable<any> {
+        return this.http.get(this.apiUrl + "/implantations/" + query);
+    }
+
+    // Get permanences by service_code
+    getServicePermanences(query: string): Observable<any> {
+        return this.http.get(this.apiUrl + "/permanences/" + query);
+    }
+
+    // Get itinerants circuit by service_code
+    getCircuitItinerants(query: string): Observable<any> {
+        return this.http.get(this.apiUrl + "/itinerants/" + query);
+    }
 }

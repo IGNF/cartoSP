@@ -3,6 +3,7 @@ import { Component, Input, OnInit  } from '@angular/core';
 import { DsfrTabsModule, DsfrAccordionModule, DsfrButtonModule } from '@edugouvfr/ngx-dsfr';
 
 import { RightpanelService } from '../../rightpanel.service';
+import { ApicartospService } from './../../../services/apicartosp.service';
 import { LocalisationComponent } from '../../content/localisation/localisation.component';
 
 interface days {
@@ -20,17 +21,60 @@ interface days {
 })
 export class ServicePublicComponent implements OnInit {
   
-  constructor(private rightpanelService: RightpanelService) {}
+  constructor(private rightpanelService: RightpanelService, private apicartospService: ApicartospService) {}
 
   @Input() data!: any;    
   selectedTabIndex = 0;
   tabsAriaLabel = "Onglets informations SP"
   fullViewport = true;
-  tableTime? : Array<days>;
+  typeStructure?: string;
+  responseList?: Array<any>|null;
+  serviceName?: string|null;
 
   ngOnInit() {
-    if(this.data.selectedSP.service_horaires_ouverture.length > 4 && this.data.selectedSP.service_horaires_ouverture != null){
-      this.tableTime = this.buildTimeTable(this.data.selectedSP.service_horaires_ouverture);
+    this.serviceName = null;
+    this.responseList = null;
+    this.typeStructure = this.data.selectedSP.type_structure;
+
+    switch (this.typeStructure) {
+      case "Implantation":
+        this.getResponseList(this.data.selectedSP.service_id);
+        break;
+      case "Permanence":
+        this.getServiceName(this.data.selectedSP.service_id);
+        this.getResponseList(this.data.selectedSP.service_id);
+        break;
+      default:
+        this.getResponseList(this.data.selectedSP.service_id);
+      ;
+    }
+    
+  }
+
+  getServiceName(service_code: string) {
+    this.apicartospService.getServiceImplantation(service_code).subscribe({
+      next : (response: any) => {
+        if(response) this.serviceName = response.service_nom;
+      },
+      error : (error: any) => { console.error('Error fetching service name:', error) }
+    });
+  }
+
+  getResponseList(service_code: string) {
+    if(this.typeStructure == "Itinérance") {
+      this.apicartospService.getCircuitItinerants(service_code).subscribe({
+        next : (response: Array<string>) => {
+          if(response.length != 0) this.responseList = response;
+        },
+        error : (error: any) => { console.error('Error fetching circuit:', error) }
+      });
+    }else{
+      this.apicartospService.getServicePermanences(service_code).subscribe({
+        next : (response: Array<string>) => {
+          if(response.length > 1) this.responseList = response;
+        },
+        error : (error: any) => { console.error('Error fetching permanences list:', error) }
+      });
     }
   }
 

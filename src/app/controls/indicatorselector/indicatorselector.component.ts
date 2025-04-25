@@ -21,6 +21,13 @@ export class IndicatorselectorComponent implements OnInit {
       // Liste des indicateurs
       var indicateurs = [
         {
+            thematique: "Services publics",
+            indicators: [
+                {title:"Fréquentation des services", layername: "frequentation_SP"},
+                {title:"Bassin de vie", layername: "bassins_de_vie_france"},
+            ]
+        },
+        {
             thematique: "Démographie",
             indicators: [
                 {title:"Densité de population", layername: "total_pilotes_insee_densite_population"},
@@ -33,19 +40,19 @@ export class IndicatorselectorComponent implements OnInit {
             indicators: [
                 {title:"Part des ménages pauvres", layername: "total_pilotes_insee_menages_pauvres"},
                 {title:"Niveau de vie moyen", layername: "total_pilotes_insee_niveau_de_vie"},
-                {title:"Taux de chômage", layername: "pilotes_insee_partmoins18"}, //manquant
+                // {title:"Taux de chômage", layername: "pilotes_insee_partmoins18"}, //manquant
             ]
         },
         {
             thematique: "Inclusion numérique",
             indicators: [
-                {title:"Indicateur de fragilité numérique", layername: "pilotes_mednum_fragilite_numerique"},
+                {title:"Indicateur de fragilité numérique", layername: "total_pilotes_mednum_fragilite_numerique"},
             ]
         },
         {
             thematique: "Zonage",
             indicators: [
-                {title:"Limites administratives", layername: "pilotes_insee_menages_pauvres"}, //manquant
+                // {title:"Limites administratives", layername: "pilotes_insee_menages_pauvres"}, //manquant
                 {title:"Quartiers prioritaires de la ville", layername: "ANCT_QPV_wms"},
             ]
         },
@@ -63,7 +70,7 @@ export class IndicatorselectorComponent implements OnInit {
                 {title:"Densité médicale", layername: "total_sante_densite_medicale"},
                 {title:"Moyenne d'âge des médecins", layername: "total_sante_moyenne_age_medecin"},
                 {title:"Accessibilité aux soins de premier recours", layername: "total_sante_accessibilite"},
-                {title:"Zonage CPTS", layername: "pilotes_insee_menages_pauvres"}, // manquant
+                // {title:"Zonage CPTS", layername: "pilotes_insee_menages_pauvres"}, // manquant
             ]
         },
     ];

@@ -1,0 +1,3 @@
+::ng-deep .fr-footer__logo {
+    box-shadow: unset !important;
+}

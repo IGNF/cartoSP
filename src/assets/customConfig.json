@@ -19,6 +19,8 @@
       "BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN": [
         "ANCT_QPV_wms$GEOPORTAIL:OGC:WMS",
         "CartoSP_MVP_SP_frequentation$GEOPORTAIL:OGC:WMS",
+        "bassins_de_vie_france$GEOPORTAIL:OGC:WMS",
+        "frequentation_SP$GEOPORTAIL:OGC:WMS",
         "pilotes_mednum_fragilite_numerique$GEOPORTAIL:OGC:WMS",
         "total_pilotes_insee_densite_population$GEOPORTAIL:OGC:WMS",
         "total_pilotes_insee_menages_pauvres$GEOPORTAIL:OGC:WMS",
@@ -26,6 +28,7 @@
         "total_pilotes_insee_niveau_de_vie$GEOPORTAIL:OGC:WMS",
         "total_pilotes_insee_partmoins18$GEOPORTAIL:OGC:WMS",
         "total_pilotes_insee_partplus65$GEOPORTAIL:OGC:WMS",
+        "total_pilotes_mednum_fragilite_numerique$GEOPORTAIL:OGC:WMS",
         "total_sante_accessibilite$GEOPORTAIL:OGC:WMS",
         "total_sante_densite_medicale$GEOPORTAIL:OGC:WMS",
         "total_sante_moyenne_age_medecin$GEOPORTAIL:OGC:WMS",
@@ -1365,6 +1368,252 @@
         }
       ]
     },
+    "bassins_de_vie_france$GEOPORTAIL:OGC:WMS": {
+      "name": "bassins_de_vie_france",
+      "title": "Données INSEE pour Carto SP",
+      "description": "Bassin de vie issues des données INSEE",
+      "globalConstraint": {
+        "minScaleDenominator": 0.0,
+        "maxScaleDenominator": 62236752975597,
+        "bbox": {
+          "left": -5.4325,
+          "right": 9.7475,
+          "top": 51.2346875,
+          "bottom": 41.15
+        }
+      },
+      "serviceParams": {
+        "id": "OGC:WMS",
+        "version": "1.3.0",
+        "serverUrl": {
+          "BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN": "https://data.geopf.fr/private/wms-v/ows"
+        }
+      },
+      "defaultProjection": "EPSG:4326",
+      "queryable": true,
+      "metadata": [],
+      "styles": [
+        {
+          "name": "default-style-bassins_de_vie_france",
+          "title": "bassins_de_vie_france style"
+        }
+      ],
+      "legends": [
+        {
+          "format": "image/png",
+          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=bassins_de_vie_france"
+        }
+      ],
+      "formats": [
+        {
+          "name": "image/png",
+          "current": true
+        },
+        {
+          "name": "application/atom+xml",
+          "current": false
+        },
+        {
+          "name": "application/json;type=utfgrid",
+          "current": false
+        },
+        {
+          "name": "application/pdf",
+          "current": false
+        },
+        {
+          "name": "application/rss+xml",
+          "current": false
+        },
+        {
+          "name": "application/vnd.google-earth.kml+xml",
+          "current": false
+        },
+        {
+          "name": "application/vnd.google-earth.kml+xml;mode=networklink",
+          "current": false
+        },
+        {
+          "name": "application/vnd.google-earth.kmz",
+          "current": false
+        },
+        {
+          "name": "image/geotiff",
+          "current": false
+        },
+        {
+          "name": "image/geotiff8",
+          "current": false
+        },
+        {
+          "name": "image/gif",
+          "current": false
+        },
+        {
+          "name": "image/jpeg",
+          "current": false
+        },
+        {
+          "name": "image/png; mode=8bit",
+          "current": false
+        },
+        {
+          "name": "image/svg+xml",
+          "current": false
+        },
+        {
+          "name": "image/tiff",
+          "current": false
+        },
+        {
+          "name": "image/tiff8",
+          "current": false
+        },
+        {
+          "name": "image/vnd.jpeg-png",
+          "current": false
+        },
+        {
+          "name": "image/vnd.jpeg-png8",
+          "current": false
+        },
+        {
+          "name": "text/html; subtype=openlayers",
+          "current": false
+        },
+        {
+          "name": "text/html; subtype=openlayers2",
+          "current": false
+        },
+        {
+          "name": "text/html; subtype=openlayers3",
+          "current": false
+        }
+      ]
+    },
+    "frequentation_SP$GEOPORTAIL:OGC:WMS": {
+      "name": "frequentation_SP",
+      "title": "Services publics - cartographie des services publics - zones pilotes",
+      "description": "Ce jeu de données  est un jeu de données tests. Il contient les données de services publics sur trois départements pilotes Indre, Nord, Hautes Alpes.",
+      "globalConstraint": {
+        "minScaleDenominator": 0.0,
+        "maxScaleDenominator": 62236752975597,
+        "bbox": {
+          "left": -4.48375,
+          "right": 7.2965625,
+          "top": 51.112695313,
+          "bottom": 42.695234375
+        }
+      },
+      "serviceParams": {
+        "id": "OGC:WMS",
+        "version": "1.3.0",
+        "serverUrl": {
+          "BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN": "https://data.geopf.fr/private/wms-v/ows"
+        }
+      },
+      "defaultProjection": "EPSG:4326",
+      "queryable": true,
+      "metadata": [],
+      "styles": [
+        {
+          "name": "default-style-frequentation_SP",
+          "title": "frequentation_SP style"
+        }
+      ],
+      "legends": [
+        {
+          "format": "image/png",
+          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=frequentation_SP"
+        }
+      ],
+      "formats": [
+        {
+          "name": "image/png",
+          "current": true
+        },
+        {
+          "name": "application/atom+xml",
+          "current": false
+        },
+        {
+          "name": "application/json;type=utfgrid",
+          "current": false
+        },
+        {
+          "name": "application/pdf",
+          "current": false
+        },
+        {
+          "name": "application/rss+xml",
+          "current": false
+        },
+        {
+          "name": "application/vnd.google-earth.kml+xml",
+          "current": false
+        },
+        {
+          "name": "application/vnd.google-earth.kml+xml;mode=networklink",
+          "current": false
+        },
+        {
+          "name": "application/vnd.google-earth.kmz",
+          "current": false
+        },
+        {
+          "name": "image/geotiff",
+          "current": false
+        },
+        {
+          "name": "image/geotiff8",
+          "current": false
+        },
+        {
+          "name": "image/gif",
+          "current": false
+        },
+        {
+          "name": "image/jpeg",
+          "current": false
+        },
+        {
+          "name": "image/png; mode=8bit",
+          "current": false
+        },
+        {
+          "name": "image/svg+xml",
+          "current": false
+        },
+        {
+          "name": "image/tiff",
+          "current": false
+        },
+        {
+          "name": "image/tiff8",
+          "current": false
+        },
+        {
+          "name": "image/vnd.jpeg-png",
+          "current": false
+        },
+        {
+          "name": "image/vnd.jpeg-png8",
+          "current": false
+        },
+        {
+          "name": "text/html; subtype=openlayers",
+          "current": false
+        },
+        {
+          "name": "text/html; subtype=openlayers2",
+          "current": false
+        },
+        {
+          "name": "text/html; subtype=openlayers3",
+          "current": false
+        }
+      ]
+    },
     "pilotes_mednum_fragilite_numerique$GEOPORTAIL:OGC:WMS": {
       "name": "pilotes_mednum_fragilite_numerique",
       "title": "Données MedNum pour Carto SP",
@@ -2137,6 +2386,129 @@
         {
           "format": "image/png",
           "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=total_pilotes_insee_partplus65&apikey=BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN"
+        }
+      ],
+      "formats": [
+        {
+          "name": "image/png",
+          "current": true
+        },
+        {
+          "name": "application/atom+xml",
+          "current": false
+        },
+        {
+          "name": "application/json;type=utfgrid",
+          "current": false
+        },
+        {
+          "name": "application/pdf",
+          "current": false
+        },
+        {
+          "name": "application/rss+xml",
+          "current": false
+        },
+        {
+          "name": "application/vnd.google-earth.kml+xml",
+          "current": false
+        },
+        {
+          "name": "application/vnd.google-earth.kml+xml;mode=networklink",
+          "current": false
+        },
+        {
+          "name": "application/vnd.google-earth.kmz",
+          "current": false
+        },
+        {
+          "name": "image/geotiff",
+          "current": false
+        },
+        {
+          "name": "image/geotiff8",
+          "current": false
+        },
+        {
+          "name": "image/gif",
+          "current": false
+        },
+        {
+          "name": "image/jpeg",
+          "current": false
+        },
+        {
+          "name": "image/png; mode=8bit",
+          "current": false
+        },
+        {
+          "name": "image/svg+xml",
+          "current": false
+        },
+        {
+          "name": "image/tiff",
+          "current": false
+        },
+        {
+          "name": "image/tiff8",
+          "current": false
+        },
+        {
+          "name": "image/vnd.jpeg-png",
+          "current": false
+        },
+        {
+          "name": "image/vnd.jpeg-png8",
+          "current": false
+        },
+        {
+          "name": "text/html; subtype=openlayers",
+          "current": false
+        },
+        {
+          "name": "text/html; subtype=openlayers2",
+          "current": false
+        },
+        {
+          "name": "text/html; subtype=openlayers3",
+          "current": false
+        }
+      ]
+    },
+    "total_pilotes_mednum_fragilite_numerique$GEOPORTAIL:OGC:WMS": {
+      "name": "total_pilotes_mednum_fragilite_numerique",
+      "title": "Données MedNum pour Carto SP",
+      "description": "Cette ressource  présente l'indicateur de fragilité numérique en vue d'une utilisation au sein du projet de cartographie des services publics",
+      "globalConstraint": {
+        "minScaleDenominator": 0.0,
+        "maxScaleDenominator": 62236752975597,
+        "bbox": {
+          "left": 0.8134375,
+          "right": 7.1384375,
+          "top": 51.112695313,
+          "bottom": 44.159140625
+        }
+      },
+      "serviceParams": {
+        "id": "OGC:WMS",
+        "version": "1.3.0",
+        "serverUrl": {
+          "BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN": "https://data.geopf.fr/private/wms-v/ows"
+        }
+      },
+      "defaultProjection": "EPSG:4326",
+      "queryable": true,
+      "metadata": [],
+      "styles": [
+        {
+          "name": "default-style-total_pilotes_mednum_fragilite_numerique",
+          "title": "total_pilotes_mednum_fragilite_numerique style"
+        }
+      ],
+      "legends": [
+        {
+          "format": "image/png",
+          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=total_pilotes_mednum_fragilite_numerique"
         }
       ],
       "formats": [
