@@ -14,7 +14,8 @@
     "@gouvfr/dsfr": "^1.11.0",
     "geopf-extensions-openlayers": "./lib/geopf-extensions-openlayers-1.0.0-beta.3-374.tgz",
     "geoportal-access-lib": "^3.4.4",
-    "ol": "^10.3.1"
+    "ol": "^10.3.1",
+    "opening_hours": "^3.8.0"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^17.3.6",

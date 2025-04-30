@@ -100,7 +100,7 @@ export class SpwfsfilterComponent implements OnInit {
     this.control = new WfsFilter({
       position: "top-left",
       panel: true,
-      cartospLayerName: "services_publics_test_20250331_v2:carto_sp_interne",
+      cartospLayerName: "services_publics_test_20250428_v2:carto_sp_20250428_2",
       cartospThemesInfo: ThemesInfo
     });
 

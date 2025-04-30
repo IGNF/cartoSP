@@ -25,9 +25,15 @@
 }
 
 <!-- Titres -->
-<h3 class="fr-h3">{{ data.selectedSP.permanence_nom || data.selectedSP.service_nom }}</h3>
-<h6 class="fr-h7">{{ data.selectedSP.permanence_typologie || data.selectedSP.service_typologie }}</h6>
-<h6 class="fr-h6">{{ data.selectedSP.permanence_thematique || data.selectedSP.service_thematique }}</h6>
+ @if(typeStructure === "Permanence"){
+    <h3 class="fr-h3">{{ data.selectedSP.permanence_nom}}</h3>
+    <h6 class="fr-h7">{{ data.selectedSP.permanence_typologie }}</h6>
+    <h6 class="fr-h6">{{ data.selectedSP.permanence_thematique }}</h6>
+ } @else {
+    <h3 class="fr-h3">{{ data.selectedSP.service_nom }}</h3>
+    <h6 class="fr-h7">{{ data.selectedSP.service_typologie }}</h6>
+    <h6 class="fr-h6">{{ data.selectedSP.service_thematique }}</h6>
+ }
 <!-- Onglets d'informations -->
 <dsfr-tabs
   [selectedTabIndex]="selectedTabIndex"
@@ -52,15 +58,15 @@
     </div>
     <div class="info-list">
         <span class="fr-icon-phone-fill fr-icon--md info-icon" aria-hidden="true"></span>
-        <div class="info-content"> {{ data.selectedSP.service_telephone || "Aucune information" }}</div>
+        <div class="info-content">{{ data.selectedSP.service_telephone || "Aucune information" }}</div>
     </div>
     <div class="info-list">
         <span class="fr-icon-mail-fill fr-icon--md info-icon" aria-hidden="true"></span>
-        <div class="info-content"> {{ data.selectedSP.service_courriel || "Aucune information" }}</div>
+        <div class="info-content">{{ data.selectedSP.service_courriel || "Aucune information" }}</div>
     </div>
     <div class="info-list">
         <span class="fr-icon-global-fill fr-icon--md info-icon" aria-hidden="true"></span>
-        <div class="info-content"> {{ data.selectedSP.service_site_internet || "Aucune information" }}</div>
+        <div class="info-content">{{ data.selectedSP.service_site_internet || "Aucune information" }}</div>
     </div>
     <div class="info-list">
         <span class="fr-icon-accessibility  fr-icon--md info-icon" aria-hidden="true"></span>
@@ -71,18 +77,30 @@
         <div class="frequence">
             <p>Fréquentation annuelle (visiteurs/an)</p>
             <div id="freq-small">
-                <span>{{ data.selectedSP.permanence_frequentation_annuelle || data.selectedSP.service_frequentation_annuelle || "Inconnue" }}</span>
-                @if (data.selectedSP.service_frequentation_annuelle_ref || data.selectedSP.permanence_frequentation_annuelle_ref) {
-                    <br>
-                    <small>(Année de référence: {{ data.selectedSP.service_frequentation_annuelle_ref || data.selectedSP.permanence_frequentation_annuelle_ref }})</small>
-                } 
+                @if (typeStructure == "Permanence") {
+                    <span>{{ data.selectedSP.permanence_frequentation_annuelle || "Inconnue" }}</span>
+                    @if (data.selectedSP.permanence_frequentation_annuelle_ref) {
+                        <br>
+                        <small>(Année de référence: {{ data.selectedSP.permanence_frequentation_annuelle_ref }})</small>
+                    } 
+                } @else {
+                    <span>{{ data.selectedSP.service_frequentation_annuelle || "Inconnue" }}</span>
+                    @if (data.selectedSP.service_frequentation_annuelle_ref) {
+                        <br>
+                        <small>(Année de référence: {{ data.selectedSP.service_frequentation_annuelle_ref }})</small>
+                    } 
+                }
             </div>
         </div>
     </div>
     <!-- Modalités d'accès -->
     <div class="info-list info-modalite">
         <span class="fr-icon-calendar-event-fill fr-icon--md info-icon" aria-hidden="true"></span>
-        <div class="info-content"> {{ data.selectedSP.permanence_modalite_d_accueil  || data.selectedSP.service_modalite_d_accueil || "Aucune informations sur les modalités d'accueil" }}</div>
+        @if (typeStructure == "Permanence") {
+            <div class="info-content"> {{ data.selectedSP.permanence_modalite_d_accueil || "Aucune informations sur les modalités d'accueil" }}</div>
+        } @else {
+            <div class="info-content"> {{ data.selectedSP.service_modalite_d_accueil || "Aucune informations sur les modalités d'accueil" }}</div>
+        }
     </div>
     <!-- Horaires -->
     <dsfr-accordion
@@ -90,8 +108,8 @@
     [headingAriaLabel]="'Horaires d\'ouverture'"
     [expanded]="true"
     >     
-        @if(data.selectedSP.service_horaires_ouverture){
-            @for (entry of buildTimeTable(data.selectedSP.service_horaires_ouverture); track entry.day) {
+        @if(data.selectedSP.service_horaires_ouverture != null && serviceOpeningHours.weekstable == true){
+            @for (entry of serviceOpeningHours.openingHours; track entry.day) {
                 <div class="spopening">
                     <div class="spopening-day">{{ entry.day }}</div>
                     <div class="spopening-hours">
@@ -103,6 +121,24 @@
                     </div>
                 </div>
             } 
+        }
+        @else if(data.selectedSP.service_horaires_ouverture && serviceOpeningHours.weekstable == false) {
+            <div class="spopening">
+                <div class="spopening-day">Dates</div>
+                <div class="spopening-date">
+                    @for (date of serviceOpeningHours.openingHours.dates; track date) {
+                        <p>{{ date }}</p>
+                    }
+                </div>
+            </div>
+            <div class="spopening">
+                <div class="spopening-day">Horaires</div>
+                <div class="spopening-date-hours">
+                    @for (halfday of serviceOpeningHours.openingHours.time; track halfday) {
+                        <p>{{ halfday }}</p>
+                    }
+                </div>
+            </div>
         }@else{
             <div class="spopening">
                 Information indisponible pour ce service
@@ -114,23 +150,25 @@
     @if(responseList) {
         @switch (typeStructure) {
             @case ('Permanence') {
-                <dsfr-tab
-                    tabId="AutresPermanencesTab"
-                    label="Autres permanence(s)"
-                    [disabled]="false"
-                >
-                    <h4 class="fr-h4 fr-h4-tab">Autre(s) permanence(s) hébergée(s) dans ce lieu</h4>
-                    @for (entry of responseList; track responseList) { 
-                        @if(entry.permanence_nom != data.selectedSP.permanence_nom){      
-                            <div>
-                                <div class="info-list">
-                                    <span class="fr-icon-map-pin-2-fill fr-icon--md info-icon" aria-hidden="true"></span>
-                                    <div class="info-content"> {{ entry.permanence_nom || "Aucune information" }}</div>
+                @if(responseList.length > 1){ 
+                    <dsfr-tab
+                        tabId="AutresPermanencesTab"
+                        label="Autres permanence(s)"
+                        [disabled]="false"
+                    >
+                        <h4 class="fr-h4 fr-h4-tab">Autre(s) permanence(s) hébergée(s) dans ce lieu</h4>
+                        @for (entry of responseList; track responseList) { 
+                            @if(entry.permanence_nom != data.selectedSP.permanence_nom){      
+                                <div>
+                                    <div class="info-list">
+                                        <span class="fr-icon-map-pin-2-fill fr-icon--md info-icon" aria-hidden="true"></span>
+                                        <div class="info-content"> {{ entry.permanence_nom || "Aucune information" }}</div>
+                                    </div>
                                 </div>
-                            </div>
-                        }
-                    } 
-                </dsfr-tab>
+                            }
+                        } 
+                    </dsfr-tab>
+                }
             }
             @case ('Itinérance') {
                 <dsfr-tab
@@ -154,7 +192,7 @@
                     } 
                 </dsfr-tab>
             }
-            @default {
+            @case ('Implantation') {
                 <dsfr-tab
                     tabId="PermanencesTab"
                     label="Permanence(s) hébergée(s)"

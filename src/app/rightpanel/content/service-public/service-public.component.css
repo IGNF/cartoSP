@@ -98,7 +98,11 @@
     text-align: right;
 }
 
-.spopening-hours > p {
+.spopening-date, .spopening-date-hours{
+    width: 60%;
+}
+
+.spopening-hours > p, .spopening-date > p, .spopening-date-hours > p {
     margin-bottom: 0px;
 }
 

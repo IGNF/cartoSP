@@ -6,9 +6,10 @@ import { RightpanelService } from '../../rightpanel.service';
 import { ApicartospService } from './../../../services/apicartosp.service';
 import { LocalisationComponent } from '../../content/localisation/localisation.component';
 
+import opening_hours from 'opening_hours';
+
 interface days {
   day: string;
-  eng: string;
   time: Array<String>;
 }
 
@@ -28,6 +29,7 @@ export class ServicePublicComponent implements OnInit {
   tabsAriaLabel = "Onglets informations SP"
   fullViewport = true;
   typeStructure?: string;
+  serviceOpeningHours?: any|null;
   responseList?: Array<any>|null;
   serviceName?: string|null;
 
@@ -39,16 +41,18 @@ export class ServicePublicComponent implements OnInit {
     switch (this.typeStructure) {
       case "Implantation":
         this.getResponseList(this.data.selectedSP.service_id);
+        this.serviceOpeningHours = this.buildTimeTable(this.data.selectedSP.service_horaires_ouverture);
         break;
       case "Permanence":
         this.getServiceName(this.data.selectedSP.service_id);
         this.getResponseList(this.data.selectedSP.service_id);
+        this.serviceOpeningHours = this.buildTimeTable(this.data.selectedSP.permanence_horaires);
         break;
       default:
         this.getResponseList(this.data.selectedSP.service_id);
+        this.serviceOpeningHours = this.buildTimeTable(this.data.selectedSP.service_horaires_ouverture);
       ;
     }
-    
   }
 
   getServiceName(service_code: string) {
@@ -71,7 +75,7 @@ export class ServicePublicComponent implements OnInit {
     }else{
       this.apicartospService.getServicePermanences(service_code).subscribe({
         next : (response: Array<string>) => {
-          if(response.length > 1) this.responseList = response;
+          if(response.length != 0) this.responseList = response;
         },
         error : (error: any) => { console.error('Error fetching permanences list:', error) }
       });
@@ -83,56 +87,120 @@ export class ServicePublicComponent implements OnInit {
   }
 
   buildTimeTable(data: string){
-    // resultat à compléter et retourner
-    var days : Array<days>;
-    days = [
-      {day: "Lundi", eng: "Mo", time: []},
-      {day: "Mardi", eng: "Tu", time: []},
-      {day: "Mercredi", eng: "We", time: []},
-      {day: "Jeudi", eng: "Th", time: []},
-      {day: "Vendredi", eng: "Fr", time: []},
-      {day: "Samedi", eng: "Sa", time: []},
-      {day: "Dimanche", eng: "Su", time: []},
-    ];
+    if(data){
+      var openingHours = new opening_hours(data);
+      var weekstable = openingHours.isWeekStable();
+      console.log(data);
+      //console.log(openingHours);
+      if(weekstable) {
+        const { monday, sunday } = this.getThisWeek();
+        var days : Array<days>;
+        days = [
+          {day: "lundi", time: []},
+          {day: "mardi", time: []},
+          {day: "mercredi", time: []},
+          {day: "jeudi", time: []},
+          {day: "vendredi", time: []},
+          {day: "samedi", time: []},
+          {day: "dimanche", time: []},
+        ];
+        var list = openingHours.getOpenIntervals(monday, sunday);
+        var daydata: string;
+        var starthour;
+        var endhour;
+        var foundentry;
+                
+        list.forEach((entry : any) => {      
+          daydata = new Intl.DateTimeFormat("fr-FR", { weekday: "long" }).format(entry[0]);
+          starthour = new Intl.DateTimeFormat("fr-FR", { timeStyle: "short", timeZone: "Europe/Paris" }).format(entry[0]);
+          endhour = new Intl.DateTimeFormat("fr-FR", { timeStyle: "short", timeZone: "Europe/Paris" }).format(entry[1]);
+          foundentry = days.find(({ day }) => day === daydata);
+          foundentry?.time.push(starthour + " - " + endhour);
+        });
+        return {openingHours : days, weekstable: weekstable};
+      } else {
+        // itinerant date specifiques
+        var dayspecific : any;
+        dayspecific = {dates: [], time: []};
+        var starthour;
+        var endhour;
+        var currentYear = new Date().getFullYear();
+        var list = openingHours.getOpenIntervals(new Date("01 Jan" + currentYear), new Date("31 Dec" + currentYear));
+        const options = {
+          weekday: "long",
+          month: "long",
+          day: "numeric",
+        };
+        //console.log(entry[0].toLocaleDateString("fr-FR", options)); // full date
+        list.forEach((entry : any) => {  
+          dayspecific.dates.push(entry[0].toLocaleDateString("fr-FR", options))
+          starthour = new Intl.DateTimeFormat("fr-FR", { timeStyle: "short", timeZone: "Europe/Paris" }).format(entry[0]);
+          endhour = new Intl.DateTimeFormat("fr-FR", { timeStyle: "short", timeZone: "Europe/Paris" }).format(entry[1]);
+          dayspecific.time.push(starthour + " - " + endhour);
+        });
+        dayspecific.dates = [...new Set(dayspecific.dates)];
+        dayspecific.time = [...new Set(dayspecific.time)];
+        return {openingHours : dayspecific, weekstable: weekstable};
+      }
+      // console.log(openingHours.getNextChange(from));
+      // resultat à compléter et retourner
+      /*var days : Array<days>;
+      days = [
+        {day: "Lundi", eng: "Mo", time: []},
+        {day: "Mardi", eng: "Tu", time: []},
+        {day: "Mercredi", eng: "We", time: []},
+        {day: "Jeudi", eng: "Th", time: []},
+        {day: "Vendredi", eng: "Fr", time: []},
+        {day: "Samedi", eng: "Sa", time: []},
+        {day: "Dimanche", eng: "Su", time: []},
+      ];
 
-    // Liste des jours à comparer
-    var listTime = data.split('; ');
-    var dayString = "";
-    var daysEng = [];
-    var timePlage: Array<string> = [];
-    var timestring = "";
-    var foundIndex;
-    var daysList = [];
+      // Liste des jours à comparer
+      var listTime = data.split('; ');
+      var dayString = "";
+      var daysEng = [];
+      var timePlage: Array<string> = [];
+      var timestring = "";
+      var foundIndex;
+      var daysList = [];
 
-    listTime.forEach((time) => {
-      dayString = time.split(" ")[0];
-      daysEng = dayString.split(",");
-      timestring = time.split(" ")[1];
-      timePlage = timestring.split(",");
-      
-      daysEng.forEach((dayEng) => {
-        if(dayEng.includes("-")){
-          daysList = this.splitDays(dayEng.split("-")[0], dayEng.split("-")[1]);
-          daysList.forEach((entry) => {
-            foundIndex = days.findIndex((days) => (days.eng == entry));
+      listTime.forEach((time) => {
+        dayString = time.split(" ")[0];
+        daysEng = dayString.split(",");
+        timestring = time.split(" ")[1];
+        timePlage = timestring.split(",");
+        
+        daysEng.forEach((dayEng) => {
+          if(dayEng.includes("-")){
+            daysList = this.splitDays(dayEng.split("-")[0], dayEng.split("-")[1]);
+            daysList.forEach((entry) => {
+              foundIndex = days.findIndex((days) => (days.eng == entry));
+              days[foundIndex].time = timePlage;
+            });
+          }else{
+            foundIndex = days.findIndex((days) => (days.eng == dayEng));
             days[foundIndex].time = timePlage;
-          });
-        }else{
-          foundIndex = days.findIndex((days) => (days.eng == dayEng));
-          days[foundIndex].time = timePlage;
-        }
-      });
-    });
+          }
+        });
+      });*/
 
-    return days;
+      //return days;
+    } else {
+      return null;
+    }
   }
 
-  splitDays(first: string, last: string) {
-    var week = new Array('Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa');
-  
-    var firstIndex = week.indexOf(first);          //Find first day
-    week = week.concat(week.splice(0,firstIndex)); //Shift array so that first day is index 0
-    var lastIndex = week.indexOf(last);            //Find last day
-    return week.slice(0,lastIndex+1);              //Cut from first day to last day
+  getMonday(d: Date) {
+    var date = new Date(d)
+    const day = date.getDay()
+    const diff = date.getDate() - day + (day === 0 ? -6 : 1)
+    return new Date(d.setDate(diff))
+  }
+
+  getThisWeek() {
+    const monday = this.getMonday(new Date())
+    const sunday = new Date(monday)
+    sunday.setDate(sunday.getDate() + 6)
+    return { monday, sunday }
   }
 }
