@@ -98,8 +98,12 @@
     text-align: right;
 }
 
-.spopening-date, .spopening-date-hours{
+.spopening-date-hours{
     width: 60%;
+}
+
+.spopening-date {
+    width: 65%;
 }
 
 .spopening-hours > p, .spopening-date > p, .spopening-date-hours > p {

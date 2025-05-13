@@ -90,8 +90,6 @@ export class ServicePublicComponent implements OnInit {
     if(data){
       var openingHours = new opening_hours(data);
       var weekstable = openingHours.isWeekStable();
-      console.log(data);
-      //console.log(openingHours);
       if(weekstable) {
         const { monday, sunday } = this.getThisWeek();
         var days : Array<days>;
@@ -131,7 +129,7 @@ export class ServicePublicComponent implements OnInit {
           month: "long",
           day: "numeric",
         };
-        //console.log(entry[0].toLocaleDateString("fr-FR", options)); // full date
+
         list.forEach((entry : any) => {  
           dayspecific.dates.push(entry[0].toLocaleDateString("fr-FR", options))
           starthour = new Intl.DateTimeFormat("fr-FR", { timeStyle: "short", timeZone: "Europe/Paris" }).format(entry[0]);
@@ -142,52 +140,9 @@ export class ServicePublicComponent implements OnInit {
         dayspecific.time = [...new Set(dayspecific.time)];
         return {openingHours : dayspecific, weekstable: weekstable};
       }
-      // console.log(openingHours.getNextChange(from));
-      // resultat à compléter et retourner
-      /*var days : Array<days>;
-      days = [
-        {day: "Lundi", eng: "Mo", time: []},
-        {day: "Mardi", eng: "Tu", time: []},
-        {day: "Mercredi", eng: "We", time: []},
-        {day: "Jeudi", eng: "Th", time: []},
-        {day: "Vendredi", eng: "Fr", time: []},
-        {day: "Samedi", eng: "Sa", time: []},
-        {day: "Dimanche", eng: "Su", time: []},
-      ];
-
-      // Liste des jours à comparer
-      var listTime = data.split('; ');
-      var dayString = "";
-      var daysEng = [];
-      var timePlage: Array<string> = [];
-      var timestring = "";
-      var foundIndex;
-      var daysList = [];
-
-      listTime.forEach((time) => {
-        dayString = time.split(" ")[0];
-        daysEng = dayString.split(",");
-        timestring = time.split(" ")[1];
-        timePlage = timestring.split(",");
-        
-        daysEng.forEach((dayEng) => {
-          if(dayEng.includes("-")){
-            daysList = this.splitDays(dayEng.split("-")[0], dayEng.split("-")[1]);
-            daysList.forEach((entry) => {
-              foundIndex = days.findIndex((days) => (days.eng == entry));
-              days[foundIndex].time = timePlage;
-            });
-          }else{
-            foundIndex = days.findIndex((days) => (days.eng == dayEng));
-            days[foundIndex].time = timePlage;
-          }
-        });
-      });*/
-
-      //return days;
-    } else {
-      return null;
-    }
+    } 
+    
+    return null;
   }
 
   getMonday(d: Date) {

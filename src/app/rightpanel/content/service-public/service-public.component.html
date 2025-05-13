@@ -108,7 +108,7 @@
     [headingAriaLabel]="'Horaires d\'ouverture'"
     [expanded]="true"
     >     
-        @if(data.selectedSP.service_horaires_ouverture != null && serviceOpeningHours.weekstable == true){
+        @if((data.selectedSP.service_horaires_ouverture != null || data.selectedSP.permanence_horaires != null) && serviceOpeningHours.weekstable == true){
             @for (entry of serviceOpeningHours.openingHours; track entry.day) {
                 <div class="spopening">
                     <div class="spopening-day">{{ entry.day }}</div>
@@ -122,7 +122,7 @@
                 </div>
             } 
         }
-        @else if(data.selectedSP.service_horaires_ouverture && serviceOpeningHours.weekstable == false) {
+        @else if((data.selectedSP.service_horaires_ouverture != null || data.selectedSP.permanence_horaires != null) && serviceOpeningHours.weekstable == false) {
             <div class="spopening">
                 <div class="spopening-day">Dates</div>
                 <div class="spopening-date">
