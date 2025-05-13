@@ -108,37 +108,38 @@
     [headingAriaLabel]="'Horaires d\'ouverture'"
     [expanded]="true"
     >     
-        @if((data.selectedSP.service_horaires_ouverture != null || data.selectedSP.permanence_horaires != null) && serviceOpeningHours.weekstable == true){
-            @for (entry of serviceOpeningHours.openingHours; track entry.day) {
+        @if(serviceOpeningHours) {
+            @if(serviceOpeningHours.weekstable == true){
+                @for (entry of serviceOpeningHours.openingHours; track entry.day) {
+                    <div class="spopening">
+                        <div class="spopening-day">{{ entry.day }}</div>
+                        <div class="spopening-hours">
+                            @for (halfday of entry.time; track halfday) {
+                                <p>{{ halfday }}</p>
+                            } @empty {
+                                <p>Fermé</p>
+                            }
+                        </div>
+                    </div>
+                } 
+            }@else {
                 <div class="spopening">
-                    <div class="spopening-day">{{ entry.day }}</div>
-                    <div class="spopening-hours">
-                        @for (halfday of entry.time; track halfday) {
-                            <p>{{ halfday }}</p>
-                        } @empty {
-                            <p>Fermé</p>
+                    <div class="spopening-day">Dates</div>
+                    <div class="spopening-date">
+                        @for (date of serviceOpeningHours.openingHours.dates; track date) {
+                            <p>{{ date }}</p>
                         }
                     </div>
                 </div>
-            } 
-        }
-        @else if((data.selectedSP.service_horaires_ouverture != null || data.selectedSP.permanence_horaires != null) && serviceOpeningHours.weekstable == false) {
-            <div class="spopening">
-                <div class="spopening-day">Dates</div>
-                <div class="spopening-date">
-                    @for (date of serviceOpeningHours.openingHours.dates; track date) {
-                        <p>{{ date }}</p>
-                    }
+                <div class="spopening">
+                    <div class="spopening-day">Horaires</div>
+                    <div class="spopening-date-hours">
+                        @for (halfday of serviceOpeningHours.openingHours.time; track halfday) {
+                            <p>{{ halfday }}</p>
+                        }
+                    </div>
                 </div>
-            </div>
-            <div class="spopening">
-                <div class="spopening-day">Horaires</div>
-                <div class="spopening-date-hours">
-                    @for (halfday of serviceOpeningHours.openingHours.time; track halfday) {
-                        <p>{{ halfday }}</p>
-                    }
-                </div>
-            </div>
+            }
         }@else{
             <div class="spopening">
                 Information indisponible pour ce service
