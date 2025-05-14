@@ -48,7 +48,8 @@
   >
     <!-- Nom du service parent pour les permanences-->
     @if (typeStructure == "Permanence" && serviceName != null) {
-        <p>Permanence hébergée dans les locaux de <strong>{{ serviceName }}</strong></p>
+        <div class="permanence-hebergement">Permanence hébergée dans les locaux de</div>
+        <p>{{ serviceName }}</p>
     }
     
     <!-- Informations générales -->

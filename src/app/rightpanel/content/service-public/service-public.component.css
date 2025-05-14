@@ -34,8 +34,12 @@
     display: inline;
 }
 
-.info-list > .info-icon, .info-access > .info-icon{
+.info-list > .info-icon, .info-access > .info-icon, .permanence-hebergement{
     color: var(--text-action-high-blue-france);
+}
+
+.permanence-hebergement{
+    font-size: 0.9rem;
 }
 
 .info-list > .info-content {

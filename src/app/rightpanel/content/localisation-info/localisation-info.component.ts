@@ -92,48 +92,58 @@ export class LocalisationInfoComponent implements OnInit {
   selectSpList = [
     {label: "Tous les services publics", value: 'tous'},
     {label: "Administration locale", options: [
+      {label: "Conseil départemental", value: "Conseil départemental"}, 
       {label: "France services", value: "France services"}, 
       {label: "Mairie", value: "Mairie"}, 
+      {label: "Maison départementale des solidarités (MDS)", value: "Maison départementale des solidarités (MDS)"}, 
       {label: "Point d'accueil numérique (Préfecture et Sous-préfecture)", value: "Point d'accueil numérique (Préfecture et Sous-préfecture)"},
       {label: "Préfecture", value: "Préfecture"}, 
       {label: "Sous-préfecture", value: "Sous-préfecture"}
-    ]}, 
-    {label: "Droit, justice", options: [
-      {label: "Conseil départemental d'accès au droit (CDAD)", value: "Conseil départemental d'accès au droit (CDAD)"}, 
-      {label: "Point-justice - France services ou relais d'accès au droit", value: "Point-justice - France services ou relais d'accès au droit"}, 
-      {label: "Point-justice - Maison de la justice et du droit", value: "Point-justice - Maison de la justice et du droit"},
-      {label: "Tribunal judiciaire", value: "Tribunal judiciaire"}
-    ]},
-    {label: "Economie, finances, consommation", options: [
-      {label: "Trésorerie", value: "Trésoreri"}, 
-      {label: "Service des impôts des entreprises (SIE)", value: "Service des impôts des entreprises (SIE)"}, 
-      {label: "Service des impôts des particuliers (SIP)", value: "Service des impôts des particuliers (SIP)"}
     ]},
     {label: "Social, santé", options: [
-      {label: "Maison de santé (L.6223-3)", value: "Maison de santé (L.6223-3)"},
-      {label: "Service d’aide médicale urgente (Samu)", value: "Service d’aide médicale urgente (Samu)"},
-      {label: "Centre de Santé", value: "Centre de Santé"},
-      {label: "Centres Locaux Information Coordination P.A .(C.L.I.C.)", value: "Centres Locaux Information Coordination P.A .(C.L.I.C.)"},
+      {label: "Caisse commune de Sécurité sociale (CCSS)", value: "Caisse commune de Sécurité sociale (CCSS)"},
       {label: "Caisse d'allocations familiales (Caf)", value: "Caisse d'allocations familiales (Caf)"},
       {label: "Caisse d'assurance retraite et de la santé au travail (Carsat)", value: "Caisse d'assurance retraite et de la santé au travail (Carsat)"},
-      {label: "Caisse primaire d’assurance maladie (CPAM)", value: "Caisse primaire d’assurance maladie (CPAM)"},
+      {label: "Caisse primaire d'assurance maladie (CPAM)", value: "Caisse primaire d'assurance maladie (CPAM)"},
+      {label: "Centre communal d'action sociale (CCAS)", value: "Centre communal d'action sociale (CCAS)"},
+      {label: "Centre de Santé", value: "Centre de Santé"},
       {label: "Centre Hospitalier (C.H.)", value: "Centre Hospitalier (C.H.)"},
       {label: "Centre Hospitalier Régional (C.H.R.)", value: "Centre Hospitalier Régional (C.H.R.)"},
       {label: "Centre hospitalier universitaire (CHU)", value: "Centre hospitalier universitaire (CHU)"},
+      {label: "Centres Locaux Information Coordination P.A .(C.L.I.C.)", value: "Centres Locaux Information Coordination P.A .(C.L.I.C.)"},
       {label: "Centres sociaux", value: "Centres sociaux"},
+      {label: "Communautés professionnelles territoriales de santé (CPTS)", value: "Communautés professionnelles territoriales de santé (CPTS)"},
       {label: "Maison départementale des personnes handicapées (MDPH)", value: "Maison départementale des personnes handicapées (MDPH)"},
-      {label: "Mutualité sociale agricole (MSA), réseau local", value: "Mutualité sociale agricole (MSA), réseau local"},
+      {label: "Maisons des solidarités et antennes", value: "Maisons des solidarités et antennes"},
+      {label: "Mutualité sociale agricole (MSA)", value: "Mutualité sociale agricole (MSA)"},
+      {label: "Service d’aide médicale urgente (Samu)", value: "Service d’aide médicale urgente (Samu)"},
       {label: "Union de recouvrement des cotisations de sécurité sociale et d’allocations familiales (Urssaf)", value: "Union de recouvrement des cotisations de sécurité sociale et d’allocations familiales (Urssaf)"}
-    ]},
+    ]}, 
     {label: "Travail, emploi, formation", options: [
       {label: "France Travail", value: "France Travail"}, 
       {label: "Mission locale pour l'insertion professionnelle et sociale des jeunes (16-25 ans)", value: "Mission locale pour l'insertion professionnelle et sociale des jeunes (16-25 ans)"}
     ]},
+    {label: "Economie, finances, consommation", options: [
+      {label: "Direction départementale des finances publiques (DDFIP)", value: "Direction départementale des finances publiques (DDFIP)"}, 
+      {label: "Service des impôts des entreprises (SIE)", value: "Service des impôts des entreprises (SIE)"}, 
+      {label: "Service des impôts des particuliers (SIP)", value: "Service des impôts des particuliers (SIP)"},
+      {label: "Trésorerie", value: "Trésorerie"}
+    ]},
+    {label: "Droit, justice", options: [
+      {label: "Conseil départemental d'accès au droit (CDAD)", value: "Conseil départemental d'accès au droit (CDAD)"}, 
+      {label: "Point-justice", value: "Point-justice"}, 
+      {label: "Tribunal judiciaire", value: "Tribunal judiciaire"}
+    ]},
     {label: "Environnement, logement, transports", options: [
       {label: "Agence départementale d'information sur le logement (Adil)", value: "Agence départementale d'information sur le logement (Adil)"}, 
-      {label: "Agence nationale de l’habitat (ANAH) - réseau local", value: "Agence nationale de l’habitat (ANAH) - réseau local"},
+      {label: "Agence nationale de l’habitat (ANAH)", value: "Agence nationale de l’habitat (ANAH)"},
       {label: "Bureau d'aide aux victimes du tribunal judiciaire", value: "Bureau d'aide aux victimes du tribunal judiciaire"},
       {label: "Espace conseil France rénov'", value: "Espace conseil France rénov'"}
+    ]},
+    {label: "Sécurité, défense", options: [
+      {label: "Brigade de gendarmerie", value: "Brigade de gendarmerie"}, 
+      {label: "Commissariat de police", value: "Commissariat de police"},
+      {label: "Police municipale", value: "Police municipale"}
     ]},
   ];
 
@@ -186,17 +196,22 @@ export class LocalisationInfoComponent implements OnInit {
 
   selectSpChange(e: any){
     var options = {};
+    var optionsPerma = {};
 
     if(e != "tous"){
       options = Object.assign(options, {service_typologie: e});
+      optionsPerma = Object.assign(optionsPerma, {permanence_typologie: e});
     }
     
     if (this.data.type == "departement") {
       options = Object.assign(options, {lieu_code_departement: this.data.location.number});
+      optionsPerma = Object.assign(optionsPerma, {lieu_code_departement: this.data.location.number});
     } else if (this.data.type == "epci") {
       options = Object.assign(options, {lieu_code_epci: this.data.location.number});
+      optionsPerma = Object.assign(optionsPerma, {lieu_code_epci: this.data.location.number});
     } else {
       options = Object.assign(options, {lieu_code_insee: this.data.location.number});
+      optionsPerma = Object.assign(optionsPerma, {lieu_code_insee: this.data.location.number});
     }
 
     this.apicartospService.getTypeCount(Object.assign(options, {type_structure: "Implantation"})).subscribe({
@@ -206,14 +221,14 @@ export class LocalisationInfoComponent implements OnInit {
       error : (error: any) => { console.error('Error fetching Implantation count info:', error) }
     });
 
-    this.apicartospService.getTypeCount(Object.assign(options, {type_structure: "Permanence"})).subscribe({
+    this.apicartospService.getTypeCount(Object.assign(optionsPerma, {type_structure: "Permanence"})).subscribe({
       next : (response: any) => {
         this.nbpermanences = response;
       },
       error : (error: any) => { console.error('Error fetching Permanence count info:', error) }
     });
 
-    this.apicartospService.getTypeCount(Object.assign(options, {type_structure: "Itinérant"})).subscribe({
+    this.apicartospService.getTypeCount(Object.assign(options, {type_structure: "Itinérance"})).subscribe({
       next : (response: any) => {
         this.nbitinerants = response;
       },
