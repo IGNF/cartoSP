@@ -25,7 +25,7 @@
         "total_sante_nb_kines$GEOPORTAIL:OGC:WMS",
         "total_sante_nb_orthophonistes$GEOPORTAIL:OGC:WMS",
         "total_sante_nb_sagesfemmes$GEOPORTAIL:OGC:WMS",
-        "services_publics_test_20250428_v2:carto_sp_20250428_2$GEOPORTAIL:OGC:WFS",
+        "services_publics_test_20250515:poc_v7_5_4$GEOPORTAIL:OGC:WFS",
         "frequentation_SP_permanences$GEOPORTAIL:OGC:WMS",
         "frequentation_SP_v3$GEOPORTAIL:OGC:WMS",
         "cpts_20250513$GEOPORTAIL:OGC:WMS"
@@ -2747,18 +2747,18 @@
         }
       ]
     },
-    "services_publics_test_20250428_v2:carto_sp_20250428_2$GEOPORTAIL:OGC:WFS": {
-      "name": "services_publics_test_20250428_v2:carto_sp_20250428_2",
-      "title": "Services publics jeu test du 28/04/2025",
+    "services_publics_test_20250515:poc_v7_5_4$GEOPORTAIL:OGC:WFS": {
+      "name": "services_publics_test_20250515:poc_v7_5_4",
+      "title": "Services publics jeu test du 15/05/2025",
       "description": "Ce jeu de données  est un jeu de données tests. Il contient les données de services publics sur trois départements pilotes Indre, Nord, Hautes Alpes.",
       "globalConstraint": {
         "minScaleDenominator": 0.0,
         "maxScaleDenominator": 62236752975597,
         "bbox": {
-          "left": -4.48375,
-          "right": 7.2965625,
+          "left": 0.8925,
+          "right": 6.9803125,
           "top": 51.112695313,
-          "bottom": 42.695234375
+          "bottom": 44.199804688
         }
       },
       "serviceParams": {

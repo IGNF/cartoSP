@@ -29,7 +29,7 @@ export class LayerswitcherComponent implements OnInit {
     });
 
     this.control.addEventListener("layerswitcher:add", function (e: any) {
-      if(e.layer.name != undefined && e.target._layers[2] != undefined && e.target._layers[2].name == "services_publics_test_20250428_v2:carto_sp_20250428_2"){
+      if(e.layer.name != undefined && e.target._layers[2] != undefined && e.target._layers[2].name == "services_publics_test_20250515:poc_v7_5_4"){
         e.target._lastZIndex++;
         e.target._layers[2].layer.values_.zIndex = e.target._lastZIndex;
         e.target._updateLayersOrder();

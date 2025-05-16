@@ -13,6 +13,11 @@ interface days {
   time: Array<String>;
 }
 
+interface responseListType {
+  name : string,
+  openinghours: {weekstable: boolean, openingHours: Array<days>}|{weekstable: boolean, openingHours: Array<{ dates: Array<String>, time: Array<String>}>}|null
+}
+
 @Component({
   selector: 'app-service-public',
   standalone: true,
@@ -30,7 +35,7 @@ export class ServicePublicComponent implements OnInit {
   fullViewport = true;
   typeStructure?: string;
   serviceOpeningHours?: any|null;
-  responseList?: Array<any>|null;
+  responseList?: any|null;
   serviceName?: string|null;
 
   ngOnInit() {
@@ -65,17 +70,28 @@ export class ServicePublicComponent implements OnInit {
   }
 
   getResponseList(service_code: string) {
+    this.responseList = null;
     if(this.typeStructure == "Itinérance") {
       this.apicartospService.getCircuitItinerants(service_code).subscribe({
-        next : (response: Array<string>) => {
-          if(response.length != 0) this.responseList = response;
+        next : (response: Array<any>) => {
+          if(response.length != 0) {
+            this.responseList = [];
+            response.forEach((entry) =>{
+              this.responseList?.push({name: entry.lieu_adresse, openinghours : this.buildTimeTable(entry.service_horaires_ouverture)});
+            })
+          }  
         },
         error : (error: any) => { console.error('Error fetching circuit:', error) }
       });
     }else{
       this.apicartospService.getServicePermanences(service_code).subscribe({
-        next : (response: Array<string>) => {
-          if(response.length != 0) this.responseList = response;
+        next : (response: Array<any>) => {
+          if(response.length != 0) {
+            this.responseList = [];
+            response.forEach((entry) =>{
+              this.responseList?.push({name: entry.permanence_nom, openinghours : this.buildTimeTable(entry.service_horaires_ouverture)});
+            })
+          } 
         },
         error : (error: any) => { console.error('Error fetching permanences list:', error) }
       });
@@ -157,5 +173,18 @@ export class ServicePublicComponent implements OnInit {
     const sunday = new Date(monday)
     sunday.setDate(sunday.getDate() + 6)
     return { monday, sunday }
+  }
+
+  showTime(e: any): void {    
+    var element = document.getElementById(e.target.value);
+    if (element){
+      if (element.style.display === "none" || element.style.display === "") {
+        element.style.display = "inline-block";
+        e.target.innerHTML = e.target.innerHTML.replace("˅", "˄");
+      } else {
+        element.style.display = "none";
+        e.target.innerHTML = e.target.innerHTML.replace("˄", "˅");
+      }
+    }
   }
 }

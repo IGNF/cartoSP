@@ -73,6 +73,7 @@ export class SpwfsfilterComponent implements OnInit {
         "Droit, justice": {
             markerPath: "assets/images/mapmarker/droit-justice/",
             topologies: [
+                "Bureau d'aide aux victimes du tribunal judiciaire",
                 "Conseil départemental d'accès au droit (CDAD)",
                 "Point-justice",
                 "Tribunal judiciaire"
@@ -83,7 +84,6 @@ export class SpwfsfilterComponent implements OnInit {
             topologies: [
                 "Agence départementale d'information sur le logement (Adil)",
                 "Agence nationale de l'habitat (ANAH)",
-                "Bureau d'aide aux victimes du tribunal judiciaire",
                 "Espace conseil France rénov'"
             ]
         },
@@ -91,8 +91,7 @@ export class SpwfsfilterComponent implements OnInit {
             markerPath: "assets/images/mapmarker/securite/",
             topologies: [
                 "Brigade de gendarmerie",
-                "Commissariat de police",
-                "Police municipale"
+                "Commissariat de police"
             ]
         }
     };
@@ -100,7 +99,7 @@ export class SpwfsfilterComponent implements OnInit {
     this.control = new WfsFilter({
       position: "top-left",
       panel: true,
-      cartospLayerName: "services_publics_test_20250428_v2:carto_sp_20250428_2",
+      cartospLayerName: "services_publics_test_20250515:poc_v7_5_4",
       cartospThemesInfo: ThemesInfo
     });
 

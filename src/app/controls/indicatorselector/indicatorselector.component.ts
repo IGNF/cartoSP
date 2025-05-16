@@ -61,7 +61,7 @@ export class IndicatorselectorComponent implements OnInit {
                 {title:"Professionnels de premier recours", layername: ""}, // sous-theme
                 {title:"Médecins généralistes", layername: "total_sante_nb_generalistes"},
                 {title:"Infirmiers", layername: "total_sante_nb_infirmiers"},
-                {title:"Kinésithérapeuthes", layername: "total_sante_nb_kines"},
+                {title:"Kinésithérapeutes", layername: "total_sante_nb_kines"},
                 {title:"Chirurgiens-dentistes", layername: "total_sante_nb_dentistes"},
                 {title:"Orthophonistes", layername: "total_sante_nb_orthophonistes"},
                 {title:"Sages-femmes", layername: "total_sante_nb_sagesfemmes"},

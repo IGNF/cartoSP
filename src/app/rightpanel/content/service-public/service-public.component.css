@@ -34,7 +34,7 @@
     display: inline;
 }
 
-.info-list > .info-icon, .info-access > .info-icon, .permanence-hebergement{
+.info-list > .info-icon, .info-access > .info-icon, .permanence-hebergement {
     color: var(--text-action-high-blue-france);
 }
 
@@ -45,6 +45,20 @@
 .info-list > .info-content {
     padding-left: 10px;
     font-size: 0.9rem;
+}
+
+.opentimes{
+    width: 100%;
+    padding-left: 32px;
+    display: none;
+}
+
+.opentimes-btn {
+    margin-left: 32px;
+}
+
+.opentimes > .spopening > .spopening-day {
+    width: 30%;
 }
 
 .info-modalite {
