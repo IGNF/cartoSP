@@ -130,6 +130,7 @@ export class LocalisationInfoComponent implements OnInit {
       {label: "Trésorerie", value: "Trésorerie"}
     ]},
     {label: "Droit, justice", options: [
+      {label: "Bureau d'aide aux victimes du tribunal judiciaire", value: "Bureau d'aide aux victimes du tribunal judiciaire"},
       {label: "Conseil départemental d'accès au droit (CDAD)", value: "Conseil départemental d'accès au droit (CDAD)"}, 
       {label: "Point-justice", value: "Point-justice"}, 
       {label: "Tribunal judiciaire", value: "Tribunal judiciaire"}
@@ -137,13 +138,11 @@ export class LocalisationInfoComponent implements OnInit {
     {label: "Environnement, logement, transports", options: [
       {label: "Agence départementale d'information sur le logement (Adil)", value: "Agence départementale d'information sur le logement (Adil)"}, 
       {label: "Agence nationale de l’habitat (ANAH)", value: "Agence nationale de l’habitat (ANAH)"},
-      {label: "Bureau d'aide aux victimes du tribunal judiciaire", value: "Bureau d'aide aux victimes du tribunal judiciaire"},
       {label: "Espace conseil France rénov'", value: "Espace conseil France rénov'"}
     ]},
     {label: "Sécurité, défense", options: [
       {label: "Brigade de gendarmerie", value: "Brigade de gendarmerie"}, 
-      {label: "Commissariat de police", value: "Commissariat de police"},
-      {label: "Police municipale", value: "Police municipale"}
+      {label: "Commissariat de police", value: "Commissariat de police"}
     ]},
   ];
 
