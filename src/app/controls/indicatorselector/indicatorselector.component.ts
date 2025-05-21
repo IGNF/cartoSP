@@ -77,7 +77,6 @@ export class IndicatorselectorComponent implements OnInit {
             indicators: [
                 {title:"CAF 30 minutes en voiture", layername: "CAF_isochrone30"},
                 {title:"CPAM 30 minutes en voiture", layername: "CPAM_isochrone30"},
-                {title:"DFIP 30 minutes en voiture", layername: "DDFIP_isochrone30"},
                 {title:"France Renov' 30 minutes en voiture", layername: "FranceRenov_isochrone30"},
                 {title:"France Service 30 minutes en voiture", layername: "FranceService_isochrone30"},
                 {title:"France Travail 30 minutes en voiture", layername: "FranceTravail_isochrone30"},
