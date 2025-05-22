@@ -916,7 +916,7 @@
     },
     "CAF_isochrone30$GEOPORTAIL:OGC:WMS": {
       "name": "CAF_isochrone30",
-      "title": "Services publics - cartographie des services publics - zones pilotes",
+      "title": "CAF 30 minutes en voiture",
       "description": "Ce jeu de données  est un jeu de données tests. Il contient les données de services publics sur trois départements pilotes Indre, Nord, Hautes Alpes.",
       "globalConstraint": {
         "minScaleDenominator": 0.0,
@@ -947,7 +947,7 @@
       "legends": [
         {
           "format": "image/png",
-          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=CAF_isochrone30"
+          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=CAF_isochrone30&apikey=BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN"
         }
       ],
       "formats": [
@@ -1039,7 +1039,7 @@
     },
     "CPAM_isochrone30$GEOPORTAIL:OGC:WMS": {
       "name": "CPAM_isochrone30",
-      "title": "Services publics - cartographie des services publics - zones pilotes",
+      "title": "CPAM 30 minutes en voiture",
       "description": "Ce jeu de données  est un jeu de données tests. Il contient les données de services publics sur trois départements pilotes Indre, Nord, Hautes Alpes.",
       "globalConstraint": {
         "minScaleDenominator": 0.0,
@@ -1070,7 +1070,7 @@
       "legends": [
         {
           "format": "image/png",
-          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=CPAM_isochrone30"
+          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=CPAM_isochrone30&apikey=BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN"
         }
       ],
       "formats": [
@@ -1285,7 +1285,7 @@
     },
     "FranceRenov_isochrone30$GEOPORTAIL:OGC:WMS": {
       "name": "FranceRenov_isochrone30",
-      "title": "Services publics - cartographie des services publics - zones pilotes",
+      "title": "France Renov' 30 minutes en voiture",
       "description": "Ce jeu de données  est un jeu de données tests. Il contient les données de services publics sur trois départements pilotes Indre, Nord, Hautes Alpes.",
       "globalConstraint": {
         "minScaleDenominator": 0.0,
@@ -1316,7 +1316,7 @@
       "legends": [
         {
           "format": "image/png",
-          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=FranceRenov_isochrone30"
+          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=FranceRenov_isochrone30&apikey=BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN"
         }
       ],
       "formats": [
@@ -1408,7 +1408,7 @@
     },
     "FranceService_isochrone30$GEOPORTAIL:OGC:WMS": {
       "name": "FranceService_isochrone30",
-      "title": "Services publics - cartographie des services publics - zones pilotes",
+      "title": "France Service 30 minutes en voiture",
       "description": "Ce jeu de données  est un jeu de données tests. Il contient les données de services publics sur trois départements pilotes Indre, Nord, Hautes Alpes.",
       "globalConstraint": {
         "minScaleDenominator": 0.0,
@@ -1439,7 +1439,7 @@
       "legends": [
         {
           "format": "image/png",
-          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=FranceService_isochrone30"
+          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=FranceService_isochrone30&apikey=BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN"
         }
       ],
       "formats": [
@@ -1531,7 +1531,7 @@
     },
     "FranceTravail_isochrone30$GEOPORTAIL:OGC:WMS": {
       "name": "FranceTravail_isochrone30",
-      "title": "Services publics - cartographie des services publics - zones pilotes",
+      "title": "France Travail 30 minutes en voiture",
       "description": "Ce jeu de données  est un jeu de données tests. Il contient les données de services publics sur trois départements pilotes Indre, Nord, Hautes Alpes.",
       "globalConstraint": {
         "minScaleDenominator": 0.0,
@@ -1562,7 +1562,7 @@
       "legends": [
         {
           "format": "image/png",
-          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=FranceTravail_isochrone30"
+          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=FranceTravail_isochrone30&apikey=BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN"
         }
       ],
       "formats": [
@@ -1654,7 +1654,7 @@
     },
     "MDS_isochrone30$GEOPORTAIL:OGC:WMS": {
       "name": "MDS_isochrone30",
-      "title": "Services publics - cartographie des services publics - zones pilotes",
+      "title": "MDS 30 minutes en voiture",
       "description": "Ce jeu de données  est un jeu de données tests. Il contient les données de services publics sur trois départements pilotes Indre, Nord, Hautes Alpes.",
       "globalConstraint": {
         "minScaleDenominator": 0.0,
@@ -1685,7 +1685,7 @@
       "legends": [
         {
           "format": "image/png",
-          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=MDS_isochrone30"
+          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=MDS_isochrone30&apikey=BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN"
         }
       ],
       "formats": [
@@ -1777,7 +1777,7 @@
     },
     "MSA_isochrone30$GEOPORTAIL:OGC:WMS": {
       "name": "MSA_isochrone30",
-      "title": "Services publics - cartographie des services publics - zones pilotes",
+      "title": "MSA 30 minutes en voiture",
       "description": "Ce jeu de données  est un jeu de données tests. Il contient les données de services publics sur trois départements pilotes Indre, Nord, Hautes Alpes.",
       "globalConstraint": {
         "minScaleDenominator": 0.0,
@@ -1808,7 +1808,7 @@
       "legends": [
         {
           "format": "image/png",
-          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=MSA_isochrone30"
+          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=MSA_isochrone30&apikey=BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN"
         }
       ],
       "formats": [
@@ -1900,7 +1900,7 @@
     },
     "PointJustice_CDAD_isochrone30$GEOPORTAIL:OGC:WMS": {
       "name": "PointJustice_CDAD_isochrone30",
-      "title": "Services publics - cartographie des services publics - zones pilotes",
+      "title": "Point Justice CDAD 30 minutes en voiture",
       "description": "Ce jeu de données  est un jeu de données tests. Il contient les données de services publics sur trois départements pilotes Indre, Nord, Hautes Alpes.",
       "globalConstraint": {
         "minScaleDenominator": 0.0,
@@ -1931,7 +1931,7 @@
       "legends": [
         {
           "format": "image/png",
-          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=PointJustice_CDAD_isochrone30"
+          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=PointJustice_CDAD_isochrone30&apikey=BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN"
         }
       ],
       "formats": [
@@ -2023,7 +2023,7 @@
     },
     "SIP_isochrone30$GEOPORTAIL:OGC:WMS": {
       "name": "SIP_isochrone30",
-      "title": "Services publics - cartographie des services publics - zones pilotes",
+      "title": "SIP 30 minutes en voiture",
       "description": "Ce jeu de données  est un jeu de données tests. Il contient les données de services publics sur trois départements pilotes Indre, Nord, Hautes Alpes.",
       "globalConstraint": {
         "minScaleDenominator": 0.0,
@@ -2054,7 +2054,7 @@
       "legends": [
         {
           "format": "image/png",
-          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=SIP_isochrone30"
+          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=SIP_isochrone30&apikey=BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN"
         }
       ],
       "formats": [
@@ -2146,7 +2146,7 @@
     },
     "URSSAF_isochrone30$GEOPORTAIL:OGC:WMS": {
       "name": "URSSAF_isochrone30",
-      "title": "Services publics - cartographie des services publics - zones pilotes",
+      "title": "URSSAF 30 minutes en voiture",
       "description": "Ce jeu de données  est un jeu de données tests. Il contient les données de services publics sur trois départements pilotes Indre, Nord, Hautes Alpes.",
       "globalConstraint": {
         "minScaleDenominator": 0.0,
@@ -2177,7 +2177,7 @@
       "legends": [
         {
           "format": "image/png",
-          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=URSSAF_isochrone30"
+          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=URSSAF_isochrone30&apikey=BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN"
         }
       ],
       "formats": [
@@ -2269,7 +2269,7 @@
     },
     "carsat_isochrone30$GEOPORTAIL:OGC:WMS": {
       "name": "carsat_isochrone30",
-      "title": "Services publics - cartographie des services publics - zones pilotes",
+      "title": "Carsat 30 minutes en voiture",
       "description": "Ce jeu de données  est un jeu de données tests. Il contient les données de services publics sur trois départements pilotes Indre, Nord, Hautes Alpes.",
       "globalConstraint": {
         "minScaleDenominator": 0.0,
@@ -2300,7 +2300,7 @@
       "legends": [
         {
           "format": "image/png",
-          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=carsat_isochrone30"
+          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=carsat_isochrone30&apikey=BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN"
         }
       ],
       "formats": [
@@ -3868,7 +3868,7 @@
     },
     "total_sante_nb_kines$GEOPORTAIL:OGC:WMS": {
       "name": "total_sante_nb_kines",
-      "title": "Kinésithérapeuthes",
+      "title": "Kinésithérapeutes",
       "description": "Cette ressource  regroupe des indicateurs sur la santé en vue d'une utilisation au sein du projet de cartographie des services publics",
       "globalConstraint": {
         "minScaleDenominator": 0.0,
