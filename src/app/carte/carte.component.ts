@@ -29,7 +29,7 @@ export class CarteComponent implements OnInit {
         style: "simpleadminexpress"
       }),
       new GeoportalLayerWFS({
-        layer: "services_publics_test_20250515:poc_v7_5_4",
+        layer: "services_publics_test_20250526:poc_v7_5_5",
         olParams : {
           minZoom: 9,
           style: function(feature: Feature){

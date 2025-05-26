@@ -37,7 +37,7 @@
         "total_sante_nb_kines$GEOPORTAIL:OGC:WMS",
         "total_sante_nb_orthophonistes$GEOPORTAIL:OGC:WMS",
         "total_sante_nb_sagesfemmes$GEOPORTAIL:OGC:WMS",
-        "services_publics_test_20250515:poc_v7_5_4$GEOPORTAIL:OGC:WFS",
+        "services_publics_test_20250526:poc_v7_5_5$GEOPORTAIL:OGC:WFS",
         "frequentation_SP_permanences$GEOPORTAIL:OGC:WMS",
         "frequentation_SP_v3$GEOPORTAIL:OGC:WMS",
         "cpts_20250513$GEOPORTAIL:OGC:WMS"
@@ -4235,9 +4235,9 @@
         }
       ]
     },
-    "services_publics_test_20250515:poc_v7_5_4$GEOPORTAIL:OGC:WFS": {
-      "name": "services_publics_test_20250515:poc_v7_5_4",
-      "title": "Services publics jeu test du 15/05/2025",
+    "services_publics_test_20250526:poc_v7_5_5$GEOPORTAIL:OGC:WFS": {
+      "name": "services_publics_test_20250526:poc_v7_5_5",
+      "title": "Services publics jeu test du 26/05/2025",
       "description": "Ce jeu de données  est un jeu de données tests. Il contient les données de services publics sur trois départements pilotes Indre, Nord, Hautes Alpes.",
       "globalConstraint": {
         "minScaleDenominator": 0.0,
@@ -4247,40 +4247,6 @@
           "right": 6.9803125,
           "top": 51.112695313,
           "bottom": 44.199804688
-        }
-      },
-      "serviceParams": {
-        "id": "OGC:WFS",
-        "version": "2.0.0",
-        "serverUrl": {
-          "BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN": "https://data.geopf.fr/private/wfs/wfs"
-        }
-      },
-      "defaultProjection": "EPSG:2154",
-      "queryable": false,
-      "metadata": [],
-      "styles": [],
-      "legends": [
-        {
-          "format": "image/jpeg",
-          "url": "https://data.geopf.fr/annexes/cartosp_ditp/legendes/legende_SP.png",
-          "minScaleDenominator": "200"
-        }
-      ],
-      "formats": []
-    },
-    "services_publics_test_20250304:carto_sp_interne$GEOPORTAIL:OGC:WFS": {
-      "name": "services_publics_test_20250304:carto_sp_interne",
-      "title": "Services publics jeu test du 4/03/2025",
-      "description": "Ce jeu de données  est un jeu de données tests. Il contient les données de services publics sur trois départements pilotes Indre, Nord, Hautes Alpes.",
-      "globalConstraint": {
-        "minScaleDenominator": 0.0,
-        "maxScaleDenominator": 62236752975597,
-        "bbox": {
-          "left": -4.48375,
-          "right": 7.2965625,
-          "top": 51.112695313,
-          "bottom": 42.695234375
         }
       },
       "serviceParams": {
