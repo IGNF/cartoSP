@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class ApicartospService {
 
-    private apiUrl = 'https://qlf-cartosp.modernisation.gouv.fr/api';
+    private apiUrl = '/api';
 
     constructor(private http: HttpClient) {}
 
