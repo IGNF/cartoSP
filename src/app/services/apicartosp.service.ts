@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class ApicartospService {
 
-    private apiUrl = '/api';
+    private apiUrl = 'https://qlf-cartosp.modernisation.gouv.fr/api';
 
     constructor(private http: HttpClient) {}
 
@@ -46,5 +46,12 @@ export class ApicartospService {
     // Get itinerants circuit by service_code
     getCircuitItinerants(query: string): Observable<any> {
         return this.http.get(this.apiUrl + "/itinerants/" + query);
+    }
+
+    // Get SP type count
+    getIsochroneData(options: any): Observable<any> {
+        return this.http.get(this.apiUrl + "/isochrone",{
+            params: options
+        });
     }
 }

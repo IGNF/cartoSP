@@ -3,6 +3,8 @@ import { Component, OnInit, Input, ElementRef } from '@angular/core';
 import Map from 'ol/Map';
 import Control from 'ol/control/Control';
 import { CartospIsocurve } from "geopf-extensions-openlayers/src";
+import { RightpanelService } from '../../rightpanel/rightpanel.service';
+import { LocalisationInfoComponent } from '../../rightpanel/content/localisation-info/localisation-info.component';
 
 @Component({
   selector: 'app-isochrone-simple',
@@ -14,7 +16,7 @@ export class IsochroneSimpleComponent implements OnInit {
   @Input() map!: Map;
   control!: Control;
 
-  constructor(private elementRef: ElementRef) {}
+  constructor(private elementRef: ElementRef, private rightpanelService: RightpanelService) {}
 
   ngOnInit() {
     this.control = new CartospIsocurve({
@@ -41,9 +43,9 @@ export class IsochroneSimpleComponent implements OnInit {
       ]
     });
 
-    /*this.control.addEventListener("isochrone:add", function (e: any) {
+    /*this.control.addEventListener("isochrone:add",  (e: any) => {
       console.log(e);
-      this.rightpanelService.setContent(LocalisationInfoComponent, {map : this.data, location: selected, type: this.currentTab}, "locationinfo");
+      this.rightpanelService.setContent(LocalisationInfoComponent, {map : this.map, location: {number: "05"}, type: "departement"}, "locationinfo");
     });
 
     this.control.addEventListener("isochrone:remove", function (e: any) {
