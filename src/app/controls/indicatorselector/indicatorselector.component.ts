@@ -71,22 +71,6 @@ export class IndicatorselectorComponent implements OnInit {
                 {title:"Accessibilité aux soins de premier recours", layername: "total_sante_accessibilite"},
                 {title:"Zonage CPTS", layername: "cpts_20250513"},
             ]
-        },
-        {
-            thematique: "Isochrones",
-            indicators: [
-                {title:"CAF 30 minutes en voiture", layername: "CAF_isochrone30"},
-                {title:"CPAM 30 minutes en voiture", layername: "CPAM_isochrone30"},
-                {title:"France Renov' 30 minutes en voiture", layername: "FranceRenov_isochrone30"},
-                {title:"France Service 30 minutes en voiture", layername: "FranceService_isochrone30"},
-                {title:"France Travail 30 minutes en voiture", layername: "FranceTravail_isochrone30"},
-                {title:"MDS 30 minutes en voiture", layername: "MDS_isochrone30"},
-                {title:"MSA 30 minutes en voiture", layername: "MSA_isochrone30"},
-                {title:"Point Justice CDAD 30 minutes en voiture", layername: "PointJustice_CDAD_isochrone30"},
-                {title:"SIP 30 minutes en voiture", layername: "SIP_isochrone30"},
-                {title:"URSSAF 30 minutes en voiture", layername: "URSSAF_isochrone30"},
-                {title:"Carsat 30 minutes en voiture", layername: "carsat_isochrone30"},
-            ]
         }
     ];
 
