@@ -194,4 +194,30 @@
     <div><strong>{{ nbpermanences || 0 }}</strong> permanences</div>
     <div><strong>{{ nbitinerants || 0 }}</strong> dispositifs itinérants</div>
   </dsfr-tab>
+  <!-- Onglet accès aux isochrones -->
+  <dsfr-tab
+    tabId="isochronesTab"
+    label="Isochrones"
+    [disabled]="false"
+  >
+    <div class="fr-callout">
+      Affichez les données statistiques des isochrones en les sélectionnants dans le volet "Calcul d'isochrones" à gauche de l'écran.
+    </div>
+    @if(isochrones.length > 0){
+      @for (isochrone of isochrones; track isochrone.layername) {
+        <dsfr-accordion [expanded]="true">
+          <ng-container heading>{{isochrone.layername}} ({{isochrone.name_location}} - {{isochrone.location}}; {{isochrone.time}}; {{isochrone.ride}}) </ng-container>
+          <ng-container content>
+            @if(isochrone.datas.pop_couv){
+              <p class="isochronetext"><strong>{{formatNumber(isochrone.datas.pop_couv,'1.2-2')}}%</strong> de la population du département couverte</p>
+              <p class="isochronetext"><strong>{{formatNumber(isochrone.datas.pop_pauv,'1.2-2')}}%</strong> des ménages pauvres du département couverte</p>
+              <p class="isochronetext"><strong>{{formatNumber(isochrone.datas.pop65 ,'1.2-2') }}%</strong> des + 65ans du département couverte</p>
+            }@else {
+              <p>Aucune données pour cet isochrone.</p>
+            }
+          </ng-container>
+        </dsfr-accordion>
+      }
+    }
+  </dsfr-tab>
 </dsfr-tabs>

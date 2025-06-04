@@ -23,14 +23,15 @@ export class IsochroneSimpleComponent implements OnInit {
       position : "top-left",
       target: this.elementRef.nativeElement,
       typologyLocations: [
-        {nom:"05 - Hautes-Alpes", code: "05", bbox: [5.4184,44.1865,7.0771,45.1268]}, 
-        {nom:"36 - Indre", code: "36", bbox: [0.8675,46.3471,2.2046,47.2773]}, 
-        {nom:"59 - Nord", code: "59", bbox: [2.0677,49.9691,4.2311,51.089]} 
+        {nom:"Hautes-Alpes", code: "05", bbox: [5.4184,44.1865,7.0771,45.1268]}, 
+        {nom:"Indre", code: "36", bbox: [0.8675,46.3471,2.2046,47.2773]}, 
+        {nom:"Nord", code: "59", bbox: [2.0677,49.9691,4.2311,51.089]} 
       ],
       typologyLayers: [
         {title:"CAF", layername: "CAF_isochrone20", time: "20 min"},
         {title:"CPAM", layername: "CPAM_isochrone20", time: "20 min"},
         {title:"France Renov'", layername: "FranceRenov_isochrone20", time: "20 min"},
+        {title:"France Service", layername: "FranceService_isochrone20", time: "20 min"},
         {title:"France Travail", layername: "FranceTravail_isochrone20", time: "20 min"},
         {title:"MDS", layername: "MDS_isochrone20", time: "20 min"},
         {title:"MSA", layername: "MSA_isochrone20", time: "20 min"},
@@ -52,14 +53,14 @@ export class IsochroneSimpleComponent implements OnInit {
       ]
     });
 
-    /*this.control.addEventListener("isochrone:add",  (e: any) => {
-      console.log(e);
-      this.rightpanelService.setContent(LocalisationInfoComponent, {map : this.map, location: {number: "05"}, type: "departement"}, "locationinfo");
+    this.control.addEventListener("isochrone:add",  (e: any) => {
+      this.rightpanelService.setContent(LocalisationInfoComponent,{map : this.map, location: {name: e.layer.values_.name_location,number: e.layer.values_.location}, type: "departement", isochronecall: true}, "locationinfo");
+      this.map.getView().fit(e.layer.values_.extent);
     });
 
-    this.control.addEventListener("isochrone:remove", function (e: any) {
-      console.log(e); 
-    });*/
+    this.control.addEventListener("isochrone:remove",  (e: any) => {
+      this.rightpanelService.setContent(LocalisationInfoComponent,{map : this.map, location: {name: e.layer.values_.name_location,number: e.layer.values_.location}, type: "departement", isochronecall: true}, "locationinfo");
+    });
 
     this.map.addControl(this.control);
   }

@@ -1,10 +1,11 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, inject } from '@angular/core';
 
 import { RightpanelService } from '../../rightpanel.service';
 import { ApicartospService } from './../../../services/apicartosp.service';
 import { LocalisationComponent } from '../../content/localisation/localisation.component';
 import { DsfrTabsModule, DsfrAccordionModule, DsfrButtonModule, DsfrFormSelectModule } from '@edugouvfr/ngx-dsfr';
 import { HttpParams } from '@angular/common/http';
+import { DecimalPipe } from '@angular/common';
 
 @Component({
   selector: 'app-localisation-info',
@@ -12,7 +13,7 @@ import { HttpParams } from '@angular/common/http';
   imports: [DsfrButtonModule, DsfrTabsModule, DsfrAccordionModule, DsfrFormSelectModule],
   templateUrl: './localisation-info.component.html',
   styleUrl: './localisation-info.component.css',
-  providers: [ApicartospService]
+  providers: [ApicartospService,DecimalPipe]
 })
 export class LocalisationInfoComponent implements OnInit {
 
@@ -25,6 +26,8 @@ export class LocalisationInfoComponent implements OnInit {
   nbimplantations?: number;
   nbitinerants?: number;
   nbpermanences?: number;
+  isochrones: any[] = [];
+  private decimalPipe = inject(DecimalPipe);
   apidata = {
     code: null,
     libelle: null,
@@ -170,6 +173,10 @@ export class LocalisationInfoComponent implements OnInit {
       });
     }
     this.selectSpChange("tous");
+    this.updateIsochroneDatas();
+    if(this.data.isochronecall){
+      this.selectedTabIndex = 2;
+    }
   }
 
   fillDataValues(response: any) {
@@ -237,5 +244,23 @@ export class LocalisationInfoComponent implements OnInit {
 
   onButtonBackLocationClic(){
     this.rightpanelService.setContent(LocalisationComponent, this.data.map, "location");
+  }
+
+  updateIsochroneDatas(){
+    this.isochrones = [];
+    this.data.map.getAllLayers().forEach((layer: { values_: {layername: string; location: string; name_location: string; ride: string; time: string; }; }) => {
+      if(layer.values_.layername && layer.values_.location === this.data.location.number){
+        this.apicartospService.getIsochroneData({nom_iso: layer.values_.layername, num_dep: layer.values_.location }).subscribe({
+          next : (response: any) => {
+            this.isochrones.push({layername: layer.values_.layername, location: layer.values_.location, name_location: layer.values_.name_location, ride: layer.values_.ride, time: layer.values_.time, datas: response});
+          },
+          error : (error: any) => { console.error('Error fetching Itinérant count info:', error) }
+        });
+      }
+    });
+  }
+
+  formatNumber(value: string, format: string): string | null {
+    return this.decimalPipe.transform(value.replace(',','.'), format);
   }
 }

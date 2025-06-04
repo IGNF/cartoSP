@@ -13,6 +13,7 @@
         "CAF_isochrone20$GEOPORTAIL:OGC:WMS",
         "CPAM_isochrone20$GEOPORTAIL:OGC:WMS",
         "FranceRenov_isochrone20$GEOPORTAIL:OGC:WMS",
+        "FranceService_isochrone20$GEOPORTAIL:OGC:WMS",
         "FranceTravail_isochrone20$GEOPORTAIL:OGC:WMS",
         "MDS_isochrone20$GEOPORTAIL:OGC:WMS",
         "MSA_isochrone20$GEOPORTAIL:OGC:WMS",
@@ -926,7 +927,7 @@
     },
     "CAF_isochrone20$GEOPORTAIL:OGC:WMS": {
       "name": "CAF_isochrone20",
-      "title": "Services publics - cartographie des services publics - zones pilotes",
+      "title": "CAF isochrones 20 minutes",
       "description": "Ce jeu de données  est un jeu de données tests. Il contient les données de services publics sur trois départements pilotes Indre, Nord, Hautes Alpes.",
       "globalConstraint": {
         "minScaleDenominator": 0.0,
@@ -1049,7 +1050,7 @@
     },
     "CPAM_isochrone20$GEOPORTAIL:OGC:WMS": {
       "name": "CPAM_isochrone20",
-      "title": "Services publics - cartographie des services publics - zones pilotes",
+      "title": "CPAM isochrones 20 minutes",
       "description": "Ce jeu de données  est un jeu de données tests. Il contient les données de services publics sur trois départements pilotes Indre, Nord, Hautes Alpes.",
       "globalConstraint": {
         "minScaleDenominator": 0.0,
@@ -1172,7 +1173,7 @@
     },
     "FranceRenov_isochrone20$GEOPORTAIL:OGC:WMS": {
       "name": "FranceRenov_isochrone20",
-      "title": "Services publics - cartographie des services publics - zones pilotes",
+      "title": "France Renov' isochrones 20 minutes",
       "description": "Ce jeu de données  est un jeu de données tests. Il contient les données de services publics sur trois départements pilotes Indre, Nord, Hautes Alpes.",
       "globalConstraint": {
         "minScaleDenominator": 0.0,
@@ -1293,9 +1294,132 @@
         }
       ]
     },
+    "FranceService_isochrone20$GEOPORTAIL:OGC:WMS": {
+      "name": "FranceService_isochrone20",
+      "title": "France Service isochrones 20 minutes",
+      "description": "Ce jeu de données  est un jeu de données tests. Il contient les données de services publics sur trois départements pilotes Indre, Nord, Hautes Alpes.",
+      "globalConstraint": {
+        "minScaleDenominator": 0.0,
+        "maxScaleDenominator": 62236752975597,
+        "bbox": {
+          "left": 0.734375,
+          "right": 7.059375,
+          "top": 51.153359375,
+          "bottom": 44.159140625
+        }
+      },
+      "serviceParams": {
+        "id": "OGC:WMS",
+        "version": "1.3.0",
+        "serverUrl": {
+          "BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN": "https://data.geopf.fr/private/wms-v/ows"
+        }
+      },
+      "defaultProjection": "EPSG:4326",
+      "queryable": true,
+      "metadata": [],
+      "styles": [
+        {
+          "name": "default-style-FranceService_isochrone20",
+          "title": "FranceService_isochrone20 style"
+        }
+      ],
+      "legends": [
+        {
+          "format": "image/png",
+          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=FranceService_isochrone20&apikey=BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN"
+        }
+      ],
+      "formats": [
+        {
+          "name": "image/png",
+          "current": true
+        },
+        {
+          "name": "application/atom+xml",
+          "current": false
+        },
+        {
+          "name": "application/json;type=utfgrid",
+          "current": false
+        },
+        {
+          "name": "application/pdf",
+          "current": false
+        },
+        {
+          "name": "application/rss+xml",
+          "current": false
+        },
+        {
+          "name": "application/vnd.google-earth.kml+xml",
+          "current": false
+        },
+        {
+          "name": "application/vnd.google-earth.kml+xml;mode=networklink",
+          "current": false
+        },
+        {
+          "name": "application/vnd.google-earth.kmz",
+          "current": false
+        },
+        {
+          "name": "image/geotiff",
+          "current": false
+        },
+        {
+          "name": "image/geotiff8",
+          "current": false
+        },
+        {
+          "name": "image/gif",
+          "current": false
+        },
+        {
+          "name": "image/jpeg",
+          "current": false
+        },
+        {
+          "name": "image/png; mode=8bit",
+          "current": false
+        },
+        {
+          "name": "image/svg+xml",
+          "current": false
+        },
+        {
+          "name": "image/tiff",
+          "current": false
+        },
+        {
+          "name": "image/tiff8",
+          "current": false
+        },
+        {
+          "name": "image/vnd.jpeg-png",
+          "current": false
+        },
+        {
+          "name": "image/vnd.jpeg-png8",
+          "current": false
+        },
+        {
+          "name": "text/html; subtype=openlayers",
+          "current": false
+        },
+        {
+          "name": "text/html; subtype=openlayers2",
+          "current": false
+        },
+        {
+          "name": "text/html; subtype=openlayers3",
+          "current": false
+        }
+      ]
+    },
     "FranceTravail_isochrone20$GEOPORTAIL:OGC:WMS": {
       "name": "FranceTravail_isochrone20",
-      "title": "Services publics - cartographie des services publics - zones pilotes",
+      "title": "France Travail isochrones 20 minutes",
       "description": "Ce jeu de données  est un jeu de données tests. Il contient les données de services publics sur trois départements pilotes Indre, Nord, Hautes Alpes.",
       "globalConstraint": {
         "minScaleDenominator": 0.0,
@@ -1418,7 +1542,7 @@
     },
     "MDS_isochrone20$GEOPORTAIL:OGC:WMS": {
       "name": "MDS_isochrone20",
-      "title": "Services publics - cartographie des services publics - zones pilotes",
+      "title": "MDS isochrones 20 minutes",
       "description": "Ce jeu de données  est un jeu de données tests. Il contient les données de services publics sur trois départements pilotes Indre, Nord, Hautes Alpes.",
       "globalConstraint": {
         "minScaleDenominator": 0.0,
@@ -1541,7 +1665,7 @@
     },
     "MSA_isochrone20$GEOPORTAIL:OGC:WMS": {
       "name": "MSA_isochrone20",
-      "title": "Services publics - cartographie des services publics - zones pilotes",
+      "title": "MSA isochrones 20 minutes",
       "description": "Ce jeu de données  est un jeu de données tests. Il contient les données de services publics sur trois départements pilotes Indre, Nord, Hautes Alpes.",
       "globalConstraint": {
         "minScaleDenominator": 0.0,
@@ -1664,7 +1788,7 @@
     },
     "PointJustice_CDAD_isochrone20$GEOPORTAIL:OGC:WMS": {
       "name": "PointJustice_CDAD_isochrone20",
-      "title": "Services publics - cartographie des services publics - zones pilotes",
+      "title": "PointJustice CDAD isochrones 20 minutes",
       "description": "Ce jeu de données  est un jeu de données tests. Il contient les données de services publics sur trois départements pilotes Indre, Nord, Hautes Alpes.",
       "globalConstraint": {
         "minScaleDenominator": 0.0,
@@ -1787,7 +1911,7 @@
     },
     "SIP_isochrone20$GEOPORTAIL:OGC:WMS": {
       "name": "SIP_isochrone20",
-      "title": "Services publics - cartographie des services publics - zones pilotes",
+      "title": "SIP isochrones 20 minutes",
       "description": "Ce jeu de données  est un jeu de données tests. Il contient les données de services publics sur trois départements pilotes Indre, Nord, Hautes Alpes.",
       "globalConstraint": {
         "minScaleDenominator": 0.0,
@@ -1910,7 +2034,7 @@
     },
     "URSSAF_isochrone20$GEOPORTAIL:OGC:WMS": {
       "name": "URSSAF_isochrone20",
-      "title": "Services publics - cartographie des services publics - zones pilotes",
+      "title": "URSSAF isochrones 20 minutes",
       "description": "Ce jeu de données  est un jeu de données tests. Il contient les données de services publics sur trois départements pilotes Indre, Nord, Hautes Alpes.",
       "globalConstraint": {
         "minScaleDenominator": 0.0,
@@ -2033,7 +2157,7 @@
     },
     "carsat_isochrone20$GEOPORTAIL:OGC:WMS": {
       "name": "carsat_isochrone20",
-      "title": "Services publics - cartographie des services publics - zones pilotes",
+      "title": "carsat isochrones 20 minutes",
       "description": "Ce jeu de données  est un jeu de données tests. Il contient les données de services publics sur trois départements pilotes Indre, Nord, Hautes Alpes.",
       "globalConstraint": {
         "minScaleDenominator": 0.0,
@@ -2156,7 +2280,7 @@
     },
     "CAF_isochrone30$GEOPORTAIL:OGC:WMS": {
       "name": "CAF_isochrone30",
-      "title": "CAF 30 minutes en voiture",
+      "title": "CAF isochrones 30 minutes",
       "description": "Ce jeu de données  est un jeu de données tests. Il contient les données de services publics sur trois départements pilotes Indre, Nord, Hautes Alpes.",
       "globalConstraint": {
         "minScaleDenominator": 0.0,
@@ -2279,7 +2403,7 @@
     },
     "CPAM_isochrone30$GEOPORTAIL:OGC:WMS": {
       "name": "CPAM_isochrone30",
-      "title": "CPAM 30 minutes en voiture",
+      "title": "CPAM isochrones 30 minutes",
       "description": "Ce jeu de données  est un jeu de données tests. Il contient les données de services publics sur trois départements pilotes Indre, Nord, Hautes Alpes.",
       "globalConstraint": {
         "minScaleDenominator": 0.0,
@@ -2525,7 +2649,7 @@
     },
     "FranceRenov_isochrone30$GEOPORTAIL:OGC:WMS": {
       "name": "FranceRenov_isochrone30",
-      "title": "France Renov' 30 minutes en voiture",
+      "title": "France Renov' isochrones 30 minutes",
       "description": "Ce jeu de données  est un jeu de données tests. Il contient les données de services publics sur trois départements pilotes Indre, Nord, Hautes Alpes.",
       "globalConstraint": {
         "minScaleDenominator": 0.0,
@@ -2648,7 +2772,7 @@
     },
     "FranceService_isochrone30$GEOPORTAIL:OGC:WMS": {
       "name": "FranceService_isochrone30",
-      "title": "France Service 30 minutes en voiture",
+      "title": "France Service isochrones 30 minutes",
       "description": "Ce jeu de données  est un jeu de données tests. Il contient les données de services publics sur trois départements pilotes Indre, Nord, Hautes Alpes.",
       "globalConstraint": {
         "minScaleDenominator": 0.0,
@@ -2771,7 +2895,7 @@
     },
     "FranceTravail_isochrone30$GEOPORTAIL:OGC:WMS": {
       "name": "FranceTravail_isochrone30",
-      "title": "France Travail 30 minutes en voiture",
+      "title": "France Travail isochrones 30 minutes",
       "description": "Ce jeu de données  est un jeu de données tests. Il contient les données de services publics sur trois départements pilotes Indre, Nord, Hautes Alpes.",
       "globalConstraint": {
         "minScaleDenominator": 0.0,
@@ -2894,7 +3018,7 @@
     },
     "MDS_isochrone30$GEOPORTAIL:OGC:WMS": {
       "name": "MDS_isochrone30",
-      "title": "MDS 30 minutes en voiture",
+      "title": "MDS isochrones 30 minutes",
       "description": "Ce jeu de données  est un jeu de données tests. Il contient les données de services publics sur trois départements pilotes Indre, Nord, Hautes Alpes.",
       "globalConstraint": {
         "minScaleDenominator": 0.0,
@@ -3017,7 +3141,7 @@
     },
     "MSA_isochrone30$GEOPORTAIL:OGC:WMS": {
       "name": "MSA_isochrone30",
-      "title": "MSA 30 minutes en voiture",
+      "title": "MSA isochrones 30 minutes",
       "description": "Ce jeu de données  est un jeu de données tests. Il contient les données de services publics sur trois départements pilotes Indre, Nord, Hautes Alpes.",
       "globalConstraint": {
         "minScaleDenominator": 0.0,
@@ -3140,7 +3264,7 @@
     },
     "PointJustice_CDAD_isochrone30$GEOPORTAIL:OGC:WMS": {
       "name": "PointJustice_CDAD_isochrone30",
-      "title": "Point Justice CDAD 30 minutes en voiture",
+      "title": "Point Justice CDAD isochrones 30 minutes",
       "description": "Ce jeu de données  est un jeu de données tests. Il contient les données de services publics sur trois départements pilotes Indre, Nord, Hautes Alpes.",
       "globalConstraint": {
         "minScaleDenominator": 0.0,
@@ -3263,7 +3387,7 @@
     },
     "SIP_isochrone30$GEOPORTAIL:OGC:WMS": {
       "name": "SIP_isochrone30",
-      "title": "SIP 30 minutes en voiture",
+      "title": "SIP isochrones 30 minutes",
       "description": "Ce jeu de données  est un jeu de données tests. Il contient les données de services publics sur trois départements pilotes Indre, Nord, Hautes Alpes.",
       "globalConstraint": {
         "minScaleDenominator": 0.0,
@@ -3386,7 +3510,7 @@
     },
     "URSSAF_isochrone30$GEOPORTAIL:OGC:WMS": {
       "name": "URSSAF_isochrone30",
-      "title": "URSSAF 30 minutes en voiture",
+      "title": "URSSAF isochrones 30 minutes",
       "description": "Ce jeu de données  est un jeu de données tests. Il contient les données de services publics sur trois départements pilotes Indre, Nord, Hautes Alpes.",
       "globalConstraint": {
         "minScaleDenominator": 0.0,
@@ -3509,7 +3633,7 @@
     },
     "carsat_isochrone30$GEOPORTAIL:OGC:WMS": {
       "name": "carsat_isochrone30",
-      "title": "Carsat 30 minutes en voiture",
+      "title": "Carsat isochrones 30 minutes",
       "description": "Ce jeu de données  est un jeu de données tests. Il contient les données de services publics sur trois départements pilotes Indre, Nord, Hautes Alpes.",
       "globalConstraint": {
         "minScaleDenominator": 0.0,
