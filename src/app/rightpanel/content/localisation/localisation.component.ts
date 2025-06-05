@@ -75,7 +75,7 @@ export class LocalisationComponent implements OnInit {
 
     // Ajout event on loadend de la carte pour charger les listes de localisation
     this.data.on('loadend', function(e: any){
-      self.searchLocations(e.map);
+      self.searchLocations(self.data);
     }); 
   }
 

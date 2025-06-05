@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, inject } from '@angular/core';
+import { Component, Input, LOCALE_ID, OnInit, inject } from '@angular/core';
 
 import { RightpanelService } from '../../rightpanel.service';
 import { ApicartospService } from './../../../services/apicartosp.service';
@@ -13,7 +13,7 @@ import { DecimalPipe } from '@angular/common';
   imports: [DsfrButtonModule, DsfrTabsModule, DsfrAccordionModule, DsfrFormSelectModule],
   templateUrl: './localisation-info.component.html',
   styleUrl: './localisation-info.component.css',
-  providers: [ApicartospService,DecimalPipe]
+  providers: [ApicartospService,DecimalPipe,{provide: LOCALE_ID, useValue: "fr-Fr"}]
 })
 export class LocalisationInfoComponent implements OnInit {
 
@@ -49,44 +49,44 @@ export class LocalisationInfoComponent implements OnInit {
   moynat = {
     departement: {
       population_recensement: "674080,52",
-      population_evolution: null,
+      population_evolution: "0,3",
       taux_evolution: "0,17",
-      population_densite: "552,63",
-      vieillissement_indice: "101,89",
-      taux_chomage: "12,16",
+      population_densite: "106,5",
+      vieillissement_indice: "86",
+      taux_chomage: "12,1",
       mediane_revenu: "21966,63",
       population_rsa: "18388,81",
       population_part_rsa: "44,01",
-      taux_pauvrete: "14,68",
+      taux_pauvrete: "14,4",
       nb_qpv: "14,19",
-      population_municipale_total_qpv: "55285,99",
+      population_municipale_total_qpv: "55 285,99",
       population_resident_qpv: "6,12"     
     },
     epci: {
       population_recensement: "53921,33",
-      population_evolution: null,
+      population_evolution: "0,3",
       taux_evolution: "0,09",
-      population_densite: "156,20",
-      vieillissement_indice: "112,78",
-      taux_chomage: "10,85",
+      population_densite: "106,5",
+      vieillissement_indice: "86",
+      taux_chomage: "12,1",
       mediane_revenu: "22054,88",
       population_rsa: "1375,03",
       population_part_rsa: "33,30",
-      taux_pauvrete: "13,20",
+      taux_pauvrete: "14,4",
       nb_qpv: null,
       population_municipale_total_qpv: null,
       population_resident_qpv: null
     },
     commune: {
       population_recensement: "1930,47",
-      population_evolution: null,
+      population_evolution: "0,3",
       taux_evolution: "0,03",
-      population_densite: "165,98",
-      vieillissement_indice: "124,59",
-      taux_chomage: "9,49",
+      population_densite: "106,5",
+      vieillissement_indice: "86",
+      taux_chomage: "12,1",
       population_rsa: "49,51",
       population_part_rsa: "22,50",
-      taux_pauvrete: null,
+      taux_pauvrete: "14,4",
       nb_qpv: null,
       population_municipale_total_qpv: null,
       population_resident_qpv: null
@@ -260,7 +260,7 @@ export class LocalisationInfoComponent implements OnInit {
     });
   }
 
-  formatNumber(value: string, format: string): string | null {
+  formatNumber(value: any, format: string): string | null {
     return this.decimalPipe.transform(value.replace(',','.'), format);
   }
 }
