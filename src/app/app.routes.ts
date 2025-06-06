@@ -10,13 +10,17 @@ import { DonneesPersonnellesComponent } from './pages/annexes/donnees-personnell
 import { MentionsLegalesComponent } from './pages/annexes/mentions-legales/mentions-legales.component';
 import { PlanDuSiteComponent } from './pages/annexes/plan-du-site/plan-du-site.component';
 import { AccessibiliteComponent } from './pages/annexes/accessibilite/accessibilite.component';
+import { ExperimentationComponent } from './pages/annexes/experimentation/experimentation.component';
+import { CorrectionDesDonneesComponent } from './pages/annexes/correction-des-donnees/correction-des-donnees.component';
 import { NotfoundComponent } from './pages/errors/notfound/notfound.component';
 import { AllowedLocation } from './app.routes.guard';
 
 export const routes: Routes = [ 
   { path: '', component: HomeComponent },
   { path: 'guide-d-utilisation', component: GuideComponent },
+  { path: 'experimentation', component: ExperimentationComponent },
   { path: 'telechargement-des-donnees', component: TelechargementComponent },
+  { path: 'correction-des-donnees', component: CorrectionDesDonneesComponent },
   { path: 'a-propos', component: AproposComponent },
   { path: 'foire-aux-questions', component: FaqComponent },
   { path: 'nous-contacter', component: ContactComponent },

@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
+import { DsfrDownloadModule } from '@edugouvfr/ngx-dsfr';
 
 @Component({
   selector: 'app-telechargement',
   standalone: true,
-  imports: [],
+  imports: [DsfrDownloadModule],
   templateUrl: './telechargement.component.html',
   styleUrl: './telechargement.component.css'
 })

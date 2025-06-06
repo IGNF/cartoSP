@@ -41,16 +41,16 @@
       <div class="group-location-info">
         <div class="location-info">
           <div class="data-title">Nbr. d'habitants</div>
-          <div class="data-value">{{ formatNumber(apidata.population_recensement,'1.2-2')|| "Inconnue" }}</div>
+          <div class="data-value">{{ formatNumber(apidata.population_recensement,'1.0-0') || "Inconnue" }}</div>
         </div>
         <div class="national-info">
           <div class="data-title">moy. nat.</div>
           @if (data.type === "departement"){  
-            <div class="data-value">{{ formatNumber(moynat.departement.population_recensement,'1.2-2') || "Inconnue" }}</div>
+            <div class="data-value">{{ formatNumber(moynat.departement.population_recensement,'1.0-0') || "Inconnue" }}</div>
           } @else if (data.type === "epci") {
-            <div class="data-value">{{ formatNumber(moynat.epci.population_recensement,'1.2-2') || "Inconnue" }}</div>
+            <div class="data-value">{{ formatNumber(moynat.epci.population_recensement,'1.0-0') || "Inconnue" }}</div>
           } @else {
-            <div class="data-value">{{ formatNumber(moynat.commune.population_recensement,'1.2-2') || "Inconnue" }}</div>
+            <div class="data-value">{{ formatNumber(moynat.commune.population_recensement,'1.0-0') || "Inconnue" }}</div>
           }
         </div>
       </div>
@@ -58,16 +58,16 @@
       <div class="group-location-info">
         <div class="location-info">
           <div class="data-title">Densité (habitants/km2)</div>
-          <div class="data-value">{{ formatNumber(apidata.population_densite,'1.2-2') || "Inconnue" }}</div>
+          <div class="data-value">{{ formatNumber(apidata.population_densite,'1.1-1') || "Inconnue" }}</div>
         </div>
         <div class="national-info">
           <div class="data-title">val. nat.</div>
           @if (data.type === "departement"){  
-            <div class="data-value">{{ formatNumber(moynat.departement.population_densite,'1.2-2') || "Inconnue" }}</div>
+            <div class="data-value">{{ formatNumber(moynat.departement.population_densite,'1.1-1') || "Inconnue" }}</div>
           } @else if (data.type === "epci") {
-            <div class="data-value">{{ formatNumber(moynat.epci.population_densite,'1.2-2') || "Inconnue" }}</div>
+            <div class="data-value">{{ formatNumber(moynat.epci.population_densite,'1.1-1') || "Inconnue" }}</div>
           } @else {
-            <div class="data-value">{{ formatNumber(moynat.commune.population_densite,'1.2-2') || "Inconnue" }}</div>
+            <div class="data-value">{{ formatNumber(moynat.commune.population_densite,'1.1-1') || "Inconnue" }}</div>
           }
         </div>
       </div>
@@ -75,16 +75,16 @@
       <div class="group-location-info">
         <div class="location-info">
           <div class="data-title">Évolution annuelle de la population</div>
-          <div class="data-value">{{ apidata.population_evolution || "Inconnue" }}%</div>
+          <div class="data-value">{{ formatNumber(apidata.population_evolution,'1.2-2') || "Inconnue" }}%</div>
         </div>
         <div class="national-info">
           <div class="data-title">val. nat.</div>
           @if (data.type === "departement"){  
-            <div class="data-value">{{ moynat.departement.population_evolution || "Inconnue" }}%</div>
+            <div class="data-value">{{ formatNumber(moynat.departement.population_evolution,'1.2-2') || "Inconnue" }}%</div>
           } @else if (data.type === "epci") {
-            <div class="data-value">{{ moynat.epci.population_evolution || "Inconnue" }}%</div>
+            <div class="data-value">{{ formatNumber(moynat.epci.population_evolution,'1.2-2') || "Inconnue" }}%</div>
           } @else {
-            <div class="data-value">{{ moynat.commune.population_evolution || "Inconnue" }}%</div>
+            <div class="data-value">{{ formatNumber(moynat.commune.population_evolution,'1.2-2') || "Inconnue" }}%</div>
           }
         </div>
       </div>
@@ -92,16 +92,16 @@
       <div class="group-location-info">
         <div class="location-info">
           <div class="data-title">Nbr. de QPV</div>
-          <div class="data-value">{{ apidata.nb_qpv || "Inconnue" }}</div>
+          <div class="data-value">{{ formatNumber(apidata.nb_qpv,'1.0-0') || "Inconnue" }}</div>
         </div>
         <div class="national-info">
           <div class="data-title">moy. nat.</div>
           @if (data.type === "departement"){  
-            <div class="data-value">{{ moynat.departement.nb_qpv || "Inconnue" }}</div>
+            <div class="data-value">{{ formatNumber(moynat.departement.nb_qpv,'1.0-0') || "Inconnue" }}</div>
           } @else if (data.type === "epci") {
-            <div class="data-value">{{ moynat.epci.nb_qpv || "Inconnue" }}</div>
+            <div class="data-value">{{ formatNumber(moynat.epci.nb_qpv,'1.0-0') || "Inconnue" }}</div>
           } @else {
-            <div class="data-value">{{ moynat.commune.nb_qpv || "Inconnue" }}</div>
+            <div class="data-value">{{ formatNumber(moynat.commune.nb_qpv,'1.0-0') || "Inconnue" }}</div>
           }
         </div>
       </div>
@@ -109,16 +109,16 @@
       <div class="group-location-info">
         <div class="location-info">
           <div class="data-title">Taux de pauvreté</div>
-          <div class="data-value">{{ apidata.taux_pauvrete || "Inconnue" }}%</div>
+          <div class="data-value">{{ formatNumber(apidata.taux_pauvrete,'1.1-1') || "Inconnue" }}%</div>
         </div>
         <div class="national-info">
           <div class="data-title">val. nat.</div>
           @if (data.type === "departement"){  
-            <div class="data-value">{{ moynat.departement.taux_pauvrete || "Inconnue" }}%</div>
+            <div class="data-value">{{ formatNumber(moynat.departement.taux_pauvrete,'1.1-1') || "Inconnue" }}%</div>
           } @else if (data.type === "epci") {
-            <div class="data-value">{{ moynat.epci.taux_pauvrete || "Inconnue" }}%</div>
+            <div class="data-value">{{ formatNumber(moynat.epci.taux_pauvrete,'1.1-1') || "Inconnue" }}%</div>
           } @else {
-            <div class="data-value">{{ moynat.commune.taux_pauvrete || "Inconnue" }}%</div>
+            <div class="data-value">{{ formatNumber(moynat.commune.taux_pauvrete,'1.1-1') || "Inconnue" }}%</div>
           }
         </div>
       </div>
@@ -126,16 +126,16 @@
       <div class="group-location-info">
         <div class="location-info">
           <div class="data-title">Taux de chomage</div>
-          <div class="data-value">{{ apidata.taux_chomage || "Inconnue" }}%</div>
+          <div class="data-value">{{ formatNumber(apidata.taux_chomage,'1.1-1') || "Inconnue" }}%</div>
         </div>
         <div class="national-info">
           <div class="data-title">val. nat.</div>
           @if (data.type === "departement"){  
-            <div class="data-value">{{ moynat.departement.taux_chomage || "Inconnue" }}%</div>
+            <div class="data-value">{{ formatNumber(moynat.departement.taux_chomage,'1.1-1') || "Inconnue" }}%</div>
           } @else if (data.type === "epci") {
-            <div class="data-value">{{ moynat.epci.taux_chomage || "Inconnue" }}%</div>
+            <div class="data-value">{{ formatNumber(moynat.epci.taux_chomage,'1.1-1') || "Inconnue" }}%</div>
           } @else {
-            <div class="data-value">{{ moynat.commune.taux_chomage || "Inconnue" }}%</div>
+            <div class="data-value">{{ formatNumber(moynat.commune.taux_chomage,'1.1-1') || "Inconnue" }}%</div>
           }
         </div>
       </div>
@@ -143,16 +143,16 @@
       <div class="group-location-info">
         <div class="location-info">
           <div class="data-title">Indice de vieillissement</div>
-          <div class="data-value">{{ apidata.vieillissement_indice }}</div>
+          <div class="data-value">{{ formatNumber(apidata.vieillissement_indice,'1.0-0') }}</div>
         </div>
         <div class="national-info">
           <div class="data-title">val. nat.</div>
           @if (data.type === "departement"){  
-            <div class="data-value">{{ moynat.departement.vieillissement_indice || "Inconnue" }}</div>
+            <div class="data-value">{{ formatNumber(moynat.departement.vieillissement_indice,'1.0-0') || "Inconnue" }}</div>
           } @else if (data.type === "epci") {
-            <div class="data-value">{{ moynat.epci.vieillissement_indice || "Inconnue" }}</div>
+            <div class="data-value">{{ formatNumber(moynat.epci.vieillissement_indice,'1.0-0') || "Inconnue" }}</div>
           } @else {
-            <div class="data-value">{{ moynat.commune.vieillissement_indice || "Inconnue" }}</div>
+            <div class="data-value">{{ formatNumber(moynat.commune.vieillissement_indice,'1.0-0') || "Inconnue" }}</div>
           }
         </div>
       </div>
