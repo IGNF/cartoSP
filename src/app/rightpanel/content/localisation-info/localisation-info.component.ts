@@ -160,6 +160,7 @@ export class LocalisationInfoComponent implements OnInit {
     } else if (this.data.type == "epci") {
       this.apicartospService.getEpciInfos(this.data.location.number).subscribe({
         next : (response: any) => {
+          console.log(response);
           this.fillDataValues(response);
         },
         error : (error: any) => { console.error('Error fetching epci info:', error) }
@@ -261,6 +262,10 @@ export class LocalisationInfoComponent implements OnInit {
   }
 
   formatNumber(value: any, format: string): string | null {
-    return this.decimalPipe.transform(value.replace(',','.'), format);
+    if(value){
+      return this.decimalPipe.transform(value.replace(',','.'), format);
+    } else {
+      return "Inconnue";
+    }
   }
 }
