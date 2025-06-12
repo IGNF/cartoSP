@@ -40,7 +40,13 @@
       <!-- Nombre d'habitants -->
       <div class="group-location-info">
         <div class="location-info">
-          <div class="data-title">Nbr. d'habitants</div>
+          <div class="data-title">
+            Nbr. d'habitants
+            <button class="fr-btn--tooltip fr-btn" type="button" id="button-pop" aria-describedby="tooltip-pop">
+              Source
+            </button>
+            <span class="fr-tooltip fr-placement" id="tooltip-pop" role="tooltip" aria-hidden="true">Insee, Recensement de la Population, 2021</span>
+          </div>
           <div class="data-value">{{ formatNumber(apidata.population_recensement,'1.0-0') }}</div>
         </div>
         <div class="national-info">
@@ -57,7 +63,13 @@
       <!-- Densité -->
       <div class="group-location-info">
         <div class="location-info">
-          <div class="data-title">Densité (habitants/km2)</div>
+          <div class="data-title">
+            Densité (habitants/km2)
+            <button class="fr-btn--tooltip fr-btn" type="button" id="button-dens" aria-describedby="tooltip-dens">
+              Source
+            </button>
+            <span class="fr-tooltip fr-placement" id="tooltip-dens" role="tooltip" aria-hidden="true">Insee, Recensement de la Population, 2021</span>
+          </div>
           <div class="data-value">{{ formatNumber(apidata.population_densite,'1.1-1') }}</div>
         </div>
         <div class="national-info">
@@ -74,24 +86,38 @@
       <!-- Évolution annuel de la population -->
       <div class="group-location-info">
         <div class="location-info">
-          <div class="data-title">Évolution annuelle de la population</div>
-          <div class="data-value">{{ formatNumber(apidata.population_evolution,'1.2-2') }}%</div>
+          <div class="data-title">
+            Évolution annuelle de la population
+            <button class="fr-btn--tooltip fr-btn" type="button" id="button-evopop" aria-describedby="tooltip-evopop">
+              Source
+            </button>
+            <span class="fr-tooltip fr-placement" id="tooltip-evopop" role="tooltip" aria-hidden="true">Insee, Recensement de la Population, 2021</span>
+          </div>
+          <div class="data-value">
+              {{ formatNumber(apidata.population_evolution,'1.2-2') }}@if (apidata.population_evolution){%}
+          </div>
         </div>
         <div class="national-info">
           <div class="data-title">val. nat.</div>
           @if (data.type === "departement"){  
-            <div class="data-value">{{ formatNumber(moynat.departement.population_evolution,'1.2-2') }}%</div>
+            <div class="data-value">{{ formatNumber(moynat.departement.population_evolution,'1.2-2') }}@if (moynat.departement.population_evolution){%}</div>
           } @else if (data.type === "epci") {
-            <div class="data-value">{{ formatNumber(moynat.epci.population_evolution,'1.2-2') }}%</div>
+            <div class="data-value">{{ formatNumber(moynat.epci.population_evolution,'1.2-2') }}@if (moynat.epci.population_evolution){%}</div>
           } @else {
-            <div class="data-value">{{ formatNumber(moynat.commune.population_evolution,'1.2-2') }}%</div>
+            <div class="data-value">{{ formatNumber(moynat.commune.population_evolution,'1.2-2') }}@if (moynat.commune.population_evolution){%}</div>
           }
         </div>
       </div>
       <!-- QPV -->
       <div class="group-location-info">
         <div class="location-info">
-          <div class="data-title">Nbr. de QPV</div>
+          <div class="data-title">
+            Nbr. de QPV
+            <button class="fr-btn--tooltip fr-btn" type="button" id="button-qpv" aria-describedby="tooltip-qpv">
+              Source
+            </button>
+            <span class="fr-tooltip fr-placement" id="tooltip-qpv" role="tooltip" aria-hidden="true">ANCT, 2025</span>
+          </div>
           <div class="data-value">{{ formatNumber(apidata.nb_qpv,'1.0-0') }}</div>
         </div>
         <div class="national-info">
@@ -108,41 +134,59 @@
       <!-- Taux de pauvreté -->
       <div class="group-location-info">
         <div class="location-info">
-          <div class="data-title">Taux de pauvreté</div>
-          <div class="data-value">{{ formatNumber(apidata.taux_pauvrete,'1.1-1') }}%</div>
+          <div class="data-title">
+            Taux de pauvreté
+            <button class="fr-btn--tooltip fr-btn" type="button" id="button-tpv" aria-describedby="tooltip-tpv">
+              Source
+            </button>
+            <span class="fr-tooltip fr-placement" id="tooltip-tpv" role="tooltip" aria-hidden="true">INSEE, FILOSOFI, 2020</span>
+          </div>
+          <div class="data-value">{{ formatNumber(apidata.taux_pauvrete,'1.1-1') }}@if (apidata.taux_pauvrete){%}</div>
         </div>
         <div class="national-info">
           <div class="data-title">val. nat.</div>
           @if (data.type === "departement"){  
-            <div class="data-value">{{ formatNumber(moynat.departement.taux_pauvrete,'1.1-1') }}%</div>
+            <div class="data-value">{{ formatNumber(moynat.departement.taux_pauvrete,'1.1-1') }}@if (moynat.departement.taux_pauvrete){%}</div>
           } @else if (data.type === "epci") {
-            <div class="data-value">{{ formatNumber(moynat.epci.taux_pauvrete,'1.1-1') }}%</div>
+            <div class="data-value">{{ formatNumber(moynat.epci.taux_pauvrete,'1.1-1') }}@if (moynat.epci.taux_pauvrete){%}</div>
           } @else {
-            <div class="data-value">{{ formatNumber(moynat.commune.taux_pauvrete,'1.1-1') }}%</div>
+            <div class="data-value">{{ formatNumber(moynat.commune.taux_pauvrete,'1.1-1') }}@if (moynat.commune.taux_pauvrete){%}</div>
           }
         </div>
       </div>
       <!-- Taux de chomage -->
       <div class="group-location-info">
         <div class="location-info">
-          <div class="data-title">Taux de chomage</div>
-          <div class="data-value">{{ formatNumber(apidata.taux_chomage,'1.1-1') }}%</div>
+          <div class="data-title">
+            Taux de chomage
+            <button class="fr-btn--tooltip fr-btn" type="button" id="button-chom" aria-describedby="tooltip-chom">
+              Source
+            </button>
+            <span class="fr-tooltip fr-placement" id="tooltip-chom" role="tooltip" aria-hidden="true">Insee, taux de chômage localisés 2023</span>
+          </div>
+          <div class="data-value">{{ formatNumber(apidata.taux_chomage,'1.1-1') }}@if (apidata.taux_chomage){%}</div>
         </div>
         <div class="national-info">
           <div class="data-title">val. nat.</div>
           @if (data.type === "departement"){  
-            <div class="data-value">{{ formatNumber(moynat.departement.taux_chomage,'1.1-1') }}%</div>
+            <div class="data-value">{{ formatNumber(moynat.departement.taux_chomage,'1.1-1') }}@if (moynat.departement.taux_chomage){%}</div>
           } @else if (data.type === "epci") {
-            <div class="data-value">{{ formatNumber(moynat.epci.taux_chomage,'1.1-1') }}%</div>
+            <div class="data-value">{{ formatNumber(moynat.epci.taux_chomage,'1.1-1') }}@if (moynat.epci.taux_chomage){%}</div>
           } @else {
-            <div class="data-value">{{ formatNumber(moynat.commune.taux_chomage,'1.1-1') }}%</div>
+            <div class="data-value">{{ formatNumber(moynat.commune.taux_chomage,'1.1-1') }}@if (moynat.commune.taux_chomage){%}</div>
           }
         </div>
       </div>
       <!-- Vieillissement -->
       <div class="group-location-info">
         <div class="location-info">
-          <div class="data-title">Indice de vieillissement</div>
+          <div class="data-title">
+            Indice de vieillissement
+            <button class="fr-btn--tooltip fr-btn" type="button" id="button-viei" aria-describedby="tooltip-viei">
+              Source
+            </button>
+            <span class="fr-tooltip fr-placement" id="tooltip-viei" role="tooltip" aria-hidden="true">Insee, Recensement de la Population, 2021</span>
+          </div>
           <div class="data-value">{{ formatNumber(apidata.vieillissement_indice,'1.0-0') }}</div>
         </div>
         <div class="national-info">

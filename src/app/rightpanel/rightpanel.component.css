@@ -39,7 +39,7 @@
 
 @media screen and (min-width: 576px) {
     :host.is-expanded {
-        width: 500px;
+        width: 650px;
         transition: width 0.4s cubic-bezier(0.02, 0.68, 0.63, 0.98);
     }
     :host.is-expanded > .rightpanel-body-container{
