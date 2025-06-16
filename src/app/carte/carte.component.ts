@@ -4,12 +4,7 @@ import Map from 'ol/Map';
 import Feature from 'ol/Feature';
 import { bbox as bboxStrategy } from 'ol/loadingstrategy';
 import { LayerWFS as GeoportalLayerWFS, LayerMapBox as GeoportalLayerTMS } from "geopf-extensions-openlayers/src";  
-import { Pixel } from 'ol/pixel';
-import {toStringHDMS} from 'ol/coordinate.js';
-import {toLonLat} from 'ol/proj.js';
 import Overlay from 'ol/Overlay';
-import VectorLayer from 'ol/layer/Vector';
-import Layer from 'ol/layer/Layer';
 
 @Component({
   selector: 'app-carte',
@@ -62,6 +57,12 @@ export class CarteComponent implements OnInit {
     
     this.map.on('pointermove', function (evt) {
       var feature = evt.map.forEachFeatureAtPixel(evt.pixel, function(feature, layer) {
+        if (evt.dragging) {
+          //@ts-ignore
+          document.getElementById("tooltip-feature").style.visibility = 'hidden';
+          evt.map.getTargetElement().style.cursor = '';
+          return null;
+        }
         //@ts-ignore
         if(layer.name === "services_publics_test_20250616:carto_sp_interne"){
           return feature;
