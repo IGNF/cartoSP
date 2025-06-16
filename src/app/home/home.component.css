@@ -39,3 +39,11 @@
         transform: rotate(359deg);
     }
 }
+
+#tooltip-feature {
+    background-color: var(--background-default-grey);
+    max-width: min(24rem,calc(66.66667vw - 1.33333rem));
+    padding: 5px;
+    border-radius: 15px;
+    border: 2px solid var(--text-action-high-blue-france);
+}

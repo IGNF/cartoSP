@@ -45,7 +45,7 @@
             <button class="fr-btn--tooltip fr-btn" type="button" id="button-pop" aria-describedby="tooltip-pop">
               Source
             </button>
-            <span class="fr-tooltip fr-placement" id="tooltip-pop" role="tooltip" aria-hidden="true">Insee, Recensement de la Population, 2021</span>
+            <span class="fr-tooltip fr-placement" id="tooltip-pop" role="tooltip" aria-hidden="true">Insee, Recensement de la Population 2021</span>
           </div>
           <div class="data-value">{{ formatNumber(apidata.population_recensement,'1.0-0') }}</div>
         </div>
@@ -68,7 +68,7 @@
             <button class="fr-btn--tooltip fr-btn" type="button" id="button-dens" aria-describedby="tooltip-dens">
               Source
             </button>
-            <span class="fr-tooltip fr-placement" id="tooltip-dens" role="tooltip" aria-hidden="true">Insee, Recensement de la Population, 2021</span>
+            <span class="fr-tooltip fr-placement" id="tooltip-dens" role="tooltip" aria-hidden="true">Nombre d’habitants au km2 <br> Insee, Recensement de la population 2021</span>
           </div>
           <div class="data-value">{{ formatNumber(apidata.population_densite,'1.1-1') }}</div>
         </div>
@@ -91,7 +91,7 @@
             <button class="fr-btn--tooltip fr-btn" type="button" id="button-evopop" aria-describedby="tooltip-evopop">
               Source
             </button>
-            <span class="fr-tooltip fr-placement" id="tooltip-evopop" role="tooltip" aria-hidden="true">Insee, Recensement de la Population, 2021</span>
+            <span class="fr-tooltip fr-placement" id="tooltip-evopop" role="tooltip" aria-hidden="true">Insee, Recensement de la Population 2021</span>
           </div>
           <div class="data-value">
               {{ formatNumber(apidata.population_evolution,'1.2-2') }}@if (apidata.population_evolution){%}
@@ -139,7 +139,7 @@
             <button class="fr-btn--tooltip fr-btn" type="button" id="button-tpv" aria-describedby="tooltip-tpv">
               Source
             </button>
-            <span class="fr-tooltip fr-placement" id="tooltip-tpv" role="tooltip" aria-hidden="true">INSEE, FILOSOFI, 2020</span>
+            <span class="fr-tooltip fr-placement" id="tooltip-tpv" role="tooltip" aria-hidden="true">Part d'individus vivant avec un revenu inférieur à 60% du revenu médian national <br> INSEE, Filosofi 2020</span>
           </div>
           <div class="data-value">{{ formatNumber(apidata.taux_pauvrete,'1.1-1') }}@if (apidata.taux_pauvrete){%}</div>
         </div>
@@ -155,28 +155,24 @@
         </div>
       </div>
       <!-- Taux de chomage -->
-      <div class="group-location-info">
-        <div class="location-info">
-          <div class="data-title">
-            Taux de chomage
-            <button class="fr-btn--tooltip fr-btn" type="button" id="button-chom" aria-describedby="tooltip-chom">
-              Source
-            </button>
-            <span class="fr-tooltip fr-placement" id="tooltip-chom" role="tooltip" aria-hidden="true">Insee, taux de chômage localisés 2023</span>
+      @if (data.type === "departement"){  
+        <div class="group-location-info">
+          <div class="location-info">
+            <div class="data-title">
+              Taux de chomage
+              <button class="fr-btn--tooltip fr-btn" type="button" id="button-chom" aria-describedby="tooltip-chom">
+                Source
+              </button>
+              <span class="fr-tooltip fr-placement" id="tooltip-chom" role="tooltip" aria-hidden="true">Taux de chômage au sens du BIT <br> Insee, 2023</span>
+            </div>
+            <div class="data-value">{{ formatNumber(apidata.taux_chomage,'1.1-1') }}@if (apidata.taux_chomage){%}</div>
           </div>
-          <div class="data-value">{{ formatNumber(apidata.taux_chomage,'1.1-1') }}@if (apidata.taux_chomage){%}</div>
-        </div>
-        <div class="national-info">
-          <div class="data-title">val. nat.</div>
-          @if (data.type === "departement"){  
+          <div class="national-info">
+            <div class="data-title">val. nat.</div>
             <div class="data-value">{{ formatNumber(moynat.departement.taux_chomage,'1.1-1') }}@if (moynat.departement.taux_chomage){%}</div>
-          } @else if (data.type === "epci") {
-            <div class="data-value">{{ formatNumber(moynat.epci.taux_chomage,'1.1-1') }}@if (moynat.epci.taux_chomage){%}</div>
-          } @else {
-            <div class="data-value">{{ formatNumber(moynat.commune.taux_chomage,'1.1-1') }}@if (moynat.commune.taux_chomage){%}</div>
-          }
+          </div>
         </div>
-      </div>
+      }
       <!-- Vieillissement -->
       <div class="group-location-info">
         <div class="location-info">
@@ -185,7 +181,7 @@
             <button class="fr-btn--tooltip fr-btn" type="button" id="button-viei" aria-describedby="tooltip-viei">
               Source
             </button>
-            <span class="fr-tooltip fr-placement" id="tooltip-viei" role="tooltip" aria-hidden="true">Insee, Recensement de la Population, 2021</span>
+            <span class="fr-tooltip fr-placement" id="tooltip-viei" role="tooltip" aria-hidden="true">Rapport de la population des 65 ans et plus sur celle des moins de 20 ans <br> Insee, Recensement de la population 2021</span>
           </div>
           <div class="data-value">{{ formatNumber(apidata.vieillissement_indice,'1.0-0') }}</div>
         </div>
