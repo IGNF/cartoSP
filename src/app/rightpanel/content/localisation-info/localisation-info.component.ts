@@ -117,7 +117,6 @@ export class LocalisationInfoComponent implements OnInit {
       {label: "Centres sociaux", value: "Centres sociaux"},
       {label: "Communautés professionnelles territoriales de santé (CPTS)", value: "Communautés professionnelles territoriales de santé (CPTS)"},
       {label: "Maison départementale des personnes handicapées (MDPH)", value: "Maison départementale des personnes handicapées (MDPH)"},
-      {label: "Maisons des solidarités et antennes", value: "Maisons des solidarités et antennes"},
       {label: "Mutualité sociale agricole (MSA)", value: "Mutualité sociale agricole (MSA)"},
       {label: "Service d’aide médicale urgente (Samu)", value: "Service d’aide médicale urgente (Samu)"},
       {label: "Union de recouvrement des cotisations de sécurité sociale et d’allocations familiales (Urssaf)", value: "Union de recouvrement des cotisations de sécurité sociale et d’allocations familiales (Urssaf)"}

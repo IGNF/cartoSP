@@ -48,7 +48,6 @@ export class SpwfsfilterComponent implements OnInit {
                 "Centres sociaux",
                 "Communautés professionnelles territoriales de santé (CPTS)",
                 "Maison départementale des personnes handicapées (MDPH)",
-                "Maisons des solidarités et antennes",
                 "Mutualité sociale agricole (MSA)",
                 "Service d’aide médicale urgente (Samu)",
                 "Union de recouvrement des cotisations de sécurité sociale et d’allocations familiales (Urssaf)"                  
