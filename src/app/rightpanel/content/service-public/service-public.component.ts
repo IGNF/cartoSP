@@ -1,5 +1,7 @@
 import { Component, Input, OnInit  } from '@angular/core';
 
+import {TitleCasePipe} from '@angular/common';
+
 import { DsfrTabsModule, DsfrAccordionModule, DsfrButtonModule } from '@edugouvfr/ngx-dsfr';
 
 import { RightpanelService } from '../../rightpanel.service';
@@ -21,7 +23,7 @@ interface responseListType {
 @Component({
   selector: 'app-service-public',
   standalone: true,
-  imports: [DsfrTabsModule, DsfrAccordionModule, DsfrButtonModule],
+  imports: [DsfrTabsModule, DsfrAccordionModule, DsfrButtonModule, TitleCasePipe],
   templateUrl: './service-public.component.html',
   styleUrl: './service-public.component.css'
 })

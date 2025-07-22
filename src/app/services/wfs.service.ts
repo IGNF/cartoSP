@@ -34,7 +34,7 @@ export class WfsService {
   getEpciFromBbox(bbox: string): Observable<any> {
     var req = Object.assign(this.defaultParams, {
         TYPENAME: "ADMINEXPRESS-COG.LATEST:epci",
-        PROPERTYNAME: "id,nom,code_siren",
+        PROPERTYNAME: "cleabs,nom_officiel,code_siren",
         BBOX: bbox + ",EPSG:3857"
     });
 

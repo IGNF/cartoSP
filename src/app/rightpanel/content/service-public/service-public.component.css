@@ -2,6 +2,10 @@
 :host > .fr-h3 {
     margin-top: 15px;
     margin-bottom: 5px;
+    font-size: 28px !important;
+    font-weight: 700 !important;
+    line-height: 36px !important;
+    letter-spacing: 0%;
 }
 
 .fr-h4-tab {
@@ -10,16 +14,23 @@
 }
 
 :host > .fr-h6 {
-    font-weight: 300 !important;
-    font-size: 1.1rem !important;
-    margin-bottom: 20px;
+    font-weight: 500 !important;
+    font-size: 14px !important;
+    color: #0063CB !important;
+    font-style: Medium !important;
+    font-weight: 500 !important;
+    line-height: 24px !important;
+    margin-bottom: 5px !important;
 }
 
 :host > .fr-h7 {
-    font-size: 1.1rem !important;
-    margin-bottom: 5px;
-    font-weight: 500;
-    color: #0078f3;
+    font-size: 1rem !important;
+    margin-bottom: 5px !important;
+    font-weight: 500 !important;
+    font-style: Medium !important;
+    color: #666666 !important;
+    line-height: 24px !important;
+    margin-bottom: 20px !important;
 }
 
 /* Informations sur le SP */
@@ -39,12 +50,16 @@
 }
 
 .permanence-hebergement{
-    font-size: 0.9rem;
+    font-size: 14px;
+    color: #000091;
+    font-weight: 500;
+    font-style: Medium;
 }
 
 .info-list > .info-content {
     padding-left: 10px;
-    font-size: 0.9rem;
+    font-size: 1rem;
+    font-weight: 500;
 }
 
 .opentimes{

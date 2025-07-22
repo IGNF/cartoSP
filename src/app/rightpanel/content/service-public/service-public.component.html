@@ -27,12 +27,12 @@
 <!-- Titres -->
  @if(typeStructure === "Permanence"){
     <h3 class="fr-h3">{{ data.selectedSP.permanence_nom}}</h3>
-    <h6 class="fr-h7">{{ data.selectedSP.permanence_typologie }}</h6>
-    <h6 class="fr-h6">{{ data.selectedSP.permanence_thematique }}</h6>
+    <h6 class="fr-h6">{{ data.selectedSP.permanence_typologie }}</h6>
+    <h6 class="fr-h7">{{ data.selectedSP.permanence_thematique }}</h6>
  } @else {
     <h3 class="fr-h3">{{ data.selectedSP.service_nom }}</h3>
-    <h6 class="fr-h7">{{ data.selectedSP.service_typologie }}</h6>
-    <h6 class="fr-h6">{{ data.selectedSP.service_thematique }}</h6>
+    <h6 class="fr-h6">{{ data.selectedSP.service_typologie }}</h6>
+    <h6 class="fr-h7">{{ data.selectedSP.service_thematique }}</h6>
  }
 <!-- Onglets d'informations -->
 <dsfr-tabs
@@ -113,7 +113,7 @@
             @if(serviceOpeningHours.weekstable == true){
                 @for (entry of serviceOpeningHours.openingHours; track entry.day) {
                     <div class="spopening">
-                        <div class="spopening-day">{{ entry.day }}</div>
+                        <div class="spopening-day">{{ entry.day| titlecase }}</div>
                         <div class="spopening-hours">
                             @for (halfday of entry.time; track halfday) {
                                 <p>{{ halfday }}</p>
@@ -128,7 +128,7 @@
                     <div class="spopening-day">Dates</div>
                     <div class="spopening-date">
                         @for (date of serviceOpeningHours.openingHours.dates; track date) {
-                            <p>{{ date }}</p>
+                            <p>{{ date| titlecase }}</p>
                         }
                     </div>
                 </div>
@@ -233,7 +233,7 @@
                                 @if(entry.openinghours.weekstable == true){
                                     @for (entry of entry.openinghours.openingHours; track entry.day) {
                                         <div class="spopening">
-                                            <div class="spopening-day">{{ entry.day }}</div>
+                                            <div class="spopening-day">{{ entry.day | titlecase}}</div>
                                             <div class="spopening-hours">
                                                 @for (halfday of entry.time; track halfday) {
                                                     <p>{{ halfday }}</p>
@@ -248,7 +248,7 @@
                                         <div class="spopening-day">Dates</div>
                                         <div class="spopening-date">
                                             @for (date of entry.openinghours.openingHours.dates; track date) {
-                                                <p>{{ date }}</p>
+                                                <p>{{ date | titlecase}}</p>
                                             }
                                         </div>
                                     </div>

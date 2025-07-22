@@ -54,8 +54,9 @@ export class LocalisationComponent implements OnInit {
     //@ts-ignore
     name: "highlight",
     style: {
-      'stroke-color': 'red',
-      'stroke-width': 3,
+      'stroke-color': '#C8191F',
+      'stroke-width': 1,
+      'fill-color': 'rgba(0, 0, 0, 0.08)'
     },
   });
 
@@ -129,8 +130,8 @@ export class LocalisationComponent implements OnInit {
           self.WfsService.getEpciFromBbox(e.getView().calculateExtent(e.getSize()).toString()).subscribe({
             next : (response: any) => {
                 self.epcis = [];
-                response.features.forEach( (feature: { properties: { id: any; nom: any; code_siren: any; }; }) => {
-                  self.epcis.push({id: feature.properties.id , name: feature.properties.nom, number: feature.properties.code_siren });
+                response.features.forEach( (feature: { properties: { cleabs: any; nom_officiel: any; code_siren: any; }; }) => {
+                  self.epcis.push({id: feature.properties.cleabs , name: feature.properties.nom_officiel, number: feature.properties.code_siren });
                 });
             },
             error : (error: any) => { console.error('Error fetching epci datas:', error); }
@@ -143,8 +144,8 @@ export class LocalisationComponent implements OnInit {
           self.WfsService.getCommuneFromBbox(e.getView().calculateExtent(e.getSize()).toString()).subscribe({
             next : (response: any) => {  
                 self.communes = [];
-                response.features.forEach( (feature: { properties: { id: any; nom: any; insee_dep: any; }; }) => {
-                  self.communes.push({id: feature.properties.id , name: feature.properties.nom, number: feature.properties.insee_dep  });
+                response.features.forEach( (feature: { properties: { cleabs: any; nom_officiel: any; code_insee_du_departement	: any; }; }) => {
+                  self.communes.push({id: feature.properties.cleabs , name: feature.properties.nom_officiel, number: feature.properties.code_insee_du_departement	  });
                 });
             },
             error : (error: any) => { console.error('Error fetching commune datas:', error); }
