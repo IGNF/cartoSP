@@ -31,6 +31,7 @@ export class CarteComponent implements OnInit {
       }),
       new GeoportalLayerWFS({
         layer: "services_publics_test_20250616:carto_sp_interne",
+        maxFeatures: 3000,
         olParams : {
           minZoom: 9,
           style: function(feature: Feature){
