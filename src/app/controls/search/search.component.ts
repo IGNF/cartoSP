@@ -8,7 +8,7 @@ import { SearchEngine, Searchdialog} from "geopf-extensions-openlayers/src";
   selector: 'app-search',
   standalone: true,
   template: '',
-  styles: ['']
+  styles: ['::ng-deep .geolocatebutton { left: 2px; top: 2px; background-color: white }']
 })
 export class SearchComponent implements OnInit {
   @Input() map!: Map;
@@ -30,6 +30,7 @@ export class SearchComponent implements OnInit {
     this.search = new SearchEngine({
       displayButtonClose: false,
       displayButtonAdvancedSearch: false,
+      displayButtonGeolocate: true,
       collapsible: true,
       splitResults: false,
       markerStyle: 'turquoiseBlue',
@@ -51,5 +52,15 @@ export class SearchComponent implements OnInit {
       }
     });   
     this.map.addControl(this.search);
+
+    //console.log(document.querySelector('[id^=GPshowGeolocate-]'));
+    const geolocatebutton = document.querySelector('[id^=GPshowGeolocate-]');
+    if(geolocatebutton){
+      geolocatebutton.classList.add("gpf-widget", "gpf-widget-button", "fr-btn--tertiary", "geolocatebutton")
+      geolocatebutton.classList.remove("fr-m-1w", "fr-btn--secondary");
+      geolocatebutton.setAttribute('title', "Activer la géolocalisation");
+    }
+    //@ts-ignore
+    document.getElementById("position-container-bottom-right")?.appendChild(geolocatebutton);
   }
 }

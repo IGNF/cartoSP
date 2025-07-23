@@ -5618,7 +5618,7 @@
         "id": "OGC:WFS",
         "version": "2.0.0",
         "serverUrl": {
-          "BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN": "https://data.geopf.fr/private/wfs/wfs"
+          "BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN": "https://data.geopf.fr/private/wfs"
         }
       },
       "defaultProjection": "EPSG:2154",
@@ -5652,7 +5652,7 @@
         "id": "OGC:WFS",
         "version": "2.0.0",
         "serverUrl": {
-          "BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN": "https://data.geopf.fr/private/wfs/wfs"
+          "BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN": "https://data.geopf.fr/private/wfs"
         }
       },
       "defaultProjection": "EPSG:2154",
