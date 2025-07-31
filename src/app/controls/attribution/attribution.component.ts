@@ -17,7 +17,7 @@ export class AttributionComponent implements OnInit {
   constructor(private elementRef: ElementRef) {}
 
   ngOnInit() {
-    this.control = new GeoportalAttribution();
+    this.control = new GeoportalAttribution({});
 
     this.map.addControl(this.control);
   }

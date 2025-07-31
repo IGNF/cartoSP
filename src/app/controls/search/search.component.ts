@@ -8,7 +8,7 @@ import { SearchEngine, Searchdialog} from "geopf-extensions-openlayers/src";
   selector: 'app-search',
   standalone: true,
   template: '',
-  styles: ['::ng-deep .geolocatebutton { left: 2px; top: 2px; background-color: white }']
+  styles: ['::ng-deep .geolocatebutton { left: 2px; background-color: var(--background-default-grey); border-radius: 4px; }']
 })
 export class SearchComponent implements OnInit {
   @Input() map!: Map;
@@ -35,14 +35,12 @@ export class SearchComponent implements OnInit {
       splitResults: false,
       markerStyle: 'turquoiseBlue',
       zoomTo: 'auto',
-      target: document.getElementById('searchmodal'),
       resources : {
         geocode : ["StreetAddress", "PositionOfInterest"],
         autocomplete : ["PositionOfInterest"],
         search: false
       },
       autocompleteOptions:{
-        //prettifyResults: true,
         serviceOptions: {
           filterOptions: {
             type: "commune",
@@ -53,7 +51,7 @@ export class SearchComponent implements OnInit {
     });   
     this.map.addControl(this.search);
 
-    //console.log(document.querySelector('[id^=GPshowGeolocate-]'));
+    // extract geolocation button
     const geolocatebutton = document.querySelector('[id^=GPshowGeolocate-]');
     if(geolocatebutton){
       geolocatebutton.classList.add("gpf-widget", "gpf-widget-button", "fr-btn--tertiary", "geolocatebutton")
@@ -62,5 +60,10 @@ export class SearchComponent implements OnInit {
     }
     //@ts-ignore
     document.getElementById("position-container-bottom-right")?.appendChild(geolocatebutton);
+
+    // move searchEngine
+    const searchinput = document.querySelector('[id^=GPsearchEngine-]');
+    //@ts-ignore
+    document.getElementById("searchmodal")?.appendChild(searchinput);
   }
 }

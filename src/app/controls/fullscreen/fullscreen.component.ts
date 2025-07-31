@@ -19,7 +19,7 @@ export class FullscreenComponent implements OnInit {
   ngOnInit() {
     this.control = new GeoportalFullScreen({
       position : "bottom-right",
-      target: this.elementRef.nativeElement,
+      source: document.getElementById("app-content")
     });
 
     this.map.addControl(this.control);

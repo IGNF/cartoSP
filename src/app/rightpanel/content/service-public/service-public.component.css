@@ -10,7 +10,7 @@
 
 .fr-h4-tab {
     margin-top: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 24px;
 }
 
 :host > .fr-h6 {
@@ -31,6 +31,22 @@
     color: #666666 !important;
     line-height: 24px !important;
     margin-bottom: 20px !important;
+}
+
+.date-title {
+    color: #000;
+    font-family: Marianne;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 28px;
+    padding-bottom: 6px !important;
+    margin-bottom: 0px !important;
+}
+
+.title-gap {
+    padding-top: 32px !important;
+    margin-top: 0px !important;
 }
 
 /* Informations sur le SP */
@@ -57,19 +73,20 @@
 }
 
 .info-list > .info-content {
-    padding-left: 10px;
+    padding-left: 16px;
     font-size: 1rem;
     font-weight: 500;
 }
 
 .opentimes{
     width: 100%;
-    padding-left: 32px;
+    padding-left: 40px;
     display: none;
 }
 
 .opentimes-btn {
-    margin-left: 32px;
+    margin-left: 40px;
+    padding-top: 11px;
 }
 
 .opentimes > .spopening > .spopening-day {
@@ -77,7 +94,7 @@
 }
 
 .info-modalite {
-    padding-bottom: 20px;
+    padding-bottom: 40px;
 }
 
 #presentTab {
@@ -87,8 +104,8 @@
 /* Informations capacité/fréquence sur le SP et info accessibilite */
 #infos-cf {
     display: flex;
-    padding-bottom: 10px;
-    padding-top: 20px;
+    padding-bottom: 30px;
+    padding-top: 40px;
 }
 
 #infos-cf > .frequence {
@@ -132,7 +149,7 @@
 }
 
 .spopening-date-hours{
-    width: 60%;
+    width: 65%;
 }
 
 .spopening-date {

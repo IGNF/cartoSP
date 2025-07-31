@@ -25,7 +25,6 @@ export class LayerswitcherComponent implements OnInit {
         panel: true,
         counter: true
       },
-      target: this.elementRef.nativeElement,
     });
 
     this.control.addEventListener("layerswitcher:add", function (e: any) {

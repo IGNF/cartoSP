@@ -104,49 +104,50 @@
         }
     </div>
     <!-- Horaires -->
-    <dsfr-accordion
-    [heading]="'Horaires'"
-    [headingAriaLabel]="'Horaires d\'ouverture'"
-    [expanded]="true"
-    >     
-        @if(serviceOpeningHours) {
-            @if(serviceOpeningHours.weekstable == true){
-                @for (entry of serviceOpeningHours.openingHours; track entry.day) {
-                    <div class="spopening">
-                        <div class="spopening-day">{{ entry.day| titlecase }}</div>
-                        <div class="spopening-hours">
-                            @for (halfday of entry.time; track halfday) {
-                                <p>{{ halfday }}</p>
-                            } @empty {
-                                <p>Fermé</p>
-                            }
-                        </div>
-                    </div>
-                } 
-            }@else {
+    @if (data.selectedSP.type_structure == "Itinérance") {
+        <h6 class="date-title">Dates & horaires de l'étape</h6>
+    } @else if (data.selectedSP.type_structure == "Permanence") {
+        <h6 class="date-title">Horaires de la permanence</h6>
+    } @else {
+        <h6 class="date-title">Horaires</h6>
+    }
+    @if(serviceOpeningHours) {
+        @if(serviceOpeningHours.weekstable == true){
+            @for (entry of serviceOpeningHours.openingHours; track entry.day) {
                 <div class="spopening">
-                    <div class="spopening-day">Dates</div>
-                    <div class="spopening-date">
-                        @for (date of serviceOpeningHours.openingHours.dates; track date) {
-                            <p>{{ date| titlecase }}</p>
-                        }
-                    </div>
-                </div>
-                <div class="spopening">
-                    <div class="spopening-day">Horaires</div>
-                    <div class="spopening-date-hours">
-                        @for (halfday of serviceOpeningHours.openingHours.time; track halfday) {
+                    <div class="spopening-day">{{ entry.day| titlecase }}</div>
+                    <div class="spopening-hours">
+                        @for (halfday of entry.time; track halfday) {
                             <p>{{ halfday }}</p>
+                        } @empty {
+                            <p>Fermé</p>
                         }
                     </div>
                 </div>
-            }
-        }@else{
+            } 
+        }@else {
             <div class="spopening">
-                Information indisponible pour ce service
-            </div> 
+                <div class="spopening-day">Dates</div>
+                <div class="spopening-date">
+                    @for (date of serviceOpeningHours.openingHours.dates; track date) {
+                        <p>{{ date| titlecase }}</p>
+                    }
+                </div>
+            </div>
+            <div class="spopening">
+                <div class="spopening-day">Horaires</div>
+                <div class="spopening-date-hours">
+                    @for (halfday of serviceOpeningHours.openingHours.time; track halfday) {
+                        <p>{{ halfday }}</p>
+                    }
+                </div>
+            </div>
         }
-    </dsfr-accordion>
+    }@else{
+        <div class="spopening">
+            Information indisponible pour ce service
+        </div> 
+    }
   </dsfr-tab>
   <!-- Second onglet en fonction du type_structure -->
     @if(responseList) {
@@ -160,11 +161,18 @@
                     >
                         <h4 class="fr-h4 fr-h4-tab">Autre(s) permanence(s) hébergée(s) dans ce lieu</h4>
                         @for (entry of responseList; track responseList; let idx = $index) {
-                            @if(entry.name != data.selectedSP.permanence_nom) {      
-                                <div class="info-list">
-                                    <span class="fr-icon-map-pin-2-fill fr-icon--md info-icon" aria-hidden="true"></span>
-                                    <div class="info-content"> {{ entry.name || "Aucune information" }}</div>
-                                </div>
+                            @if(entry.name != data.selectedSP.permanence_nom) {
+                                @if(idx != 0) {        
+                                    <div class="info-list title-gap">
+                                        <span class="fr-icon-map-pin-2-fill fr-icon--md info-icon" aria-hidden="true"></span>
+                                        <div class="info-content"> {{ entry.name || "Aucune information" }}</div>
+                                    </div>
+                                } @else {
+                                   <div class="info-list">
+                                        <span class="fr-icon-map-pin-2-fill fr-icon--md info-icon" aria-hidden="true"></span>
+                                        <div class="info-content"> {{ entry.name || "Aucune information" }}</div>
+                                    </div>
+                                }
                                 <button (click)="showTime($event)" value="opentimes-{{ idx }}" class="fr-link margin-link opentimes-btn">Voir les horaires ˅</button>
                                 <div id="opentimes-{{ idx }}" class="opentimes">
                                 @if(entry.openinghours) {
@@ -221,12 +229,19 @@
                         <span class="fr-icon-bus-fill fr-icon--md info-icon" aria-hidden="true"></span>
                         <div class="info-content"> {{ data.selectedSP.service_nom || "Aucune information" }}</div>
                     </div> 
-                    <h4 class="fr-h4 fr-h4-tab">Circuit</h4>
-                    @for (entry of responseList; track responseList; let idx = $index) {       
-                        <div class="info-list">
-                            <span class="fr-icon-map-pin-2-fill fr-icon--md info-icon" aria-hidden="true"></span>
-                            <div class="info-content"> {{ entry.name }}</div>
-                        </div>
+                    <h4 class="fr-h4 fr-h4-tab title-gap">Circuit</h4>
+                    @for (entry of responseList; track responseList; let idx = $index) {  
+                        @if(idx != 0) {     
+                            <div class="info-list title-gap">
+                                <span class="fr-icon-map-pin-2-fill fr-icon--md info-icon" aria-hidden="true"></span>
+                                <div class="info-content"> {{ entry.name }}</div>
+                            </div>
+                        } @else {
+                            <div class="info-list">
+                                <span class="fr-icon-map-pin-2-fill fr-icon--md info-icon" aria-hidden="true"></span>
+                                <div class="info-content"> {{ entry.name }}</div>
+                            </div>                            
+                        }
                         <button (click)="showTime($event)" value="opentimes-{{ idx }}" class="fr-link margin-link opentimes-btn">Voir les dates ˅</button>
                         <div id="opentimes-{{ idx }}" class="opentimes">
                             @if(entry.openinghours) {

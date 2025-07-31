@@ -21,9 +21,7 @@ export class LegendeComponent implements OnInit {
       collapsed: true,
       position: "top-left",
       panel: true,
-      auto: true,
-      info: true,
-      target: this.elementRef.nativeElement,
+      auto: true
     });
 
     this.map.addControl(this.control);
