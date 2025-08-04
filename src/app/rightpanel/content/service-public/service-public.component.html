@@ -173,46 +173,53 @@
                                         <div class="info-content"> {{ entry.name || "Aucune information" }}</div>
                                     </div>
                                 }
-                                <button (click)="showTime($event)" value="opentimes-{{ idx }}" class="fr-link margin-link opentimes-btn">Voir les horaires ˅</button>
-                                <div id="opentimes-{{ idx }}" class="opentimes">
+                                
                                 @if(entry.openinghours) {
                                     @if(entry.openinghours.weekstable == true){
-                                        @for (entry of entry.openinghours.openingHours; track entry.day) {
+                                        <div id="opentimes-{{ idx }}" class="opentimes">
+                                            @for (entry of entry.openinghours.openingHours; track entry.day) {
+                                                <div class="spopening">
+                                                    <div class="spopening-day">{{ entry.day }}</div>
+                                                    <div class="spopening-hours">
+                                                        @for (halfday of entry.time; track halfday) {
+                                                            <p>{{ halfday }}</p>
+                                                        } @empty {
+                                                            <p>Fermé</p>
+                                                        }
+                                                    </div>
+                                                </div>
+                                            } 
+                                        </div>
+                                        <button name="hourtime" (click)="showTime($event)" value="opentimes-{{ idx }}" class="fr-link margin-link opentimes-btn">Voir les horaires ˅</button>
+                                    }@else {
+                                        <div id="opentimes-{{ idx }}" class="opentimes">
                                             <div class="spopening">
-                                                <div class="spopening-day">{{ entry.day }}</div>
-                                                <div class="spopening-hours">
-                                                    @for (halfday of entry.time; track halfday) {
-                                                        <p>{{ halfday }}</p>
-                                                    } @empty {
-                                                        <p>Fermé</p>
+                                                <div class="spopening-day">Dates</div>
+                                                <div class="spopening-date">
+                                                    @for (date of entry.openinghours.openingHours.dates; track date) {
+                                                        <p>{{ date }}</p>
                                                     }
                                                 </div>
                                             </div>
-                                        } 
-                                    }@else {
-                                        <div class="spopening">
-                                            <div class="spopening-day">Dates</div>
-                                            <div class="spopening-date">
-                                                @for (date of entry.openinghours.openingHours.dates; track date) {
-                                                    <p>{{ date }}</p>
-                                                }
+                                            <div class="spopening">
+                                                <div class="spopening-day">Horaires</div>
+                                                <div class="spopening-date-hours">
+                                                    @for (halfday of entry.openinghours.openingHours.time; track halfday) {
+                                                        <p>{{ halfday }}</p>
+                                                    }
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="spopening">
-                                            <div class="spopening-day">Horaires</div>
-                                            <div class="spopening-date-hours">
-                                                @for (halfday of entry.openinghours.openingHours.time; track halfday) {
-                                                    <p>{{ halfday }}</p>
-                                                }
-                                            </div>
-                                        </div>
+                                        <button name="daytime" (click)="showTime($event)" value="opentimes-{{ idx }}" class="fr-link margin-link opentimes-btn">Voir les dates ˅</button>
                                     }
                                 }@else{
-                                    <div class="spopening">
-                                        Information indisponible pour ce service
-                                    </div> 
+                                    <div id="opentimes-{{ idx }}" class="opentimes">
+                                        <div class="spopening">
+                                            Information indisponible pour ce service
+                                        </div> 
+                                    </div>
+                                    <button name="nonetime" (click)="showTime($event)" value="opentimes-{{ idx }}" class="fr-link margin-link opentimes-btn">Voir les horaires ˅</button>
                                 }
-                                </div>
                             }
                         } 
                     </dsfr-tab>
@@ -242,46 +249,52 @@
                                 <div class="info-content"> {{ entry.name }}</div>
                             </div>                            
                         }
-                        <button (click)="showTime($event)" value="opentimes-{{ idx }}" class="fr-link margin-link opentimes-btn">Voir les dates ˅</button>
-                        <div id="opentimes-{{ idx }}" class="opentimes">
                             @if(entry.openinghours) {
                                 @if(entry.openinghours.weekstable == true){
-                                    @for (entry of entry.openinghours.openingHours; track entry.day) {
+                                    <div id="opentimes-{{ idx }}" class="opentimes">
+                                        @for (entry of entry.openinghours.openingHours; track entry.day) {
+                                            <div class="spopening">
+                                                <div class="spopening-day">{{ entry.day | titlecase}}</div>
+                                                <div class="spopening-hours">
+                                                    @for (halfday of entry.time; track halfday) {
+                                                        <p>{{ halfday }}</p>
+                                                    } @empty {
+                                                        <p>Fermé</p>
+                                                    }
+                                                </div>
+                                            </div>
+                                        } 
+                                    </div>
+                                    <button name="hourtime" (click)="showTime($event)" value="opentimes-{{ idx }}" class="fr-link margin-link opentimes-btn">Voir les horaires ˅</button>
+                                }@else {
+                                    <div id="opentimes-{{ idx }}" class="opentimes">
                                         <div class="spopening">
-                                            <div class="spopening-day">{{ entry.day | titlecase}}</div>
-                                            <div class="spopening-hours">
-                                                @for (halfday of entry.time; track halfday) {
-                                                    <p>{{ halfday }}</p>
-                                                } @empty {
-                                                    <p>Fermé</p>
+                                            <div class="spopening-day">Dates</div>
+                                            <div class="spopening-date">
+                                                @for (date of entry.openinghours.openingHours.dates; track date) {
+                                                    <p>{{ date | titlecase}}</p>
                                                 }
                                             </div>
                                         </div>
-                                    } 
-                                }@else {
-                                    <div class="spopening">
-                                        <div class="spopening-day">Dates</div>
-                                        <div class="spopening-date">
-                                            @for (date of entry.openinghours.openingHours.dates; track date) {
-                                                <p>{{ date | titlecase}}</p>
-                                            }
+                                        <div class="spopening">
+                                            <div class="spopening-day">Horaires</div>
+                                            <div class="spopening-date-hours">
+                                                @for (halfday of entry.openinghours.openingHours.time; track halfday) {
+                                                    <p>{{ halfday }}</p>
+                                                }
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="spopening">
-                                        <div class="spopening-day">Horaires</div>
-                                        <div class="spopening-date-hours">
-                                            @for (halfday of entry.openinghours.openingHours.time; track halfday) {
-                                                <p>{{ halfday }}</p>
-                                            }
-                                        </div>
-                                    </div>
+                                    <button name="datetime" (click)="showTime($event)" value="opentimes-{{ idx }}" class="fr-link margin-link opentimes-btn">Voir les dates ˅</button>
                                 }
                             }@else{
-                                <div class="spopening">
-                                    Information indisponible pour ce service
-                                </div> 
+                                <div id="opentimes-{{ idx }}" class="opentimes">
+                                    <div class="spopening">
+                                        Information indisponible pour ce service
+                                    </div> 
+                                </div>
+                                <button name="nonetime" (click)="showTime($event)" value="opentimes-{{ idx }}" class="fr-link margin-link opentimes-btn">Voir les horaires ˅</button>
                             }
-                        </div>
                     } 
                 </dsfr-tab>
             }
@@ -293,50 +306,57 @@
                 >
                     <h4 class="fr-h4 fr-h4-tab">Permanence(s) hébergée(s)</h4>
                     @for (entry of responseList; track responseList; let idx = $index) {     
-                        <div class="info-list">
+                        <div class="info-list title-gap">
                             <span class="fr-icon-map-pin-2-fill fr-icon--md info-icon" aria-hidden="true"></span>
                             <div class="info-content"> {{ entry.name || "Aucune information" }}</div>
                         </div>
-                        <button (click)="showTime($event)" value="opentimes-{{ idx }}" class="fr-link margin-link opentimes-btn">Voir les horaires ˅</button>
-                        <div id="opentimes-{{ idx }}" class="opentimes">
+                        
                         @if(entry.openinghours) {
                             @if(entry.openinghours.weekstable == true){
-                                @for (entry of entry.openinghours.openingHours; track entry.day) {
+                                <div id="opentimes-{{ idx }}" class="opentimes">
+                                    @for (entry of entry.openinghours.openingHours; track entry.day) {
+                                        <div class="spopening">
+                                            <div class="spopening-day">{{ entry.day }}</div>
+                                            <div class="spopening-hours">
+                                                @for (halfday of entry.time; track halfday) {
+                                                    <p>{{ halfday }}</p>
+                                                } @empty {
+                                                    <p>Fermé</p>
+                                                }
+                                            </div>
+                                        </div>
+                                    } 
+                                </div>
+                                <button name="hourtime" (click)="showTime($event)" value="opentimes-{{ idx }}" class="fr-link margin-link opentimes-btn">Voir les horaires ˅</button>
+                            }@else {
+                                <div id="opentimes-{{ idx }}" class="opentimes">
                                     <div class="spopening">
-                                        <div class="spopening-day">{{ entry.day }}</div>
-                                        <div class="spopening-hours">
-                                            @for (halfday of entry.time; track halfday) {
-                                                <p>{{ halfday }}</p>
-                                            } @empty {
-                                                <p>Fermé</p>
+                                        <div class="spopening-day">Dates</div>
+                                        <div class="spopening-date">
+                                            @for (date of entry.openinghours.openingHours.dates; track date) {
+                                                <p>{{ date }}</p>
                                             }
                                         </div>
                                     </div>
-                                } 
-                            }@else {
-                                <div class="spopening">
-                                    <div class="spopening-day">Dates</div>
-                                    <div class="spopening-date">
-                                        @for (date of entry.openinghours.openingHours.dates; track date) {
-                                            <p>{{ date }}</p>
-                                        }
+                                    <div class="spopening">
+                                        <div class="spopening-day">Horaires</div>
+                                        <div class="spopening-date-hours">
+                                            @for (halfday of entry.openinghours.openingHours.time; track halfday) {
+                                                <p>{{ halfday }}</p>
+                                            }
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="spopening">
-                                    <div class="spopening-day">Horaires</div>
-                                    <div class="spopening-date-hours">
-                                        @for (halfday of entry.openinghours.openingHours.time; track halfday) {
-                                            <p>{{ halfday }}</p>
-                                        }
-                                    </div>
-                                </div>
+                                <button name="datetime" (click)="showTime($event)" value="opentimes-{{ idx }}" class="fr-link margin-link opentimes-btn">Voir les dates ˅</button>
                             }
                         }@else{
-                            <div class="spopening">
-                                Information indisponible pour ce service
-                            </div> 
+                            <div id="opentimes-{{ idx }}" class="opentimes">
+                                <div class="spopening">
+                                    Information indisponible pour ce service
+                                </div> 
+                            </div>
+                            <button name="nonetime" (click)="showTime($event)" value="opentimes-{{ idx }}" class="fr-link margin-link opentimes-btn">Voir les horaires ˅</button>
                         }
-                        </div>
                     } 
                 </dsfr-tab>
             }

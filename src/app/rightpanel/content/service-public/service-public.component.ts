@@ -182,10 +182,18 @@ export class ServicePublicComponent implements OnInit {
     if (element){
       if (element.style.display === "none" || element.style.display === "") {
         element.style.display = "inline-block";
-        e.target.innerHTML = e.target.innerHTML.replace("˅", "˄");
+        if(e.target.getAttribute("name") == "datetime") {
+          e.target.innerHTML = e.target.innerHTML.replace("Voir les dates ˅", "Voirs moins ˄");
+        } else {
+          e.target.innerHTML = e.target.innerHTML.replace("Voir les horaires ˅", "Voirs moins ˄");
+        }
       } else {
         element.style.display = "none";
-        e.target.innerHTML = e.target.innerHTML.replace("˄", "˅");
+        if(e.target.getAttribute("name") == "datetime") {
+          e.target.innerHTML = e.target.innerHTML.replace("Voirs moins ˄", "Voir les dates ˅");
+        } else {
+          e.target.innerHTML = e.target.innerHTML.replace("Voirs moins ˄", "Voir les horaires ˅");
+        }
       }
     }
   }
