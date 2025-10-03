@@ -48,12 +48,7 @@ export class CarteComponent implements OnInit {
 
     const overlay = new Overlay({
       //@ts-ignore
-      element: document.getElementById("tooltip-feature"),
-      autoPan: {
-        animation: {
-          duration: 250,
-        },
-      },
+      element: document.getElementById("tooltip-feature")
     });
     
     this.map.on('pointermove', function (evt) {

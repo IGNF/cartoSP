@@ -119,7 +119,8 @@ export class LocalisationInfoComponent implements OnInit {
       {label: "Maison départementale des personnes handicapées (MDPH)", value: "Maison départementale des personnes handicapées (MDPH)"},
       {label: "Mutualité sociale agricole (MSA)", value: "Mutualité sociale agricole (MSA)"},
       {label: "Service d’aide médicale urgente (Samu)", value: "Service d’aide médicale urgente (Samu)"},
-      {label: "Union de recouvrement des cotisations de sécurité sociale et d’allocations familiales (Urssaf)", value: "Union de recouvrement des cotisations de sécurité sociale et d’allocations familiales (Urssaf)"}
+      {label: "Union de recouvrement des cotisations de sécurité sociale et d’allocations familiales (Urssaf)", value: "Union de recouvrement des cotisations de sécurité sociale et d’allocations familiales (Urssaf)"},
+      {label: "Maison de santé (L.6223-3)", value: "Maison de santé (L.6223-3)"}
     ]}, 
     {label: "Travail, emploi, formation", options: [
       {label: "France Travail", value: "France Travail"}, 
