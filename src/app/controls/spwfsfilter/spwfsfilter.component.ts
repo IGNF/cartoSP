@@ -50,7 +50,8 @@ export class SpwfsfilterComponent implements OnInit {
                 "Maison départementale des personnes handicapées (MDPH)",
                 "Mutualité sociale agricole (MSA)",
                 "Service d’aide médicale urgente (Samu)",
-                "Union de recouvrement des cotisations de sécurité sociale et d’allocations familiales (Urssaf)"                  
+                "Union de recouvrement des cotisations de sécurité sociale et d’allocations familiales (Urssaf)",
+                "Maison de santé (L.6223-3)"              
             ]
         },
         "Travail, emploi, formation": {
@@ -98,7 +99,7 @@ export class SpwfsfilterComponent implements OnInit {
     this.control = new WfsFilter({
       position: "top-left",
       panel: true,
-      cartospLayerName: "services_publics_test_20250616:carto_sp_interne",
+      cartospLayerName: "services_publics_test_20250925:carto_sp_interne",
       cartospThemesInfo: ThemesInfo
     });
 
