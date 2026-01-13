@@ -6,7 +6,6 @@ import { RightpanelService } from '../../rightpanel.service';
 import { WfsService } from './../../../services/wfs.service';
 import { GeocodageService } from './../../../services/geocodage.service';
 import { LocalisationInfoComponent } from '../../content/localisation-info/localisation-info.component';
-import { SimpleGeometry } from 'ol/geom';
 import GeoJSON from 'ol/format/GeoJSON';
 import VectorLayer from 'ol/layer/Vector';
 import VectorSource from 'ol/source/Vector';
@@ -88,14 +87,14 @@ export class LocalisationComponent implements OnInit {
 
   // Sélectionner une localisation
   selectLocation(selected: any) {
-    this.GeocodageService.getSearchTrueGeometry(selected.name).subscribe({
+    this.GeocodageService.getAdminExpressGeometry(selected.name, this.currentTab).subscribe({
       next : (response: any) => {
-          const locationGeom = new GeoJSON().readFeatures(response.features[0].properties.truegeometry, {featureProjection: 'EPSG:3857'})[0].getGeometry();
-          this.data.getView().fit(locationGeom as SimpleGeometry, {padding: [30,30,30,30]});
-          if(this.currentTab == "commune"){
-            selected.number = response.features[0].properties.citycode[0];
-          }
-          this.rightpanelService.setContent(LocalisationInfoComponent, {map : this.data, location: selected, type: this.currentTab}, "locationinfo");
+        const locationGeom = new GeoJSON().readFeatures(response.features[0].geometry);
+        this.data.getView().fit(locationGeom[0].getGeometry(), {padding: [30,30,30,30]});
+        if(this.currentTab == "commune"){
+          selected.number = response.features[0].properties.code_insee;
+        }
+        this.rightpanelService.setContent(LocalisationInfoComponent, {map : this.data, location: selected, type: this.currentTab}, "locationinfo");
       },
       error : (error: any) => { console.error('Error fetching location geometry:', error) }
     });
@@ -103,9 +102,9 @@ export class LocalisationComponent implements OnInit {
 
   // ajouter le highlight sur une localisation
   highlightLocation(name: any) {
-    this.GeocodageService.getSearchTrueGeometry(name).subscribe({
+    this.GeocodageService.getAdminExpressGeometry(name, this.currentTab).subscribe({
       next : (response: any) => {
-          const locationGeom = new GeoJSON().readFeatures(response.features[0].properties.truegeometry, {featureProjection: 'EPSG:3857'});
+          const locationGeom = new GeoJSON().readFeatures(response.features[0].geometry);
           this.data.removeLayer(this.highlightLayer);
           this.highlightSource = new VectorSource({});
           this.highlightSource?.addFeatures(locationGeom);
