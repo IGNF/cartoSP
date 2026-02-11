@@ -23,7 +23,7 @@ export class CarteComponent implements OnInit {
     this.map.setLayers([
       new GeoportalLayerTMS({
         layer: "PLAN.IGN",
-        style: "desatured-ign"
+        style: "desaturated-ign"
       }),
       new GeoportalLayerTMS({
         layer: "ADMIN_EXPRESS",

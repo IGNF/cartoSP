@@ -660,10 +660,10 @@
           "url": "https://data.geopf.fr/annexes/ressources/vectorTiles/styles/PLAN.IGN/sans_toponymes.json"
         },
         {
-          "name": "desatured-ign",
+          "name": "desaturated-ign",
           "title": "Style plan ign simplifié",
           "current": true,
-          "url": "/assets/destured-plan-ign.json"
+          "url": "/assets/desaturated-plan-ign-v2.json"
         }
       ],
       "globalConstraint": {
