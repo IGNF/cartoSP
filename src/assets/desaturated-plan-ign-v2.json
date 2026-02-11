@@ -13,9 +13,14 @@
   "transition": {"duration": 300, "delay": 0},
   "layers": [
     {
-      "id": "background",
-      "type": "background",
-      "paint": {"background-color": "#f6f6f6"}
+     "id": "bckgrd",
+        "type": "fill",
+        "source": "plan_ign",
+        "source-layer": "fond_opaque",
+        "minzoom": 0,
+        "maxzoom": 24,
+        "layout": {"visibility": "visible"},
+        "paint": {"fill-color": "#f6f6f6", "fill-opacity": 1}
     },
     {
       "id": "hydro surfacique - Estran",
