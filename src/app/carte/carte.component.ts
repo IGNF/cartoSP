@@ -24,6 +24,8 @@ export class CarteComponent implements OnInit {
       new GeoportalLayerTMS({
         layer: "PLAN.IGN",
         style: "desaturated-ign"
+      },{
+        declutter: true
       }),
       new GeoportalLayerTMS({
         layer: "ADMIN_EXPRESS",
