@@ -24,13 +24,13 @@ export class CarteComponent implements OnInit {
       new GeoportalLayerTMS({
         layer: "PLAN.IGN",
         style: "desatured-ign"
-      }),
+      }, {declutter: true}),
       new GeoportalLayerTMS({
         layer: "ADMIN_EXPRESS",
         style: "simpleadminexpress"
       }),
       new GeoportalLayerWFS({
-        layer: "services_publics_test_20250925:carto_sp_interne",
+        layer: "base_carto_sp_18_02_gpkg_18-02-2026_wfs:carto_sp_18_02__base_carto_sp",
         maxFeatures: 3000,
         olParams : {
           minZoom: 9,
@@ -60,7 +60,7 @@ export class CarteComponent implements OnInit {
           return null;
         }
         //@ts-ignore
-        if(layer.name === "services_publics_test_20250925:carto_sp_interne"){
+        if(layer.name === "base_carto_sp_18_02_gpkg_18-02-2026_wfs:carto_sp_18_02__base_carto_sp"){
           return feature;
         }else{
           return null;
@@ -72,10 +72,10 @@ export class CarteComponent implements OnInit {
         //@ts-ignore
         if(feature.values_.type_structure == "Permanence"){
           //@ts-ignore
-          document.getElementById("tooltip-feature").innerHTML = '<div>' + feature.values_.permanence_nom + '</div>';
+          document.getElementById("tooltip-feature").innerHTML = '<div>' + feature.values_.nom + '</div>';
         }else{
           //@ts-ignore
-          document.getElementById("tooltip-feature").innerHTML = '<div>' + feature.values_.service_nom + '</div>';
+          document.getElementById("tooltip-feature").innerHTML = '<div>' + feature.values_.nom + '</div>';
         }
         
         overlay.setPosition(coordinate);

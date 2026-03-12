@@ -7,7 +7,7 @@
         "PLAN.IGN$GEOPORTAIL:GPP:TMS",
         "ADMIN_EXPRESS$GEOPORTAIL:GPP:TMS"
       ],
-      "BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN": [
+      "m5CCGi6CTNOHP3VrNwOnPkQmoxtenaBU": [
         "ANCT_QPV_wms$GEOPORTAIL:OGC:WMS",
         "bassins_de_vie_france$GEOPORTAIL:OGC:WMS",
         "CAF_isochrone20$GEOPORTAIL:OGC:WMS",
@@ -48,396 +48,26 @@
         "total_sante_nb_kines$GEOPORTAIL:OGC:WMS",
         "total_sante_nb_orthophonistes$GEOPORTAIL:OGC:WMS",
         "total_sante_nb_sagesfemmes$GEOPORTAIL:OGC:WMS",
-        "services_publics_test_20250616:carto_sp_interne$GEOPORTAIL:OGC:WFS",
-        "services_publics_test_20250925:carto_sp_interne$GEOPORTAIL:OGC:WFS",
         "frequentation_SP_permanences$GEOPORTAIL:OGC:WMS",
         "frequentation_SP_v3$GEOPORTAIL:OGC:WMS",
-        "cpts_20250513$GEOPORTAIL:OGC:WMS"
+        "cpts_20250513$GEOPORTAIL:OGC:WMS",
+        "base_carto_sp_18_02_gpkg_18-02-2026_wfs:carto_sp_18_02__base_carto_sp$GEOPORTAIL:OGC:WFS"
       ]
     }
   },
   "layers": {
-    "cpts_20250513$GEOPORTAIL:OGC:WMS": {
-      "name": "cpts_20250513",
-      "title": "Zonage CPTS",
-      "description": "Cette ressource  regroupe des indicateurs sur la santé en vue d'une utilisation au sein du projet de cartographie des services publics",
+    "GEOGRAPHICALGRIDSYSTEMS.PLANIGNV2$GEOPORTAIL:OGC:WMS": {
+      "name": "GEOGRAPHICALGRIDSYSTEMS.PLANIGNV2",
+      "title": "Plan IGN",
+      "description": "Cartographie multi-échelles sur le territoire national, issue des bases de données vecteur de l’IGN, mis à jour régulièrement et réalisée selon un processus entièrement automatisé.",
       "globalConstraint": {
-        "minScaleDenominator": 0.0,
-        "maxScaleDenominator": 62236752975597,
-        "bbox": {
-          "left": -5.4325,
-          "right": 9.43125,
-          "top": 51.2346875,
-          "bottom": 42.1259375
-        }
-      },
-      "serviceParams": {
-        "id": "OGC:WMS",
-        "version": "1.3.0",
-        "serverUrl": {
-          "BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN": "https://data.geopf.fr/private/wms-v/ows"
-        }
-      },
-      "defaultProjection": "EPSG:4326",
-      "queryable": true,
-      "metadata": [],
-      "styles": [
-        {
-          "name": "default-style-cpts_20250513",
-          "title": "cpts_20250513 style"
-        }
-      ],
-      "legends": [
-        {
-          "format": "image/png",
-          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=cpts_20250513&apikey=BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN"
-        }
-      ],
-      "formats": [
-        {
-          "name": "image/png",
-          "current": true
-        },
-        {
-          "name": "application/atom+xml",
-          "current": false
-        },
-        {
-          "name": "application/json;type=utfgrid",
-          "current": false
-        },
-        {
-          "name": "application/pdf",
-          "current": false
-        },
-        {
-          "name": "application/rss+xml",
-          "current": false
-        },
-        {
-          "name": "application/vnd.google-earth.kml+xml",
-          "current": false
-        },
-        {
-          "name": "application/vnd.google-earth.kml+xml;mode=networklink",
-          "current": false
-        },
-        {
-          "name": "application/vnd.google-earth.kmz",
-          "current": false
-        },
-        {
-          "name": "image/geotiff",
-          "current": false
-        },
-        {
-          "name": "image/geotiff8",
-          "current": false
-        },
-        {
-          "name": "image/gif",
-          "current": false
-        },
-        {
-          "name": "image/jpeg",
-          "current": false
-        },
-        {
-          "name": "image/png; mode=8bit",
-          "current": false
-        },
-        {
-          "name": "image/svg+xml",
-          "current": false
-        },
-        {
-          "name": "image/tiff",
-          "current": false
-        },
-        {
-          "name": "image/tiff8",
-          "current": false
-        },
-        {
-          "name": "image/vnd.jpeg-png",
-          "current": false
-        },
-        {
-          "name": "image/vnd.jpeg-png8",
-          "current": false
-        },
-        {
-          "name": "text/html; subtype=openlayers",
-          "current": false
-        },
-        {
-          "name": "text/html; subtype=openlayers2",
-          "current": false
-        },
-        {
-          "name": "text/html; subtype=openlayers3",
-          "current": false
-        }
-      ]
-    },
-    "frequentation_SP_permanences$GEOPORTAIL:OGC:WMS": {
-      "name": "frequentation_SP_permanences",
-      "title": "Fréquentation des permanences",
-      "description": "Ce jeu de données  est un jeu de données tests. Il contient les données de services publics sur trois départements pilotes Indre, Nord, Hautes Alpes.",
-      "globalConstraint": {
-        "minScaleDenominator": 0.0,
-        "maxScaleDenominator": 62236752975597,
-        "bbox": {
-          "left": 0.8925,
-          "right": 6.9803125,
-          "top": 51.112695313,
-          "bottom": 44.199804688
-        }
-      },
-      "serviceParams": {
-        "id": "OGC:WMS",
-        "version": "1.3.0",
-        "serverUrl": {
-          "BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN": "https://data.geopf.fr/private/wms-v/ows"
-        }
-      },
-      "defaultProjection": "EPSG:4326",
-      "queryable": true,
-      "metadata": [],
-      "styles": [
-        {
-          "name": "default-style-frequentation_SP_permanences",
-          "title": "frequentation_SP_permanences style"
-        }
-      ],
-      "legends": [
-        {
-          "format": "image/png",
-          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=frequentation_SP_permanences&apikey=BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN"
-        }
-      ],
-      "formats": [
-        {
-          "name": "image/png",
-          "current": true
-        },
-        {
-          "name": "application/atom+xml",
-          "current": false
-        },
-        {
-          "name": "application/json;type=utfgrid",
-          "current": false
-        },
-        {
-          "name": "application/pdf",
-          "current": false
-        },
-        {
-          "name": "application/rss+xml",
-          "current": false
-        },
-        {
-          "name": "application/vnd.google-earth.kml+xml",
-          "current": false
-        },
-        {
-          "name": "application/vnd.google-earth.kml+xml;mode=networklink",
-          "current": false
-        },
-        {
-          "name": "application/vnd.google-earth.kmz",
-          "current": false
-        },
-        {
-          "name": "image/geotiff",
-          "current": false
-        },
-        {
-          "name": "image/geotiff8",
-          "current": false
-        },
-        {
-          "name": "image/gif",
-          "current": false
-        },
-        {
-          "name": "image/jpeg",
-          "current": false
-        },
-        {
-          "name": "image/png; mode=8bit",
-          "current": false
-        },
-        {
-          "name": "image/svg+xml",
-          "current": false
-        },
-        {
-          "name": "image/tiff",
-          "current": false
-        },
-        {
-          "name": "image/tiff8",
-          "current": false
-        },
-        {
-          "name": "image/vnd.jpeg-png",
-          "current": false
-        },
-        {
-          "name": "image/vnd.jpeg-png8",
-          "current": false
-        },
-        {
-          "name": "text/html; subtype=openlayers",
-          "current": false
-        },
-        {
-          "name": "text/html; subtype=openlayers2",
-          "current": false
-        },
-        {
-          "name": "text/html; subtype=openlayers3",
-          "current": false
-        }
-      ]
-    },
-    "frequentation_SP_v3$GEOPORTAIL:OGC:WMS": {
-      "name": "frequentation_SP_v3",
-      "title": "Fréquentation des implantations",
-      "description": "Ce jeu de données  est un jeu de données tests. Il contient les données de services publics sur trois départements pilotes Indre, Nord, Hautes Alpes.",
-      "globalConstraint": {
-        "minScaleDenominator": 0.0,
-        "maxScaleDenominator": 62236752975597,
-        "bbox": {
-          "left": 0.8925,
-          "right": 6.9803125,
-          "top": 51.112695313,
-          "bottom": 44.199804688
-        }
-      },
-      "serviceParams": {
-        "id": "OGC:WMS",
-        "version": "1.3.0",
-        "serverUrl": {
-          "BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN": "https://data.geopf.fr/private/wms-v/ows"
-        }
-      },
-      "defaultProjection": "EPSG:4326",
-      "queryable": true,
-      "metadata": [],
-      "styles": [
-        {
-          "name": "default-style-frequentation_SP_v3",
-          "title": "frequentation_SP_v3 style"
-        }
-      ],
-      "legends": [
-        {
-          "format": "image/png",
-          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=frequentation_SP_v3&apikey=BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN"
-        }
-      ],
-      "formats": [
-        {
-          "name": "image/png",
-          "current": true
-        },
-        {
-          "name": "application/atom+xml",
-          "current": false
-        },
-        {
-          "name": "application/json;type=utfgrid",
-          "current": false
-        },
-        {
-          "name": "application/pdf",
-          "current": false
-        },
-        {
-          "name": "application/rss+xml",
-          "current": false
-        },
-        {
-          "name": "application/vnd.google-earth.kml+xml",
-          "current": false
-        },
-        {
-          "name": "application/vnd.google-earth.kml+xml;mode=networklink",
-          "current": false
-        },
-        {
-          "name": "application/vnd.google-earth.kmz",
-          "current": false
-        },
-        {
-          "name": "image/geotiff",
-          "current": false
-        },
-        {
-          "name": "image/geotiff8",
-          "current": false
-        },
-        {
-          "name": "image/gif",
-          "current": false
-        },
-        {
-          "name": "image/jpeg",
-          "current": false
-        },
-        {
-          "name": "image/png; mode=8bit",
-          "current": false
-        },
-        {
-          "name": "image/svg+xml",
-          "current": false
-        },
-        {
-          "name": "image/tiff",
-          "current": false
-        },
-        {
-          "name": "image/tiff8",
-          "current": false
-        },
-        {
-          "name": "image/vnd.jpeg-png",
-          "current": false
-        },
-        {
-          "name": "image/vnd.jpeg-png8",
-          "current": false
-        },
-        {
-          "name": "text/html; subtype=openlayers",
-          "current": false
-        },
-        {
-          "name": "text/html; subtype=openlayers2",
-          "current": false
-        },
-        {
-          "name": "text/html; subtype=openlayers3",
-          "current": false
-        }
-      ]
-    },    
-    "ORTHOIMAGERY.ORTHOPHOTOS$GEOPORTAIL:OGC:WMS": {
-      "name": "ORTHOIMAGERY.ORTHOPHOTOS",
-      "title": "Photographies aériennes",
-      "description": "Photographies aériennes",
-      "globalConstraint": {
-        "minScaleDenominator": 266.5911979812228,
+        "minScaleDenominator": 1066.3647919248926,
         "maxScaleDenominator": 559082264.0287179,
         "bbox": {
-          "left": -180.0,
-          "right": 180.0,
-          "top": 80.0,
-          "bottom": -80.0
+          "left": -175.0,
+          "right": 175.0,
+          "top": 85.0,
+          "bottom": -85.0
         }
       },
       "serviceParams": {
@@ -448,18 +78,27 @@
         }
       },
       "defaultProjection": "EPSG:3857",
-      "queryable": true,
-      "metadata": [],
+      "queryable": false,
+      "metadata": [
+        {
+          "format": "application/xml",
+          "url": "https://data.geopf.fr/csw?REQUEST=GetRecordById&SERVICE=CSW&VERSION=2.0.2&OUTPUTSCHEMA=http://standards.iso.org/iso/19115/-3/mdb/2.0&elementSetName=full&ID=IGNF_PLAN-IGN"
+        },
+        {
+          "format": "text/html",
+          "url": "https://cartes.gouv.fr/rechercher-une-donnee/dataset/IGNF_PLAN-IGN"
+        }
+      ],
       "styles": [
         {
-          "name": "normal",
-          "title": "Légende générique"
+          "name": "GEOGRAPHICALGRIDSYSTEMS.PLANIGNV2",
+          "title": "Données GEOGRAPHICALGRIDSYSTEMS.PLANIGNV2"
         }
       ],
       "legends": [
         {
-          "format": "image/jpeg",
-          "url": "https://data.geopf.fr/annexes/ressources/legendes/LEGEND.jpg"
+          "format": "image/png",
+          "url": "https://data.geopf.fr/annexes/ressources/legendes/GEOGRAPHICALGRIDSYSTEMS.PLANIGNV2-legend.png"
         }
       ],
       "formats": [
@@ -485,18 +124,18 @@
         }
       ]
     },
-    "GEOGRAPHICALGRIDSYSTEMS.PLANIGNV2$GEOPORTAIL:OGC:WMS": {
-      "name": "GEOGRAPHICALGRIDSYSTEMS.PLANIGNV2",
-      "title": "Plan IGN v2",
-      "description": "Cartographie multi-échelles sur le territoire national, issue des bases de données vecteur de l’IGN, mis à jour régulièrement et réalisée selon un processus entièrement automatisé.",
+    "ORTHOIMAGERY.ORTHOPHOTOS$GEOPORTAIL:OGC:WMS": {
+      "name": "ORTHOIMAGERY.ORTHOPHOTOS",
+      "title": "Photographies aériennes",
+      "description": "Photographies aériennes",
       "globalConstraint": {
         "minScaleDenominator": 1066.3647919248926,
         "maxScaleDenominator": 559082264.0287179,
         "bbox": {
-          "left": -175.0,
-          "right": 175.0,
-          "top": 85.0,
-          "bottom": -85.0
+          "left": -180.0,
+          "right": 180.0,
+          "top": 80.0,
+          "bottom": -80.0
         }
       },
       "serviceParams": {
@@ -507,18 +146,27 @@
         }
       },
       "defaultProjection": "EPSG:3857",
-      "queryable": false,
-      "metadata": [],
+      "queryable": true,
+      "metadata": [
+        {
+          "format": "application/xml",
+          "url": "https://data.geopf.fr/csw?REQUEST=GetRecordById&SERVICE=CSW&VERSION=2.0.2&OUTPUTSCHEMA=http://standards.iso.org/iso/19115/-3/mdb/2.0&elementSetName=full&ID=IGNF_BD-ORTHO"
+        },
+        {
+          "format": "text/html",
+          "url": "https://cartes.gouv.fr/rechercher-une-donnee/dataset/IGNF_BD-ORTHO"
+        }
+      ],
       "styles": [
         {
-          "name": "GEOGRAPHICALGRIDSYSTEMS.PLANIGNV2",
-          "title": "Données GEOGRAPHICALGRIDSYSTEMS.PLANIGNV2"
+          "name": "normal",
+          "title": "Légende générique"
         }
       ],
       "legends": [
         {
-          "format": "image/png",
-          "url": "https://data.geopf.fr/annexes/ressources/legendes/GEOGRAPHICALGRIDSYSTEMS.PLANIGNV2-legend.png"
+          "format": "image/jpeg",
+          "url": "https://data.geopf.fr/annexes/ressources/legendes/LEGEND.jpg"
         }
       ],
       "formats": [
@@ -698,7 +346,7 @@
         "id": "OGC:WMS",
         "version": "1.3.0",
         "serverUrl": {
-          "BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN": "https://data.geopf.fr/private/wms-v/ows"
+          "m5CCGi6CTNOHP3VrNwOnPkQmoxtenaBU": "https://data.geopf.fr/private/wms-v/ows"
         }
       },
       "defaultProjection": "EPSG:4326",
@@ -713,7 +361,279 @@
       "legends": [
         {
           "format": "image/png",
-          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=ANCT_QPV_wms&apikey=BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN"
+          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=ANCT_QPV_wms"
+        }
+      ],
+      "formats": [
+        {
+          "name": "image/png",
+          "current": true
+        },
+        {
+          "name": "application/atom+xml",
+          "current": false
+        },
+        {
+          "name": "application/json;type=utfgrid",
+          "current": false
+        },
+        {
+          "name": "application/pdf",
+          "current": false
+        },
+        {
+          "name": "application/rss+xml",
+          "current": false
+        },
+        {
+          "name": "application/vnd.google-earth.kml+xml",
+          "current": false
+        },
+        {
+          "name": "application/vnd.google-earth.kml+xml;mode=networklink",
+          "current": false
+        },
+        {
+          "name": "application/vnd.google-earth.kmz",
+          "current": false
+        },
+        {
+          "name": "image/geotiff",
+          "current": false
+        },
+        {
+          "name": "image/geotiff8",
+          "current": false
+        },
+        {
+          "name": "image/gif",
+          "current": false
+        },
+        {
+          "name": "image/jpeg",
+          "current": false
+        },
+        {
+          "name": "image/png; mode=8bit",
+          "current": false
+        },
+        {
+          "name": "image/svg+xml",
+          "current": false
+        },
+        {
+          "name": "image/tiff",
+          "current": false
+        },
+        {
+          "name": "image/tiff8",
+          "current": false
+        },
+        {
+          "name": "image/vnd.jpeg-png",
+          "current": false
+        },
+        {
+          "name": "image/vnd.jpeg-png8",
+          "current": false
+        },
+        {
+          "name": "text/html; subtype=openlayers",
+          "current": false
+        },
+        {
+          "name": "text/html; subtype=openlayers2",
+          "current": false
+        },
+        {
+          "name": "text/html; subtype=openlayers3",
+          "current": false
+        }
+      ]
+    },
+    "CAF_isochrone20$GEOPORTAIL:OGC:WMS": {
+      "name": "CAF_isochrone20",
+      "title": "Services publics - cartographie des services publics - zones pilotes",
+      "description": "Ce jeu de données  est un jeu de données tests. Il contient les données de services publics sur trois départements pilotes Indre, Nord, Hautes Alpes.",
+      "globalConstraint": {
+        "minScaleDenominator": 0.0,
+        "maxScaleDenominator": 62236752975597,
+        "bbox": {
+          "left": 0.8134375,
+          "right": 6.743125,
+          "top": 51.112695313,
+          "bottom": 44.443789062
+        }
+      },
+      "serviceParams": {
+        "id": "OGC:WMS",
+        "version": "1.3.0",
+        "serverUrl": {
+          "m5CCGi6CTNOHP3VrNwOnPkQmoxtenaBU": "https://data.geopf.fr/private/wms-v/ows"
+        }
+      },
+      "defaultProjection": "EPSG:4326",
+      "queryable": true,
+      "metadata": [
+        {
+          "format": "application/xml",
+          "url": "https://data.geopf.fr/csw?REQUEST=GetRecordById&SERVICE=CSW&VERSION=2.0.2&OUTPUTSCHEMA=http%3A%2F%2Fwww.isotc211.org%2F2005%2Fgmd&elementSetName=full&ID=CartoSP_MVP_SP_v2"
+        },
+        {
+          "format": "text/html",
+          "url": "https://cartes.gouv.fr/catalogue/dataset/CartoSP_MVP_SP_v2"
+        },
+        {
+          "format": "text/html",
+          "url": "https://cartes.gouv.fr/rechercher-une-donnee/dataset/CartoSP_MVP_SP_v2"
+        }
+      ],
+      "styles": [
+        {
+          "name": "default-style-CAF_isochrone20",
+          "title": "CAF_isochrone20 style"
+        }
+      ],
+      "legends": [
+        {
+          "format": "image/png",
+          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=CAF_isochrone20"
+        }
+      ],
+      "formats": [
+        {
+          "name": "image/png",
+          "current": true
+        },
+        {
+          "name": "application/atom+xml",
+          "current": false
+        },
+        {
+          "name": "application/json;type=utfgrid",
+          "current": false
+        },
+        {
+          "name": "application/pdf",
+          "current": false
+        },
+        {
+          "name": "application/rss+xml",
+          "current": false
+        },
+        {
+          "name": "application/vnd.google-earth.kml+xml",
+          "current": false
+        },
+        {
+          "name": "application/vnd.google-earth.kml+xml;mode=networklink",
+          "current": false
+        },
+        {
+          "name": "application/vnd.google-earth.kmz",
+          "current": false
+        },
+        {
+          "name": "image/geotiff",
+          "current": false
+        },
+        {
+          "name": "image/geotiff8",
+          "current": false
+        },
+        {
+          "name": "image/gif",
+          "current": false
+        },
+        {
+          "name": "image/jpeg",
+          "current": false
+        },
+        {
+          "name": "image/png; mode=8bit",
+          "current": false
+        },
+        {
+          "name": "image/svg+xml",
+          "current": false
+        },
+        {
+          "name": "image/tiff",
+          "current": false
+        },
+        {
+          "name": "image/tiff8",
+          "current": false
+        },
+        {
+          "name": "image/vnd.jpeg-png",
+          "current": false
+        },
+        {
+          "name": "image/vnd.jpeg-png8",
+          "current": false
+        },
+        {
+          "name": "text/html; subtype=openlayers",
+          "current": false
+        },
+        {
+          "name": "text/html; subtype=openlayers2",
+          "current": false
+        },
+        {
+          "name": "text/html; subtype=openlayers3",
+          "current": false
+        }
+      ]
+    },
+    "CAF_isochrone30$GEOPORTAIL:OGC:WMS": {
+      "name": "CAF_isochrone30",
+      "title": "Services publics - cartographie des services publics - zones pilotes",
+      "description": "Ce jeu de données  est un jeu de données tests. Il contient les données de services publics sur trois départements pilotes Indre, Nord, Hautes Alpes.",
+      "globalConstraint": {
+        "minScaleDenominator": 0.0,
+        "maxScaleDenominator": 62236752975597,
+        "bbox": {
+          "left": 0.8134375,
+          "right": 6.8221875,
+          "top": 51.112695313,
+          "bottom": 44.403125
+        }
+      },
+      "serviceParams": {
+        "id": "OGC:WMS",
+        "version": "1.3.0",
+        "serverUrl": {
+          "m5CCGi6CTNOHP3VrNwOnPkQmoxtenaBU": "https://data.geopf.fr/private/wms-v/ows"
+        }
+      },
+      "defaultProjection": "EPSG:4326",
+      "queryable": true,
+      "metadata": [
+        {
+          "format": "text/html",
+          "url": "https://cartes.gouv.fr/catalogue/dataset/CartoSP_MVP_SP_v2"
+        },
+        {
+          "format": "application/xml",
+          "url": "https://data.geopf.fr/csw?REQUEST=GetRecordById&SERVICE=CSW&VERSION=2.0.2&OUTPUTSCHEMA=http%3A%2F%2Fwww.isotc211.org%2F2005%2Fgmd&elementSetName=full&ID=CartoSP_MVP_SP_v2"
+        },
+        {
+          "format": "text/html",
+          "url": "https://cartes.gouv.fr/rechercher-une-donnee/dataset/CartoSP_MVP_SP_v2"
+        }
+      ],
+      "styles": [
+        {
+          "name": "default-style-CAF_isochrone30",
+          "title": "CAF_isochrone30 style"
+        }
+      ],
+      "legends": [
+        {
+          "format": "image/png",
+          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=CAF_isochrone30"
         }
       ],
       "formats": [
@@ -821,7 +741,7 @@
         "id": "OGC:WMS",
         "version": "1.3.0",
         "serverUrl": {
-          "BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN": "https://data.geopf.fr/private/wms-v/ows"
+          "m5CCGi6CTNOHP3VrNwOnPkQmoxtenaBU": "https://data.geopf.fr/private/wms-v/ows"
         }
       },
       "defaultProjection": "EPSG:4326",
@@ -836,7 +756,7 @@
       "legends": [
         {
           "format": "image/png",
-          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=bassins_de_vie_france&apikey=BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN"
+          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=bassins_de_vie_france"
         }
       ],
       "formats": [
@@ -926,128 +846,33 @@
         }
       ]
     },
-    "CAF_isochrone20$GEOPORTAIL:OGC:WMS": {
-      "name": "CAF_isochrone20",
-      "title": "CAF isochrones 20 minutes",
-      "description": "Ce jeu de données  est un jeu de données tests. Il contient les données de services publics sur trois départements pilotes Indre, Nord, Hautes Alpes.",
+    "base_carto_sp_18_02_gpkg_18-02-2026_wfs:carto_sp_18_02__base_carto_sp$GEOPORTAIL:OGC:WFS": {
+      "name": "base_carto_sp_18_02_gpkg_18-02-2026_wfs:carto_sp_18_02__base_carto_sp",
+      "title": "carto_sp_18_02__base_carto_sp",
+      "description": "Cette table contient les données ponctuelles sur les services publics France entière. Il s'agit de données test à destination de tests techniques.",
       "globalConstraint": {
         "minScaleDenominator": 0.0,
         "maxScaleDenominator": 62236752975597,
         "bbox": {
-          "left": 0.8134375,
-          "right": 6.743125,
-          "top": 51.112695313,
-          "bottom": 44.443789062
+          "left": -5.11625,
+          "right": 9.7475,
+          "top": 51.2346875,
+          "bottom": 41.15
         }
       },
       "serviceParams": {
-        "id": "OGC:WMS",
-        "version": "1.3.0",
+        "id": "OGC:WFS",
+        "version": "2.0.0",
         "serverUrl": {
-          "BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN": "https://data.geopf.fr/private/wms-v/ows"
+          "m5CCGi6CTNOHP3VrNwOnPkQmoxtenaBU": "https://data.geopf.fr/private/wfs"
         }
       },
-      "defaultProjection": "EPSG:4326",
-      "queryable": true,
+      "defaultProjection": "EPSG:2154",
+      "queryable": false,
       "metadata": [],
-      "styles": [
-        {
-          "name": "default-style-CAF_isochrone20",
-          "title": "CAF_isochrone20 style"
-        }
-      ],
-      "legends": [
-        {
-          "format": "image/png",
-          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=CAF_isochrone20&apikey=BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN"
-        }
-      ],
-      "formats": [
-        {
-          "name": "image/png",
-          "current": true
-        },
-        {
-          "name": "application/atom+xml",
-          "current": false
-        },
-        {
-          "name": "application/json;type=utfgrid",
-          "current": false
-        },
-        {
-          "name": "application/pdf",
-          "current": false
-        },
-        {
-          "name": "application/rss+xml",
-          "current": false
-        },
-        {
-          "name": "application/vnd.google-earth.kml+xml",
-          "current": false
-        },
-        {
-          "name": "application/vnd.google-earth.kml+xml;mode=networklink",
-          "current": false
-        },
-        {
-          "name": "application/vnd.google-earth.kmz",
-          "current": false
-        },
-        {
-          "name": "image/geotiff",
-          "current": false
-        },
-        {
-          "name": "image/geotiff8",
-          "current": false
-        },
-        {
-          "name": "image/gif",
-          "current": false
-        },
-        {
-          "name": "image/jpeg",
-          "current": false
-        },
-        {
-          "name": "image/png; mode=8bit",
-          "current": false
-        },
-        {
-          "name": "image/svg+xml",
-          "current": false
-        },
-        {
-          "name": "image/tiff",
-          "current": false
-        },
-        {
-          "name": "image/tiff8",
-          "current": false
-        },
-        {
-          "name": "image/vnd.jpeg-png",
-          "current": false
-        },
-        {
-          "name": "image/vnd.jpeg-png8",
-          "current": false
-        },
-        {
-          "name": "text/html; subtype=openlayers",
-          "current": false
-        },
-        {
-          "name": "text/html; subtype=openlayers2",
-          "current": false
-        },
-        {
-          "name": "text/html; subtype=openlayers3",
-          "current": false
-        }
-      ]
+      "styles": [],
+      "legends": [],
+      "formats": []
     },
     "CPAM_isochrone20$GEOPORTAIL:OGC:WMS": {
       "name": "CPAM_isochrone20",
@@ -1067,7 +892,7 @@
         "id": "OGC:WMS",
         "version": "1.3.0",
         "serverUrl": {
-          "BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN": "https://data.geopf.fr/private/wms-v/ows"
+          "m5CCGi6CTNOHP3VrNwOnPkQmoxtenaBU": "https://data.geopf.fr/private/wms-v/ows"
         }
       },
       "defaultProjection": "EPSG:4326",
@@ -1082,7 +907,7 @@
       "legends": [
         {
           "format": "image/png",
-          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=CPAM_isochrone20&apikey=BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN"
+          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=CPAM_isochrone20&apikey=m5CCGi6CTNOHP3VrNwOnPkQmoxtenaBU"
         }
       ],
       "formats": [
@@ -1190,7 +1015,7 @@
         "id": "OGC:WMS",
         "version": "1.3.0",
         "serverUrl": {
-          "BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN": "https://data.geopf.fr/private/wms-v/ows"
+          "m5CCGi6CTNOHP3VrNwOnPkQmoxtenaBU": "https://data.geopf.fr/private/wms-v/ows"
         }
       },
       "defaultProjection": "EPSG:4326",
@@ -1205,7 +1030,7 @@
       "legends": [
         {
           "format": "image/png",
-          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=FranceRenov_isochrone20&apikey=BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN"
+          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=FranceRenov_isochrone20&apikey=m5CCGi6CTNOHP3VrNwOnPkQmoxtenaBU"
         }
       ],
       "formats": [
@@ -1313,7 +1138,7 @@
         "id": "OGC:WMS",
         "version": "1.3.0",
         "serverUrl": {
-          "BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN": "https://data.geopf.fr/private/wms-v/ows"
+          "m5CCGi6CTNOHP3VrNwOnPkQmoxtenaBU": "https://data.geopf.fr/private/wms-v/ows"
         }
       },
       "defaultProjection": "EPSG:4326",
@@ -1328,7 +1153,7 @@
       "legends": [
         {
           "format": "image/png",
-          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=FranceService_isochrone20&apikey=BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN"
+          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=FranceService_isochrone20&apikey=m5CCGi6CTNOHP3VrNwOnPkQmoxtenaBU"
         }
       ],
       "formats": [
@@ -1436,7 +1261,7 @@
         "id": "OGC:WMS",
         "version": "1.3.0",
         "serverUrl": {
-          "BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN": "https://data.geopf.fr/private/wms-v/ows"
+          "m5CCGi6CTNOHP3VrNwOnPkQmoxtenaBU": "https://data.geopf.fr/private/wms-v/ows"
         }
       },
       "defaultProjection": "EPSG:4326",
@@ -1451,7 +1276,7 @@
       "legends": [
         {
           "format": "image/png",
-          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=FranceTravail_isochrone20&apikey=BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN"
+          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=FranceTravail_isochrone20&apikey=m5CCGi6CTNOHP3VrNwOnPkQmoxtenaBU"
         }
       ],
       "formats": [
@@ -1559,7 +1384,7 @@
         "id": "OGC:WMS",
         "version": "1.3.0",
         "serverUrl": {
-          "BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN": "https://data.geopf.fr/private/wms-v/ows"
+          "m5CCGi6CTNOHP3VrNwOnPkQmoxtenaBU": "https://data.geopf.fr/private/wms-v/ows"
         }
       },
       "defaultProjection": "EPSG:4326",
@@ -1574,7 +1399,7 @@
       "legends": [
         {
           "format": "image/png",
-          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=MDS_isochrone20&apikey=BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN"
+          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=MDS_isochrone20&apikey=m5CCGi6CTNOHP3VrNwOnPkQmoxtenaBU"
         }
       ],
       "formats": [
@@ -1682,7 +1507,7 @@
         "id": "OGC:WMS",
         "version": "1.3.0",
         "serverUrl": {
-          "BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN": "https://data.geopf.fr/private/wms-v/ows"
+          "m5CCGi6CTNOHP3VrNwOnPkQmoxtenaBU": "https://data.geopf.fr/private/wms-v/ows"
         }
       },
       "defaultProjection": "EPSG:4326",
@@ -1697,7 +1522,7 @@
       "legends": [
         {
           "format": "image/png",
-          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=MSA_isochrone20&apikey=BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN"
+          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=MSA_isochrone20&apikey=m5CCGi6CTNOHP3VrNwOnPkQmoxtenaBU"
         }
       ],
       "formats": [
@@ -1805,7 +1630,7 @@
         "id": "OGC:WMS",
         "version": "1.3.0",
         "serverUrl": {
-          "BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN": "https://data.geopf.fr/private/wms-v/ows"
+          "m5CCGi6CTNOHP3VrNwOnPkQmoxtenaBU": "https://data.geopf.fr/private/wms-v/ows"
         }
       },
       "defaultProjection": "EPSG:4326",
@@ -1820,7 +1645,7 @@
       "legends": [
         {
           "format": "image/png",
-          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=PointJustice_CDAD_isochrone20&apikey=BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN"
+          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=PointJustice_CDAD_isochrone20&apikey=m5CCGi6CTNOHP3VrNwOnPkQmoxtenaBU"
         }
       ],
       "formats": [
@@ -1928,7 +1753,7 @@
         "id": "OGC:WMS",
         "version": "1.3.0",
         "serverUrl": {
-          "BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN": "https://data.geopf.fr/private/wms-v/ows"
+          "m5CCGi6CTNOHP3VrNwOnPkQmoxtenaBU": "https://data.geopf.fr/private/wms-v/ows"
         }
       },
       "defaultProjection": "EPSG:4326",
@@ -1943,7 +1768,7 @@
       "legends": [
         {
           "format": "image/png",
-          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=SIP_isochrone20&apikey=BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN"
+          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=SIP_isochrone20&apikey=m5CCGi6CTNOHP3VrNwOnPkQmoxtenaBU"
         }
       ],
       "formats": [
@@ -2051,7 +1876,7 @@
         "id": "OGC:WMS",
         "version": "1.3.0",
         "serverUrl": {
-          "BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN": "https://data.geopf.fr/private/wms-v/ows"
+          "m5CCGi6CTNOHP3VrNwOnPkQmoxtenaBU": "https://data.geopf.fr/private/wms-v/ows"
         }
       },
       "defaultProjection": "EPSG:4326",
@@ -2066,7 +1891,7 @@
       "legends": [
         {
           "format": "image/png",
-          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=URSSAF_isochrone20&apikey=BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN"
+          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=URSSAF_isochrone20&apikey=m5CCGi6CTNOHP3VrNwOnPkQmoxtenaBU"
         }
       ],
       "formats": [
@@ -2174,7 +1999,7 @@
         "id": "OGC:WMS",
         "version": "1.3.0",
         "serverUrl": {
-          "BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN": "https://data.geopf.fr/private/wms-v/ows"
+          "m5CCGi6CTNOHP3VrNwOnPkQmoxtenaBU": "https://data.geopf.fr/private/wms-v/ows"
         }
       },
       "defaultProjection": "EPSG:4326",
@@ -2189,130 +2014,7 @@
       "legends": [
         {
           "format": "image/png",
-          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=carsat_isochrone20&apikey=BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN"
-        }
-      ],
-      "formats": [
-        {
-          "name": "image/png",
-          "current": true
-        },
-        {
-          "name": "application/atom+xml",
-          "current": false
-        },
-        {
-          "name": "application/json;type=utfgrid",
-          "current": false
-        },
-        {
-          "name": "application/pdf",
-          "current": false
-        },
-        {
-          "name": "application/rss+xml",
-          "current": false
-        },
-        {
-          "name": "application/vnd.google-earth.kml+xml",
-          "current": false
-        },
-        {
-          "name": "application/vnd.google-earth.kml+xml;mode=networklink",
-          "current": false
-        },
-        {
-          "name": "application/vnd.google-earth.kmz",
-          "current": false
-        },
-        {
-          "name": "image/geotiff",
-          "current": false
-        },
-        {
-          "name": "image/geotiff8",
-          "current": false
-        },
-        {
-          "name": "image/gif",
-          "current": false
-        },
-        {
-          "name": "image/jpeg",
-          "current": false
-        },
-        {
-          "name": "image/png; mode=8bit",
-          "current": false
-        },
-        {
-          "name": "image/svg+xml",
-          "current": false
-        },
-        {
-          "name": "image/tiff",
-          "current": false
-        },
-        {
-          "name": "image/tiff8",
-          "current": false
-        },
-        {
-          "name": "image/vnd.jpeg-png",
-          "current": false
-        },
-        {
-          "name": "image/vnd.jpeg-png8",
-          "current": false
-        },
-        {
-          "name": "text/html; subtype=openlayers",
-          "current": false
-        },
-        {
-          "name": "text/html; subtype=openlayers2",
-          "current": false
-        },
-        {
-          "name": "text/html; subtype=openlayers3",
-          "current": false
-        }
-      ]
-    },
-    "CAF_isochrone30$GEOPORTAIL:OGC:WMS": {
-      "name": "CAF_isochrone30",
-      "title": "CAF isochrones 30 minutes",
-      "description": "Ce jeu de données  est un jeu de données tests. Il contient les données de services publics sur trois départements pilotes Indre, Nord, Hautes Alpes.",
-      "globalConstraint": {
-        "minScaleDenominator": 0.0,
-        "maxScaleDenominator": 62236752975597,
-        "bbox": {
-          "left": 0.8134375,
-          "right": 6.8221875,
-          "top": 51.112695313,
-          "bottom": 44.403125
-        }
-      },
-      "serviceParams": {
-        "id": "OGC:WMS",
-        "version": "1.3.0",
-        "serverUrl": {
-          "BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN": "https://data.geopf.fr/private/wms-v/ows"
-        }
-      },
-      "defaultProjection": "EPSG:4326",
-      "queryable": true,
-      "metadata": [],
-      "styles": [
-        {
-          "name": "default-style-CAF_isochrone30",
-          "title": "CAF_isochrone30 style"
-        }
-      ],
-      "legends": [
-        {
-          "format": "image/png",
-          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=CAF_isochrone30&apikey=BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN"
+          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=carsat_isochrone20&apikey=m5CCGi6CTNOHP3VrNwOnPkQmoxtenaBU"
         }
       ],
       "formats": [
@@ -2420,7 +2122,7 @@
         "id": "OGC:WMS",
         "version": "1.3.0",
         "serverUrl": {
-          "BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN": "https://data.geopf.fr/private/wms-v/ows"
+          "m5CCGi6CTNOHP3VrNwOnPkQmoxtenaBU": "https://data.geopf.fr/private/wms-v/ows"
         }
       },
       "defaultProjection": "EPSG:4326",
@@ -2435,7 +2137,7 @@
       "legends": [
         {
           "format": "image/png",
-          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=CPAM_isochrone30&apikey=BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN"
+          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=CPAM_isochrone30&apikey=m5CCGi6CTNOHP3VrNwOnPkQmoxtenaBU"
         }
       ],
       "formats": [
@@ -2543,7 +2245,7 @@
         "id": "OGC:WMS",
         "version": "1.3.0",
         "serverUrl": {
-          "BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN": "https://data.geopf.fr/private/wms-v/ows"
+          "m5CCGi6CTNOHP3VrNwOnPkQmoxtenaBU": "https://data.geopf.fr/private/wms-v/ows"
         }
       },
       "defaultProjection": "EPSG:4326",
@@ -2666,7 +2368,7 @@
         "id": "OGC:WMS",
         "version": "1.3.0",
         "serverUrl": {
-          "BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN": "https://data.geopf.fr/private/wms-v/ows"
+          "m5CCGi6CTNOHP3VrNwOnPkQmoxtenaBU": "https://data.geopf.fr/private/wms-v/ows"
         }
       },
       "defaultProjection": "EPSG:4326",
@@ -2681,7 +2383,7 @@
       "legends": [
         {
           "format": "image/png",
-          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=FranceRenov_isochrone30&apikey=BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN"
+          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=FranceRenov_isochrone30&apikey=m5CCGi6CTNOHP3VrNwOnPkQmoxtenaBU"
         }
       ],
       "formats": [
@@ -2789,7 +2491,7 @@
         "id": "OGC:WMS",
         "version": "1.3.0",
         "serverUrl": {
-          "BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN": "https://data.geopf.fr/private/wms-v/ows"
+          "m5CCGi6CTNOHP3VrNwOnPkQmoxtenaBU": "https://data.geopf.fr/private/wms-v/ows"
         }
       },
       "defaultProjection": "EPSG:4326",
@@ -2804,7 +2506,7 @@
       "legends": [
         {
           "format": "image/png",
-          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=FranceService_isochrone30&apikey=BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN"
+          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=FranceService_isochrone30&apikey=m5CCGi6CTNOHP3VrNwOnPkQmoxtenaBU"
         }
       ],
       "formats": [
@@ -2912,7 +2614,7 @@
         "id": "OGC:WMS",
         "version": "1.3.0",
         "serverUrl": {
-          "BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN": "https://data.geopf.fr/private/wms-v/ows"
+          "m5CCGi6CTNOHP3VrNwOnPkQmoxtenaBU": "https://data.geopf.fr/private/wms-v/ows"
         }
       },
       "defaultProjection": "EPSG:4326",
@@ -2927,7 +2629,7 @@
       "legends": [
         {
           "format": "image/png",
-          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=FranceTravail_isochrone30&apikey=BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN"
+          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=FranceTravail_isochrone30&apikey=m5CCGi6CTNOHP3VrNwOnPkQmoxtenaBU"
         }
       ],
       "formats": [
@@ -3035,7 +2737,7 @@
         "id": "OGC:WMS",
         "version": "1.3.0",
         "serverUrl": {
-          "BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN": "https://data.geopf.fr/private/wms-v/ows"
+          "m5CCGi6CTNOHP3VrNwOnPkQmoxtenaBU": "https://data.geopf.fr/private/wms-v/ows"
         }
       },
       "defaultProjection": "EPSG:4326",
@@ -3050,7 +2752,7 @@
       "legends": [
         {
           "format": "image/png",
-          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=MDS_isochrone30&apikey=BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN"
+          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=MDS_isochrone30&apikey=m5CCGi6CTNOHP3VrNwOnPkQmoxtenaBU"
         }
       ],
       "formats": [
@@ -3158,7 +2860,7 @@
         "id": "OGC:WMS",
         "version": "1.3.0",
         "serverUrl": {
-          "BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN": "https://data.geopf.fr/private/wms-v/ows"
+          "m5CCGi6CTNOHP3VrNwOnPkQmoxtenaBU": "https://data.geopf.fr/private/wms-v/ows"
         }
       },
       "defaultProjection": "EPSG:4326",
@@ -3173,7 +2875,7 @@
       "legends": [
         {
           "format": "image/png",
-          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=MSA_isochrone30&apikey=BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN"
+          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=MSA_isochrone30&apikey=m5CCGi6CTNOHP3VrNwOnPkQmoxtenaBU"
         }
       ],
       "formats": [
@@ -3281,7 +2983,7 @@
         "id": "OGC:WMS",
         "version": "1.3.0",
         "serverUrl": {
-          "BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN": "https://data.geopf.fr/private/wms-v/ows"
+          "m5CCGi6CTNOHP3VrNwOnPkQmoxtenaBU": "https://data.geopf.fr/private/wms-v/ows"
         }
       },
       "defaultProjection": "EPSG:4326",
@@ -3296,7 +2998,7 @@
       "legends": [
         {
           "format": "image/png",
-          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=PointJustice_CDAD_isochrone30&apikey=BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN"
+          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=PointJustice_CDAD_isochrone30&apikey=m5CCGi6CTNOHP3VrNwOnPkQmoxtenaBU"
         }
       ],
       "formats": [
@@ -3404,7 +3106,7 @@
         "id": "OGC:WMS",
         "version": "1.3.0",
         "serverUrl": {
-          "BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN": "https://data.geopf.fr/private/wms-v/ows"
+          "m5CCGi6CTNOHP3VrNwOnPkQmoxtenaBU": "https://data.geopf.fr/private/wms-v/ows"
         }
       },
       "defaultProjection": "EPSG:4326",
@@ -3419,7 +3121,7 @@
       "legends": [
         {
           "format": "image/png",
-          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=SIP_isochrone30&apikey=BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN"
+          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=SIP_isochrone30&apikey=m5CCGi6CTNOHP3VrNwOnPkQmoxtenaBU"
         }
       ],
       "formats": [
@@ -3527,7 +3229,7 @@
         "id": "OGC:WMS",
         "version": "1.3.0",
         "serverUrl": {
-          "BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN": "https://data.geopf.fr/private/wms-v/ows"
+          "m5CCGi6CTNOHP3VrNwOnPkQmoxtenaBU": "https://data.geopf.fr/private/wms-v/ows"
         }
       },
       "defaultProjection": "EPSG:4326",
@@ -3542,7 +3244,7 @@
       "legends": [
         {
           "format": "image/png",
-          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=URSSAF_isochrone30&apikey=BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN"
+          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=URSSAF_isochrone30&apikey=m5CCGi6CTNOHP3VrNwOnPkQmoxtenaBU"
         }
       ],
       "formats": [
@@ -3650,7 +3352,7 @@
         "id": "OGC:WMS",
         "version": "1.3.0",
         "serverUrl": {
-          "BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN": "https://data.geopf.fr/private/wms-v/ows"
+          "m5CCGi6CTNOHP3VrNwOnPkQmoxtenaBU": "https://data.geopf.fr/private/wms-v/ows"
         }
       },
       "defaultProjection": "EPSG:4326",
@@ -3665,7 +3367,7 @@
       "legends": [
         {
           "format": "image/png",
-          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=carsat_isochrone30&apikey=BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN"
+          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=carsat_isochrone30&apikey=m5CCGi6CTNOHP3VrNwOnPkQmoxtenaBU"
         }
       ],
       "formats": [
@@ -3773,7 +3475,7 @@
         "id": "OGC:WMS",
         "version": "1.3.0",
         "serverUrl": {
-          "BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN": "https://data.geopf.fr/private/wms-v/ows"
+          "m5CCGi6CTNOHP3VrNwOnPkQmoxtenaBU": "https://data.geopf.fr/private/wms-v/ows"
         }
       },
       "defaultProjection": "EPSG:4326",
@@ -3788,7 +3490,7 @@
       "legends": [
         {
           "format": "image/png",
-          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=total_pilotes_insee_densite_population&apikey=BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN"
+          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=total_pilotes_insee_densite_population&apikey=m5CCGi6CTNOHP3VrNwOnPkQmoxtenaBU"
         }
       ],
       "formats": [
@@ -3896,7 +3598,7 @@
         "id": "OGC:WMS",
         "version": "1.3.0",
         "serverUrl": {
-          "BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN": "https://data.geopf.fr/private/wms-v/ows"
+          "m5CCGi6CTNOHP3VrNwOnPkQmoxtenaBU": "https://data.geopf.fr/private/wms-v/ows"
         }
       },
       "defaultProjection": "EPSG:4326",
@@ -3911,7 +3613,7 @@
       "legends": [
         {
           "format": "image/png",
-          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=total_pilotes_insee_menages_pauvres&apikey=BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN"
+          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=total_pilotes_insee_menages_pauvres&apikey=m5CCGi6CTNOHP3VrNwOnPkQmoxtenaBU"
         }
       ],
       "formats": [
@@ -4019,7 +3721,7 @@
         "id": "OGC:WMS",
         "version": "1.3.0",
         "serverUrl": {
-          "BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN": "https://data.geopf.fr/private/wms-v/ows"
+          "m5CCGi6CTNOHP3VrNwOnPkQmoxtenaBU": "https://data.geopf.fr/private/wms-v/ows"
         }
       },
       "defaultProjection": "EPSG:4326",
@@ -4034,7 +3736,7 @@
       "legends": [
         {
           "format": "image/png",
-          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=total_pilotes_insee_niveau_de_vie&apikey=BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN"
+          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=total_pilotes_insee_niveau_de_vie&apikey=m5CCGi6CTNOHP3VrNwOnPkQmoxtenaBU"
         }
       ],
       "formats": [
@@ -4142,7 +3844,7 @@
         "id": "OGC:WMS",
         "version": "1.3.0",
         "serverUrl": {
-          "BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN": "https://data.geopf.fr/private/wms-v/ows"
+          "m5CCGi6CTNOHP3VrNwOnPkQmoxtenaBU": "https://data.geopf.fr/private/wms-v/ows"
         }
       },
       "defaultProjection": "EPSG:4326",
@@ -4157,7 +3859,7 @@
       "legends": [
         {
           "format": "image/png",
-          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=total_pilotes_insee_partmoins18&apikey=BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN"
+          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=total_pilotes_insee_partmoins18&apikey=m5CCGi6CTNOHP3VrNwOnPkQmoxtenaBU"
         }
       ],
       "formats": [
@@ -4265,7 +3967,7 @@
         "id": "OGC:WMS",
         "version": "1.3.0",
         "serverUrl": {
-          "BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN": "https://data.geopf.fr/private/wms-v/ows"
+          "m5CCGi6CTNOHP3VrNwOnPkQmoxtenaBU": "https://data.geopf.fr/private/wms-v/ows"
         }
       },
       "defaultProjection": "EPSG:4326",
@@ -4280,7 +3982,7 @@
       "legends": [
         {
           "format": "image/png",
-          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=total_pilotes_insee_partplus65&apikey=BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN"
+          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=total_pilotes_insee_partplus65&apikey=m5CCGi6CTNOHP3VrNwOnPkQmoxtenaBU"
         }
       ],
       "formats": [
@@ -4388,7 +4090,7 @@
         "id": "OGC:WMS",
         "version": "1.3.0",
         "serverUrl": {
-          "BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN": "https://data.geopf.fr/private/wms-v/ows"
+          "m5CCGi6CTNOHP3VrNwOnPkQmoxtenaBU": "https://data.geopf.fr/private/wms-v/ows"
         }
       },
       "defaultProjection": "EPSG:4326",
@@ -4403,7 +4105,7 @@
       "legends": [
         {
           "format": "image/png",
-          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=total_pilotes_mednum_fragilite_numerique_2&apikey=BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN"
+          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=total_pilotes_mednum_fragilite_numerique_2&apikey=m5CCGi6CTNOHP3VrNwOnPkQmoxtenaBU"
         }
       ],
       "formats": [
@@ -4511,7 +4213,7 @@
         "id": "OGC:WMS",
         "version": "1.3.0",
         "serverUrl": {
-          "BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN": "https://data.geopf.fr/private/wms-v/ows"
+          "m5CCGi6CTNOHP3VrNwOnPkQmoxtenaBU": "https://data.geopf.fr/private/wms-v/ows"
         }
       },
       "defaultProjection": "EPSG:4326",
@@ -4526,7 +4228,7 @@
       "legends": [
         {
           "format": "image/png",
-          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=total_sante_accessibilite&apikey=BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN"
+          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=total_sante_accessibilite&apikey=m5CCGi6CTNOHP3VrNwOnPkQmoxtenaBU"
         }
       ],
       "formats": [
@@ -4634,7 +4336,7 @@
         "id": "OGC:WMS",
         "version": "1.3.0",
         "serverUrl": {
-          "BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN": "https://data.geopf.fr/private/wms-v/ows"
+          "m5CCGi6CTNOHP3VrNwOnPkQmoxtenaBU": "https://data.geopf.fr/private/wms-v/ows"
         }
       },
       "defaultProjection": "EPSG:4326",
@@ -4649,7 +4351,7 @@
       "legends": [
         {
           "format": "image/png",
-          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=total_sante_densite_medicale&apikey=BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN"
+          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=total_sante_densite_medicale&apikey=m5CCGi6CTNOHP3VrNwOnPkQmoxtenaBU"
         }
       ],
       "formats": [
@@ -4757,7 +4459,7 @@
         "id": "OGC:WMS",
         "version": "1.3.0",
         "serverUrl": {
-          "BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN": "https://data.geopf.fr/private/wms-v/ows"
+          "m5CCGi6CTNOHP3VrNwOnPkQmoxtenaBU": "https://data.geopf.fr/private/wms-v/ows"
         }
       },
       "defaultProjection": "EPSG:4326",
@@ -4772,7 +4474,7 @@
       "legends": [
         {
           "format": "image/png",
-          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=total_sante_moyenne_age_medecin&apikey=BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN"
+          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=total_sante_moyenne_age_medecin&apikey=m5CCGi6CTNOHP3VrNwOnPkQmoxtenaBU"
         }
       ],
       "formats": [
@@ -4880,7 +4582,7 @@
         "id": "OGC:WMS",
         "version": "1.3.0",
         "serverUrl": {
-          "BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN": "https://data.geopf.fr/private/wms-v/ows"
+          "m5CCGi6CTNOHP3VrNwOnPkQmoxtenaBU": "https://data.geopf.fr/private/wms-v/ows"
         }
       },
       "defaultProjection": "EPSG:4326",
@@ -4895,7 +4597,7 @@
       "legends": [
         {
           "format": "image/png",
-          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=total_sante_nb_dentistes&apikey=BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN"
+          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=total_sante_nb_dentistes&apikey=m5CCGi6CTNOHP3VrNwOnPkQmoxtenaBU"
         }
       ],
       "formats": [
@@ -5003,7 +4705,7 @@
         "id": "OGC:WMS",
         "version": "1.3.0",
         "serverUrl": {
-          "BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN": "https://data.geopf.fr/private/wms-v/ows"
+          "m5CCGi6CTNOHP3VrNwOnPkQmoxtenaBU": "https://data.geopf.fr/private/wms-v/ows"
         }
       },
       "defaultProjection": "EPSG:4326",
@@ -5018,7 +4720,7 @@
       "legends": [
         {
           "format": "image/png",
-          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=total_sante_nb_generalistes&apikey=BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN"
+          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=total_sante_nb_generalistes&apikey=m5CCGi6CTNOHP3VrNwOnPkQmoxtenaBU"
         }
       ],
       "formats": [
@@ -5126,7 +4828,7 @@
         "id": "OGC:WMS",
         "version": "1.3.0",
         "serverUrl": {
-          "BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN": "https://data.geopf.fr/private/wms-v/ows"
+          "m5CCGi6CTNOHP3VrNwOnPkQmoxtenaBU": "https://data.geopf.fr/private/wms-v/ows"
         }
       },
       "defaultProjection": "EPSG:4326",
@@ -5141,7 +4843,7 @@
       "legends": [
         {
           "format": "image/png",
-          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=total_sante_nb_infirmiers&apikey=BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN"
+          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=total_sante_nb_infirmiers&apikey=m5CCGi6CTNOHP3VrNwOnPkQmoxtenaBU"
         }
       ],
       "formats": [
@@ -5249,7 +4951,7 @@
         "id": "OGC:WMS",
         "version": "1.3.0",
         "serverUrl": {
-          "BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN": "https://data.geopf.fr/private/wms-v/ows"
+          "m5CCGi6CTNOHP3VrNwOnPkQmoxtenaBU": "https://data.geopf.fr/private/wms-v/ows"
         }
       },
       "defaultProjection": "EPSG:4326",
@@ -5264,7 +4966,7 @@
       "legends": [
         {
           "format": "image/png",
-          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=total_sante_nb_kines&apikey=BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN"
+          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=total_sante_nb_kines&apikey=m5CCGi6CTNOHP3VrNwOnPkQmoxtenaBU"
         }
       ],
       "formats": [
@@ -5372,7 +5074,7 @@
         "id": "OGC:WMS",
         "version": "1.3.0",
         "serverUrl": {
-          "BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN": "https://data.geopf.fr/private/wms-v/ows"
+          "m5CCGi6CTNOHP3VrNwOnPkQmoxtenaBU": "https://data.geopf.fr/private/wms-v/ows"
         }
       },
       "defaultProjection": "EPSG:4326",
@@ -5387,7 +5089,7 @@
       "legends": [
         {
           "format": "image/png",
-          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=total_sante_nb_orthophonistes&apikey=BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN"
+          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=total_sante_nb_orthophonistes&apikey=m5CCGi6CTNOHP3VrNwOnPkQmoxtenaBU"
         }
       ],
       "formats": [
@@ -5495,7 +5197,7 @@
         "id": "OGC:WMS",
         "version": "1.3.0",
         "serverUrl": {
-          "BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN": "https://data.geopf.fr/private/wms-v/ows"
+          "m5CCGi6CTNOHP3VrNwOnPkQmoxtenaBU": "https://data.geopf.fr/private/wms-v/ows"
         }
       },
       "defaultProjection": "EPSG:4326",
@@ -5510,7 +5212,7 @@
       "legends": [
         {
           "format": "image/png",
-          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=total_sante_nb_sagesfemmes&apikey=BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN"
+          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=total_sante_nb_sagesfemmes&apikey=m5CCGi6CTNOHP3VrNwOnPkQmoxtenaBU"
         }
       ],
       "formats": [
@@ -5600,9 +5302,9 @@
         }
       ]
     },
-    "services_publics_test_20250616:carto_sp_interne$GEOPORTAIL:OGC:WFS": {
-      "name": "services_publics_test_20250616:carto_sp_interne",
-      "title": "Services publics jeu test du 16/06/2025",
+    "frequentation_SP_permanences$GEOPORTAIL:OGC:WMS": {
+      "name": "frequentation_SP_permanences",
+      "title": "Fréquentation des permanences",
       "description": "Ce jeu de données  est un jeu de données tests. Il contient les données de services publics sur trois départements pilotes Indre, Nord, Hautes Alpes.",
       "globalConstraint": {
         "minScaleDenominator": 0.0,
@@ -5615,28 +5317,117 @@
         }
       },
       "serviceParams": {
-        "id": "OGC:WFS",
-        "version": "2.0.0",
+        "id": "OGC:WMS",
+        "version": "1.3.0",
         "serverUrl": {
-          "BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN": "https://data.geopf.fr/private/wfs"
+          "m5CCGi6CTNOHP3VrNwOnPkQmoxtenaBU": "https://data.geopf.fr/private/wms-v/ows"
         }
       },
-      "defaultProjection": "EPSG:2154",
-      "queryable": false,
+      "defaultProjection": "EPSG:4326",
+      "queryable": true,
       "metadata": [],
-      "styles": [],
-      "legends": [
+      "styles": [
         {
-          "format": "image/jpeg",
-          "url": "https://data.geopf.fr/annexes/cartosp_ditp/legendes/legende_SP.png",
-          "minScaleDenominator": "200"
+          "name": "default-style-frequentation_SP_permanences",
+          "title": "frequentation_SP_permanences style"
         }
       ],
-      "formats": []
+      "legends": [
+        {
+          "format": "image/png",
+          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=frequentation_SP_permanences&apikey=m5CCGi6CTNOHP3VrNwOnPkQmoxtenaBU"
+        }
+      ],
+      "formats": [
+        {
+          "name": "image/png",
+          "current": true
+        },
+        {
+          "name": "application/atom+xml",
+          "current": false
+        },
+        {
+          "name": "application/json;type=utfgrid",
+          "current": false
+        },
+        {
+          "name": "application/pdf",
+          "current": false
+        },
+        {
+          "name": "application/rss+xml",
+          "current": false
+        },
+        {
+          "name": "application/vnd.google-earth.kml+xml",
+          "current": false
+        },
+        {
+          "name": "application/vnd.google-earth.kml+xml;mode=networklink",
+          "current": false
+        },
+        {
+          "name": "application/vnd.google-earth.kmz",
+          "current": false
+        },
+        {
+          "name": "image/geotiff",
+          "current": false
+        },
+        {
+          "name": "image/geotiff8",
+          "current": false
+        },
+        {
+          "name": "image/gif",
+          "current": false
+        },
+        {
+          "name": "image/jpeg",
+          "current": false
+        },
+        {
+          "name": "image/png; mode=8bit",
+          "current": false
+        },
+        {
+          "name": "image/svg+xml",
+          "current": false
+        },
+        {
+          "name": "image/tiff",
+          "current": false
+        },
+        {
+          "name": "image/tiff8",
+          "current": false
+        },
+        {
+          "name": "image/vnd.jpeg-png",
+          "current": false
+        },
+        {
+          "name": "image/vnd.jpeg-png8",
+          "current": false
+        },
+        {
+          "name": "text/html; subtype=openlayers",
+          "current": false
+        },
+        {
+          "name": "text/html; subtype=openlayers2",
+          "current": false
+        },
+        {
+          "name": "text/html; subtype=openlayers3",
+          "current": false
+        }
+      ]
     },
-    "services_publics_test_20250925:carto_sp_interne$GEOPORTAIL:OGC:WFS": {
-      "name": "services_publics_test_20250925:carto_sp_interne",
-      "title": "Services publics jeu test du 25/09/2025",
+    "frequentation_SP_v3$GEOPORTAIL:OGC:WMS": {
+      "name": "frequentation_SP_v3",
+      "title": "Fréquentation des implantations",
       "description": "Ce jeu de données  est un jeu de données tests. Il contient les données de services publics sur trois départements pilotes Indre, Nord, Hautes Alpes.",
       "globalConstraint": {
         "minScaleDenominator": 0.0,
@@ -5649,24 +5440,236 @@
         }
       },
       "serviceParams": {
-        "id": "OGC:WFS",
-        "version": "2.0.0",
+        "id": "OGC:WMS",
+        "version": "1.3.0",
         "serverUrl": {
-          "BrB93jFFpz4UXZOQZzu1sVLCBjqiS4HN": "https://data.geopf.fr/private/wfs"
+          "m5CCGi6CTNOHP3VrNwOnPkQmoxtenaBU": "https://data.geopf.fr/private/wms-v/ows"
         }
       },
-      "defaultProjection": "EPSG:2154",
-      "queryable": false,
+      "defaultProjection": "EPSG:4326",
+      "queryable": true,
       "metadata": [],
-      "styles": [],
-      "legends": [
+      "styles": [
         {
-          "format": "image/jpeg",
-          "url": "https://data.geopf.fr/annexes/cartosp_ditp/legendes/legende_SP.png",
-          "minScaleDenominator": "200"
+          "name": "default-style-frequentation_SP_v3",
+          "title": "frequentation_SP_v3 style"
         }
       ],
-      "formats": []
+      "legends": [
+        {
+          "format": "image/png",
+          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=frequentation_SP_v3&apikey=m5CCGi6CTNOHP3VrNwOnPkQmoxtenaBU"
+        }
+      ],
+      "formats": [
+        {
+          "name": "image/png",
+          "current": true
+        },
+        {
+          "name": "application/atom+xml",
+          "current": false
+        },
+        {
+          "name": "application/json;type=utfgrid",
+          "current": false
+        },
+        {
+          "name": "application/pdf",
+          "current": false
+        },
+        {
+          "name": "application/rss+xml",
+          "current": false
+        },
+        {
+          "name": "application/vnd.google-earth.kml+xml",
+          "current": false
+        },
+        {
+          "name": "application/vnd.google-earth.kml+xml;mode=networklink",
+          "current": false
+        },
+        {
+          "name": "application/vnd.google-earth.kmz",
+          "current": false
+        },
+        {
+          "name": "image/geotiff",
+          "current": false
+        },
+        {
+          "name": "image/geotiff8",
+          "current": false
+        },
+        {
+          "name": "image/gif",
+          "current": false
+        },
+        {
+          "name": "image/jpeg",
+          "current": false
+        },
+        {
+          "name": "image/png; mode=8bit",
+          "current": false
+        },
+        {
+          "name": "image/svg+xml",
+          "current": false
+        },
+        {
+          "name": "image/tiff",
+          "current": false
+        },
+        {
+          "name": "image/tiff8",
+          "current": false
+        },
+        {
+          "name": "image/vnd.jpeg-png",
+          "current": false
+        },
+        {
+          "name": "image/vnd.jpeg-png8",
+          "current": false
+        },
+        {
+          "name": "text/html; subtype=openlayers",
+          "current": false
+        },
+        {
+          "name": "text/html; subtype=openlayers2",
+          "current": false
+        },
+        {
+          "name": "text/html; subtype=openlayers3",
+          "current": false
+        }
+      ]
+    },
+    "cpts_20250513$GEOPORTAIL:OGC:WMS": {
+      "name": "cpts_20250513",
+      "title": "Zonage CPTS",
+      "description": "Cette ressource  regroupe des indicateurs sur la santé en vue d'une utilisation au sein du projet de cartographie des services publics",
+      "globalConstraint": {
+        "minScaleDenominator": 0.0,
+        "maxScaleDenominator": 62236752975597,
+        "bbox": {
+          "left": -5.4325,
+          "right": 9.43125,
+          "top": 51.2346875,
+          "bottom": 42.1259375
+        }
+      },
+      "serviceParams": {
+        "id": "OGC:WMS",
+        "version": "1.3.0",
+        "serverUrl": {
+          "m5CCGi6CTNOHP3VrNwOnPkQmoxtenaBU": "https://data.geopf.fr/private/wms-v/ows"
+        }
+      },
+      "defaultProjection": "EPSG:4326",
+      "queryable": true,
+      "metadata": [],
+      "styles": [
+        {
+          "name": "default-style-cpts_20250513",
+          "title": "cpts_20250513 style"
+        }
+      ],
+      "legends": [
+        {
+          "format": "image/png",
+          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=cpts_20250513&apikey=m5CCGi6CTNOHP3VrNwOnPkQmoxtenaBU"
+        }
+      ],
+      "formats": [
+        {
+          "name": "image/png",
+          "current": true
+        },
+        {
+          "name": "application/atom+xml",
+          "current": false
+        },
+        {
+          "name": "application/json;type=utfgrid",
+          "current": false
+        },
+        {
+          "name": "application/pdf",
+          "current": false
+        },
+        {
+          "name": "application/rss+xml",
+          "current": false
+        },
+        {
+          "name": "application/vnd.google-earth.kml+xml",
+          "current": false
+        },
+        {
+          "name": "application/vnd.google-earth.kml+xml;mode=networklink",
+          "current": false
+        },
+        {
+          "name": "application/vnd.google-earth.kmz",
+          "current": false
+        },
+        {
+          "name": "image/geotiff",
+          "current": false
+        },
+        {
+          "name": "image/geotiff8",
+          "current": false
+        },
+        {
+          "name": "image/gif",
+          "current": false
+        },
+        {
+          "name": "image/jpeg",
+          "current": false
+        },
+        {
+          "name": "image/png; mode=8bit",
+          "current": false
+        },
+        {
+          "name": "image/svg+xml",
+          "current": false
+        },
+        {
+          "name": "image/tiff",
+          "current": false
+        },
+        {
+          "name": "image/tiff8",
+          "current": false
+        },
+        {
+          "name": "image/vnd.jpeg-png",
+          "current": false
+        },
+        {
+          "name": "image/vnd.jpeg-png8",
+          "current": false
+        },
+        {
+          "name": "text/html; subtype=openlayers",
+          "current": false
+        },
+        {
+          "name": "text/html; subtype=openlayers2",
+          "current": false
+        },
+        {
+          "name": "text/html; subtype=openlayers3",
+          "current": false
+        }
+      ]
     }
   },
   "tileMatrixSets": {
@@ -6237,195 +6240,6 @@
         }
       }
     },
-    "2154_10cm_6_19": {
-      "projection": "EPSG:2154",
-      "nativeResolutions": [
-        "3276.8",
-        "1638.4",
-        "819.2",
-        "409.6",
-        "204.8",
-        "102.4",
-        "51.2",
-        "25.6",
-        "12.8",
-        "6.4",
-        "3.2",
-        "1.6",
-        "0.8",
-        "0.4"
-      ],
-      "tileMatrices": {
-        "6": {
-          "matrixId": "6",
-          "matrixHeight": 13,
-          "matrixWidth": 2,
-          "scaleDenominator": 11702857.142857144,
-          "tileHeight": 256,
-          "tileWidth": 256,
-          "topLeftCorner": {
-            "x": 0.0,
-            "y": 12000000.0
-          }
-        },
-        "7": {
-          "matrixId": "7",
-          "matrixHeight": 26,
-          "matrixWidth": 4,
-          "scaleDenominator": 5851428.571428572,
-          "tileHeight": 256,
-          "tileWidth": 256,
-          "topLeftCorner": {
-            "x": 0.0,
-            "y": 12000000.0
-          }
-        },
-        "8": {
-          "matrixId": "8",
-          "matrixHeight": 52,
-          "matrixWidth": 7,
-          "scaleDenominator": 2925714.285714286,
-          "tileHeight": 256,
-          "tileWidth": 256,
-          "topLeftCorner": {
-            "x": 0.0,
-            "y": 12000000.0
-          }
-        },
-        "9": {
-          "matrixId": "9",
-          "matrixHeight": 103,
-          "matrixWidth": 13,
-          "scaleDenominator": 1462857.142857143,
-          "tileHeight": 256,
-          "tileWidth": 256,
-          "topLeftCorner": {
-            "x": 0.0,
-            "y": 12000000.0
-          }
-        },
-        "10": {
-          "matrixId": "10",
-          "matrixHeight": 206,
-          "matrixWidth": 25,
-          "scaleDenominator": 731428.5714285715,
-          "tileHeight": 256,
-          "tileWidth": 256,
-          "topLeftCorner": {
-            "x": 0.0,
-            "y": 12000000.0
-          }
-        },
-        "11": {
-          "matrixId": "11",
-          "matrixHeight": 411,
-          "matrixWidth": 50,
-          "scaleDenominator": 365714.28571428574,
-          "tileHeight": 256,
-          "tileWidth": 256,
-          "topLeftCorner": {
-            "x": 0.0,
-            "y": 12000000.0
-          }
-        },
-        "12": {
-          "matrixId": "12",
-          "matrixHeight": 822,
-          "matrixWidth": 99,
-          "scaleDenominator": 182857.14285714287,
-          "tileHeight": 256,
-          "tileWidth": 256,
-          "topLeftCorner": {
-            "x": 0.0,
-            "y": 12000000.0
-          }
-        },
-        "13": {
-          "matrixId": "13",
-          "matrixHeight": 1643,
-          "matrixWidth": 197,
-          "scaleDenominator": 91428.57142857143,
-          "tileHeight": 256,
-          "tileWidth": 256,
-          "topLeftCorner": {
-            "x": 0.0,
-            "y": 12000000.0
-          }
-        },
-        "14": {
-          "matrixId": "14",
-          "matrixHeight": 3285,
-          "matrixWidth": 394,
-          "scaleDenominator": 45714.28571428572,
-          "tileHeight": 256,
-          "tileWidth": 256,
-          "topLeftCorner": {
-            "x": 0.0,
-            "y": 12000000.0
-          }
-        },
-        "15": {
-          "matrixId": "15",
-          "matrixHeight": 6569,
-          "matrixWidth": 788,
-          "scaleDenominator": 22857.14285714286,
-          "tileHeight": 256,
-          "tileWidth": 256,
-          "topLeftCorner": {
-            "x": 0.0,
-            "y": 12000000.0
-          }
-        },
-        "16": {
-          "matrixId": "16",
-          "matrixHeight": 13138,
-          "matrixWidth": 1575,
-          "scaleDenominator": 11428.57142857143,
-          "tileHeight": 256,
-          "tileWidth": 256,
-          "topLeftCorner": {
-            "x": 0.0,
-            "y": 12000000.0
-          }
-        },
-        "17": {
-          "matrixId": "17",
-          "matrixHeight": 26276,
-          "matrixWidth": 3150,
-          "scaleDenominator": 5714.285714285715,
-          "tileHeight": 256,
-          "tileWidth": 256,
-          "topLeftCorner": {
-            "x": 0.0,
-            "y": 12000000.0
-          }
-        },
-        "18": {
-          "matrixId": "18",
-          "matrixHeight": 52552,
-          "matrixWidth": 6300,
-          "scaleDenominator": 2857.1428571428573,
-          "tileHeight": 256,
-          "tileWidth": 256,
-          "topLeftCorner": {
-            "x": 0.0,
-            "y": 12000000.0
-          }
-        },
-        "19": {
-          "matrixId": "19",
-          "matrixHeight": 105102,
-          "matrixWidth": 12600,
-          "scaleDenominator": 1428.5714285714287,
-          "tileHeight": 256,
-          "tileWidth": 256,
-          "topLeftCorner": {
-            "x": 0.0,
-            "y": 12000000.0
-          }
-        }
-      }
-    },
     "2154_10cm_6_20": {
       "projection": "EPSG:2154",
       "nativeResolutions": [
@@ -6619,514 +6433,6 @@
           "matrixHeight": 210205,
           "matrixWidth": 25200,
           "scaleDenominator": 714.2857142857143,
-          "tileHeight": 256,
-          "tileWidth": 256,
-          "topLeftCorner": {
-            "x": 0.0,
-            "y": 12000000.0
-          }
-        }
-      }
-    },
-    "2154_50cm": {
-      "projection": "EPSG:2154",
-      "nativeResolutions": [
-        "131072",
-        "65536",
-        "32768",
-        "16384",
-        "8192",
-        "4096",
-        "2048",
-        "1024",
-        "512",
-        "256",
-        "128",
-        "64",
-        "32",
-        "16",
-        "8",
-        "4",
-        "2",
-        "1",
-        "0.5"
-      ],
-      "tileMatrices": {
-        "0": {
-          "matrixId": "0",
-          "matrixHeight": 1,
-          "matrixWidth": 1,
-          "scaleDenominator": 468114285.71428573,
-          "tileHeight": 256,
-          "tileWidth": 256,
-          "topLeftCorner": {
-            "x": 0.0,
-            "y": 12000000.0
-          }
-        },
-        "1": {
-          "matrixId": "1",
-          "matrixHeight": 1,
-          "matrixWidth": 1,
-          "scaleDenominator": 234057142.85714287,
-          "tileHeight": 256,
-          "tileWidth": 256,
-          "topLeftCorner": {
-            "x": 0.0,
-            "y": 12000000.0
-          }
-        },
-        "2": {
-          "matrixId": "2",
-          "matrixHeight": 1,
-          "matrixWidth": 1,
-          "scaleDenominator": 117028571.42857143,
-          "tileHeight": 256,
-          "tileWidth": 256,
-          "topLeftCorner": {
-            "x": 0.0,
-            "y": 12000000.0
-          }
-        },
-        "3": {
-          "matrixId": "3",
-          "matrixHeight": 3,
-          "matrixWidth": 1,
-          "scaleDenominator": 58514285.71428572,
-          "tileHeight": 256,
-          "tileWidth": 256,
-          "topLeftCorner": {
-            "x": 0.0,
-            "y": 12000000.0
-          }
-        },
-        "4": {
-          "matrixId": "4",
-          "matrixHeight": 5,
-          "matrixWidth": 1,
-          "scaleDenominator": 29257142.85714286,
-          "tileHeight": 256,
-          "tileWidth": 256,
-          "topLeftCorner": {
-            "x": 0.0,
-            "y": 12000000.0
-          }
-        },
-        "5": {
-          "matrixId": "5",
-          "matrixHeight": 10,
-          "matrixWidth": 1,
-          "scaleDenominator": 14628571.42857143,
-          "tileHeight": 256,
-          "tileWidth": 256,
-          "topLeftCorner": {
-            "x": 0.0,
-            "y": 12000000.0
-          }
-        },
-        "6": {
-          "matrixId": "6",
-          "matrixHeight": 21,
-          "matrixWidth": 2,
-          "scaleDenominator": 7314285.714285715,
-          "tileHeight": 256,
-          "tileWidth": 256,
-          "topLeftCorner": {
-            "x": 0.0,
-            "y": 12000000.0
-          }
-        },
-        "7": {
-          "matrixId": "7",
-          "matrixHeight": 41,
-          "matrixWidth": 5,
-          "scaleDenominator": 3657142.8571428573,
-          "tileHeight": 256,
-          "tileWidth": 256,
-          "topLeftCorner": {
-            "x": 0.0,
-            "y": 12000000.0
-          }
-        },
-        "8": {
-          "matrixId": "8",
-          "matrixHeight": 82,
-          "matrixWidth": 10,
-          "scaleDenominator": 1828571.4285714286,
-          "tileHeight": 256,
-          "tileWidth": 256,
-          "topLeftCorner": {
-            "x": 0.0,
-            "y": 12000000.0
-          }
-        },
-        "9": {
-          "matrixId": "9",
-          "matrixHeight": 164,
-          "matrixWidth": 20,
-          "scaleDenominator": 914285.7142857143,
-          "tileHeight": 256,
-          "tileWidth": 256,
-          "topLeftCorner": {
-            "x": 0.0,
-            "y": 12000000.0
-          }
-        },
-        "10": {
-          "matrixId": "10",
-          "matrixHeight": 328,
-          "matrixWidth": 39,
-          "scaleDenominator": 457142.85714285716,
-          "tileHeight": 256,
-          "tileWidth": 256,
-          "topLeftCorner": {
-            "x": 0.0,
-            "y": 12000000.0
-          }
-        },
-        "11": {
-          "matrixId": "11",
-          "matrixHeight": 656,
-          "matrixWidth": 79,
-          "scaleDenominator": 228571.42857142858,
-          "tileHeight": 256,
-          "tileWidth": 256,
-          "topLeftCorner": {
-            "x": 0.0,
-            "y": 12000000.0
-          }
-        },
-        "12": {
-          "matrixId": "12",
-          "matrixHeight": 1313,
-          "matrixWidth": 157,
-          "scaleDenominator": 114285.71428571429,
-          "tileHeight": 256,
-          "tileWidth": 256,
-          "topLeftCorner": {
-            "x": 0.0,
-            "y": 12000000.0
-          }
-        },
-        "13": {
-          "matrixId": "13",
-          "matrixHeight": 2627,
-          "matrixWidth": 315,
-          "scaleDenominator": 57142.857142857145,
-          "tileHeight": 256,
-          "tileWidth": 256,
-          "topLeftCorner": {
-            "x": 0.0,
-            "y": 12000000.0
-          }
-        },
-        "14": {
-          "matrixId": "14",
-          "matrixHeight": 5255,
-          "matrixWidth": 630,
-          "scaleDenominator": 28571.428571428572,
-          "tileHeight": 256,
-          "tileWidth": 256,
-          "topLeftCorner": {
-            "x": 0.0,
-            "y": 12000000.0
-          }
-        },
-        "15": {
-          "matrixId": "15",
-          "matrixHeight": 10510,
-          "matrixWidth": 1260,
-          "scaleDenominator": 14285.714285714286,
-          "tileHeight": 256,
-          "tileWidth": 256,
-          "topLeftCorner": {
-            "x": 0.0,
-            "y": 12000000.0
-          }
-        },
-        "16": {
-          "matrixId": "16",
-          "matrixHeight": 21020,
-          "matrixWidth": 2520,
-          "scaleDenominator": 7142.857142857143,
-          "tileHeight": 256,
-          "tileWidth": 256,
-          "topLeftCorner": {
-            "x": 0.0,
-            "y": 12000000.0
-          }
-        },
-        "17": {
-          "matrixId": "17",
-          "matrixHeight": 42040,
-          "matrixWidth": 5040,
-          "scaleDenominator": 3571.4285714285716,
-          "tileHeight": 256,
-          "tileWidth": 256,
-          "topLeftCorner": {
-            "x": 0.0,
-            "y": 12000000.0
-          }
-        },
-        "18": {
-          "matrixId": "18",
-          "matrixHeight": 84081,
-          "matrixWidth": 10080,
-          "scaleDenominator": 1785.7142857142858,
-          "tileHeight": 256,
-          "tileWidth": 256,
-          "topLeftCorner": {
-            "x": 0.0,
-            "y": 12000000.0
-          }
-        }
-      }
-    },
-    "2154_50cm_0_18": {
-      "projection": "EPSG:2154",
-      "nativeResolutions": [
-        "131072",
-        "65536",
-        "32768",
-        "16384",
-        "8192",
-        "4096",
-        "2048",
-        "1024",
-        "512",
-        "256",
-        "128",
-        "64",
-        "32",
-        "16",
-        "8",
-        "4",
-        "2",
-        "1",
-        "0.5"
-      ],
-      "tileMatrices": {
-        "0": {
-          "matrixId": "0",
-          "matrixHeight": 1,
-          "matrixWidth": 1,
-          "scaleDenominator": 468114285.71428573,
-          "tileHeight": 256,
-          "tileWidth": 256,
-          "topLeftCorner": {
-            "x": 0.0,
-            "y": 12000000.0
-          }
-        },
-        "1": {
-          "matrixId": "1",
-          "matrixHeight": 1,
-          "matrixWidth": 1,
-          "scaleDenominator": 234057142.85714287,
-          "tileHeight": 256,
-          "tileWidth": 256,
-          "topLeftCorner": {
-            "x": 0.0,
-            "y": 12000000.0
-          }
-        },
-        "2": {
-          "matrixId": "2",
-          "matrixHeight": 1,
-          "matrixWidth": 1,
-          "scaleDenominator": 117028571.42857143,
-          "tileHeight": 256,
-          "tileWidth": 256,
-          "topLeftCorner": {
-            "x": 0.0,
-            "y": 12000000.0
-          }
-        },
-        "3": {
-          "matrixId": "3",
-          "matrixHeight": 3,
-          "matrixWidth": 1,
-          "scaleDenominator": 58514285.71428572,
-          "tileHeight": 256,
-          "tileWidth": 256,
-          "topLeftCorner": {
-            "x": 0.0,
-            "y": 12000000.0
-          }
-        },
-        "4": {
-          "matrixId": "4",
-          "matrixHeight": 5,
-          "matrixWidth": 1,
-          "scaleDenominator": 29257142.85714286,
-          "tileHeight": 256,
-          "tileWidth": 256,
-          "topLeftCorner": {
-            "x": 0.0,
-            "y": 12000000.0
-          }
-        },
-        "5": {
-          "matrixId": "5",
-          "matrixHeight": 10,
-          "matrixWidth": 1,
-          "scaleDenominator": 14628571.42857143,
-          "tileHeight": 256,
-          "tileWidth": 256,
-          "topLeftCorner": {
-            "x": 0.0,
-            "y": 12000000.0
-          }
-        },
-        "6": {
-          "matrixId": "6",
-          "matrixHeight": 21,
-          "matrixWidth": 2,
-          "scaleDenominator": 7314285.714285715,
-          "tileHeight": 256,
-          "tileWidth": 256,
-          "topLeftCorner": {
-            "x": 0.0,
-            "y": 12000000.0
-          }
-        },
-        "7": {
-          "matrixId": "7",
-          "matrixHeight": 41,
-          "matrixWidth": 5,
-          "scaleDenominator": 3657142.8571428573,
-          "tileHeight": 256,
-          "tileWidth": 256,
-          "topLeftCorner": {
-            "x": 0.0,
-            "y": 12000000.0
-          }
-        },
-        "8": {
-          "matrixId": "8",
-          "matrixHeight": 82,
-          "matrixWidth": 10,
-          "scaleDenominator": 1828571.4285714286,
-          "tileHeight": 256,
-          "tileWidth": 256,
-          "topLeftCorner": {
-            "x": 0.0,
-            "y": 12000000.0
-          }
-        },
-        "9": {
-          "matrixId": "9",
-          "matrixHeight": 164,
-          "matrixWidth": 20,
-          "scaleDenominator": 914285.7142857143,
-          "tileHeight": 256,
-          "tileWidth": 256,
-          "topLeftCorner": {
-            "x": 0.0,
-            "y": 12000000.0
-          }
-        },
-        "10": {
-          "matrixId": "10",
-          "matrixHeight": 328,
-          "matrixWidth": 39,
-          "scaleDenominator": 457142.85714285716,
-          "tileHeight": 256,
-          "tileWidth": 256,
-          "topLeftCorner": {
-            "x": 0.0,
-            "y": 12000000.0
-          }
-        },
-        "11": {
-          "matrixId": "11",
-          "matrixHeight": 656,
-          "matrixWidth": 79,
-          "scaleDenominator": 228571.42857142858,
-          "tileHeight": 256,
-          "tileWidth": 256,
-          "topLeftCorner": {
-            "x": 0.0,
-            "y": 12000000.0
-          }
-        },
-        "12": {
-          "matrixId": "12",
-          "matrixHeight": 1313,
-          "matrixWidth": 157,
-          "scaleDenominator": 114285.71428571429,
-          "tileHeight": 256,
-          "tileWidth": 256,
-          "topLeftCorner": {
-            "x": 0.0,
-            "y": 12000000.0
-          }
-        },
-        "13": {
-          "matrixId": "13",
-          "matrixHeight": 2627,
-          "matrixWidth": 315,
-          "scaleDenominator": 57142.857142857145,
-          "tileHeight": 256,
-          "tileWidth": 256,
-          "topLeftCorner": {
-            "x": 0.0,
-            "y": 12000000.0
-          }
-        },
-        "14": {
-          "matrixId": "14",
-          "matrixHeight": 5255,
-          "matrixWidth": 630,
-          "scaleDenominator": 28571.428571428572,
-          "tileHeight": 256,
-          "tileWidth": 256,
-          "topLeftCorner": {
-            "x": 0.0,
-            "y": 12000000.0
-          }
-        },
-        "15": {
-          "matrixId": "15",
-          "matrixHeight": 10510,
-          "matrixWidth": 1260,
-          "scaleDenominator": 14285.714285714286,
-          "tileHeight": 256,
-          "tileWidth": 256,
-          "topLeftCorner": {
-            "x": 0.0,
-            "y": 12000000.0
-          }
-        },
-        "16": {
-          "matrixId": "16",
-          "matrixHeight": 21020,
-          "matrixWidth": 2520,
-          "scaleDenominator": 7142.857142857143,
-          "tileHeight": 256,
-          "tileWidth": 256,
-          "topLeftCorner": {
-            "x": 0.0,
-            "y": 12000000.0
-          }
-        },
-        "17": {
-          "matrixId": "17",
-          "matrixHeight": 42040,
-          "matrixWidth": 5040,
-          "scaleDenominator": 3571.4285714285716,
-          "tileHeight": 256,
-          "tileWidth": 256,
-          "topLeftCorner": {
-            "x": 0.0,
-            "y": 12000000.0
-          }
-        },
-        "18": {
-          "matrixId": "18",
-          "matrixHeight": 84081,
-          "matrixWidth": 10080,
-          "scaleDenominator": 1785.7142857142858,
           "tileHeight": 256,
           "tileWidth": 256,
           "topLeftCorner": {
@@ -7332,6 +6638,267 @@
             "y": 12000000.0
           }
         },
+        "14": {
+          "matrixId": "14",
+          "matrixHeight": 3285,
+          "matrixWidth": 394,
+          "scaleDenominator": 45714.28571428572,
+          "tileHeight": 256,
+          "tileWidth": 256,
+          "topLeftCorner": {
+            "x": 0.0,
+            "y": 12000000.0
+          }
+        },
+        "15": {
+          "matrixId": "15",
+          "matrixHeight": 6569,
+          "matrixWidth": 788,
+          "scaleDenominator": 22857.14285714286,
+          "tileHeight": 256,
+          "tileWidth": 256,
+          "topLeftCorner": {
+            "x": 0.0,
+            "y": 12000000.0
+          }
+        },
+        "16": {
+          "matrixId": "16",
+          "matrixHeight": 13138,
+          "matrixWidth": 1575,
+          "scaleDenominator": 11428.57142857143,
+          "tileHeight": 256,
+          "tileWidth": 256,
+          "topLeftCorner": {
+            "x": 0.0,
+            "y": 12000000.0
+          }
+        },
+        "17": {
+          "matrixId": "17",
+          "matrixHeight": 26276,
+          "matrixWidth": 3150,
+          "scaleDenominator": 5714.285714285715,
+          "tileHeight": 256,
+          "tileWidth": 256,
+          "topLeftCorner": {
+            "x": 0.0,
+            "y": 12000000.0
+          }
+        },
+        "18": {
+          "matrixId": "18",
+          "matrixHeight": 52552,
+          "matrixWidth": 6300,
+          "scaleDenominator": 2857.1428571428573,
+          "tileHeight": 256,
+          "tileWidth": 256,
+          "topLeftCorner": {
+            "x": 0.0,
+            "y": 12000000.0
+          }
+        },
+        "19": {
+          "matrixId": "19",
+          "matrixHeight": 105102,
+          "matrixWidth": 12600,
+          "scaleDenominator": 1428.5714285714287,
+          "tileHeight": 256,
+          "tileWidth": 256,
+          "topLeftCorner": {
+            "x": 0.0,
+            "y": 12000000.0
+          }
+        },
+        "20": {
+          "matrixId": "20",
+          "matrixHeight": 210205,
+          "matrixWidth": 25200,
+          "scaleDenominator": 714.2857142857143,
+          "tileHeight": 256,
+          "tileWidth": 256,
+          "topLeftCorner": {
+            "x": 0.0,
+            "y": 12000000.0
+          }
+        },
+        "21": {
+          "matrixId": "21",
+          "matrixHeight": 420409,
+          "matrixWidth": 50400,
+          "scaleDenominator": 357.14285714285717,
+          "tileHeight": 256,
+          "tileWidth": 256,
+          "topLeftCorner": {
+            "x": 0.0,
+            "y": 12000000.0
+          }
+        },
+        "22": {
+          "matrixId": "22",
+          "matrixHeight": 840818,
+          "matrixWidth": 100800,
+          "scaleDenominator": 178.57142857142858,
+          "tileHeight": 256,
+          "tileWidth": 256,
+          "topLeftCorner": {
+            "x": 0.0,
+            "y": 12000000.0
+          }
+        }
+      }
+    },
+    "2154_5cm_13_22": {
+      "projection": "EPSG:2154",
+      "nativeResolutions": [
+        "25.6",
+        "12.8",
+        "6.4",
+        "3.2",
+        "1.6",
+        "0.8",
+        "0.4",
+        "0.2",
+        "0.1",
+        "0.05"
+      ],
+      "tileMatrices": {
+        "13": {
+          "matrixId": "13",
+          "matrixHeight": 1643,
+          "matrixWidth": 197,
+          "scaleDenominator": 91428.57142857143,
+          "tileHeight": 256,
+          "tileWidth": 256,
+          "topLeftCorner": {
+            "x": 0.0,
+            "y": 12000000.0
+          }
+        },
+        "14": {
+          "matrixId": "14",
+          "matrixHeight": 3285,
+          "matrixWidth": 394,
+          "scaleDenominator": 45714.28571428572,
+          "tileHeight": 256,
+          "tileWidth": 256,
+          "topLeftCorner": {
+            "x": 0.0,
+            "y": 12000000.0
+          }
+        },
+        "15": {
+          "matrixId": "15",
+          "matrixHeight": 6569,
+          "matrixWidth": 788,
+          "scaleDenominator": 22857.14285714286,
+          "tileHeight": 256,
+          "tileWidth": 256,
+          "topLeftCorner": {
+            "x": 0.0,
+            "y": 12000000.0
+          }
+        },
+        "16": {
+          "matrixId": "16",
+          "matrixHeight": 13138,
+          "matrixWidth": 1575,
+          "scaleDenominator": 11428.57142857143,
+          "tileHeight": 256,
+          "tileWidth": 256,
+          "topLeftCorner": {
+            "x": 0.0,
+            "y": 12000000.0
+          }
+        },
+        "17": {
+          "matrixId": "17",
+          "matrixHeight": 26276,
+          "matrixWidth": 3150,
+          "scaleDenominator": 5714.285714285715,
+          "tileHeight": 256,
+          "tileWidth": 256,
+          "topLeftCorner": {
+            "x": 0.0,
+            "y": 12000000.0
+          }
+        },
+        "18": {
+          "matrixId": "18",
+          "matrixHeight": 52552,
+          "matrixWidth": 6300,
+          "scaleDenominator": 2857.1428571428573,
+          "tileHeight": 256,
+          "tileWidth": 256,
+          "topLeftCorner": {
+            "x": 0.0,
+            "y": 12000000.0
+          }
+        },
+        "19": {
+          "matrixId": "19",
+          "matrixHeight": 105102,
+          "matrixWidth": 12600,
+          "scaleDenominator": 1428.5714285714287,
+          "tileHeight": 256,
+          "tileWidth": 256,
+          "topLeftCorner": {
+            "x": 0.0,
+            "y": 12000000.0
+          }
+        },
+        "20": {
+          "matrixId": "20",
+          "matrixHeight": 210205,
+          "matrixWidth": 25200,
+          "scaleDenominator": 714.2857142857143,
+          "tileHeight": 256,
+          "tileWidth": 256,
+          "topLeftCorner": {
+            "x": 0.0,
+            "y": 12000000.0
+          }
+        },
+        "21": {
+          "matrixId": "21",
+          "matrixHeight": 420409,
+          "matrixWidth": 50400,
+          "scaleDenominator": 357.14285714285717,
+          "tileHeight": 256,
+          "tileWidth": 256,
+          "topLeftCorner": {
+            "x": 0.0,
+            "y": 12000000.0
+          }
+        },
+        "22": {
+          "matrixId": "22",
+          "matrixHeight": 840818,
+          "matrixWidth": 100800,
+          "scaleDenominator": 178.57142857142858,
+          "tileHeight": 256,
+          "tileWidth": 256,
+          "topLeftCorner": {
+            "x": 0.0,
+            "y": 12000000.0
+          }
+        }
+      }
+    },
+    "2154_5cm_14_22": {
+      "projection": "EPSG:2154",
+      "nativeResolutions": [
+        "12.8",
+        "6.4",
+        "3.2",
+        "1.6",
+        "0.8",
+        "0.4",
+        "0.2",
+        "0.1",
+        "0.05"
+      ],
+      "tileMatrices": {
         "14": {
           "matrixId": "14",
           "matrixHeight": 3285,
@@ -7670,131 +7237,30 @@
         }
       }
     },
-    "LAMB93_50cm": {
-      "projection": "IGNF:LAMB93",
+    "2154_5cm_8_21": {
+      "projection": "EPSG:2154",
       "nativeResolutions": [
-        "131072",
-        "65536",
-        "32768",
-        "16384",
-        "8192",
-        "4096",
-        "2048",
-        "1024",
-        "512",
-        "256",
-        "128",
-        "64",
-        "32",
-        "16",
-        "8",
-        "4",
-        "2",
-        "1",
-        "0.5"
+        "819.2",
+        "409.6",
+        "204.8",
+        "102.4",
+        "51.2",
+        "25.6",
+        "12.8",
+        "6.4",
+        "3.2",
+        "1.6",
+        "0.8",
+        "0.4",
+        "0.2",
+        "0.1"
       ],
       "tileMatrices": {
-        "0": {
-          "matrixId": "0",
-          "matrixHeight": 1,
-          "matrixWidth": 1,
-          "scaleDenominator": 468114285.71428573,
-          "tileHeight": 256,
-          "tileWidth": 256,
-          "topLeftCorner": {
-            "x": 0.0,
-            "y": 12000000.0
-          }
-        },
-        "1": {
-          "matrixId": "1",
-          "matrixHeight": 1,
-          "matrixWidth": 1,
-          "scaleDenominator": 234057142.85714287,
-          "tileHeight": 256,
-          "tileWidth": 256,
-          "topLeftCorner": {
-            "x": 0.0,
-            "y": 12000000.0
-          }
-        },
-        "2": {
-          "matrixId": "2",
-          "matrixHeight": 1,
-          "matrixWidth": 1,
-          "scaleDenominator": 117028571.42857143,
-          "tileHeight": 256,
-          "tileWidth": 256,
-          "topLeftCorner": {
-            "x": 0.0,
-            "y": 12000000.0
-          }
-        },
-        "3": {
-          "matrixId": "3",
-          "matrixHeight": 3,
-          "matrixWidth": 1,
-          "scaleDenominator": 58514285.71428572,
-          "tileHeight": 256,
-          "tileWidth": 256,
-          "topLeftCorner": {
-            "x": 0.0,
-            "y": 12000000.0
-          }
-        },
-        "4": {
-          "matrixId": "4",
-          "matrixHeight": 5,
-          "matrixWidth": 1,
-          "scaleDenominator": 29257142.85714286,
-          "tileHeight": 256,
-          "tileWidth": 256,
-          "topLeftCorner": {
-            "x": 0.0,
-            "y": 12000000.0
-          }
-        },
-        "5": {
-          "matrixId": "5",
-          "matrixHeight": 10,
-          "matrixWidth": 1,
-          "scaleDenominator": 14628571.42857143,
-          "tileHeight": 256,
-          "tileWidth": 256,
-          "topLeftCorner": {
-            "x": 0.0,
-            "y": 12000000.0
-          }
-        },
-        "6": {
-          "matrixId": "6",
-          "matrixHeight": 21,
-          "matrixWidth": 2,
-          "scaleDenominator": 7314285.714285715,
-          "tileHeight": 256,
-          "tileWidth": 256,
-          "topLeftCorner": {
-            "x": 0.0,
-            "y": 12000000.0
-          }
-        },
-        "7": {
-          "matrixId": "7",
-          "matrixHeight": 41,
-          "matrixWidth": 5,
-          "scaleDenominator": 3657142.8571428573,
-          "tileHeight": 256,
-          "tileWidth": 256,
-          "topLeftCorner": {
-            "x": 0.0,
-            "y": 12000000.0
-          }
-        },
         "8": {
           "matrixId": "8",
-          "matrixHeight": 82,
-          "matrixWidth": 10,
-          "scaleDenominator": 1828571.4285714286,
+          "matrixHeight": 52,
+          "matrixWidth": 7,
+          "scaleDenominator": 2925714.285714286,
           "tileHeight": 256,
           "tileWidth": 256,
           "topLeftCorner": {
@@ -7804,9 +7270,9 @@
         },
         "9": {
           "matrixId": "9",
-          "matrixHeight": 164,
-          "matrixWidth": 20,
-          "scaleDenominator": 914285.7142857143,
+          "matrixHeight": 103,
+          "matrixWidth": 13,
+          "scaleDenominator": 1462857.142857143,
           "tileHeight": 256,
           "tileWidth": 256,
           "topLeftCorner": {
@@ -7816,9 +7282,9 @@
         },
         "10": {
           "matrixId": "10",
-          "matrixHeight": 328,
-          "matrixWidth": 39,
-          "scaleDenominator": 457142.85714285716,
+          "matrixHeight": 206,
+          "matrixWidth": 25,
+          "scaleDenominator": 731428.5714285715,
           "tileHeight": 256,
           "tileWidth": 256,
           "topLeftCorner": {
@@ -7828,9 +7294,9 @@
         },
         "11": {
           "matrixId": "11",
-          "matrixHeight": 656,
-          "matrixWidth": 79,
-          "scaleDenominator": 228571.42857142858,
+          "matrixHeight": 411,
+          "matrixWidth": 50,
+          "scaleDenominator": 365714.28571428574,
           "tileHeight": 256,
           "tileWidth": 256,
           "topLeftCorner": {
@@ -7840,9 +7306,9 @@
         },
         "12": {
           "matrixId": "12",
-          "matrixHeight": 1313,
-          "matrixWidth": 157,
-          "scaleDenominator": 114285.71428571429,
+          "matrixHeight": 822,
+          "matrixWidth": 99,
+          "scaleDenominator": 182857.14285714287,
           "tileHeight": 256,
           "tileWidth": 256,
           "topLeftCorner": {
@@ -7852,9 +7318,9 @@
         },
         "13": {
           "matrixId": "13",
-          "matrixHeight": 2627,
-          "matrixWidth": 315,
-          "scaleDenominator": 57142.857142857145,
+          "matrixHeight": 1643,
+          "matrixWidth": 197,
+          "scaleDenominator": 91428.57142857143,
           "tileHeight": 256,
           "tileWidth": 256,
           "topLeftCorner": {
@@ -7864,9 +7330,9 @@
         },
         "14": {
           "matrixId": "14",
-          "matrixHeight": 5255,
-          "matrixWidth": 630,
-          "scaleDenominator": 28571.428571428572,
+          "matrixHeight": 3285,
+          "matrixWidth": 394,
+          "scaleDenominator": 45714.28571428572,
           "tileHeight": 256,
           "tileWidth": 256,
           "topLeftCorner": {
@@ -7876,9 +7342,9 @@
         },
         "15": {
           "matrixId": "15",
-          "matrixHeight": 10510,
-          "matrixWidth": 1260,
-          "scaleDenominator": 14285.714285714286,
+          "matrixHeight": 6569,
+          "matrixWidth": 788,
+          "scaleDenominator": 22857.14285714286,
           "tileHeight": 256,
           "tileWidth": 256,
           "topLeftCorner": {
@@ -7888,9 +7354,9 @@
         },
         "16": {
           "matrixId": "16",
-          "matrixHeight": 21020,
-          "matrixWidth": 2520,
-          "scaleDenominator": 7142.857142857143,
+          "matrixHeight": 13138,
+          "matrixWidth": 1575,
+          "scaleDenominator": 11428.57142857143,
           "tileHeight": 256,
           "tileWidth": 256,
           "topLeftCorner": {
@@ -7900,9 +7366,9 @@
         },
         "17": {
           "matrixId": "17",
-          "matrixHeight": 42040,
-          "matrixWidth": 5040,
-          "scaleDenominator": 3571.4285714285716,
+          "matrixHeight": 26276,
+          "matrixWidth": 3150,
+          "scaleDenominator": 5714.285714285715,
           "tileHeight": 256,
           "tileWidth": 256,
           "topLeftCorner": {
@@ -7912,36 +7378,9 @@
         },
         "18": {
           "matrixId": "18",
-          "matrixHeight": 84081,
-          "matrixWidth": 10080,
-          "scaleDenominator": 1785.7142857142858,
-          "tileHeight": 256,
-          "tileWidth": 256,
-          "topLeftCorner": {
-            "x": 0.0,
-            "y": 12000000.0
-          }
-        }
-      }
-    },
-    "LAMB93_50cm_7_14": {
-      "projection": "IGNF:LAMB93",
-      "nativeResolutions": [
-        "1024",
-        "512",
-        "256",
-        "128",
-        "64",
-        "32",
-        "16",
-        "8"
-      ],
-      "tileMatrices": {
-        "7": {
-          "matrixId": "7",
-          "matrixHeight": 41,
-          "matrixWidth": 5,
-          "scaleDenominator": 3657142.8571428573,
+          "matrixHeight": 52552,
+          "matrixWidth": 6300,
+          "scaleDenominator": 2857.1428571428573,
           "tileHeight": 256,
           "tileWidth": 256,
           "topLeftCorner": {
@@ -7949,11 +7388,11 @@
             "y": 12000000.0
           }
         },
-        "8": {
-          "matrixId": "8",
-          "matrixHeight": 82,
-          "matrixWidth": 10,
-          "scaleDenominator": 1828571.4285714286,
+        "19": {
+          "matrixId": "19",
+          "matrixHeight": 105102,
+          "matrixWidth": 12600,
+          "scaleDenominator": 1428.5714285714287,
           "tileHeight": 256,
           "tileWidth": 256,
           "topLeftCorner": {
@@ -7961,11 +7400,11 @@
             "y": 12000000.0
           }
         },
-        "9": {
-          "matrixId": "9",
-          "matrixHeight": 164,
-          "matrixWidth": 20,
-          "scaleDenominator": 914285.7142857143,
+        "20": {
+          "matrixId": "20",
+          "matrixHeight": 210205,
+          "matrixWidth": 25200,
+          "scaleDenominator": 714.2857142857143,
           "tileHeight": 256,
           "tileWidth": 256,
           "topLeftCorner": {
@@ -7973,59 +7412,11 @@
             "y": 12000000.0
           }
         },
-        "10": {
-          "matrixId": "10",
-          "matrixHeight": 328,
-          "matrixWidth": 39,
-          "scaleDenominator": 457142.85714285716,
-          "tileHeight": 256,
-          "tileWidth": 256,
-          "topLeftCorner": {
-            "x": 0.0,
-            "y": 12000000.0
-          }
-        },
-        "11": {
-          "matrixId": "11",
-          "matrixHeight": 656,
-          "matrixWidth": 79,
-          "scaleDenominator": 228571.42857142858,
-          "tileHeight": 256,
-          "tileWidth": 256,
-          "topLeftCorner": {
-            "x": 0.0,
-            "y": 12000000.0
-          }
-        },
-        "12": {
-          "matrixId": "12",
-          "matrixHeight": 1313,
-          "matrixWidth": 157,
-          "scaleDenominator": 114285.71428571429,
-          "tileHeight": 256,
-          "tileWidth": 256,
-          "topLeftCorner": {
-            "x": 0.0,
-            "y": 12000000.0
-          }
-        },
-        "13": {
-          "matrixId": "13",
-          "matrixHeight": 2627,
-          "matrixWidth": 315,
-          "scaleDenominator": 57142.857142857145,
-          "tileHeight": 256,
-          "tileWidth": 256,
-          "topLeftCorner": {
-            "x": 0.0,
-            "y": 12000000.0
-          }
-        },
-        "14": {
-          "matrixId": "14",
-          "matrixHeight": 5255,
-          "matrixWidth": 630,
-          "scaleDenominator": 28571.428571428572,
+        "21": {
+          "matrixId": "21",
+          "matrixHeight": 420409,
+          "matrixWidth": 50400,
+          "scaleDenominator": 357.14285714285717,
           "tileHeight": 256,
           "tileWidth": 256,
           "topLeftCorner": {
@@ -8997,6 +8388,208 @@
           "matrixHeight": 8192,
           "matrixWidth": 8192,
           "scaleDenominator": 68247.34668319322,
+          "tileHeight": 256,
+          "tileWidth": 256,
+          "topLeftCorner": {
+            "x": -20037508.3427892,
+            "y": 20037508.3427892
+          }
+        }
+      }
+    },
+    "PM_0_14": {
+      "projection": "EPSG:3857",
+      "nativeResolutions": [
+        "156543.0339280410",
+        "78271.51696402048",
+        "39135.75848201023",
+        "19567.87924100512",
+        "9783.939620502561",
+        "4891.969810251280",
+        "2445.984905125640",
+        "1222.992452562820",
+        "611.4962262814100",
+        "305.7481131407048",
+        "152.8740565703525",
+        "76.43702828517624",
+        "38.21851414258813",
+        "19.10925707129406",
+        "9.554628535647032"
+      ],
+      "tileMatrices": {
+        "0": {
+          "matrixId": "0",
+          "matrixHeight": 1,
+          "matrixWidth": 1,
+          "scaleDenominator": 559082264.0287179,
+          "tileHeight": 256,
+          "tileWidth": 256,
+          "topLeftCorner": {
+            "x": -20037508.3427892,
+            "y": 20037508.3427892
+          }
+        },
+        "1": {
+          "matrixId": "1",
+          "matrixHeight": 2,
+          "matrixWidth": 2,
+          "scaleDenominator": 279541132.01435894,
+          "tileHeight": 256,
+          "tileWidth": 256,
+          "topLeftCorner": {
+            "x": -20037508.3427892,
+            "y": 20037508.3427892
+          }
+        },
+        "2": {
+          "matrixId": "2",
+          "matrixHeight": 4,
+          "matrixWidth": 4,
+          "scaleDenominator": 139770566.0071793,
+          "tileHeight": 256,
+          "tileWidth": 256,
+          "topLeftCorner": {
+            "x": -20037508.3427892,
+            "y": 20037508.3427892
+          }
+        },
+        "3": {
+          "matrixId": "3",
+          "matrixHeight": 8,
+          "matrixWidth": 8,
+          "scaleDenominator": 69885283.00358965,
+          "tileHeight": 256,
+          "tileWidth": 256,
+          "topLeftCorner": {
+            "x": -20037508.3427892,
+            "y": 20037508.3427892
+          }
+        },
+        "4": {
+          "matrixId": "4",
+          "matrixHeight": 16,
+          "matrixWidth": 16,
+          "scaleDenominator": 34942641.50179486,
+          "tileHeight": 256,
+          "tileWidth": 256,
+          "topLeftCorner": {
+            "x": -20037508.3427892,
+            "y": 20037508.3427892
+          }
+        },
+        "5": {
+          "matrixId": "5",
+          "matrixHeight": 32,
+          "matrixWidth": 32,
+          "scaleDenominator": 17471320.75089743,
+          "tileHeight": 256,
+          "tileWidth": 256,
+          "topLeftCorner": {
+            "x": -20037508.3427892,
+            "y": 20037508.3427892
+          }
+        },
+        "6": {
+          "matrixId": "6",
+          "matrixHeight": 64,
+          "matrixWidth": 64,
+          "scaleDenominator": 8735660.375448715,
+          "tileHeight": 256,
+          "tileWidth": 256,
+          "topLeftCorner": {
+            "x": -20037508.3427892,
+            "y": 20037508.3427892
+          }
+        },
+        "7": {
+          "matrixId": "7",
+          "matrixHeight": 128,
+          "matrixWidth": 128,
+          "scaleDenominator": 4367830.1877243575,
+          "tileHeight": 256,
+          "tileWidth": 256,
+          "topLeftCorner": {
+            "x": -20037508.3427892,
+            "y": 20037508.3427892
+          }
+        },
+        "8": {
+          "matrixId": "8",
+          "matrixHeight": 256,
+          "matrixWidth": 256,
+          "scaleDenominator": 2183915.0938621787,
+          "tileHeight": 256,
+          "tileWidth": 256,
+          "topLeftCorner": {
+            "x": -20037508.3427892,
+            "y": 20037508.3427892
+          }
+        },
+        "9": {
+          "matrixId": "9",
+          "matrixHeight": 512,
+          "matrixWidth": 512,
+          "scaleDenominator": 1091957.5469310894,
+          "tileHeight": 256,
+          "tileWidth": 256,
+          "topLeftCorner": {
+            "x": -20037508.3427892,
+            "y": 20037508.3427892
+          }
+        },
+        "10": {
+          "matrixId": "10",
+          "matrixHeight": 1024,
+          "matrixWidth": 1024,
+          "scaleDenominator": 545978.7734655464,
+          "tileHeight": 256,
+          "tileWidth": 256,
+          "topLeftCorner": {
+            "x": -20037508.3427892,
+            "y": 20037508.3427892
+          }
+        },
+        "11": {
+          "matrixId": "11",
+          "matrixHeight": 2048,
+          "matrixWidth": 2048,
+          "scaleDenominator": 272989.38673277217,
+          "tileHeight": 256,
+          "tileWidth": 256,
+          "topLeftCorner": {
+            "x": -20037508.3427892,
+            "y": 20037508.3427892
+          }
+        },
+        "12": {
+          "matrixId": "12",
+          "matrixHeight": 4096,
+          "matrixWidth": 4096,
+          "scaleDenominator": 136494.69336638608,
+          "tileHeight": 256,
+          "tileWidth": 256,
+          "topLeftCorner": {
+            "x": -20037508.3427892,
+            "y": 20037508.3427892
+          }
+        },
+        "13": {
+          "matrixId": "13",
+          "matrixHeight": 8192,
+          "matrixWidth": 8192,
+          "scaleDenominator": 68247.34668319322,
+          "tileHeight": 256,
+          "tileWidth": 256,
+          "topLeftCorner": {
+            "x": -20037508.3427892,
+            "y": 20037508.3427892
+          }
+        },
+        "14": {
+          "matrixId": "14",
+          "matrixHeight": 16384,
+          "matrixWidth": 16384,
+          "scaleDenominator": 34123.673341596535,
           "tileHeight": 256,
           "tileWidth": 256,
           "topLeftCorner": {
@@ -10491,153 +10084,103 @@
         }
       }
     },
-    "PM_0_21": {
+    "PM_10_15": {
       "projection": "EPSG:3857",
       "nativeResolutions": [
-        "156543.0339280410",
-        "78271.51696402048",
-        "39135.75848201023",
-        "19567.87924100512",
-        "9783.939620502561",
-        "4891.969810251280",
-        "2445.984905125640",
-        "1222.992452562820",
-        "611.4962262814100",
-        "305.7481131407048",
+        "152.8740565703525",
+        "76.43702828517624",
+        "38.21851414258813",
+        "19.10925707129406",
+        "9.554628535647032",
+        "4.777314267823516"
+      ],
+      "tileMatrices": {
+        "10": {
+          "matrixId": "10",
+          "matrixHeight": 1024,
+          "matrixWidth": 1024,
+          "scaleDenominator": 545978.7734655464,
+          "tileHeight": 256,
+          "tileWidth": 256,
+          "topLeftCorner": {
+            "x": -20037508.3427892,
+            "y": 20037508.3427892
+          }
+        },
+        "11": {
+          "matrixId": "11",
+          "matrixHeight": 2048,
+          "matrixWidth": 2048,
+          "scaleDenominator": 272989.38673277217,
+          "tileHeight": 256,
+          "tileWidth": 256,
+          "topLeftCorner": {
+            "x": -20037508.3427892,
+            "y": 20037508.3427892
+          }
+        },
+        "12": {
+          "matrixId": "12",
+          "matrixHeight": 4096,
+          "matrixWidth": 4096,
+          "scaleDenominator": 136494.69336638608,
+          "tileHeight": 256,
+          "tileWidth": 256,
+          "topLeftCorner": {
+            "x": -20037508.3427892,
+            "y": 20037508.3427892
+          }
+        },
+        "13": {
+          "matrixId": "13",
+          "matrixHeight": 8192,
+          "matrixWidth": 8192,
+          "scaleDenominator": 68247.34668319322,
+          "tileHeight": 256,
+          "tileWidth": 256,
+          "topLeftCorner": {
+            "x": -20037508.3427892,
+            "y": 20037508.3427892
+          }
+        },
+        "14": {
+          "matrixId": "14",
+          "matrixHeight": 16384,
+          "matrixWidth": 16384,
+          "scaleDenominator": 34123.673341596535,
+          "tileHeight": 256,
+          "tileWidth": 256,
+          "topLeftCorner": {
+            "x": -20037508.3427892,
+            "y": 20037508.3427892
+          }
+        },
+        "15": {
+          "matrixId": "15",
+          "matrixHeight": 32768,
+          "matrixWidth": 32768,
+          "scaleDenominator": 17061.83667079829,
+          "tileHeight": 256,
+          "tileWidth": 256,
+          "topLeftCorner": {
+            "x": -20037508.3427892,
+            "y": 20037508.3427892
+          }
+        }
+      }
+    },
+    "PM_10_16": {
+      "projection": "EPSG:3857",
+      "nativeResolutions": [
         "152.8740565703525",
         "76.43702828517624",
         "38.21851414258813",
         "19.10925707129406",
         "9.554628535647032",
         "4.777314267823516",
-        "2.388657133911758",
-        "1.194328566955879",
-        "0.5971642834779395",
-        "0.2985821417389697",
-        "0.1492910708694849",
-        "0.0746455354347424"
+        "2.388657133911758"
       ],
       "tileMatrices": {
-        "0": {
-          "matrixId": "0",
-          "matrixHeight": 1,
-          "matrixWidth": 1,
-          "scaleDenominator": 559082264.0287179,
-          "tileHeight": 256,
-          "tileWidth": 256,
-          "topLeftCorner": {
-            "x": -20037508.3427892,
-            "y": 20037508.3427892
-          }
-        },
-        "1": {
-          "matrixId": "1",
-          "matrixHeight": 2,
-          "matrixWidth": 2,
-          "scaleDenominator": 279541132.01435894,
-          "tileHeight": 256,
-          "tileWidth": 256,
-          "topLeftCorner": {
-            "x": -20037508.3427892,
-            "y": 20037508.3427892
-          }
-        },
-        "2": {
-          "matrixId": "2",
-          "matrixHeight": 4,
-          "matrixWidth": 4,
-          "scaleDenominator": 139770566.0071793,
-          "tileHeight": 256,
-          "tileWidth": 256,
-          "topLeftCorner": {
-            "x": -20037508.3427892,
-            "y": 20037508.3427892
-          }
-        },
-        "3": {
-          "matrixId": "3",
-          "matrixHeight": 8,
-          "matrixWidth": 8,
-          "scaleDenominator": 69885283.00358965,
-          "tileHeight": 256,
-          "tileWidth": 256,
-          "topLeftCorner": {
-            "x": -20037508.3427892,
-            "y": 20037508.3427892
-          }
-        },
-        "4": {
-          "matrixId": "4",
-          "matrixHeight": 16,
-          "matrixWidth": 16,
-          "scaleDenominator": 34942641.50179486,
-          "tileHeight": 256,
-          "tileWidth": 256,
-          "topLeftCorner": {
-            "x": -20037508.3427892,
-            "y": 20037508.3427892
-          }
-        },
-        "5": {
-          "matrixId": "5",
-          "matrixHeight": 32,
-          "matrixWidth": 32,
-          "scaleDenominator": 17471320.75089743,
-          "tileHeight": 256,
-          "tileWidth": 256,
-          "topLeftCorner": {
-            "x": -20037508.3427892,
-            "y": 20037508.3427892
-          }
-        },
-        "6": {
-          "matrixId": "6",
-          "matrixHeight": 64,
-          "matrixWidth": 64,
-          "scaleDenominator": 8735660.375448715,
-          "tileHeight": 256,
-          "tileWidth": 256,
-          "topLeftCorner": {
-            "x": -20037508.3427892,
-            "y": 20037508.3427892
-          }
-        },
-        "7": {
-          "matrixId": "7",
-          "matrixHeight": 128,
-          "matrixWidth": 128,
-          "scaleDenominator": 4367830.1877243575,
-          "tileHeight": 256,
-          "tileWidth": 256,
-          "topLeftCorner": {
-            "x": -20037508.3427892,
-            "y": 20037508.3427892
-          }
-        },
-        "8": {
-          "matrixId": "8",
-          "matrixHeight": 256,
-          "matrixWidth": 256,
-          "scaleDenominator": 2183915.0938621787,
-          "tileHeight": 256,
-          "tileWidth": 256,
-          "topLeftCorner": {
-            "x": -20037508.3427892,
-            "y": 20037508.3427892
-          }
-        },
-        "9": {
-          "matrixId": "9",
-          "matrixHeight": 512,
-          "matrixWidth": 512,
-          "scaleDenominator": 1091957.5469310894,
-          "tileHeight": 256,
-          "tileWidth": 256,
-          "topLeftCorner": {
-            "x": -20037508.3427892,
-            "y": 20037508.3427892
-          }
-        },
         "10": {
           "matrixId": "10",
           "matrixHeight": 1024,
@@ -10715,249 +10258,6 @@
           "matrixHeight": 65536,
           "matrixWidth": 65536,
           "scaleDenominator": 8530.918335399145,
-          "tileHeight": 256,
-          "tileWidth": 256,
-          "topLeftCorner": {
-            "x": -20037508.3427892,
-            "y": 20037508.3427892
-          }
-        },
-        "17": {
-          "matrixId": "17",
-          "matrixHeight": 131072,
-          "matrixWidth": 131072,
-          "scaleDenominator": 4265.459167699572,
-          "tileHeight": 256,
-          "tileWidth": 256,
-          "topLeftCorner": {
-            "x": -20037508.3427892,
-            "y": 20037508.3427892
-          }
-        },
-        "18": {
-          "matrixId": "18",
-          "matrixHeight": 262144,
-          "matrixWidth": 262144,
-          "scaleDenominator": 2132.7295838497826,
-          "tileHeight": 256,
-          "tileWidth": 256,
-          "topLeftCorner": {
-            "x": -20037508.3427892,
-            "y": 20037508.3427892
-          }
-        },
-        "19": {
-          "matrixId": "19",
-          "matrixHeight": 524288,
-          "matrixWidth": 524288,
-          "scaleDenominator": 1066.364791924893,
-          "tileHeight": 256,
-          "tileWidth": 256,
-          "topLeftCorner": {
-            "x": -20037508.3427892,
-            "y": 20037508.3427892
-          }
-        },
-        "20": {
-          "matrixId": "20",
-          "matrixHeight": 1048576,
-          "matrixWidth": 1048576,
-          "scaleDenominator": 533.1823959624465,
-          "tileHeight": 256,
-          "tileWidth": 256,
-          "topLeftCorner": {
-            "x": -20037508.3427892,
-            "y": 20037508.3427892
-          }
-        },
-        "21": {
-          "matrixId": "21",
-          "matrixHeight": 2097152,
-          "matrixWidth": 2097152,
-          "scaleDenominator": 266.5911979812229,
-          "tileHeight": 256,
-          "tileWidth": 256,
-          "topLeftCorner": {
-            "x": -20037508.3427892,
-            "y": 20037508.3427892
-          }
-        }
-      }
-    },
-    "PM_0_6": {
-      "projection": "EPSG:3857",
-      "nativeResolutions": [
-        "156543.0339280410",
-        "78271.51696402048",
-        "39135.75848201023",
-        "19567.87924100512",
-        "9783.939620502561",
-        "4891.969810251280",
-        "2445.984905125640"
-      ],
-      "tileMatrices": {
-        "0": {
-          "matrixId": "0",
-          "matrixHeight": 1,
-          "matrixWidth": 1,
-          "scaleDenominator": 559082264.0287179,
-          "tileHeight": 256,
-          "tileWidth": 256,
-          "topLeftCorner": {
-            "x": -20037508.3427892,
-            "y": 20037508.3427892
-          }
-        },
-        "1": {
-          "matrixId": "1",
-          "matrixHeight": 2,
-          "matrixWidth": 2,
-          "scaleDenominator": 279541132.01435894,
-          "tileHeight": 256,
-          "tileWidth": 256,
-          "topLeftCorner": {
-            "x": -20037508.3427892,
-            "y": 20037508.3427892
-          }
-        },
-        "2": {
-          "matrixId": "2",
-          "matrixHeight": 4,
-          "matrixWidth": 4,
-          "scaleDenominator": 139770566.0071793,
-          "tileHeight": 256,
-          "tileWidth": 256,
-          "topLeftCorner": {
-            "x": -20037508.3427892,
-            "y": 20037508.3427892
-          }
-        },
-        "3": {
-          "matrixId": "3",
-          "matrixHeight": 8,
-          "matrixWidth": 8,
-          "scaleDenominator": 69885283.00358965,
-          "tileHeight": 256,
-          "tileWidth": 256,
-          "topLeftCorner": {
-            "x": -20037508.3427892,
-            "y": 20037508.3427892
-          }
-        },
-        "4": {
-          "matrixId": "4",
-          "matrixHeight": 16,
-          "matrixWidth": 16,
-          "scaleDenominator": 34942641.50179486,
-          "tileHeight": 256,
-          "tileWidth": 256,
-          "topLeftCorner": {
-            "x": -20037508.3427892,
-            "y": 20037508.3427892
-          }
-        },
-        "5": {
-          "matrixId": "5",
-          "matrixHeight": 32,
-          "matrixWidth": 32,
-          "scaleDenominator": 17471320.75089743,
-          "tileHeight": 256,
-          "tileWidth": 256,
-          "topLeftCorner": {
-            "x": -20037508.3427892,
-            "y": 20037508.3427892
-          }
-        },
-        "6": {
-          "matrixId": "6",
-          "matrixHeight": 64,
-          "matrixWidth": 64,
-          "scaleDenominator": 8735660.375448715,
-          "tileHeight": 256,
-          "tileWidth": 256,
-          "topLeftCorner": {
-            "x": -20037508.3427892,
-            "y": 20037508.3427892
-          }
-        }
-      }
-    },
-    "PM_10_15": {
-      "projection": "EPSG:3857",
-      "nativeResolutions": [
-        "152.8740565703525",
-        "76.43702828517624",
-        "38.21851414258813",
-        "19.10925707129406",
-        "9.554628535647032",
-        "4.777314267823516"
-      ],
-      "tileMatrices": {
-        "10": {
-          "matrixId": "10",
-          "matrixHeight": 1024,
-          "matrixWidth": 1024,
-          "scaleDenominator": 545978.7734655464,
-          "tileHeight": 256,
-          "tileWidth": 256,
-          "topLeftCorner": {
-            "x": -20037508.3427892,
-            "y": 20037508.3427892
-          }
-        },
-        "11": {
-          "matrixId": "11",
-          "matrixHeight": 2048,
-          "matrixWidth": 2048,
-          "scaleDenominator": 272989.38673277217,
-          "tileHeight": 256,
-          "tileWidth": 256,
-          "topLeftCorner": {
-            "x": -20037508.3427892,
-            "y": 20037508.3427892
-          }
-        },
-        "12": {
-          "matrixId": "12",
-          "matrixHeight": 4096,
-          "matrixWidth": 4096,
-          "scaleDenominator": 136494.69336638608,
-          "tileHeight": 256,
-          "tileWidth": 256,
-          "topLeftCorner": {
-            "x": -20037508.3427892,
-            "y": 20037508.3427892
-          }
-        },
-        "13": {
-          "matrixId": "13",
-          "matrixHeight": 8192,
-          "matrixWidth": 8192,
-          "scaleDenominator": 68247.34668319322,
-          "tileHeight": 256,
-          "tileWidth": 256,
-          "topLeftCorner": {
-            "x": -20037508.3427892,
-            "y": 20037508.3427892
-          }
-        },
-        "14": {
-          "matrixId": "14",
-          "matrixHeight": 16384,
-          "matrixWidth": 16384,
-          "scaleDenominator": 34123.673341596535,
-          "tileHeight": 256,
-          "tileWidth": 256,
-          "topLeftCorner": {
-            "x": -20037508.3427892,
-            "y": 20037508.3427892
-          }
-        },
-        "15": {
-          "matrixId": "15",
-          "matrixHeight": 32768,
-          "matrixWidth": 32768,
-          "scaleDenominator": 17061.83667079829,
           "tileHeight": 256,
           "tileWidth": 256,
           "topLeftCorner": {
@@ -12252,6 +11552,182 @@
         }
       }
     },
+    "PM_4_16": {
+      "projection": "EPSG:3857",
+      "nativeResolutions": [
+        "9783.939620502561",
+        "4891.969810251280",
+        "2445.984905125640",
+        "1222.992452562820",
+        "611.4962262814100",
+        "305.7481131407048",
+        "152.8740565703525",
+        "76.43702828517624",
+        "38.21851414258813",
+        "19.10925707129406",
+        "9.554628535647032",
+        "4.777314267823516",
+        "2.388657133911758"
+      ],
+      "tileMatrices": {
+        "4": {
+          "matrixId": "4",
+          "matrixHeight": 16,
+          "matrixWidth": 16,
+          "scaleDenominator": 34942641.50179486,
+          "tileHeight": 256,
+          "tileWidth": 256,
+          "topLeftCorner": {
+            "x": -20037508.3427892,
+            "y": 20037508.3427892
+          }
+        },
+        "5": {
+          "matrixId": "5",
+          "matrixHeight": 32,
+          "matrixWidth": 32,
+          "scaleDenominator": 17471320.75089743,
+          "tileHeight": 256,
+          "tileWidth": 256,
+          "topLeftCorner": {
+            "x": -20037508.3427892,
+            "y": 20037508.3427892
+          }
+        },
+        "6": {
+          "matrixId": "6",
+          "matrixHeight": 64,
+          "matrixWidth": 64,
+          "scaleDenominator": 8735660.375448715,
+          "tileHeight": 256,
+          "tileWidth": 256,
+          "topLeftCorner": {
+            "x": -20037508.3427892,
+            "y": 20037508.3427892
+          }
+        },
+        "7": {
+          "matrixId": "7",
+          "matrixHeight": 128,
+          "matrixWidth": 128,
+          "scaleDenominator": 4367830.1877243575,
+          "tileHeight": 256,
+          "tileWidth": 256,
+          "topLeftCorner": {
+            "x": -20037508.3427892,
+            "y": 20037508.3427892
+          }
+        },
+        "8": {
+          "matrixId": "8",
+          "matrixHeight": 256,
+          "matrixWidth": 256,
+          "scaleDenominator": 2183915.0938621787,
+          "tileHeight": 256,
+          "tileWidth": 256,
+          "topLeftCorner": {
+            "x": -20037508.3427892,
+            "y": 20037508.3427892
+          }
+        },
+        "9": {
+          "matrixId": "9",
+          "matrixHeight": 512,
+          "matrixWidth": 512,
+          "scaleDenominator": 1091957.5469310894,
+          "tileHeight": 256,
+          "tileWidth": 256,
+          "topLeftCorner": {
+            "x": -20037508.3427892,
+            "y": 20037508.3427892
+          }
+        },
+        "10": {
+          "matrixId": "10",
+          "matrixHeight": 1024,
+          "matrixWidth": 1024,
+          "scaleDenominator": 545978.7734655464,
+          "tileHeight": 256,
+          "tileWidth": 256,
+          "topLeftCorner": {
+            "x": -20037508.3427892,
+            "y": 20037508.3427892
+          }
+        },
+        "11": {
+          "matrixId": "11",
+          "matrixHeight": 2048,
+          "matrixWidth": 2048,
+          "scaleDenominator": 272989.38673277217,
+          "tileHeight": 256,
+          "tileWidth": 256,
+          "topLeftCorner": {
+            "x": -20037508.3427892,
+            "y": 20037508.3427892
+          }
+        },
+        "12": {
+          "matrixId": "12",
+          "matrixHeight": 4096,
+          "matrixWidth": 4096,
+          "scaleDenominator": 136494.69336638608,
+          "tileHeight": 256,
+          "tileWidth": 256,
+          "topLeftCorner": {
+            "x": -20037508.3427892,
+            "y": 20037508.3427892
+          }
+        },
+        "13": {
+          "matrixId": "13",
+          "matrixHeight": 8192,
+          "matrixWidth": 8192,
+          "scaleDenominator": 68247.34668319322,
+          "tileHeight": 256,
+          "tileWidth": 256,
+          "topLeftCorner": {
+            "x": -20037508.3427892,
+            "y": 20037508.3427892
+          }
+        },
+        "14": {
+          "matrixId": "14",
+          "matrixHeight": 16384,
+          "matrixWidth": 16384,
+          "scaleDenominator": 34123.673341596535,
+          "tileHeight": 256,
+          "tileWidth": 256,
+          "topLeftCorner": {
+            "x": -20037508.3427892,
+            "y": 20037508.3427892
+          }
+        },
+        "15": {
+          "matrixId": "15",
+          "matrixHeight": 32768,
+          "matrixWidth": 32768,
+          "scaleDenominator": 17061.83667079829,
+          "tileHeight": 256,
+          "tileWidth": 256,
+          "topLeftCorner": {
+            "x": -20037508.3427892,
+            "y": 20037508.3427892
+          }
+        },
+        "16": {
+          "matrixId": "16",
+          "matrixHeight": 65536,
+          "matrixWidth": 65536,
+          "scaleDenominator": 8530.918335399145,
+          "tileHeight": 256,
+          "tileWidth": 256,
+          "topLeftCorner": {
+            "x": -20037508.3427892,
+            "y": 20037508.3427892
+          }
+        }
+      }
+    },
     "PM_4_18": {
       "projection": "EPSG:3857",
       "nativeResolutions": [
@@ -12445,6 +11921,182 @@
           "matrixHeight": 262144,
           "matrixWidth": 262144,
           "scaleDenominator": 2132.7295838497826,
+          "tileHeight": 256,
+          "tileWidth": 256,
+          "topLeftCorner": {
+            "x": -20037508.3427892,
+            "y": 20037508.3427892
+          }
+        }
+      }
+    },
+    "PM_5_17": {
+      "projection": "EPSG:3857",
+      "nativeResolutions": [
+        "4891.969810251280",
+        "2445.984905125640",
+        "1222.992452562820",
+        "611.4962262814100",
+        "305.7481131407048",
+        "152.8740565703525",
+        "76.43702828517624",
+        "38.21851414258813",
+        "19.10925707129406",
+        "9.554628535647032",
+        "4.777314267823516",
+        "2.388657133911758",
+        "1.194328566955879"
+      ],
+      "tileMatrices": {
+        "5": {
+          "matrixId": "5",
+          "matrixHeight": 32,
+          "matrixWidth": 32,
+          "scaleDenominator": 17471320.75089743,
+          "tileHeight": 256,
+          "tileWidth": 256,
+          "topLeftCorner": {
+            "x": -20037508.3427892,
+            "y": 20037508.3427892
+          }
+        },
+        "6": {
+          "matrixId": "6",
+          "matrixHeight": 64,
+          "matrixWidth": 64,
+          "scaleDenominator": 8735660.375448715,
+          "tileHeight": 256,
+          "tileWidth": 256,
+          "topLeftCorner": {
+            "x": -20037508.3427892,
+            "y": 20037508.3427892
+          }
+        },
+        "7": {
+          "matrixId": "7",
+          "matrixHeight": 128,
+          "matrixWidth": 128,
+          "scaleDenominator": 4367830.1877243575,
+          "tileHeight": 256,
+          "tileWidth": 256,
+          "topLeftCorner": {
+            "x": -20037508.3427892,
+            "y": 20037508.3427892
+          }
+        },
+        "8": {
+          "matrixId": "8",
+          "matrixHeight": 256,
+          "matrixWidth": 256,
+          "scaleDenominator": 2183915.0938621787,
+          "tileHeight": 256,
+          "tileWidth": 256,
+          "topLeftCorner": {
+            "x": -20037508.3427892,
+            "y": 20037508.3427892
+          }
+        },
+        "9": {
+          "matrixId": "9",
+          "matrixHeight": 512,
+          "matrixWidth": 512,
+          "scaleDenominator": 1091957.5469310894,
+          "tileHeight": 256,
+          "tileWidth": 256,
+          "topLeftCorner": {
+            "x": -20037508.3427892,
+            "y": 20037508.3427892
+          }
+        },
+        "10": {
+          "matrixId": "10",
+          "matrixHeight": 1024,
+          "matrixWidth": 1024,
+          "scaleDenominator": 545978.7734655464,
+          "tileHeight": 256,
+          "tileWidth": 256,
+          "topLeftCorner": {
+            "x": -20037508.3427892,
+            "y": 20037508.3427892
+          }
+        },
+        "11": {
+          "matrixId": "11",
+          "matrixHeight": 2048,
+          "matrixWidth": 2048,
+          "scaleDenominator": 272989.38673277217,
+          "tileHeight": 256,
+          "tileWidth": 256,
+          "topLeftCorner": {
+            "x": -20037508.3427892,
+            "y": 20037508.3427892
+          }
+        },
+        "12": {
+          "matrixId": "12",
+          "matrixHeight": 4096,
+          "matrixWidth": 4096,
+          "scaleDenominator": 136494.69336638608,
+          "tileHeight": 256,
+          "tileWidth": 256,
+          "topLeftCorner": {
+            "x": -20037508.3427892,
+            "y": 20037508.3427892
+          }
+        },
+        "13": {
+          "matrixId": "13",
+          "matrixHeight": 8192,
+          "matrixWidth": 8192,
+          "scaleDenominator": 68247.34668319322,
+          "tileHeight": 256,
+          "tileWidth": 256,
+          "topLeftCorner": {
+            "x": -20037508.3427892,
+            "y": 20037508.3427892
+          }
+        },
+        "14": {
+          "matrixId": "14",
+          "matrixHeight": 16384,
+          "matrixWidth": 16384,
+          "scaleDenominator": 34123.673341596535,
+          "tileHeight": 256,
+          "tileWidth": 256,
+          "topLeftCorner": {
+            "x": -20037508.3427892,
+            "y": 20037508.3427892
+          }
+        },
+        "15": {
+          "matrixId": "15",
+          "matrixHeight": 32768,
+          "matrixWidth": 32768,
+          "scaleDenominator": 17061.83667079829,
+          "tileHeight": 256,
+          "tileWidth": 256,
+          "topLeftCorner": {
+            "x": -20037508.3427892,
+            "y": 20037508.3427892
+          }
+        },
+        "16": {
+          "matrixId": "16",
+          "matrixHeight": 65536,
+          "matrixWidth": 65536,
+          "scaleDenominator": 8530.918335399145,
+          "tileHeight": 256,
+          "tileWidth": 256,
+          "topLeftCorner": {
+            "x": -20037508.3427892,
+            "y": 20037508.3427892
+          }
+        },
+        "17": {
+          "matrixId": "17",
+          "matrixHeight": 131072,
+          "matrixWidth": 131072,
+          "scaleDenominator": 4265.459167699572,
           "tileHeight": 256,
           "tileWidth": 256,
           "topLeftCorner": {
@@ -14172,6 +13824,156 @@
             "y": 20037508.3427892
           }
         },
+        "8": {
+          "matrixId": "8",
+          "matrixHeight": 256,
+          "matrixWidth": 256,
+          "scaleDenominator": 2183915.0938621787,
+          "tileHeight": 256,
+          "tileWidth": 256,
+          "topLeftCorner": {
+            "x": -20037508.3427892,
+            "y": 20037508.3427892
+          }
+        },
+        "9": {
+          "matrixId": "9",
+          "matrixHeight": 512,
+          "matrixWidth": 512,
+          "scaleDenominator": 1091957.5469310894,
+          "tileHeight": 256,
+          "tileWidth": 256,
+          "topLeftCorner": {
+            "x": -20037508.3427892,
+            "y": 20037508.3427892
+          }
+        },
+        "10": {
+          "matrixId": "10",
+          "matrixHeight": 1024,
+          "matrixWidth": 1024,
+          "scaleDenominator": 545978.7734655464,
+          "tileHeight": 256,
+          "tileWidth": 256,
+          "topLeftCorner": {
+            "x": -20037508.3427892,
+            "y": 20037508.3427892
+          }
+        },
+        "11": {
+          "matrixId": "11",
+          "matrixHeight": 2048,
+          "matrixWidth": 2048,
+          "scaleDenominator": 272989.38673277217,
+          "tileHeight": 256,
+          "tileWidth": 256,
+          "topLeftCorner": {
+            "x": -20037508.3427892,
+            "y": 20037508.3427892
+          }
+        },
+        "12": {
+          "matrixId": "12",
+          "matrixHeight": 4096,
+          "matrixWidth": 4096,
+          "scaleDenominator": 136494.69336638608,
+          "tileHeight": 256,
+          "tileWidth": 256,
+          "topLeftCorner": {
+            "x": -20037508.3427892,
+            "y": 20037508.3427892
+          }
+        },
+        "13": {
+          "matrixId": "13",
+          "matrixHeight": 8192,
+          "matrixWidth": 8192,
+          "scaleDenominator": 68247.34668319322,
+          "tileHeight": 256,
+          "tileWidth": 256,
+          "topLeftCorner": {
+            "x": -20037508.3427892,
+            "y": 20037508.3427892
+          }
+        },
+        "14": {
+          "matrixId": "14",
+          "matrixHeight": 16384,
+          "matrixWidth": 16384,
+          "scaleDenominator": 34123.673341596535,
+          "tileHeight": 256,
+          "tileWidth": 256,
+          "topLeftCorner": {
+            "x": -20037508.3427892,
+            "y": 20037508.3427892
+          }
+        },
+        "15": {
+          "matrixId": "15",
+          "matrixHeight": 32768,
+          "matrixWidth": 32768,
+          "scaleDenominator": 17061.83667079829,
+          "tileHeight": 256,
+          "tileWidth": 256,
+          "topLeftCorner": {
+            "x": -20037508.3427892,
+            "y": 20037508.3427892
+          }
+        },
+        "16": {
+          "matrixId": "16",
+          "matrixHeight": 65536,
+          "matrixWidth": 65536,
+          "scaleDenominator": 8530.918335399145,
+          "tileHeight": 256,
+          "tileWidth": 256,
+          "topLeftCorner": {
+            "x": -20037508.3427892,
+            "y": 20037508.3427892
+          }
+        },
+        "17": {
+          "matrixId": "17",
+          "matrixHeight": 131072,
+          "matrixWidth": 131072,
+          "scaleDenominator": 4265.459167699572,
+          "tileHeight": 256,
+          "tileWidth": 256,
+          "topLeftCorner": {
+            "x": -20037508.3427892,
+            "y": 20037508.3427892
+          }
+        },
+        "18": {
+          "matrixId": "18",
+          "matrixHeight": 262144,
+          "matrixWidth": 262144,
+          "scaleDenominator": 2132.7295838497826,
+          "tileHeight": 256,
+          "tileWidth": 256,
+          "topLeftCorner": {
+            "x": -20037508.3427892,
+            "y": 20037508.3427892
+          }
+        }
+      }
+    },
+    "PM_8_18": {
+      "projection": "EPSG:3857",
+      "nativeResolutions": [
+        "611.4962262814100",
+        "305.7481131407048",
+        "152.8740565703525",
+        "76.43702828517624",
+        "38.21851414258813",
+        "19.10925707129406",
+        "9.554628535647032",
+        "4.777314267823516",
+        "2.388657133911758",
+        "1.194328566955879",
+        "0.5971642834779395"
+      ],
+      "tileMatrices": {
         "8": {
           "matrixId": "8",
           "matrixHeight": 256,

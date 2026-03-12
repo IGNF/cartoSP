@@ -50,7 +50,7 @@ export class ApicartospService {
 
     // Get SP type count
     getIsochroneData(options: any): Observable<any> {
-        return this.http.get(this.apiUrl + "/isochrone",{
+        return this.http.get(this.apiUrl + "/isochrone-statistique",{
             params: options
         });
     }

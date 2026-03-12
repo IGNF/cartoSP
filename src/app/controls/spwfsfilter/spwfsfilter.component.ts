@@ -26,32 +26,36 @@ export class SpwfsfilterComponent implements OnInit {
                 "Conseil départemental",
                 "France services",
                 "Mairie",
-                "Maison départementale des solidarités (MDS)",
                 "Point d'accueil numérique (Préfecture et Sous-préfecture)",
                 "Préfecture",
-                "Sous-préfecture",
+                "Sous-préfecture"
             ]
         },
-        "Social, santé" : {
+        "Santé" : {
             markerPath: "assets/images/mapmarker/social-sante/",
             topologies: [
-                "Caisse commune de Sécurité sociale (CCSS)",
-                "Caisse d'allocations familiales (Caf)",
-                "Caisse d'assurance retraite et de la santé au travail (Carsat)",
-                "Caisse primaire d'assurance maladie (CPAM)",
-                "Centre communal d'action sociale (CCAS)",
                 "Centre de Santé",
-                "Centre Hospitalier (C.H.)",
+                "Centre Hospitalier (C.H.)", 
                 "Centre Hospitalier Régional (C.H.R.)",
                 "Centre hospitalier universitaire (CHU)",
+                "France Santé",
+                "Maison de santé (L.6223-3)"           
+            ]
+        },
+        "Social" : {
+            markerPath: "assets/images/mapmarker/social-sante/",
+            topologies: [
+                "Caisse commune de sécurité sociale (CCSS)",   
+                "Caisse d'allocations familiales (Caf)",
+                "Caisse d'assurance retraite et de la santé au travail (Carsat)",
+                "Caisse primaire d’assurance maladie (CPAM)",
+                "Centre communal d'action sociale (CCAS)",
                 "Centres Locaux Information Coordination P.A .(C.L.I.C.)",
                 "Centres sociaux",
-                "Communautés professionnelles territoriales de santé (CPTS)",
                 "Maison départementale des personnes handicapées (MDPH)",
+                "Maison départementale des solidarités (MDS)",
                 "Mutualité sociale agricole (MSA)",
-                "Service d’aide médicale urgente (Samu)",
-                "Union de recouvrement des cotisations de sécurité sociale et d’allocations familiales (Urssaf)",
-                "Maison de santé (L.6223-3)"              
+                "Union de recouvrement des cotisations de sécurité sociale et d’allocations familiales (Urssaf)"        
             ]
         },
         "Travail, emploi, formation": {
@@ -73,17 +77,19 @@ export class SpwfsfilterComponent implements OnInit {
         "Droit, justice": {
             markerPath: "assets/images/mapmarker/droit-justice/",
             topologies: [
-                "Bureau d'aide aux victimes du tribunal judiciaire",
                 "Conseil départemental d'accès au droit (CDAD)",
+                "Maison de justice",
                 "Point-justice",
-                "Tribunal judiciaire"
+                "Tribunal de proximité",
+                "Tribunal judiciaire",
+                "Bureau d'aide aux victimes du tribunal judiciaire"
             ]
         },
         "Environnement, logement, transports":  {
             markerPath: "assets/images/mapmarker/environnement/",
             topologies: [
                 "Agence départementale d'information sur le logement (Adil)",
-                "Agence nationale de l'habitat (ANAH)",
+                "Agence nationale de l’habitat (ANAH) - réseau local",
                 "Espace conseil France rénov'"
             ]
         },
@@ -93,13 +99,24 @@ export class SpwfsfilterComponent implements OnInit {
                 "Brigade de gendarmerie",
                 "Commissariat de police"
             ]
+        },
+        "Enseignement": {
+            markerPath: "assets/images/mapmarker/enseignement/",
+            topologies: [
+                "Collège",
+                "DASEN",
+                "École maternelle",
+                "École primaire",
+                "Lycée",
+                "Rectorat"
+            ]
         }
     };
 
     this.control = new WfsFilter({
       position: "top-left",
       panel: true,
-      cartospLayerName: "services_publics_test_20250925:carto_sp_interne",
+      cartospLayerName: "base_carto_sp_18_02_gpkg_18-02-2026_wfs:carto_sp_18_02__base_carto_sp",
       cartospThemesInfo: ThemesInfo
     });
 

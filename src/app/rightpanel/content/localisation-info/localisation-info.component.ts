@@ -203,22 +203,17 @@ export class LocalisationInfoComponent implements OnInit {
 
   selectSpChange(e: any){
     var options = {};
-    var optionsPerma = {};
 
     if(e != "tous"){
-      options = Object.assign(options, {service_typologie: e});
-      optionsPerma = Object.assign(optionsPerma, {permanence_typologie: e});
+      options = Object.assign(options, {typologie: e});
     }
     
     if (this.data.type == "departement") {
-      options = Object.assign(options, {lieu_code_departement: this.data.location.number});
-      optionsPerma = Object.assign(optionsPerma, {lieu_code_departement: this.data.location.number});
+      options = Object.assign(options, {code_dep: this.data.location.number});
     } else if (this.data.type == "epci") {
-      options = Object.assign(options, {lieu_code_epci: this.data.location.number});
-      optionsPerma = Object.assign(optionsPerma, {lieu_code_epci: this.data.location.number});
+      options = Object.assign(options, {code_epci: this.data.location.number});
     } else {
-      options = Object.assign(options, {lieu_code_insee: this.data.location.number});
-      optionsPerma = Object.assign(optionsPerma, {lieu_code_insee: this.data.location.number});
+      options = Object.assign(options, {code_insee: this.data.location.number});
     }
 
     this.apicartospService.getTypeCount(Object.assign(options, {type_structure: "Implantation"})).subscribe({
@@ -228,7 +223,7 @@ export class LocalisationInfoComponent implements OnInit {
       error : (error: any) => { console.error('Error fetching Implantation count info:', error) }
     });
 
-    this.apicartospService.getTypeCount(Object.assign(optionsPerma, {type_structure: "Permanence"})).subscribe({
+    this.apicartospService.getTypeCount(Object.assign(options, {type_structure: "Permanence"})).subscribe({
       next : (response: any) => {
         this.nbpermanences = response;
       },

@@ -47,17 +47,17 @@ export class ServicePublicComponent implements OnInit {
 
     switch (this.typeStructure) {
       case "Implantation":
-        this.getResponseList(this.data.selectedSP.service_id);
-        this.serviceOpeningHours = this.buildTimeTable(this.data.selectedSP.service_horaires_ouverture);
+        this.getResponseList(this.data.selectedSP.id_position);
+        this.serviceOpeningHours = this.buildTimeTable(this.data.selectedSP.horaires_ouverture);
         break;
       case "Permanence":
-        this.getServiceName(this.data.selectedSP.service_id);
-        this.getResponseList(this.data.selectedSP.service_id);
-        this.serviceOpeningHours = this.buildTimeTable(this.data.selectedSP.permanence_horaires);
+        this.getServiceName(this.data.selectedSP.cleabs);
+        this.getResponseList(this.data.selectedSP.id_position);
+        this.serviceOpeningHours = this.buildTimeTable(this.data.selectedSP.horaires_ouverture);
         break;
       default:
-        this.getResponseList(this.data.selectedSP.service_id);
-        this.serviceOpeningHours = this.buildTimeTable(this.data.selectedSP.service_horaires_ouverture);
+        this.getResponseList(this.data.selectedSP.id_structure);
+        this.serviceOpeningHours = this.buildTimeTable(this.data.selectedSP.horaires_ouverture);
       ;
     }
   }
@@ -71,27 +71,28 @@ export class ServicePublicComponent implements OnInit {
     });
   }
 
-  getResponseList(service_code: string) {
+  // id = id_position ou id_service en fonction du type de structure
+  getResponseList(id: string) {
     this.responseList = null;
     if(this.typeStructure == "Itinérance") {
-      this.apicartospService.getCircuitItinerants(service_code).subscribe({
+      this.apicartospService.getCircuitItinerants(id).subscribe({
         next : (response: Array<any>) => {
           if(response.length != 0) {
             this.responseList = [];
             response.forEach((entry) =>{
-              this.responseList?.push({name: entry.lieu_adresse, openinghours : this.buildTimeTable(entry.service_horaires_ouverture)});
+              this.responseList?.push({name: entry.adresse, openinghours : this.buildTimeTable(entry.horaires_ouverture)});
             })
           }  
         },
         error : (error: any) => { console.error('Error fetching circuit:', error) }
       });
     }else{
-      this.apicartospService.getServicePermanences(service_code).subscribe({
+      this.apicartospService.getServicePermanences(id).subscribe({
         next : (response: Array<any>) => {
           if(response.length != 0) {
             this.responseList = [];
             response.forEach((entry) =>{
-              this.responseList?.push({name: entry.permanence_nom, openinghours : this.buildTimeTable(entry.service_horaires_ouverture)});
+              this.responseList?.push({name: entry.nom, openinghours : this.buildTimeTable(entry.horaires_ouverture)});
             })
           } 
         },

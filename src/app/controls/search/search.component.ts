@@ -2,7 +2,7 @@ import { Component, OnInit, Input, ElementRef } from '@angular/core';
 
 import Map from 'ol/Map';
 import Control from 'ol/control/Control';
-import { SearchEngine, Searchdialog} from "geopf-extensions-openlayers/src";
+import { SearchEngine, Searchdialog, SearchEngineAdvanced, LocationAdvancedSearch} from "geopf-extensions-openlayers/src";
 
 @Component({
   selector: 'app-search',
@@ -27,7 +27,7 @@ export class SearchComponent implements OnInit {
     this.map.addControl(this.dialog);
 
     // Ajout de l'outil de recherche dans le panel
-    this.search = new SearchEngine({
+    /*this.search = new SearchEngine({
       displayButtonClose: false,
       displayButtonAdvancedSearch: false,
       displayButtonGeolocate: true,
@@ -49,20 +49,29 @@ export class SearchComponent implements OnInit {
         }
       }
     });   
-    this.map.addControl(this.search);
+    this.map.addControl(this.search);*/
 
     // extract geolocation button
-    const geolocatebutton = document.querySelector('[id^=GPshowGeolocate-]');
+    /*const geolocatebutton = document.querySelector('[id^=GPshowGeolocate-]');
     if(geolocatebutton){
       geolocatebutton.classList.add("gpf-widget", "gpf-widget-button", "fr-btn--tertiary", "geolocatebutton")
       geolocatebutton.classList.remove("fr-m-1w", "fr-btn--secondary");
       geolocatebutton.setAttribute('title', "Activer la géolocalisation");
-    }
+    }*/
     //@ts-ignore
-    document.getElementById("position-container-bottom-right")?.appendChild(geolocatebutton);
+    //document.getElementById("position-container-bottom-right")?.appendChild(geolocatebutton);
+
+    var location = new LocationAdvancedSearch({})
+
+    this.search = new SearchEngineAdvanced({
+      advancedSearch : [location],
+      returnTrueGeometry : true,
+    })
+
+    this.map.addControl(this.search);
 
     // move searchEngine
-    const searchinput = document.querySelector('[id^=GPsearchEngine-]');
+    const searchinput = document.querySelector('[id^=GPsearchEngine-Advanced-]');
     //@ts-ignore
     document.getElementById("searchmodal")?.appendChild(searchinput);
   }

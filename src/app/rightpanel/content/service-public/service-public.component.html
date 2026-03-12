@@ -26,13 +26,13 @@
 
 <!-- Titres -->
  @if(typeStructure === "Permanence"){
-    <h3 class="fr-h3">{{ data.selectedSP.permanence_nom}}</h3>
-    <h6 class="fr-h6">{{ data.selectedSP.permanence_typologie }}</h6>
-    <h6 class="fr-h7">{{ data.selectedSP.permanence_thematique }}</h6>
+    <h3 class="fr-h3">{{ data.selectedSP.nom}}</h3>
+    <h6 class="fr-h6">{{ data.selectedSP.typologie }}</h6>
+    <h6 class="fr-h7">{{ data.selectedSP.thematique }}</h6>
  } @else {
-    <h3 class="fr-h3">{{ data.selectedSP.service_nom }}</h3>
-    <h6 class="fr-h6">{{ data.selectedSP.service_typologie }}</h6>
-    <h6 class="fr-h7">{{ data.selectedSP.service_thematique }}</h6>
+    <h3 class="fr-h3">{{ data.selectedSP.nom }}</h3>
+    <h6 class="fr-h6">{{ data.selectedSP.typologie }}</h6>
+    <h6 class="fr-h7">{{ data.selectedSP.thematique }}</h6>
  }
 <!-- Onglets d'informations -->
 <dsfr-tabs
@@ -55,19 +55,19 @@
     <!-- Informations générales -->
     <div class="info-list">
         <span class="fr-icon-map-pin-2-fill fr-icon--md info-icon" aria-hidden="true"></span>
-        <div class="info-content"> {{ data.selectedSP.lieu_adresse || "Aucune information" }}</div>
+        <div class="info-content"> {{ data.selectedSP.adresse || "Aucune information" }}</div>
     </div>
     <div class="info-list">
         <span class="fr-icon-phone-fill fr-icon--md info-icon" aria-hidden="true"></span>
-        <div class="info-content">{{ data.selectedSP.service_telephone || "Aucune information" }}</div>
+        <div class="info-content">{{ data.selectedSP.telephone || "Aucune information" }}</div>
     </div>
     <div class="info-list">
         <span class="fr-icon-mail-fill fr-icon--md info-icon" aria-hidden="true"></span>
-        <div class="info-content">{{ data.selectedSP.service_courriel || "Aucune information" }}</div>
+        <div class="info-content">{{ data.selectedSP.courriel || "Aucune information" }}</div>
     </div>
     <div class="info-list">
         <span class="fr-icon-global-fill fr-icon--md info-icon" aria-hidden="true"></span>
-        <div class="info-content">{{ data.selectedSP.service_site_internet || "Aucune information" }}</div>
+        <div class="info-content">{{ data.selectedSP.site_internet || "Aucune information" }}</div>
     </div>
     <div class="info-list">
         <span class="fr-icon-accessibility  fr-icon--md info-icon" aria-hidden="true"></span>
@@ -79,16 +79,16 @@
             <p>Fréquentation annuelle (visiteurs/an)</p>
             <div id="freq-small">
                 @if (typeStructure == "Permanence") {
-                    <span>{{ data.selectedSP.permanence_frequentation_annuelle || "Inconnue" }}</span>
-                    @if (data.selectedSP.permanence_frequentation_annuelle_ref) {
+                    <span>{{ data.selectedSP.frequentation_annuelle || "Inconnue" }}</span>
+                    @if (data.selectedSP.frequentation_annuelle_ref) {
                         <br>
-                        <small>(Année de référence: {{ data.selectedSP.permanence_frequentation_annuelle_ref }})</small>
+                        <small>(Année de référence: {{ data.selectedSP.frequentation_annuelle_ref }})</small>
                     } 
                 } @else {
-                    <span>{{ data.selectedSP.service_frequentation_annuelle || "Inconnue" }}</span>
-                    @if (data.selectedSP.service_frequentation_annuelle_ref) {
+                    <span>{{ data.selectedSP.frequentation_annuelle || "Inconnue" }}</span>
+                    @if (data.selectedSP.frequentation_annuelle_ref) {
                         <br>
-                        <small>(Année de référence: {{ data.selectedSP.service_frequentation_annuelle_ref }})</small>
+                        <small>(Année de référence: {{ data.selectedSP.frequentation_annuelle_ref }})</small>
                     } 
                 }
             </div>
@@ -98,9 +98,9 @@
     <div class="info-list info-modalite">
         <span class="fr-icon-calendar-event-fill fr-icon--md info-icon" aria-hidden="true"></span>
         @if (typeStructure == "Permanence") {
-            <div class="info-content"> {{ data.selectedSP.permanence_modalite_d_accueil || "Aucune informations sur les modalités d'accueil" }}</div>
+            <div class="info-content"> {{ data.selectedSP.modalite_d_accueil || "Aucune informations sur les modalités d'accueil" }}</div>
         } @else {
-            <div class="info-content"> {{ data.selectedSP.service_modalite_d_accueil || "Aucune informations sur les modalités d'accueil" }}</div>
+            <div class="info-content"> {{ data.selectedSP.modalite_d_accueil || "Aucune informations sur les modalités d'accueil" }}</div>
         }
     </div>
     <!-- Horaires -->
@@ -161,7 +161,7 @@
                     >
                         <h4 class="fr-h4 fr-h4-tab">Autre(s) permanence(s) hébergée(s) dans ce lieu</h4>
                         @for (entry of responseList; track responseList; let idx = $index) {
-                            @if(entry.name != data.selectedSP.permanence_nom) {
+                            @if(entry.name != data.selectedSP.nom) {
                                 @if(idx != 0) {        
                                     <div class="info-list title-gap">
                                         <span class="fr-icon-map-pin-2-fill fr-icon--md info-icon" aria-hidden="true"></span>
@@ -234,7 +234,7 @@
                     <h4 class="fr-h4 fr-h4-tab">Dispositif Itinérant</h4>
                     <div class="info-list">
                         <span class="fr-icon-bus-fill fr-icon--md info-icon" aria-hidden="true"></span>
-                        <div class="info-content"> {{ data.selectedSP.service_nom || "Aucune information" }}</div>
+                        <div class="info-content"> {{ data.selectedSP.nom || "Aucune information" }}</div>
                     </div> 
                     <h4 class="fr-h4 fr-h4-tab title-gap">Circuit</h4>
                     @for (entry of responseList; track responseList; let idx = $index) {  
