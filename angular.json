@@ -20,6 +20,9 @@
               "zone.js"
             ],
             "tsConfig": "tsconfig.app.json",
+            "loader": {
+              ".svg": "text"
+            },
             "assets": [
               "src/favicon.ico",
               "src/assets",
@@ -93,7 +96,12 @@
               "eventbusjs",
               "node-fetch",
               "es6-promise",
-              "@xmldom/xmldom"
+              "@xmldom/xmldom",
+              "opening_hours",
+              "ajv/dist/vocabularies/discriminator",
+              "clusterize.js",
+              "ajv",
+              "ajv-formats"
             ]
           },
           "configurations": {
@@ -106,8 +114,8 @@
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "2kb",
-                  "maximumError": "4kb"
+                  "maximumWarning": "4kb",
+                  "maximumError": "6kb"
                 }
               ],
               "outputHashing": "all"
