@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class ApicartospService {
 
-    private apiUrl = '/api';
+    public apiUrl = '/api';
 
     constructor(private http: HttpClient) {}
 

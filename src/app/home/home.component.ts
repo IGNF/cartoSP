@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
@@ -16,6 +16,8 @@ import { SpwfsfilterComponent } from '../controls/spwfsfilter/spwfsfilter.compon
 import { RightpanelComponent } from '../rightpanel/rightpanel.component';
 import { SpselectorComponent } from '../controls/spselector/spselector.component';
 import { IndicatorselectorComponent } from '../controls/indicatorselector/indicatorselector.component';
+import { TerritoireComponent } from '../controls/territoire/territoire.component';
+import { MinimapComponent } from '../controls/minimap/minimap.component';
 
 import { GeocodageService } from './../services/geocodage.service';
 
@@ -32,7 +34,7 @@ import Gp from 'geoportal-access-lib';
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
   standalone: true,
-  imports: [CommonModule, CarteComponent, SearchComponent, LayerswitcherComponent, IsochroneSimpleComponent, LegendeComponent, ZoomComponent, FullscreenComponent, AttributionComponent, ScalelineComponent, LayerselectorComponent, SpwfsfilterComponent, RightpanelComponent, SpselectorComponent, IndicatorselectorComponent],
+  imports: [CommonModule, CarteComponent, SearchComponent, LayerswitcherComponent, IsochroneSimpleComponent, LegendeComponent, ZoomComponent, FullscreenComponent, AttributionComponent, ScalelineComponent, LayerselectorComponent, SpwfsfilterComponent, RightpanelComponent, SpselectorComponent, IndicatorselectorComponent, TerritoireComponent, MinimapComponent],
   providers: [GeocodageService]
 })
 export class HomeComponent implements OnInit {

@@ -32,7 +32,7 @@ export class SpwfsfilterComponent implements OnInit {
             ]
         },
         "Santé" : {
-            markerPath: "assets/images/mapmarker/social-sante/",
+            markerPath: "assets/images/mapmarker/sante/",
             topologies: [
                 "Centre de Santé",
                 "Centre Hospitalier (C.H.)", 
@@ -43,7 +43,7 @@ export class SpwfsfilterComponent implements OnInit {
             ]
         },
         "Social" : {
-            markerPath: "assets/images/mapmarker/social-sante/",
+            markerPath: "assets/images/mapmarker/social/",
             topologies: [
                 "Caisse commune de sécurité sociale (CCSS)",   
                 "Caisse d'allocations familiales (Caf)",
