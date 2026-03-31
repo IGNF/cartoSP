@@ -83,7 +83,8 @@
               "node_modules/geopf-extensions-openlayers/src/packages/CSS/Controls/CartospSearchdialog/GPFsearchdialog.css",
               "node_modules/geopf-extensions-openlayers/src/packages/CSS/Controls/CartospLayerselector/GPFlayerselector.css",
               "node_modules/geopf-extensions-openlayers/src/packages/CSS/Controls/CartospIndicator/GPFindicator.css",
-              "node_modules/geopf-extensions-openlayers/src/packages/CSS/Controls/CartospIsochron/GPFisochron.css"
+              "node_modules/geopf-extensions-openlayers/src/packages/CSS/Controls/CartospIsochron/GPFisochron.css",              "node_modules/geopf-extensions-openlayers/src/packages/CSS/Controls/Territories/GPFterritories.css",
+              "node_modules/geopf-extensions-openlayers/src/packages/CSS/Controls/OverviewMap/GPFoverviewMap.css"
             ],
             "scripts": [
               "./node_modules/@gouvfr/dsfr/dist/dsfr/dsfr.module.js"

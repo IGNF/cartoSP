@@ -7,11 +7,11 @@ name: Docker
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "main", "cartospv2" ]
     # Publish semver tags as releases.
     tags: [ 'v*.*.*', 'r*' ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "main", "cartospv2" ]
 
 env:
   # Use docker.io for Docker Hub if empty
