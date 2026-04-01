@@ -59,4 +59,16 @@ export class GeocodageService {
       params: req
     });
   }
+
+  getAdminExpressDepartementGeometry(query: string): Observable<any> {
+    var req = Object.assign(this.defaultParams, {
+        TYPENAME: "ADMINEXPRESS-COG.LATEST:departement",
+        cql_filter:"code_insee='"+query+"'"
+    });
+    
+    return this.http.get(this.apiExpressUrl,{
+      params: req
+    });
+  }
+
 }

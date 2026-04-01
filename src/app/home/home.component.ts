@@ -18,8 +18,10 @@ import { SpselectorComponent } from '../controls/spselector/spselector.component
 import { IndicatorselectorComponent } from '../controls/indicatorselector/indicatorselector.component';
 import { TerritoireComponent } from '../controls/territoire/territoire.component';
 import { MinimapComponent } from '../controls/minimap/minimap.component';
+import { LocalisationInfoComponent } from '../rightpanel/content/localisation-info/localisation-info.component';
 
 import { GeocodageService } from './../services/geocodage.service';
+import { RightpanelService } from './../rightpanel/rightpanel.service';
 
 import Map from 'ol/Map';
 import View from 'ol/View';
@@ -39,7 +41,7 @@ import Gp from 'geoportal-access-lib';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private GeocodageService: GeocodageService, private activatedRoute: ActivatedRoute) {}
+  constructor(private GeocodageService: GeocodageService, private activatedRoute: ActivatedRoute, private rightpanelService: RightpanelService) {}
 
   map!: Map;
   GpServiceError: boolean = false;
@@ -70,10 +72,12 @@ export class HomeComponent implements OnInit {
 
   locatedMap(location: string) {
     // set view map if different from default
-    this.GeocodageService.getSearchTrueGeometry(location).subscribe({
+    this.GeocodageService.getAdminExpressDepartementGeometry(location).subscribe({
         next : (response: any) => {
-            const locationGeom = new GeoJSON().readFeatures(response.features[0].properties.truegeometry, {featureProjection: 'EPSG:3857'})[0].getGeometry();
-            this.defaultView.fit(locationGeom as SimpleGeometry, {padding: [30,30,30,30]});
+            const locationGeom = new GeoJSON().readFeatures(response.features[0].geometry)[0].getGeometry();
+            this.defaultView.fit(locationGeom as SimpleGeometry, {padding: [20,20,20,20]});
+            console.log("Location geometry:", response.features[0]);
+            this.rightpanelService.setContent(LocalisationInfoComponent, {map : this.map, location: {name: response.features[0].properties.nom_officiel ,number: response.features[0].properties.code_insee }, type: "departement"}, "locationinfo");
         },
         error : (error: any) => { console.error('Error fetching geocode datas:', error); this.GpServiceError = true; }
     });
