@@ -1,1 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* LayerSwitcher elements are injected outside Angular component templates. */
+.GPlayerRemove,
+.GPlayerGreyscale {
+	display: none !important;
+}
+
+div[id^="GPlayerswitcher"] {
+	margin-bottom: 0px !important;
+	margin-left: 4px !important;
+}
+
+dialog[id^="GPlayersList"] {
+	position: absolute !important;
+}
+
+div[id^="GPlayerSwitcher_ID_"][data-sortable-id="2"] {
+    display: none !important;
+}

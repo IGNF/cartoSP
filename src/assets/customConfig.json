@@ -871,7 +871,13 @@
       "queryable": false,
       "metadata": [],
       "styles": [],
-      "legends": [],
+      "legends": [
+        {
+          "format": "image/jpeg",
+          "url": "https://data.geopf.fr/annexes/cartosp_ditp/legendes/legende_SP.png",
+          "minScaleDenominator": "200"
+        }
+      ],
       "formats": []
     },
     "CPAM_isochrone20$GEOPORTAIL:OGC:WMS": {

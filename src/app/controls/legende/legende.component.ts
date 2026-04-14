@@ -19,7 +19,7 @@ export class LegendeComponent implements OnInit {
   ngOnInit() {
     this.control = new Legends({
       collapsed: true,
-      position: "top-left",
+      position: "bottom-right",
       panel: true,
       auto: true
     });

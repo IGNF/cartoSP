@@ -98,29 +98,30 @@ export class LocalisationInfoComponent implements OnInit {
       {label: "Conseil départemental", value: "Conseil départemental"}, 
       {label: "France services", value: "France services"}, 
       {label: "Mairie", value: "Mairie"}, 
-      {label: "Maison départementale des solidarités (MDS)", value: "Maison départementale des solidarités (MDS)"}, 
       {label: "Point d'accueil numérique (Préfecture et Sous-préfecture)", value: "Point d'accueil numérique (Préfecture et Sous-préfecture)"},
       {label: "Préfecture", value: "Préfecture"}, 
       {label: "Sous-préfecture", value: "Sous-préfecture"}
     ]},
-    {label: "Social, santé", options: [
-      {label: "Caisse commune de Sécurité sociale (CCSS)", value: "Caisse commune de Sécurité sociale (CCSS)"},
-      {label: "Caisse d'allocations familiales (Caf)", value: "Caisse d'allocations familiales (Caf)"},
-      {label: "Caisse d'assurance retraite et de la santé au travail (Carsat)", value: "Caisse d'assurance retraite et de la santé au travail (Carsat)"},
-      {label: "Caisse primaire d'assurance maladie (CPAM)", value: "Caisse primaire d'assurance maladie (CPAM)"},
-      {label: "Centre communal d'action sociale (CCAS)", value: "Centre communal d'action sociale (CCAS)"},
+    {label: "Santé", options: [
       {label: "Centre de Santé", value: "Centre de Santé"},
       {label: "Centre Hospitalier (C.H.)", value: "Centre Hospitalier (C.H.)"},
       {label: "Centre Hospitalier Régional (C.H.R.)", value: "Centre Hospitalier Régional (C.H.R.)"},
       {label: "Centre hospitalier universitaire (CHU)", value: "Centre hospitalier universitaire (CHU)"},
+      {label: "France Santé", value: "France Santé"},
+      {label: "Maison de santé (L.6223-3)", value: "Maison de santé (L.6223-3)"}
+    ]},
+    {label: "Social", options: [
+      {label: "Caisse commune de Sécurité sociale (CCSS)", value: "Caisse commune de Sécurité sociale (CCSS)"},
+      {label: "Caisse d'allocations familiales (Caf)", value: "Caisse d'allocations familiales (Caf)"},
+      {label: "Caisse d'assurance retraite et de la santé au travail (Carsat)", value: "Caisse d'assurance retraite et de la santé au travail (Carsat)"},
+      {label: "Caisse primaire d’assurance maladie (CPAM)", value: "Caisse primaire d’assurance maladie (CPAM)"},
+      {label: "Centre communal d'action sociale (CCAS)", value: "Centre communal d'action sociale (CCAS)"},
       {label: "Centres Locaux Information Coordination P.A .(C.L.I.C.)", value: "Centres Locaux Information Coordination P.A .(C.L.I.C.)"},
       {label: "Centres sociaux", value: "Centres sociaux"},
-      {label: "Communautés professionnelles territoriales de santé (CPTS)", value: "Communautés professionnelles territoriales de santé (CPTS)"},
       {label: "Maison départementale des personnes handicapées (MDPH)", value: "Maison départementale des personnes handicapées (MDPH)"},
+      {label: "Maison départementale des solidarités (MDS)", value: "Maison départementale des solidarités (MDS)"},
       {label: "Mutualité sociale agricole (MSA)", value: "Mutualité sociale agricole (MSA)"},
-      {label: "Service d’aide médicale urgente (Samu)", value: "Service d’aide médicale urgente (Samu)"},
-      {label: "Union de recouvrement des cotisations de sécurité sociale et d’allocations familiales (Urssaf)", value: "Union de recouvrement des cotisations de sécurité sociale et d’allocations familiales (Urssaf)"},
-      {label: "Maison de santé (L.6223-3)", value: "Maison de santé (L.6223-3)"}
+      {label: "Union de recouvrement des cotisations de sécurité sociale et d’allocations familiales (Urssaf)", value: "Union de recouvrement des cotisations de sécurité sociale et d’allocations familiales (Urssaf)"}
     ]}, 
     {label: "Travail, emploi, formation", options: [
       {label: "France Travail", value: "France Travail"}, 
@@ -133,10 +134,12 @@ export class LocalisationInfoComponent implements OnInit {
       {label: "Trésorerie", value: "Trésorerie"}
     ]},
     {label: "Droit, justice", options: [
-      {label: "Bureau d'aide aux victimes du tribunal judiciaire", value: "Bureau d'aide aux victimes du tribunal judiciaire"},
       {label: "Conseil départemental d'accès au droit (CDAD)", value: "Conseil départemental d'accès au droit (CDAD)"}, 
+      {label: "Maison de justice", value: "Maison de justice"},
       {label: "Point-justice", value: "Point-justice"}, 
-      {label: "Tribunal judiciaire", value: "Tribunal judiciaire"}
+      {label: "Tribunal de proximité", value: "Tribunal de proximité"},
+      {label: "Tribunal judiciaire", value: "Tribunal judiciaire"},
+      {label: "Bureau d'aide aux victimes du tribunal judiciaire", value: "Bureau d'aide aux victimes du tribunal judiciaire"}
     ]},
     {label: "Environnement, logement, transports", options: [
       {label: "Agence départementale d'information sur le logement (Adil)", value: "Agence départementale d'information sur le logement (Adil)"}, 
@@ -146,6 +149,14 @@ export class LocalisationInfoComponent implements OnInit {
     {label: "Sécurité, défense", options: [
       {label: "Brigade de gendarmerie", value: "Brigade de gendarmerie"}, 
       {label: "Commissariat de police", value: "Commissariat de police"}
+    ]},
+    {label: "Enseignement", options: [
+      {label: "Collège", value: "Collège"},
+      {label: "DASEN", value: "DASEN"},
+      {label: "École maternelle", value: "École maternelle"},
+      {label: "École primaire", value: "École primaire"},
+      {label: "Lycée", value: "Lycée"},
+      {label: "Rectorat", value: "Rectorat"}
     ]},
   ];
 

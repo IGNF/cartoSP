@@ -150,7 +150,13 @@ export class IsochroneSimpleComponent implements OnInit {
 
     this.control.addEventListener("isochrone:add",  (e: any) => {
       this.rightpanelService.setContent(LocalisationInfoComponent,{map : this.map, location: {name: e.layer.values_.name_location,number: e.layer.values_.location}, type: "departement", isochronecall: true}, "locationinfo");
-      //this.map.getView().fit(e.layer.values_.extent);
+      const TARGET_LAYER_NAME = "base_carto_sp_18_02_gpkg_18-02-2026_wfs:carto_sp_18_02__base_carto_sp";
+      const layers = this.map.getLayers().getArray();
+      const targetLayer = layers.find((l: any) => l.name === TARGET_LAYER_NAME);
+      if (targetLayer) {
+        const maxZIndex = layers.reduce((max: number, l: any) => Math.max(max, l.getZIndex() ?? 0), 0);
+        targetLayer.setZIndex(maxZIndex + 1);
+      }
     });
 
     this.control.addEventListener("isochrone:remove",  (e: any) => {
