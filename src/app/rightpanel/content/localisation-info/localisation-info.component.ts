@@ -255,14 +255,9 @@ export class LocalisationInfoComponent implements OnInit {
 
   updateIsochroneDatas(){
     this.isochrones = [];
-    this.data.map.getAllLayers().forEach((layer: { values_: {layername: string; location: string; name_location: string; ride: string; time: string; }; }) => {
+    this.data.map.getAllLayers().forEach((layer: { values_: {layername: string; location: string; name_location: string; ride: string; time: string; totalsDepartement: any}; }) => {
       if(layer.values_.layername && layer.values_.location === this.data.location.number){
-        this.apicartospService.getIsochroneData({nom_iso: layer.values_.layername, num_dep: layer.values_.location }).subscribe({
-          next : (response: any) => {
-            this.isochrones.push({layername: layer.values_.layername, location: layer.values_.location, name_location: layer.values_.name_location, ride: layer.values_.ride, time: layer.values_.time, datas: response});
-          },
-          error : (error: any) => { console.error('Error fetching Itinérant count info:', error) }
-        });
+        this.isochrones.push({layername: layer.values_.layername, location: layer.values_.location, name_location: layer.values_.name_location, ride: layer.values_.ride, time: layer.values_.time, totalsDepartement: layer.values_.totalsDepartement});
       }
     });
   }
@@ -270,6 +265,14 @@ export class LocalisationInfoComponent implements OnInit {
   formatNumber(value: any, format: string): string | null {
     if(value){
       return this.decimalPipe.transform(value.replace(',','.'), format);
+    } else {
+      return "Inconnue";
+    }
+  }
+
+  formatNumberReal(value: number, format: string): string | null {
+    if(value){
+      return this.decimalPipe.transform(value, format);
     } else {
       return "Inconnue";
     }
