@@ -10,9 +10,9 @@
   },
   "private": true,
   "dependencies": {
-    "@edugouvfr/ngx-dsfr": "^1.12.6",
-    "@gouvfr/dsfr": "^1.11.0",
-    "geopf-extensions-openlayers": "./lib/geopf-extensions-openlayers-1.0.0-beta.8-496.tgz",
+    "@edugouvfr/ngx-dsfr": "^1.16.2",
+    "@gouvfr/dsfr": "^1.13.1",
+    "geopf-extensions-openlayers": "./lib/geopf-extensions-openlayers-1.0.0-beta.8-497.tgz",
     "geoportal-access-lib": "^3.4.4",
     "ol": "^10.3.1",
     "opening_hours": "^3.8.0"

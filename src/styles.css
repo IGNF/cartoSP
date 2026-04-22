@@ -16,5 +16,9 @@ dialog[id^="GPlayersList"] {
 }
 
 div[id^="GPlayerSwitcher_ID_"][data-sortable-id="2"] {
-    display: none !important;
+	display: none !important;
+}
+
+.GPpanelHeader > [id^="GPisochronPanel-"] {
+	position: unset !important;
 }
