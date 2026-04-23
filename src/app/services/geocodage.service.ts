@@ -39,7 +39,7 @@ export class GeocodageService {
     if(type === "departement") {
       req = Object.assign(this.defaultParams, {
         TYPENAME: "ADMINEXPRESS-COG.LATEST:departement",
-        cql_filter:"nom_officiel='"+query+"'"
+        cql_filter:"code_insee='"+query+"'"
       });
     } else if(type === "epci") {
       req = Object.assign(this.defaultParams, {

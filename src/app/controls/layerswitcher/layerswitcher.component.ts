@@ -28,10 +28,20 @@ export class LayerswitcherComponent implements OnInit {
     });
 
     this.control.addEventListener("layerswitcher:add", function (e: any) {
-      if(e.layer.name != undefined && e.target._layers[2] != undefined && e.target._layers[2].name == "base_carto_sp_18_02_gpkg_18-02-2026_wfs:carto_sp_18_02__base_carto_sp"){
-        e.target._lastZIndex++;
-        e.target._layers[2].layer.values_.zIndex = e.target._lastZIndex;
-        e.target._updateLayersOrder();
+      try {
+        if (e.layer?.name != undefined && 
+            e.target?._layers && 
+            e.target._layers[2] != undefined && 
+            e.target._layers[2].name === "base_carto_sp_18_02_gpkg_18-02-2026_wfs:carto_sp_18_02__base_carto_sp" &&
+            e.target._layers[2].layer?.values_) {
+            e.target._lastZIndex++;
+            e.target._layers[2].layer.values_.zIndex = e.target._lastZIndex;
+          if (e.target._updateLayersOrder) {
+            e.target._updateLayersOrder();
+          }
+        }
+      } catch (err) {
+        console.warn('LayerSwitcher: Error ordering layers', err);
       }
     });
 

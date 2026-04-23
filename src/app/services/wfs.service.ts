@@ -46,7 +46,7 @@ export class WfsService {
   getDepartementFromBbox(bbox: string): Observable<any> {
     var req = Object.assign(this.defaultParams, {
         TYPENAME: "ADMINEXPRESS-COG.LATEST:departement",
-        PROPERTYNAME: "id,nom,insee_dep",
+        PROPERTYNAME: "cleabs,nom_officiel,code_insee,code_insee_de_la_region",
         BBOX: bbox + ",EPSG:3857"
     });
 

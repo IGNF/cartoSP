@@ -13,12 +13,18 @@
     label="Département"
   >
     <div class="gpf-select">
-      @for (departement of departements; track departement.name) {
-        <p (mouseenter)="highlightLocation(departement.name)" (mouseleave)="unhighlightLocation(departement.id)" (click)="selectLocation(departement)" class="GPautoCompleteProposal gpf-panel__items gpf-panel__items_searchengine arrow-pull-right fr-icon-arrow-right-s-line">
-          {{departement.name}} - {{departement.number}}
-        </p>
-      }
-      @empty {
+      @if (departements.length > 0) {
+        @for (region of regions; track region.number) {
+          @if (region.departments.length > 0) {
+            <p class="fr-mb-1w fr-mt-2w"><strong>{{region.name}}</strong></p>
+            @for (departement of region.departments; track departement.number) {
+              <p (mouseenter)="highlightLocation(departement.number)" (mouseleave)="unhighlightLocation(departement.id)" (click)="selectLocation(departement)" class="GPautoCompleteProposal gpf-panel__items gpf-panel__items_searchengine arrow-pull-right fr-icon-arrow-right-s-line">
+                {{departement.name}} ({{departement.number}})
+              </p>
+            }
+          }
+        }
+      } @else {
         <p>Déplacez-vous sur la carte afin de faire apparaitre des localisations</p>
       }
     </div>
