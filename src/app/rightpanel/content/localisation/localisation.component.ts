@@ -97,18 +97,24 @@ export class LocalisationComponent implements OnInit {
   ngOnInit() {
     var self = this;
 
-    // Clean up any existing highlight layers
+    var highlightLayerExists = false;
+    
     this.data.getLayers().forEach((layer : any) => {
       if (layer.values_?.name === "highlight") {
-        try {
-          this.data.removeLayer(layer);
-        } catch (e) {
-          console.warn('Error removing existing highlight layer:', e);
-        }
+        highlightLayerExists = true;
       }
     });
 
-    this.data.addLayer(this.highlightLayer);
+    if (!highlightLayerExists) {
+      this.data.addLayer(this.highlightLayer);
+    } else {
+      this.data.getLayers().forEach((layer : any) => {
+        if (layer.values_?.name === "highlight") {
+          this.highlightLayer = layer;
+          this.highlightSource = layer.getSource();
+        }
+      });
+    }
 
     // On charge une première fois la liste
     self.searchLocations(this.data);
