@@ -21,6 +21,19 @@ export class GeocodageService {
 
   constructor(private http: HttpClient) {}
 
+  // Search departementsautocomplete
+  searchDepartement(query: string): Observable<any> {
+    return this.http.get(this.apiUrl, {
+      params: {
+        q: query,
+        limit: 5,
+        index:"poi",
+        category: "département",
+        returntruegeometry: false
+      }
+    });
+  }
+
   // Geometry
   getSearchTrueGeometry(query: string): Observable<any> {
     return this.http.get(this.apiUrl,{

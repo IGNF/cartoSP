@@ -1,11 +1,12 @@
 /* Titre et sous-titre du SP */
 :host > .fr-h3 {
-    margin-top: 15px;
-    margin-bottom: 5px;
+    margin-top: 8px;
+    margin-bottom: 8px;
     font-size: 28px !important;
     font-weight: 700 !important;
     line-height: 36px !important;
     letter-spacing: 0%;
+    padding: 0px 16px;
 }
 
 .fr-h4-tab {
@@ -20,7 +21,8 @@
     font-style: Medium !important;
     font-weight: 500 !important;
     line-height: 24px !important;
-    margin-bottom: 5px !important;
+    margin-bottom: 8px !important;
+    padding: 0px 16px;
 }
 
 :host > .fr-h7 {
@@ -30,7 +32,8 @@
     font-style: Medium !important;
     color: #666666 !important;
     line-height: 24px !important;
-    margin-bottom: 20px !important;
+    margin-bottom: 24px !important;
+    padding: 0px 16px;
 }
 
 .date-title {
@@ -116,11 +119,11 @@
 #infos-cf > .frequence > p{
     font-size: 0.9rem;
     margin-bottom: 10px;
-    width: 55%;
+    width: 50%;
 }
 
 #infos-cf > .frequence > #freq-small{
-    width: 45%;
+    width: 50%;
 }
 
 #infos-cf > .frequence > #freq-small > small{
@@ -164,16 +167,19 @@
 .tag-implantation {
     color: var(--text-action-high-green-menthe);
     background-color: var(--background-action-low-green-menthe);
+    margin: 0px 16px;
 }
 
 .tag-itinerant {
     color: var(--text-action-high-purple-glycine);
     background-color: var(--background-action-low-purple-glycine);
+    margin: 0px 16px;
 }
 
 .tag-permanence {
     color: var(--text-action-high-pink-macaron);
     background-color: var(--background-action-low-pink-macaron);
+    margin: 0px 16px;
 }
 
 .fr-icon-itinerant::before{
@@ -187,4 +193,5 @@
 #buttonBackLocation{
     padding-bottom: 30px;
     display: block;
+    padding: 32px 16px;
 }

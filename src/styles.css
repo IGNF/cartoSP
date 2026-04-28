@@ -24,7 +24,7 @@ div[id^="GPlayerSwitcher_ID_"][data-sortable-id="2"] {
 }
 
 .fr-tabs{
-	--tabs-height: auto;
+  --tabs-height: 100% !important;
   --ul-type: none;
   --ol-type: none;
   --ul-start: 0;
@@ -43,7 +43,7 @@ div[id^="GPlayerSwitcher_ID_"][data-sortable-id="2"] {
   flex-direction: row;
   align-items: flex-start;
   flex-wrap: wrap;
-  height: var(--tabs-height);
+  height: 100%;
   transition: height .3s;
   box-shadow: inset 0 -1px 0 0 var(--border-default-grey) !important;
 }
@@ -121,4 +121,9 @@ button:not(:disabled):hover[aria-selected="false"]  {
 
 .fr-tabs__shadow--right::before {
   box-shadow: unset !important;
+}
+
+.fr-tabs__panel {
+  height: 98% !important;
+  overflow-y: auto;
 }

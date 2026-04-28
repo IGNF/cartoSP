@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, AfterViewInit } from '@angular/core';
 
-import { DsfrTabsModule, DsfrButtonModule } from '@edugouvfr/ngx-dsfr';
+import { DsfrTabsModule, DsfrButtonModule, DsfrSearchBarModule } from '@edugouvfr/ngx-dsfr';
 
 import { RightpanelService } from '../../rightpanel.service';
 import { WfsService } from './../../../services/wfs.service';
@@ -39,7 +39,7 @@ export interface Commune {
 @Component({
   selector: 'app-localisation',
   standalone: true,
-  imports: [DsfrTabsModule, DsfrButtonModule],
+  imports: [DsfrTabsModule, DsfrButtonModule, DsfrSearchBarModule],
   templateUrl: './localisation.component.html',
   styleUrl: './localisation.component.css',
   providers: [WfsService, GeocodageService]
@@ -52,6 +52,9 @@ export class LocalisationComponent implements OnInit, AfterViewInit {
   selectedTabIndex = 0;
   tabsAriaLabel = "Onglets informations SP"
   fullViewport = true;
+  searchResults: any[] = [];
+  searchQuery = '';
+  searchMessage = '';
   currentTab = "departement";
   departements: Departement[] = [];
   epcis: Epci[] = [];
@@ -94,6 +97,9 @@ export class LocalisationComponent implements OnInit, AfterViewInit {
     },
   });
 
+  /**
+   * Initialise la couche de surbrillance et charge la liste des localisations visibles.
+   */
   ngOnInit() {
     var self = this;
 
@@ -126,13 +132,18 @@ export class LocalisationComponent implements OnInit, AfterViewInit {
     });
   }
 
+  /**
+   * Monte le controle de territoire dans le panneau apres rendu du DOM.
+   */
   ngAfterViewInit(): void {
     if(this.rightpanelService.territoryControl && this.rightpanelService.territoryControl.element) {
       document.getElementById("territories")!.appendChild(this.rightpanelService.territoryControl.element);
     }
   }
 
-  // Changer d'onglet
+  /**
+   * Change l'onglet actif et reinitialise la surbrillance courante.
+   */
   changeTab(tab: any) {
     this.currentTab = tab;
     this.selectionHighlightActive = false;
@@ -145,7 +156,9 @@ export class LocalisationComponent implements OnInit, AfterViewInit {
     this.highlightLayer.setVisible(false);
   }
 
-  // Sélectionner une localisation
+  /**
+   * Selectionne une localisation, zoome dessus et ouvre le panneau d'information.
+   */
   selectLocation(selected: any) {
     this.selectionHighlightActive = true;
     this.highlightRequestId++;
@@ -174,7 +187,9 @@ export class LocalisationComponent implements OnInit, AfterViewInit {
     });
   }
 
-  // ajouter le highlight sur une localisation
+  /**
+   * Affiche une surbrillance temporaire sur la localisation survolee.
+   */
   highlightLocation(name: any) {
     if (this.selectionHighlightActive) {
       return;
@@ -207,7 +222,9 @@ export class LocalisationComponent implements OnInit, AfterViewInit {
     }, this.highlightDebounceMs);
   }
 
-  // supprimer le highlight sur une localisation
+  /**
+   * Retire la surbrillance temporaire si aucune selection n'est verrouillee.
+   */
   unhighlightLocation(name: any) {
     if (this.selectionHighlightActive) {
       return;
@@ -222,6 +239,9 @@ export class LocalisationComponent implements OnInit, AfterViewInit {
     this.highlightLayer.setVisible(false);
   }
 
+  /**
+   * Recharge les listes (departements, EPCI, communes) selon l'emprise et le zoom de la carte.
+   */
   searchLocations(e: any) {
     var self = this;
 
@@ -297,5 +317,100 @@ export class LocalisationComponent implements OnInit, AfterViewInit {
         });
       }
     } 
+  }
+  /**
+   * Met a jour la saisie et alimente la liste de suggestions de recherche.
+   */
+  searchChange(query: string) {
+    this.searchQuery = query;
+    this.searchMessage = '';
+    if (!query || query.trim().length < 2) {
+      this.searchResults = [];
+      return;
+    }
+    this.GeocodageService.searchDepartement(query).subscribe({
+      next: (response: any) => {
+        this.searchResults = response.features ?? [];
+      },
+      error: () => { this.searchResults = []; }
+    });
+  }
+
+  /**
+   * Valide la recherche: selection automatique si resultat unique, sinon message d'aide.
+   */
+  searchSelect(search: string) {
+    const query = (search ?? '').trim();
+    this.searchQuery = query;
+
+    if (query.length < 3) {
+      this.searchResults = [];
+      this.searchMessage = 'Veuillez saisir au moins 3 caractères.';
+      return;
+    }
+
+    this.GeocodageService.searchDepartement(query).subscribe({
+      next: (response: any) => {
+        const features = response.features ?? [];
+        const normalizedQuery = query.toLocaleLowerCase('fr').trim();
+
+        if (features.length === 1) {
+          this.selectSearchResult(features[0]);
+          this.selectLocation(this.buildLocationFromFeature(features[0]));
+          return;
+        }
+
+        const exactMatches = features.filter((feature: any) => {
+          const toponym = String(feature?.properties?.toponym ?? '');
+          const cityCode = String(feature?.properties?.citycode?.[0] ?? '');
+          const label = String(feature?.properties?.label ?? '');
+
+          const formattedToponym = cityCode ? `${toponym} (${cityCode})` : toponym;
+
+          return toponym.toLocaleLowerCase('fr').trim() === normalizedQuery
+            || formattedToponym.toLocaleLowerCase('fr').trim() === normalizedQuery
+            || label.toLocaleLowerCase('fr').trim() === normalizedQuery;
+        });
+
+        if (exactMatches.length === 1) {
+          this.selectSearchResult(exactMatches[0]);
+          this.selectLocation(this.buildLocationFromFeature(exactMatches[0]));
+          return;
+        }
+
+        this.searchResults = features;
+        this.searchMessage = features.length === 0
+          ? 'Aucun resultat unique. Veuillez saisir autre chose.'
+          : 'Plusieurs resultats trouvés. Veuillez saisir autre chose.';
+      },
+      error: () => {
+        this.searchResults = [];
+        this.searchMessage = 'Erreur de recherche. Veuillez réessayer.';
+      }
+    });
+  }
+
+  /**
+   * Injecte le resultat choisi dans la barre de recherche et ferme la liste.
+   */
+  selectSearchResult(feature: any) {
+    const toponym = feature?.properties?.toponym ?? '';
+    const cityCode = feature?.properties?.citycode?.[0] ?? '';
+    this.searchQuery = cityCode ? `${toponym} (${cityCode})` : toponym;
+    this.searchResults = [];
+    this.searchMessage = '';
+  }
+
+  /**
+   * Construit l'objet localisation attendu par selectLocation a partir d'une feature.
+   */
+  private buildLocationFromFeature(feature: any) {
+    const toponym = String(feature?.properties?.toponym ?? '');
+    const cityCode = String(feature?.properties?.citycode?.[0] ?? '');
+
+    return {
+      name: toponym,
+      number: cityCode
+    };
   }
 }

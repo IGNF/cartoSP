@@ -13,6 +13,21 @@
     label="Département"
   >
     <div id="territories"></div>
+    <div class="search-dropdown-wrapper">
+      @if (searchMessage) {
+        <span class="search-feedback">{{ searchMessage }}</span>
+      }
+      <dsfr-search-bar placeholder="Rechercher un département..." (searchChange)="searchChange($event)" (searchSelect)="searchSelect($event)" [value]="searchQuery"></dsfr-search-bar>
+      @if (searchResults.length > 0) {
+        <div class="search-dropdown-results">
+          @for (result of searchResults; track result.properties.id) {
+            <div (click)="selectSearchResult(result)" class="search-dropdown-item">
+              {{ result.properties.toponym }} ({{ result.properties.citycode[0]}})
+            </div>
+          }
+        </div>
+      }
+    </div>
     <div class="gpf-select">
       @if (departements.length > 0) {
         @for (region of regions; track region.number) {

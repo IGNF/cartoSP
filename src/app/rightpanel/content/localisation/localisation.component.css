@@ -15,3 +15,59 @@
     padding: 32px 16px;
     margin-bottom: 0px !important;
 }
+
+:host {
+    display: block;
+    height: 100%;
+}
+
+:host > dsfr-tabs {
+    height: 100%;
+    display: block;
+}
+
+:host > dsfr-tabs > .fr-tabs {
+    height: 100% !important;
+}
+
+.search-dropdown-wrapper {
+    position: relative;
+    padding: 24px 0px 8px 0px;
+}
+
+.search-dropdown-results {
+    position: absolute;
+    top: 68px;
+    background: #fff;
+    border: 1px solid #c1c1fb;
+    border-radius: 4px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+    max-height: 260px;
+    overflow-y: auto;
+    width: 91%;
+}
+
+.search-dropdown-item {
+    padding: 8px 16px;
+    cursor: pointer;
+    color: var(--text-action-high-blue-france);
+    border-bottom: 1px solid #eee;
+    font-size: 0.9rem;
+}
+
+.search-dropdown-item:last-child {
+    border-bottom: none;
+}
+
+.search-dropdown-item:hover {
+    background-color: #f0f0fb;
+    color: #000091;
+}
+
+.search-feedback {
+    color: #b34000;
+    font-size: 0.875rem;
+    position: absolute;
+    top: 3px;
+}
