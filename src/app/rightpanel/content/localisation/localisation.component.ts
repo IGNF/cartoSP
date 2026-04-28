@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, AfterViewInit } from '@angular/core';
 
 import { DsfrTabsModule, DsfrButtonModule } from '@edugouvfr/ngx-dsfr';
 
@@ -44,7 +44,7 @@ export interface Commune {
   styleUrl: './localisation.component.css',
   providers: [WfsService, GeocodageService]
 })
-export class LocalisationComponent implements OnInit {
+export class LocalisationComponent implements OnInit, AfterViewInit {
 
   constructor(private WfsService: WfsService, private GeocodageService: GeocodageService, private rightpanelService: RightpanelService) {}
 
@@ -101,6 +101,7 @@ export class LocalisationComponent implements OnInit {
     
     this.data.getLayers().forEach((layer : any) => {
       if (layer.values_?.name === "highlight") {
+        layer.getSource().clear();
         highlightLayerExists = true;
       }
     });
@@ -123,7 +124,12 @@ export class LocalisationComponent implements OnInit {
     this.data.on('moveend', function(e: any){
       self.searchLocations(self.data);
     });
+  }
 
+  ngAfterViewInit(): void {
+    if(this.rightpanelService.territoryControl && this.rightpanelService.territoryControl.element) {
+      document.getElementById("territories")!.appendChild(this.rightpanelService.territoryControl.element);
+    }
   }
 
   // Changer d'onglet

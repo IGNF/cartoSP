@@ -15,6 +15,8 @@ export class RightpanelService {
 
   currentView: "location" | "locationinfo" | "spinfos" = "location";
 
+  territoryControl: any;
+
   #contentArea?: RightpanelContentAreaDirective;
 
   toggleRightpanel() {
@@ -33,5 +35,9 @@ export class RightpanelService {
     this.#contentArea?.viewContainerRef.clear();
     this.#contentArea?.viewContainerRef.createComponent(component).setInput('data', data);
     this.currentView = view;
+  }
+
+  setTerritoriesControl(control: any) {
+    this.territoryControl = control;
   }
 }

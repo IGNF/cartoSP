@@ -2,6 +2,7 @@
 :host > .fr-h3 {
     margin-top: 15px;
     margin-bottom: 10px;
+    padding: 0px 16px;
 }
 
 :host > .fr-h6 {
@@ -46,4 +47,12 @@
 .isochronetext{
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
+}
+
+:host > #buttonBackLocation {
+    padding: 0px 16px;
+
+    .fr-btn {
+        margin-top: 20px !important;
+    }
 }
