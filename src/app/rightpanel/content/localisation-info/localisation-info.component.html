@@ -243,7 +243,6 @@
     <div class="fr-callout">
       Affichez les données statistiques des isochrones en les sélectionnants dans le volet "Calcul d'isochrones" à gauche de l'écran.
     </div>
-
     @if(isochrones.length > 0){
       @for (isochrone of isochrones; track isochrone.layername) {
         @if(!isochrone.totalsDepartement || isochrone.totalsDepartement.loading){

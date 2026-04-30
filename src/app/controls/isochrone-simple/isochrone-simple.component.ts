@@ -5,6 +5,7 @@ import Control from 'ol/control/Control';
 import { transform } from 'ol/proj';
 import { Feature } from 'ol';
 import GeoJSON from 'ol/format/GeoJSON';
+import VectorSource from 'ol/source/Vector';
 import { CartospIsocurve } from "geopf-extensions-openlayers/src";
 import { RightpanelService } from '../../rightpanel/rightpanel.service';
 import { LocalisationInfoComponent } from '../../rightpanel/content/localisation-info/localisation-info.component';
@@ -166,6 +167,17 @@ export class IsochroneSimpleComponent implements OnInit {
         next : (response: any) => {
           if (response?.features?.[0]?.geometry) {
             const locationGeom = new GeoJSON().readGeometry(response.features[0].geometry);
+
+            // Highlight the location on the map
+            const layers = this.map.getLayers().getArray();
+            const highlightLayer = layers.find((l: any) => l.values_?.name === 'highlight') as any;
+            if (highlightLayer) {
+              const source: VectorSource = highlightLayer.getSource();
+              source.clear();
+              source.addFeature(new Feature(locationGeom));
+              highlightLayer.setVisible(true);
+              this.map.getView().fit(locationGeom.getExtent(), { padding: [30, 30, 30, 30] });
+            }
             const extent3857 = locationGeom.getExtent();
             const [minLon, minLat] = transform([extent3857[0], extent3857[1]], 'EPSG:3857', 'EPSG:4326');
             const [maxLon, maxLat] = transform([extent3857[2], extent3857[3]], 'EPSG:3857', 'EPSG:4326');
