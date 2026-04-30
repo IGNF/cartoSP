@@ -56,3 +56,72 @@
         margin-top: 20px !important;
     }
 }
+
+
+/* Patience */
+ .patience {
+     padding:15px;
+     width: 100%;
+     background: #fff;
+     margin-bottom: 20px;
+     border-radius: 5px;
+     box-shadow: 0 3px 4px 0 rgba(0, 0, 0, .14), 0 3px 3px -2px rgba(0, 0, 0, .2), 0 1px 8px 0 rgba(0, 0, 0, .12);
+}
+ .patience .line {
+     height: 12px;
+     margin-bottom: 16px;
+     border-radius: 2px;
+     background: rgba(130, 130, 130, 0.2);
+     background: -webkit-gradient(linear, left top, right top, color-stop(8%, rgba(130, 130, 130, 0.2)), color-stop(18%, rgba(130, 130, 130, 0.3)), color-stop(33%, rgba(130, 130, 130, 0.2)));
+     background: linear-gradient(to right, rgba(130, 130, 130, 0.2) 8%, rgba(130, 130, 130, 0.3) 18%, rgba(130, 130, 130, 0.2) 33%);
+     background-size: 800px 100px;
+     animation: wave-lines 2s infinite ease-out;
+}
+ .patience-right{
+    width: 92%;
+    display: inline-block;
+    vertical-align: middle;
+    padding-left: 8px;
+}
+ .patience-left{
+    width: 8%;
+    display: inline-block;
+    vertical-align: middle;
+}
+.patience .line:last-child{
+    margin-bottom: 0;
+}
+
+.first-line-header{
+    margin-bottom: 29px !important;
+}
+
+.h14{
+    height: 14px !important;
+    position: relative;
+}
+
+.h24{
+    height: 24px !important;
+}
+
+.h48{
+    height: 48px !important;
+}
+
+@keyframes wave-lines {
+    0% {
+        background-position: -468px 0;
+    }
+     100% {
+        background-position: 468px 0;
+    }
+}
+@keyframes wave-squares {
+    0% {
+        background-position: -468px 0;
+    }
+     100% {
+        background-position: 468px 0;
+    }
+}

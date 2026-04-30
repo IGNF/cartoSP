@@ -8,7 +8,7 @@ import { Legends } from "geopf-extensions-openlayers/src";
   selector: 'app-legende',
   standalone: true,
   template: '',
-  styles: []
+  styles: ['::ng-deep .legend-entry-show { border: none !important; }']
 })
 export class LegendeComponent implements OnInit {
   @Input() map!: Map;

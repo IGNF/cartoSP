@@ -3,7 +3,6 @@ import { Component, OnInit, Input, ElementRef } from '@angular/core';
 import Map from 'ol/Map';
 import Control from 'ol/control/Control';
 import { transform } from 'ol/proj';
-import { getCenter } from 'ol/extent';
 import { Feature } from 'ol';
 import GeoJSON from 'ol/format/GeoJSON';
 import { CartospIsocurve } from "geopf-extensions-openlayers/src";
@@ -157,7 +156,10 @@ export class IsochroneSimpleComponent implements OnInit {
     this.control.addEventListener("isochrone:add",  (e: any) => {
       let isochrones = e.layer.values_.source.getFeatures();
       let location = e.target._typologyLocationSelected;
-      let totalsDepartement = {};
+
+      // Set loading state immediately and open the panel before the API call
+      e.layer.set('totalsDepartement', { loading: true });
+      this.rightpanelService.setContent(LocalisationInfoComponent,{map : this.map, location: {name: e.layer.values_.name_location,number: e.layer.values_.location}, type: "departement", isochronecall: true}, "locationinfo");
 
       // get location bbox in EPSG:4326 for isochrone statistics API call
       this.geocodageService.getAdminExpressDepartementGeometry(location).subscribe({
@@ -169,12 +171,10 @@ export class IsochroneSimpleComponent implements OnInit {
             const [maxLon, maxLat] = transform([extent3857[2], extent3857[3]], 'EPSG:3857', 'EPSG:4326');
             const BBOX = `${minLat},${minLon},${maxLat},${maxLon}`;
 
-            this.isochroneStatsService.getIsochroneStatsByBbox({location_code: location, bbox: BBOX}).subscribe({
+            this.isochroneStatsService.getIsochroneStatsByBbox({location_code: location, bbox: BBOX}, isochrones).subscribe({
               next : (response: any) => {
-                totalsDepartement = this.statResult(response, isochrones);
-                e.layer.set('totalsDepartement', totalsDepartement);
-                console.log("Isochrone statistics totals:", totalsDepartement);
-                this.rightpanelService.setContent(LocalisationInfoComponent,{map : this.map, location: {name: e.layer.values_.name_location,number: e.layer.values_.location}, type: "departement", isochronecall: true, stats: totalsDepartement}, "locationinfo");
+                e.layer.set('totalsDepartement', response);
+                console.log("Isochrone statistics totals:", response);
                 const TARGET_LAYER_NAME = "base_carto_sp_18_02_gpkg_18-02-2026_wfs:carto_sp_18_02__base_carto_sp";
                 const layers = this.map.getLayers().getArray();
                 const targetLayer = layers.find((l: any) => l.name === TARGET_LAYER_NAME);
@@ -200,65 +200,5 @@ export class IsochroneSimpleComponent implements OnInit {
     this.map.addControl(this.control);
   }
 
-  statResult(response: any, isochrones: Feature[]): any {
-    const features = Array.isArray(response?.features) ? response.features : [];
-    if (features.length === 0 || !Array.isArray(isochrones) || isochrones.length === 0) {
-      return {
-        totals: { population: 0, nb_plus_65: 0, nb_men_pauv: 0 },
-        intersectingTotals: { population: 0, nb_plus_65: 0, nb_men_pauv: 0 },
-        percentages: { population: 0, nb_plus_65: 0, nb_men_pauv: 0 }
-      };
-    }
-
-    const format = new GeoJSON();
-
-    // Build OpenLayers geometries for isochrones transformed to EPSG:4326.
-    const isochroneGeometries4326 = isochrones
-      .map((iso: Feature) => {
-        const geom = iso?.getGeometry?.()?.clone();
-        if (!geom) return null;
-        return geom.transform('EPSG:3857', 'EPSG:4326');
-      })
-      .filter((geom: any) => !!geom);
-
-    const totals = features.reduce((acc: any, feature: any) => {
-      const props = feature?.properties ?? {};
-      acc.population += Number(props.population ?? 0);
-      acc.nb_plus_65 += Number(props.nb_plus_65 ?? 0);
-      acc.nb_men_pauv += Number(props.nb_men_pauv ?? 0);
-      return acc;
-    }, { population: 0, nb_plus_65: 0, nb_men_pauv: 0 });
-
-    const intersectingFeatures = features.filter((feature: any) => {
-      try {
-        const featureGeom = format.readGeometry(feature.geometry);
-        const featureCenter = getCenter(featureGeom.getExtent());
-        return isochroneGeometries4326.some((isoGeom: any) => {
-          return isoGeom.intersectsCoordinate(featureCenter);
-        });
-      } catch {
-        return false;
-      }
-    });
-
-    const intersectingTotals = intersectingFeatures.reduce((acc: any, feature: any) => {
-      const props = feature?.properties ?? {};
-      acc.population += Number(props.population ?? 0);
-      acc.nb_plus_65 += Number(props.nb_plus_65 ?? 0);
-      acc.nb_men_pauv += Number(props.nb_men_pauv ?? 0);
-      return acc;
-    }, { population: 0, nb_plus_65: 0, nb_men_pauv: 0 });
-
-    const percentages = {
-      population: totals.population > 0 ? (intersectingTotals.population / totals.population) * 100 : 0,
-      nb_plus_65: totals.nb_plus_65 > 0 ? (intersectingTotals.nb_plus_65 / totals.nb_plus_65) * 100 : 0,
-      nb_men_pauv: totals.nb_men_pauv > 0 ? (intersectingTotals.nb_men_pauv / totals.nb_men_pauv) * 100 : 0
-    };
-
-    return {
-      totals,
-      intersectingTotals,
-      percentages
-    };
-  }
 }
+

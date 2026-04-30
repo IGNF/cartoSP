@@ -1,4 +1,4 @@
-import { Component, Input, LOCALE_ID, OnInit, inject } from '@angular/core';
+import { Component, Input, LOCALE_ID, OnInit, OnDestroy, inject, NgZone, ChangeDetectorRef } from '@angular/core';
 
 import { RightpanelService } from '../../rightpanel.service';
 import { ApicartospService } from './../../../services/apicartosp.service';
@@ -15,11 +15,12 @@ import { DecimalPipe } from '@angular/common';
   styleUrl: './localisation-info.component.css',
   providers: [ApicartospService,DecimalPipe,{provide: LOCALE_ID, useValue: "fr-Fr"}]
 })
-export class LocalisationInfoComponent implements OnInit {
+export class LocalisationInfoComponent implements OnInit, OnDestroy {
 
-  constructor(private rightpanelService: RightpanelService, private apicartospService: ApicartospService) {}
+  constructor(private rightpanelService: RightpanelService, private apicartospService: ApicartospService, private ngZone: NgZone, private cdr: ChangeDetectorRef) {}
 
   @Input() data!: any;
+  private layerListeners: Array<{ layer: any; listener: any }> = [];
   selectedTabIndex = 0;
   tabsAriaLabel = "Onglets informations SP"
   fullViewport = true;
@@ -254,12 +255,32 @@ export class LocalisationInfoComponent implements OnInit {
   }
 
   updateIsochroneDatas(){
+    this.layerListeners.forEach(({ layer, listener }) => layer.un('propertychange', listener));
+    this.layerListeners = [];
     this.isochrones = [];
-    this.data.map.getAllLayers().forEach((layer: { values_: {layername: string; location: string; name_location: string; ride: string; time: string; totalsDepartement: any}; }) => {
+    this.data.map.getAllLayers().forEach((layer: any) => {
       if(layer.values_.layername && layer.values_.location === this.data.location.number){
         this.isochrones.push({layername: layer.values_.layername, location: layer.values_.location, name_location: layer.values_.name_location, ride: layer.values_.ride, time: layer.values_.time, totalsDepartement: layer.values_.totalsDepartement});
+        const listener = (event: any) => {
+          if (event.key === 'totalsDepartement') {
+            this.ngZone.run(() => {
+              const idx = this.isochrones.findIndex(i => i.layername === layer.values_.layername);
+              if (idx >= 0) {
+                this.isochrones[idx] = { ...this.isochrones[idx], totalsDepartement: layer.values_.totalsDepartement };
+              }
+              this.cdr.markForCheck();
+            });
+          }
+        };
+        layer.on('propertychange', listener);
+        this.layerListeners.push({ layer, listener });
       }
     });
+  }
+
+  ngOnDestroy(){
+    this.layerListeners.forEach(({ layer, listener }) => layer.un('propertychange', listener));
+    this.layerListeners = [];
   }
 
   formatNumber(value: any, format: string): string | null {
