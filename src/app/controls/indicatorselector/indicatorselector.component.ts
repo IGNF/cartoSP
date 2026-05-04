@@ -43,7 +43,7 @@ export class IndicatorselectorComponent implements OnInit {
             ]
         },
         {
-            thematique: "Inclusion numérique",
+            thematique: "Fragilité numérique",
             indicators: [
                 {title:"Indicateur de fragilité numérique", layername: "total_pilotes_mednum_fragilite_numerique_2", opacity: 1},
             ]

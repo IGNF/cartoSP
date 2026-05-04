@@ -127,3 +127,7 @@ button:not(:disabled):hover[aria-selected="false"]  {
   height: 98% !important;
   overflow-y: auto;
 }
+
+.GPlayerEdit, .GPlayerExtent {
+  display: none !important;
+}
