@@ -30,15 +30,15 @@ export class IndicatorselectorComponent implements OnInit {
         {
             thematique: "Démographie",
             indicators: [
-                {title:"Densité de population", layername: "total_pilotes_insee_densite_population", opacity: 1},
-                {title:"Part des plus de 65 ans", layername: "total_pilotes_insee_partplus65", opacity: 1},
-                {title:"Part des moins de 18 ans", layername: "total_pilotes_insee_partmoins18", opacity: 1},
+                {title:"Densité de population", layername: "IGNF_CARTO-SP_DENSITE-POPULATION-CARREAU__VALID", opacity: 1},
+                {title:"Part des plus de 65 ans", layername: "IGNF_CARTO-SP_PART-PLUS-65ANS__VALID", opacity: 1},
+                {title:"Part des moins de 18 ans", layername: "IGNF_CARTO-SP_PART-MOINS-18ANS__VALID", opacity: 1},
             ]
         },
         {
             thematique: "Précarité",
             indicators: [
-                {title:"Part des ménages pauvres", layername: "total_pilotes_insee_menages_pauvres", opacity: 1},
+                {title:"Part des ménages pauvres", layername: "IGNF_CARTO-SP_PART-MENAGES-PAUVRES__VALID", opacity: 1},
                 {title:"Niveau de vie moyen", layername: "total_pilotes_insee_niveau_de_vie", opacity: 1},
             ]
         },
