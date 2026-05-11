@@ -275,7 +275,7 @@ export class LocalisationComponent implements OnInit, AfterViewInit {
           self.communes = [];
         }
       } else {
-        self.WfsService.getDepartementFromBbox(e.getView().calculateExtent(e.getSize()).toString()).subscribe({
+        self.WfsService.getDepartementFromBbox(e.getView().calculateExtent([e.getSize()[0] * 0.8, e.getSize()[1] * 0.8]).toString()).subscribe({
           next : (response: any) => {  
               self.departements = [];
               self.regions.forEach((region: Region) => {
