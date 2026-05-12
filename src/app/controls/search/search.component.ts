@@ -8,7 +8,7 @@ import { SearchEngine, Searchdialog, SearchEngineAdvanced, LocationAdvancedSearc
   selector: 'app-search',
   standalone: true,
   template: '',
-  styles: ['::ng-deep .geolocatebutton { left: 2px; background-color: var(--background-default-grey); border-radius: 4px; }']
+  styles: ['::ng-deep .geolocatebutton { left: 2px; background-color: var(--background-default-grey); border-radius: 4px; } ::ng-deep .GPSearchBar { display: flex !important; padding: unset !important; }']
 })
 export class SearchComponent implements OnInit {
   @Input() map!: Map;
