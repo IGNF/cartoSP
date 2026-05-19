@@ -16,7 +16,7 @@
     "geoportal-access-lib": "^3.4.4",
     "ol": "^10.3.1",
     "opening_hours": "^3.8.0",
-    "dsfr-extension": "git+https://github.com/IGNF/dsfr-extension"
+    "dsfr-extension": "https://github.com/IGNF/dsfr-extension"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^17.3.6",
