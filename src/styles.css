@@ -1,5 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 
+ign-dsfr-header {
+  display: block;
+}
+
 /* LayerSwitcher elements are injected outside Angular component templates. */
 .GPlayerRemove,
 .GPlayerGreyscale {

@@ -87,7 +87,8 @@
               "node_modules/geopf-extensions-openlayers/src/packages/CSS/Controls/OverviewMap/GPFoverviewMap.css"
             ],
             "scripts": [
-              "./node_modules/@gouvfr/dsfr/dist/dsfr/dsfr.module.js"
+              "./node_modules/@gouvfr/dsfr/dist/dsfr/dsfr.module.js",
+              "./node_modules/dsfr-extension/dist/ign-dsfr-header.js"
             ],
             "allowedCommonJsDependencies": [
               "lodash",

@@ -1,35 +1,4 @@
-<dsfr-header
-[serviceTitle]="'Carto SP'"
-[logoLink]="'https://cartosp.modernisation.gouv.fr'"
-[serviceTagline]="'La cartographie des services publics'"
-[menu]="[
-{ label: 'Guide d\'utilisation', link: '/guide-d-utilisation' },
-{ label: 'Expérimentation', link: '/experimentation' },
-{ 
-  label: 'Données',
-  subItems: [
-    {
-      label: 'Téléchargement des données',
-      link: '/telechargement-des-donnees'
-    },
-    {
-      label: 'Correction des données',
-      link: '/correction-des-donnees'
-    }
-  ]
-},
-{ label: 'À propos', link: '/a-propos' },
-{
-  label: 'Assistance',
-  subItems: [
-    { label: 'Foire aux questions', link: '/foire-aux-questions' },
-    { label: 'Nous contacter', link: '/nous-contacter' }
-  ]
-}
-]"
-[headerToolsLinks]="[]"
-[beta]="true"
-></dsfr-header>
+<ign-dsfr-header [minimized]="true" [menuItems]="menuItems"></ign-dsfr-header>
   <main class="main">
     <router-outlet></router-outlet>
   </main>
