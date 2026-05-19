@@ -1,5 +1,5 @@
 ARG registry=docker.io
-FROM ${registry}/library/node:18-slim AS nodebuild
+FROM ${registry}/library/node:24.15.0-slim AS nodebuild
 
 RUN apt-get update
 RUN npm install -g npm
