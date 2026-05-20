@@ -1,20 +1,41 @@
 
 import { Component } from '@angular/core';
-import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { RouterLink, RouterOutlet } from '@angular/router';
 import { NgIf } from '@angular/common';
-import { DsfrFooterModule } from '@edugouvfr/ngx-dsfr';
+import { DsfrDisplayComponent, DsfrFooterModule } from '@edugouvfr/ngx-dsfr';
 import { DsfrToolLinkMenuComponent, DsfrLinkComponent } from '@edugouvfr/ngx-dsfr';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, RouterLink, RouterLinkActive, NgIf, DsfrFooterModule, DsfrToolLinkMenuComponent, DsfrLinkComponent],
+  imports: [RouterOutlet, RouterLink, NgIf, DsfrFooterModule, DsfrDisplayComponent, DsfrToolLinkMenuComponent, DsfrLinkComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
   title = 'cartosp';
   footerExpanded = false;
+  readonly displayModalId = 'theme-modal-id';
+  readonly footerDisplayLabel = "Paramètres d'affichage";
+  mandatoryLinks = [
+    { label: 'Plan du site', link: '/plan-du-site' },
+    {
+      label: 'Accessibilité: partiellement conforme',
+      link: '/accessibilite'
+    },
+    {
+      label: 'Conditions générales d\'utilisation',
+      link: '/cgu'
+    },
+    {
+      label: 'Mentions légales',
+      link: '/mentions-legales'
+    },
+    {
+      label: 'Données personnelles',
+      link: '/donnees-personnelles'
+    }
+  ];
 
   closeMobileMenu(): void {
     const openButton = document.getElementById('button-csp-menu');

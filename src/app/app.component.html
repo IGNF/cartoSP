@@ -108,9 +108,27 @@
   <router-outlet></router-outlet>
 </main>
 <div *ngIf="!footerExpanded" id="small-footer">
+  <ul class="fr-footer__bottom-list small-footer__bottom-list">
+    @for (item of mandatoryLinks; track item.link) {
+      <li class="fr-footer__bottom-item">
+        <a class="fr-footer__bottom-link" [routerLink]="item.link">{{ item.label }}</a>
+      </li>
+    }
+    <li class="fr-footer__bottom-item">
+      <button
+        type="button"
+        class="fr-footer__bottom-link fr-fi-theme-fill fr-link--icon-left"
+        [attr.aria-controls]="displayModalId"
+        data-fr-opened="false"
+      >
+        {{ footerDisplayLabel }}
+      </button>
+    </li>
+  </ul>
   <button id="btn-expand-footer" class="fr-btn fr-btn--sm btn-expand-footer fr-btn--tertiary-no-outline" type="button" title="Afficher plus" (click)="expandFooter()">
     <span class="fr-icon-arrow-up-s-line"></span>
   </button>
+  <dsfr-display [displayId]="displayModalId"></dsfr-display>
 </div>
 <div *ngIf="footerExpanded" style="position: relative;">
   <button
@@ -152,25 +170,7 @@
         target: '_blank'
       }
     ]"
-    [mandatoryLinks]="[
-      { label: 'Plan du site', link: '/plan-du-site' },
-      {
-        label: 'Accessibilité: partiellement conforme',
-        link: '/accessibilite'
-      },
-      {
-        label: 'Conditions générales d’utilisation',
-        link: '/cgu'
-      },
-      {
-        label: 'Mentions légales',
-        link: '/mentions-legales'
-      },
-      {
-        label: 'Données personnelles',
-        link: '/donnees-personnelles'
-      }
-    ]"
+    [mandatoryLinks]="mandatoryLinks"
     [partnerMain]="{imagePath: 'assets/images/logos/ditp.svg', imageAlt: 'logo DITP', link: 'https://www.modernisation.gouv.fr/'}"
     [partnersSub]="[
       {
