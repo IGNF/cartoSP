@@ -24,6 +24,7 @@
 
 .csp-header .fr-header__body-row {
     justify-content: space-between;
+    margin: 0px;
 }
 
 .csp-header .fr-header__tools {
