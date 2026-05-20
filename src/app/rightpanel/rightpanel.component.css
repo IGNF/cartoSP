@@ -38,7 +38,19 @@
     }
 }
 
-@media screen and (min-width: 576px) {
+/* Tablet mode: use same width as mobile (96%) for 576px to 900px */
+@media screen and (min-width: 576px) and (max-width: 900px) {
+    :host.is-expanded {
+        width: 96%;
+        transition: width 0.4s cubic-bezier(0.02, 0.68, 0.63, 0.98);
+    }
+    :host.is-expanded > .rightpanel-body-container{
+        opacity: 100;
+        transition: opacity 0.8s ease-in-out;
+    }
+}
+
+@media screen and (min-width: 900px) {
     :host.is-expanded {
         width: 650px;
         transition: width 0.4s cubic-bezier(0.02, 0.68, 0.63, 0.98);

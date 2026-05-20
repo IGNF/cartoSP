@@ -107,70 +107,86 @@
 <main class="main">
   <router-outlet></router-outlet>
 </main>
-<dsfr-footer
-  [presentation]="
-    'Carto SP est un projet coordonné par la Direction interministérielle de la transformation publique (DITP) en lien avec l’Institut national de l’information géographique et forestière (IGN). Le site s’appuie sur la Géoplateforme, la nouvelle infrastructure publique, ouverte et collaborative des données géographiques.'
-  "
-  [institutionalLinks]="[
-    {
-      label: 'info.gouv.fr',
-      link: 'https://info.gouv.fr',
-      tooltipMessage: 'info.gouv.fr - ouvre une nouvelle fenêtre',
-      target: '_blank'
-    },
-    {
-      label: 'service-public.fr',
-      link: 'https://service-public.fr',
-      tooltipMessage: 'service-public.fr- ouvre une nouvelle fenêtre',
-      target: '_blank'
-    },
-    {
-      label: 'legifrance.gouv.fr',
-      link: 'https://legifrance.gouv.fr',
-      tooltipMessage: 'legifrance.gouv.fr - ouvre une nouvelle fenêtre',
-      target: '_blank'
-    },
-    {
-      label: 'data.gouv.fr',
-      link: 'https://data.gouv.fr',
-      tooltipMessage: 'data.gouv.fr - ouvre une nouvelle fenêtre',
-      target: '_blank'
-    }
-  ]"
-  [mandatoryLinks]="[
-    { label: 'Plan du site', link: '/plan-du-site' },
-    {
-      label: 'Accessibilité: partiellement conforme',
-      link: '/accessibilite'
-    },
-    {
-      label: 'Conditions générales d’utilisation',
-      link: '/cgu'
-    },
-    {
-      label: 'Mentions légales',
-      link: '/mentions-legales'
-    },
-    {
-      label: 'Données personnelles',
-      link: '/donnees-personnelles'
-    }
-  ]"
-  [partnerMain]="{imagePath: 'assets/images/logos/ditp.svg', imageAlt: 'logo DITP', link: 'https://www.modernisation.gouv.fr/'}"
-  [partnersSub]="[
-    {
-      imagePath: 'assets/images/logos/ign.svg',
-      imageAlt: 'logo IGN',
-      link: 'https://www.ign.fr'
-    }
-  ]"
-  [reboundLinks]="[]"
-  [license]="
-    'Sauf mention explicite de propriété intellectuelle détenue par
-  des tiers, les contenus de ce site sont proposés sous &#60;a href=&#34;https://github.com/etalab/licence-ouverte/blob/master/LO.md&#34; target=&#34;_blank&#34; title=&#34;licence etalab-2.0 - ouvre une nouvelle fenêtre&#34;&#62;licence etalab-2.0&#60;/a&#62;'
-  "
-  [display]="true"
-></dsfr-footer>
+<div *ngIf="!footerExpanded" id="small-footer">
+  <button id="btn-expand-footer" class="fr-btn fr-btn--sm btn-expand-footer fr-btn--tertiary-no-outline" type="button" title="Afficher plus" (click)="expandFooter()">
+    <span class="fr-icon-arrow-up-s-line"></span>
+  </button>
+</div>
+<div *ngIf="footerExpanded" style="position: relative;">
+  <button
+    class="fr-btn fr-btn--sm fr-btn--tertiary-no-outline fr-btn--close fr-btn--icon-right"
+    style="position: absolute; top: 1rem; right: 1rem; z-index: 10;"
+    type="button"
+    title="Fermer"
+    (click)="collapseFooter()"
+  >
+    Fermer
+  </button>
+  <dsfr-footer
+    [presentation]="
+      'Carto SP est un projet coordonné par la Direction interministérielle de la transformation publique (DITP) en lien avec l’Institut national de l’information géographique et forestière (IGN). Le site s’appuie sur la Géoplateforme, la nouvelle infrastructure publique, ouverte et collaborative des données géographiques.'
+    "
+    [institutionalLinks]="[
+      {
+        label: 'info.gouv.fr',
+        link: 'https://info.gouv.fr',
+        tooltipMessage: 'info.gouv.fr - ouvre une nouvelle fenêtre',
+        target: '_blank'
+      },
+      {
+        label: 'service-public.fr',
+        link: 'https://service-public.fr',
+        tooltipMessage: 'service-public.fr- ouvre une nouvelle fenêtre',
+        target: '_blank'
+      },
+      {
+        label: 'legifrance.gouv.fr',
+        link: 'https://legifrance.gouv.fr',
+        tooltipMessage: 'legifrance.gouv.fr - ouvre une nouvelle fenêtre',
+        target: '_blank'
+      },
+      {
+        label: 'data.gouv.fr',
+        link: 'https://data.gouv.fr',
+        tooltipMessage: 'data.gouv.fr - ouvre une nouvelle fenêtre',
+        target: '_blank'
+      }
+    ]"
+    [mandatoryLinks]="[
+      { label: 'Plan du site', link: '/plan-du-site' },
+      {
+        label: 'Accessibilité: partiellement conforme',
+        link: '/accessibilite'
+      },
+      {
+        label: 'Conditions générales d’utilisation',
+        link: '/cgu'
+      },
+      {
+        label: 'Mentions légales',
+        link: '/mentions-legales'
+      },
+      {
+        label: 'Données personnelles',
+        link: '/donnees-personnelles'
+      }
+    ]"
+    [partnerMain]="{imagePath: 'assets/images/logos/ditp.svg', imageAlt: 'logo DITP', link: 'https://www.modernisation.gouv.fr/'}"
+    [partnersSub]="[
+      {
+        imagePath: 'assets/images/logos/ign.svg',
+        imageAlt: 'logo IGN',
+        link: 'https://www.ign.fr'
+      }
+    ]"
+    [reboundLinks]="[]"
+    [license]="
+      'Sauf mention explicite de propriété intellectuelle détenue par
+    des tiers, les contenus de ce site sont proposés sous &#60;a href=&#34;https://github.com/etalab/licence-ouverte/blob/master/LO.md&#34; target=&#34;_blank&#34; title=&#34;licence etalab-2.0 - ouvre une nouvelle fenêtre&#34;&#62;licence etalab-2.0&#60;/a&#62;'
+    "
+    [display]="true"
+  ></dsfr-footer>
+</div>
 
 
 

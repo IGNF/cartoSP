@@ -1,5 +1,36 @@
+::ng-deep #footer {
+    padding-top: 3.5rem;
+}
 ::ng-deep .fr-footer__logo {
     box-shadow: unset !important;
+}
+
+:host {
+    display: block;
+    overflow-x: hidden;
+}
+
+#small-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2.625rem;
+    background: var(--background-default-grey);
+    box-shadow: inset 0 2px 0 0 var(--border-plain-blue-france);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0 1rem;
+    z-index: 21000;
+    box-sizing: border-box;
+}
+
+.btn-expand-footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
 }
 
 .csp-header {
@@ -102,6 +133,9 @@
 .main {
     position: relative;
     z-index: 1;
+    height: calc(100vh - 3.5rem - 2.625rem);
+    overflow-y: hidden;
+    overflow-x: hidden;
 }
 
 .csp-header .csp-header__actions .fr-nav__item,
@@ -199,4 +233,10 @@
         display: inline-flex;
         align-items: center;
     }
+}
+
+#small-footer {
+    height: 2.625rem;
+    box-shadow: inset 0 2px 0 0 var(--border-plain-blue-france), inset 0 -1px 0 0 var(--border-default-grey);
+    padding: 0 1rem 0 .75rem;
 }

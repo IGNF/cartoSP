@@ -131,3 +131,9 @@ button:not(:disabled):hover[aria-selected="false"]  {
 .GPlayerEdit, .GPlayerExtent {
   display: none !important;
 }
+
+app-home{
+  height: 100%;
+  display: inline-block;
+  width: 100%;
+}
