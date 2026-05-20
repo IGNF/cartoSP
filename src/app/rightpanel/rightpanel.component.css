@@ -17,7 +17,7 @@
 /* affichage plein écran sur petit écran */
 @media screen and (max-width: 576px) {
     :host.is-expanded {
-        width: 95%;
+        width: 96%;
         transition: width 0.4s cubic-bezier(0.02, 0.68, 0.63, 0.98);
     }
     :host.is-expanded > .rightpanel-body-container{
@@ -29,7 +29,7 @@
 /* sur tout petit écran, on force 2 colonnes max */
 @media screen and (max-width: 382px) {
     :host.is-expanded {
-        width: 95%;
+        width: 96%;
         transition: width 0.4s cubic-bezier(0.02, 0.68, 0.63, 0.98);
     }
     :host.is-expanded > .rightpanel-body-container{

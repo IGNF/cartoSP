@@ -4,6 +4,7 @@
     width: 100%;
     flex-grow: 1;
     overflow: hidden;
+    position: relative;
 }
 
 #map-container, #loading{
@@ -46,4 +47,19 @@
     padding: 5px;
     border-radius: 15px;
     border: 2px solid var(--text-action-high-blue-france);
+}
+
+@media screen and (max-width: 576px) {
+    #app-content > app-rightpanel {
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 100%;
+        z-index: 3;
+    }
+
+    #app-content > app-rightpanel.is-expanded {
+        width: 96% !important;
+        max-width: 100vw;
+    }
 }

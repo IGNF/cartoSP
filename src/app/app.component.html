@@ -1,7 +1,112 @@
-<ign-dsfr-header [minimized]="true" [menuItems]="menuItems"></ign-dsfr-header>
-  <main class="main">
-    <router-outlet></router-outlet>
-  </main>
+<header role="banner" class="fr-header fr-header--compact csp-header">
+  <div class="fr-header__body">
+    <div class="fr-container--fluid">
+      <div class="fr-header__body-row">
+        <div class="fr-header__brand fr-enlarge-link">
+          <div class="fr-header__brand-top">
+            <div class="fr-header__logo">
+              <a href="/" title="Accueil - République Française">
+                <p class="fr-logo"></p>
+              </a>
+            </div>
+            <div class="fr-header__service">
+              <a href="/" title="Accueil - Cartographie des services publics">
+                <p class="fr-header__service-title">Cartographie des services publics</p>
+              </a>
+            </div>
+            <div class="fr-header__navbar">
+              <button
+                class="fr-btn--menu fr-btn"
+                type="button"
+                id="button-csp-menu"
+                aria-controls="modal-csp-menu"
+                title="Menu"
+                data-fr-opened="false"
+              >
+                Menu
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="fr-header__tools">
+          <div class="fr-header__tools-links">
+            <div class="csp-header__actions" role="navigation" aria-label="Menu principal">
+              <a class="fr-btn fr-btn--sm fr-px-2w" href="/guide-d-utilisation">
+                Guide d'utilisation
+              </a>
+              <a class="fr-btn fr-btn--sm fr-px-2w" href="/experimentation">
+                Expérimentation
+              </a>
+              <dsfr-tool-link-menu
+                [outline]="false"
+                [labelMenu]="'Données'"
+                [iconMenu]="'fr-icon-database-fill'"
+              >
+                <ng-template #linksTemplate>
+                  <ul>
+                    <dsfr-link
+                      [link]="'/telechargement-des-donnees'"
+                      [label]="'Téléchargement des données'"
+                      [icon]="'fr-icon-download-line'"
+                      [customClass]="'fr-nav__link'"
+                      [iconPosition]="'left'"
+                    ></dsfr-link>
+                    <dsfr-link
+                      [link]="'/correction-des-donnees'"
+                      [label]="'Correction des données'"
+                      [icon]="'fr-icon-edit-line'"
+                      [customClass]="'fr-nav__link'"
+                      [iconPosition]="'left'"
+                    ></dsfr-link>
+                  </ul>
+                </ng-template>
+              </dsfr-tool-link-menu>
+              <a class="fr-btn fr-btn--sm fr-px-2w" href="/a-propos">
+                À propos
+              </a>
+              <dsfr-tool-link-menu
+                [outline]="false"
+                [labelMenu]="'Assistance'"
+                [iconMenu]="'fr-icon-question-fill'"
+              >
+                <ng-template #linksTemplate>
+                  <ul>
+                    <dsfr-link
+                      [link]="'/foire-aux-questions'"
+                      [label]="'Foire aux questions'"
+                      [icon]="'fr-icon-question-mark'"
+                      [customClass]="'fr-nav__link'"
+                      [iconPosition]="'left'"
+                    ></dsfr-link>
+                    <dsfr-link
+                      [link]="'/nous-contacter'"
+                      [label]="'Nous contacter'"
+                      [icon]="'fr-icon-mail-line'"
+                      [customClass]="'fr-nav__link'"
+                      [iconPosition]="'left'"
+                    ></dsfr-link>
+                  </ul>
+                </ng-template>
+              </dsfr-tool-link-menu>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="fr-header__menu fr-modal" id="modal-csp-menu" aria-labelledby="button-csp-menu">
+    <div class="fr-container">
+      <button class="fr-btn--close fr-btn" type="button" aria-controls="modal-csp-menu" title="Fermer">
+        Fermer
+      </button>
+      <div class="fr-header__menu-links"></div>
+    </div>
+  </div>
+</header>
+<main class="main">
+  <router-outlet></router-outlet>
+</main>
 <dsfr-footer
   [presentation]="
     'Carto SP est un projet coordonné par la Direction interministérielle de la transformation publique (DITP) en lien avec l’Institut national de l’information géographique et forestière (IGN). Le site s’appuie sur la Géoplateforme, la nouvelle infrastructure publique, ouverte et collaborative des données géographiques.'
