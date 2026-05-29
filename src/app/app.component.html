@@ -31,46 +31,26 @@
         <div class="fr-header__tools">
           <div class="fr-header__tools-links">
             <div class="csp-header__actions" role="navigation" aria-label="Menu principal">
-              <a class="fr-btn fr-btn--sm fr-px-2w" href="/guide-d-utilisation">
-                Guide d'utilisation
+              <a class="fr-btn fr-btn--sm fr-px-2w fr-btn--icon-left fr-icon-home-4-fill" href="/">
+                Accueil
               </a>
-              <a class="fr-btn fr-btn--sm fr-px-2w" href="/experimentation">
-                Expérimentation
-              </a>
-              <dsfr-tool-link-menu
-                [outline]="false"
-                [labelMenu]="'Données'"
-                [iconMenu]="'fr-icon-database-fill'"
-              >
-                <ng-template #linksTemplate>
-                  <ul>
-                    <dsfr-link
-                      [link]="'/telechargement-des-donnees'"
-                      [label]="'Téléchargement des données'"
-                      [icon]="'fr-icon-download-line'"
-                      [customClass]="'fr-nav__link'"
-                      [iconPosition]="'left'"
-                    ></dsfr-link>
-                    <dsfr-link
-                      [link]="'/correction-des-donnees'"
-                      [label]="'Correction des données'"
-                      [icon]="'fr-icon-edit-line'"
-                      [customClass]="'fr-nav__link'"
-                      [iconPosition]="'left'"
-                    ></dsfr-link>
-                  </ul>
-                </ng-template>
-              </dsfr-tool-link-menu>
-              <a class="fr-btn fr-btn--sm fr-px-2w" href="/a-propos">
+              <a class="fr-btn fr-btn--sm fr-px-2w fr-btn--icon-left fr-icon-information-fill" href="/a-propos">
                 À propos
               </a>
               <dsfr-tool-link-menu
                 [outline]="false"
-                [labelMenu]="'Assistance'"
+                [labelMenu]="'Aide'"
                 [iconMenu]="'fr-icon-question-fill'"
               >
                 <ng-template #linksTemplate>
                   <ul>
+                    <dsfr-link
+                      [link]="'/guide-d-utilisation'"
+                      [label]="'Présentation de l’outil et guide d’utilisation'"
+                      [icon]="'fr-icon-book-2-line'"
+                      [customClass]="'fr-nav__link'"
+                      [iconPosition]="'left'"
+                    ></dsfr-link>
                     <dsfr-link
                       [link]="'/foire-aux-questions'"
                       [label]="'Foire aux questions'"

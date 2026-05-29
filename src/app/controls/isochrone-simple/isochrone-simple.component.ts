@@ -140,16 +140,16 @@ export class IsochroneSimpleComponent implements OnInit {
       ],
       typologies: [
         {nom:"Caisse d'allocations familiales (Caf)"}, 
+        {nom:"Caisse d'assurance retraite et de la santé au travail (Carsat)"},
         {nom:"Caisse primaire d’assurance maladie (CPAM)"}, 
         {nom:"Espace conseil France rénov'"}, 
+        {nom:"France Santé"},
         {nom:"France services"}, 
         {nom:"France Travail"}, 
         {nom:"Maison départementale des solidarités (MDS)"}, 
         {nom:"Mutualité sociale agricole (MSA)"}, 
         {nom:"Point-justice"}, 
-        {nom:"Service des impôts des particuliers (SIP)"}, 
-        {nom:"Caisse d'assurance retraite et de la santé au travail (Carsat)"},
-        {nom:"France Santé"}
+        {nom:"Service des impôts des particuliers (SIP)"}
       ],
       cartospApi: this.apicartospService.apiUrl + "/isochrone"
     });
