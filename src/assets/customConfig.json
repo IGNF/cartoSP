@@ -69,7 +69,8 @@
         "IGNF_CARTO-SP_PPR_KINESITHERAPEUTES__VALID$GEOPORTAIL:OGC:WMS",
         "IGNF_CARTO-SP_PPR_MEDECINS__VALID$GEOPORTAIL:OGC:WMS",
         "IGNF_CARTO-SP_PPR_ORTHOPHONISTES__VALID$GEOPORTAIL:OGC:WMS",
-        "IGNF_CARTO-SP_PPR_SAGES_FEMMES__VALID$GEOPORTAIL:OGC:WMS"
+        "IGNF_CARTO-SP_PPR_SAGES_FEMMES__VALID$GEOPORTAIL:OGC:WMS",
+        "IGNF_CARTO-SP_SERVICES-PUBLICS_:_metropole$GEOPORTAIL:OGC:WFS"
       ]
     }
   },
@@ -2660,6 +2661,40 @@
           "current": false
         }
       ]
+    },
+    "IGNF_CARTO-SP_SERVICES-PUBLICS_:_metropole$GEOPORTAIL:OGC:WFS": {
+      "name": "IGNF_CARTO-SP_SERVICES-PUBLICS_:_metropole",
+      "title": "Cartographie des services publics",
+      "description": "Cette table contient les données ponctuelles sur les services publics France entière. Il s'agit de données test à destination de tests techniques.",
+      "globalConstraint": {
+        "minScaleDenominator": 0.0,
+        "maxScaleDenominator": 62236752975597,
+        "bbox": {
+          "left": -5.11625,
+          "right": 9.7475,
+          "top": 51.2346875,
+          "bottom": 41.15
+        }
+      },
+      "serviceParams": {
+        "id": "OGC:WFS",
+        "version": "2.0.0",
+        "serverUrl": {
+          "GfMCBckgGd4sHED9GPxPkuNGXsKek7di": "https://data.geopf.fr/private/wfs"
+        }
+      },
+      "defaultProjection": "EPSG:2154",
+      "queryable": false,
+      "metadata": [],
+      "styles": [],
+      "legends": [
+        {
+          "format": "image/jpeg",
+          "url": "https://data.geopf.fr/annexes/cartosp_ditp/legendes/legende_SP.png?apikey=m5CCGi6CTNOHP3VrNwOnPkQmoxtenaBU",
+          "minScaleDenominator": "200"
+        }
+      ],
+      "formats": []
     },
     "base_carto_sp_18_02_gpkg_18-02-2026_wfs:carto_sp_18_02__base_carto_sp$GEOPORTAIL:OGC:WFS": {
       "name": "base_carto_sp_18_02_gpkg_18-02-2026_wfs:carto_sp_18_02__base_carto_sp",

@@ -32,7 +32,7 @@ export class LayerswitcherComponent implements OnInit {
         if (e.layer?.name != undefined && 
             e.target?._layers && 
             e.target._layers[2] != undefined && 
-            e.target._layers[2].name === "base_carto_sp_18_02_gpkg_18-02-2026_wfs:carto_sp_18_02__base_carto_sp" &&
+            e.target._layers[2].name === "IGNF_CARTO-SP_SERVICES-PUBLICS_:_metropole" &&
             e.target._layers[2].layer?.values_) {
             e.target._lastZIndex++;
             e.target._layers[2].layer.values_.zIndex = e.target._lastZIndex;

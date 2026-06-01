@@ -39,11 +39,13 @@ export class ServicePublicComponent implements OnInit {
   serviceOpeningHours?: any|null;
   responseList?: any|null;
   serviceName?: string|null;
+  websiteUrls: string[] = [];
 
   ngOnInit() {
     this.serviceName = null;
     this.responseList = null;
     this.typeStructure = this.data.selectedSP.type_structure;
+    this.websiteUrls = this.extractWebsiteUrls(this.data.selectedSP.site_internet);
 
     switch (this.typeStructure) {
       case "Implantation":
@@ -51,7 +53,7 @@ export class ServicePublicComponent implements OnInit {
         this.serviceOpeningHours = this.buildTimeTable(this.data.selectedSP.horaires_ouverture);
         break;
       case "Permanence":
-        this.getServiceName(this.data.selectedSP.cleabs);
+        this.getServiceName(this.data.selectedSP.id_position);
         this.getResponseList(this.data.selectedSP.id_position);
         this.serviceOpeningHours = this.buildTimeTable(this.data.selectedSP.horaires_ouverture);
         break;
@@ -62,10 +64,59 @@ export class ServicePublicComponent implements OnInit {
     }
   }
 
+  // Normalisation des URLs pour garantir qu'elles sont valides et sécurisées
+  private normalizeWebsiteUrl(rawUrl: string | null | undefined): string | null {
+    if (!rawUrl) {
+      return null;
+    }
+
+    let normalizedUrl = rawUrl.trim();
+    if (!normalizedUrl) {
+      return null;
+    }
+
+    normalizedUrl = normalizedUrl.replace(/^(https?):(?!\/\/)/i, '$1://');
+
+    if (!/^[a-z][a-z0-9+.-]*:\/\//i.test(normalizedUrl)) {
+      normalizedUrl = `https://${normalizedUrl}`;
+    }
+
+    try {
+      const parsedUrl = new URL(normalizedUrl);
+      if (parsedUrl.protocol !== 'http:' && parsedUrl.protocol !== 'https:') {
+        return null;
+      }
+      return parsedUrl.toString();
+    } catch {
+      return null;
+    }
+  }
+
+  // Extraction et normalisation de toutes les URLs présentes dans le champ site_internet
+  private extractWebsiteUrls(rawUrls: string | null | undefined): string[] {
+    if (!rawUrls) {
+      return [];
+    }
+
+    const chunks = rawUrls
+      .split(/[\n\r\t,;|]+/)
+      .flatMap((chunk) => chunk.trim().split(/\s+/))
+      .flatMap((chunk) => chunk.split(/(?=https?:)/i))
+      .map((chunk) => chunk.trim())
+      .map((chunk) => chunk.replace(/[),.;]+$/, ''))
+      .filter((chunk) => !!chunk);
+
+    const normalizedUrls = chunks
+      .map((chunk) => this.normalizeWebsiteUrl(chunk))
+      .filter((url): url is string => !!url);
+
+    return [...new Set(normalizedUrls)];
+  }
+
   getServiceName(service_code: string) {
     this.apicartospService.getServiceImplantation(service_code).subscribe({
       next : (response: any) => {
-        if(response) this.serviceName = response.service_nom;
+        if(response) this.serviceName = response.nom;
       },
       error : (error: any) => { console.error('Error fetching service name:', error) }
     });

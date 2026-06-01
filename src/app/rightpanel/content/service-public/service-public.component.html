@@ -50,6 +50,8 @@
     @if (typeStructure == "Permanence" && serviceName != null) {
         <div class="permanence-hebergement">Permanence hébergée dans les locaux de</div>
         <p>{{ serviceName }}</p>
+    }@else if (typeStructure == "Permanence" && serviceName == null) {
+        <p>Permanence non référencée dans une implantation existante</p>
     }
     
     <!-- Informations générales -->
@@ -63,11 +65,25 @@
     </div>
     <div class="info-list">
         <span class="fr-icon-mail-fill fr-icon--md info-icon" aria-hidden="true"></span>
-        <div class="info-content">{{ data.selectedSP.courriel || "Aucune information" }}</div>
+        <div class="info-content">
+            @if (data.selectedSP.courriel) {
+                <a href="mailto:{{ data.selectedSP.courriel }}">{{ data.selectedSP.courriel }}</a>
+            } @else {
+                Aucune information
+            }
+        </div>
     </div>
     <div class="info-list">
         <span class="fr-icon-global-fill fr-icon--md info-icon" aria-hidden="true"></span>
-        <div class="info-content">{{ data.selectedSP.site_internet || "Aucune information" }}</div>
+        <div class="info-content">
+            @if (websiteUrls.length > 0) {
+                @for (websiteUrl of websiteUrls; track websiteUrl) {
+                    <div><a [href]="websiteUrl" target="_blank" rel="noopener noreferrer">{{ websiteUrl }}</a></div>
+                }
+            } @else {
+                Aucune information
+            }
+        </div>
     </div>
     <div class="info-list">
         <span class="fr-icon-accessibility  fr-icon--md info-icon" aria-hidden="true"></span>

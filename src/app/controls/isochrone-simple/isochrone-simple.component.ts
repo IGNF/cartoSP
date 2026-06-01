@@ -187,7 +187,7 @@ export class IsochroneSimpleComponent implements OnInit {
               next : (response: any) => {
                 e.layer.set('totalsDepartement', response);
                 console.log("Isochrone statistics totals:", response);
-                const TARGET_LAYER_NAME = "base_carto_sp_18_02_gpkg_18-02-2026_wfs:carto_sp_18_02__base_carto_sp";
+                const TARGET_LAYER_NAME = "IGNF_CARTO-SP_SERVICES-PUBLICS_:_metropole";
                 const layers = this.map.getLayers().getArray();
                 const targetLayer = layers.find((l: any) => l.name === TARGET_LAYER_NAME);
                 if (targetLayer) {
