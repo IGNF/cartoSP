@@ -23,7 +23,8 @@ export class LayerswitcherComponent implements OnInit {
       options: {
         position: "top-left",
         panel: true,
-        counter: true
+        counter: true,
+        hiddenLayerCount: 2
       },
     });
 
