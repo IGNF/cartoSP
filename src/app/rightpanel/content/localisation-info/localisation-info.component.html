@@ -35,185 +35,312 @@
     [disabled]="false"
   >
   <!-- Informations générales -->
-    <!-- Informations socio économique -->
-    <h6 class="fr-h6">Données socio-économiques</h6>
-      <!-- Nombre d'habitants -->
-      <div class="group-location-info">
-        <div class="location-info">
-          <div class="data-title">
-            Nbr. d'habitants
-            <button class="fr-btn--tooltip fr-btn" type="button" id="button-pop" aria-describedby="tooltip-pop">
-              Source
-            </button>
-            <span class="fr-tooltip fr-placement" id="tooltip-pop" role="tooltip" aria-hidden="true">Insee, Recensement de la Population 2021</span>
-          </div>
-          <div class="data-value">{{ formatNumber(apidata.population_recensement,'1.0-0') }}</div>
-        </div>
-        <div class="national-info">
-          <div class="data-title">moy. nat.</div>
-          @if (data.type === "departement"){  
-            <div class="data-value">{{ formatNumber(moynat.departement.population_recensement,'1.0-0') }}</div>
-          } @else if (data.type === "epci") {
-            <div class="data-value">{{ formatNumber(moynat.epci.population_recensement,'1.0-0') }}</div>
-          } @else {
-            <div class="data-value">{{ formatNumber(moynat.commune.population_recensement,'1.0-0') }}</div>
-          }
-        </div>
-      </div>
-      <!-- Densité -->
-      <div class="group-location-info">
-        <div class="location-info">
-          <div class="data-title">
-            Densité (habitants/km2)
-            <button class="fr-btn--tooltip fr-btn" type="button" id="button-dens" aria-describedby="tooltip-dens">
-              Source
-            </button>
-            <span class="fr-tooltip fr-placement" id="tooltip-dens" role="tooltip" aria-hidden="true">Nombre d’habitants au km2 <br> Insee, Recensement de la population 2021</span>
-          </div>
-          <div class="data-value">{{ formatNumber(apidata.population_densite,'1.1-1') }}</div>
-        </div>
-        <div class="national-info">
-          <div class="data-title">val. nat.</div>
-          @if (data.type === "departement"){  
-            <div class="data-value">{{ formatNumber(moynat.departement.population_densite,'1.1-1') }}</div>
-          } @else if (data.type === "epci") {
-            <div class="data-value">{{ formatNumber(moynat.epci.population_densite,'1.1-1') }}</div>
-          } @else {
-            <div class="data-value">{{ formatNumber(moynat.commune.population_densite,'1.1-1') }}</div>
-          }
-        </div>
-      </div>
-      <!-- Évolution annuel de la population -->
-      <div class="group-location-info">
-        <div class="location-info">
-          <div class="data-title">
-            Évolution annuelle de la population
-            <button class="fr-btn--tooltip fr-btn" type="button" id="button-evopop" aria-describedby="tooltip-evopop">
-              Source
-            </button>
-            <span class="fr-tooltip fr-placement" id="tooltip-evopop" role="tooltip" aria-hidden="true">Insee, Recensement de la Population 2021</span>
-          </div>
-          <div class="data-value">
-              {{ formatNumber(apidata.population_evolution,'1.2-2') }}@if (apidata.population_evolution){%}
-          </div>
-        </div>
-        <div class="national-info">
-          <div class="data-title">val. nat.</div>
-          @if (data.type === "departement"){  
-            <div class="data-value">{{ formatNumber(moynat.departement.population_evolution,'1.2-2') }}@if (moynat.departement.population_evolution){%}</div>
-          } @else if (data.type === "epci") {
-            <div class="data-value">{{ formatNumber(moynat.epci.population_evolution,'1.2-2') }}@if (moynat.epci.population_evolution){%}</div>
-          } @else {
-            <div class="data-value">{{ formatNumber(moynat.commune.population_evolution,'1.2-2') }}@if (moynat.commune.population_evolution){%}</div>
-          }
-        </div>
-      </div>
-      <!-- QPV -->
-      <div class="group-location-info">
-        <div class="location-info">
-          <div class="data-title">
-            Nbr. de QPV
-            <button class="fr-btn--tooltip fr-btn" type="button" id="button-qpv" aria-describedby="tooltip-qpv">
-              Source
-            </button>
-            <span class="fr-tooltip fr-placement" id="tooltip-qpv" role="tooltip" aria-hidden="true">ANCT, 2025</span>
-          </div>
-          <div class="data-value">{{ formatNumber(apidata.nb_qpv,'1.0-0') }}</div>
-        </div>
-        <div class="national-info">
-          <div class="data-title">moy. nat.</div>
-          @if (data.type === "departement"){  
-            <div class="data-value">{{ formatNumber(moynat.departement.nb_qpv,'1.0-0') }}</div>
-          } @else if (data.type === "epci") {
-            <div class="data-value">{{ formatNumber(moynat.epci.nb_qpv,'1.0-0') }}</div>
-          } @else {
-            <div class="data-value">{{ formatNumber(moynat.commune.nb_qpv,'1.0-0') }}</div>
-          }
-        </div>
-      </div>
-      <!-- Taux de pauvreté -->
-      <div class="group-location-info">
-        <div class="location-info">
-          <div class="data-title">
-            Taux de pauvreté
-            <button class="fr-btn--tooltip fr-btn" type="button" id="button-tpv" aria-describedby="tooltip-tpv">
-              Source
-            </button>
-            <span class="fr-tooltip fr-placement" id="tooltip-tpv" role="tooltip" aria-hidden="true">Part d'individus vivant avec un revenu inférieur à 60% du revenu médian national <br> INSEE, Filosofi 2020</span>
-          </div>
-          <div class="data-value">{{ formatNumber(apidata.taux_pauvrete,'1.1-1') }}@if (apidata.taux_pauvrete){%}</div>
-        </div>
-        <div class="national-info">
-          <div class="data-title">val. nat.</div>
-          @if (data.type === "departement"){  
-            <div class="data-value">{{ formatNumber(moynat.departement.taux_pauvrete,'1.1-1') }}@if (moynat.departement.taux_pauvrete){%}</div>
-          } @else if (data.type === "epci") {
-            <div class="data-value">{{ formatNumber(moynat.epci.taux_pauvrete,'1.1-1') }}@if (moynat.epci.taux_pauvrete){%}</div>
-          } @else {
-            <div class="data-value">{{ formatNumber(moynat.commune.taux_pauvrete,'1.1-1') }}@if (moynat.commune.taux_pauvrete){%}</div>
-          }
-        </div>
-      </div>
-      <!-- Taux de chomage -->
-      @if (data.type === "departement"){  
-        <div class="group-location-info">
-          <div class="location-info">
-            <div class="data-title">
-              Taux de chomage
-              <button class="fr-btn--tooltip fr-btn" type="button" id="button-chom" aria-describedby="tooltip-chom">
-                Source
-              </button>
-              <span class="fr-tooltip fr-placement" id="tooltip-chom" role="tooltip" aria-hidden="true">Taux de chômage au sens du BIT <br> Insee, 2023</span>
-            </div>
-            <div class="data-value">{{ formatNumber(apidata.taux_chomage,'1.1-1') }}@if (apidata.taux_chomage){%}</div>
-          </div>
-          <div class="national-info">
-            <div class="data-title">val. nat.</div>
-            <div class="data-value">{{ formatNumber(moynat.departement.taux_chomage,'1.1-1') }}@if (moynat.departement.taux_chomage){%}</div>
-          </div>
-        </div>
-      }
-      <!-- Vieillissement -->
-      <div class="group-location-info">
-        <div class="location-info">
-          <div class="data-title">
-            Indice de vieillissement
-            <button class="fr-btn--tooltip fr-btn" type="button" id="button-viei" aria-describedby="tooltip-viei">
-              Source
-            </button>
-            <span class="fr-tooltip fr-placement" id="tooltip-viei" role="tooltip" aria-hidden="true">Rapport de la population des 65 ans et plus sur celle des moins de 20 ans <br> Insee, Recensement de la population 2021</span>
-          </div>
-          <div class="data-value">{{ formatNumber(apidata.vieillissement_indice,'1.0-0') }}</div>
-        </div>
-        <div class="national-info">
-          <div class="data-title">val. nat.</div>
-          @if (data.type === "departement"){  
-            <div class="data-value">{{ formatNumber(moynat.departement.vieillissement_indice,'1.0-0') }}</div>
-          } @else if (data.type === "epci") {
-            <div class="data-value">{{ formatNumber(moynat.epci.vieillissement_indice,'1.0-0') }}</div>
-          } @else {
-            <div class="data-value">{{ formatNumber(moynat.commune.vieillissement_indice,'1.0-0') }}</div>
-          }
-        </div>
-      </div>
-    <br>
     @if (data.type === "departement" || data.type === "epci"){ 
       <!-- Informations administratives -->
-      <h6 class="fr-h6">Données administratives</h6>
-      <div class="group-location-info">
-        <div class="admin-info">
-          <div class="data-title">Nbr. de communes</div>
-          <div class="data-value">{{ apidata.nb_commune || "Inconnue" }}</div>
-        </div>
-        @if (data.type === "departement"){  
-        <div class="admin-info">
-          <div class="data-title">Nbr. d'epci</div>
-          <div class="data-value">{{ apidata.nb_epci || "Inconnue"  }}</div>
-        </div>
-        }
+      <div class="fr-table fr-table--bordered fr-table--infos">
+          <div class="fr-table__wrapper fr-table-wrapper-cartosp">
+              <div class="fr-table__container">
+                  <div class="fr-table__content">
+                    <table>
+                      <thead>
+                        <tr>
+                          <th class="th-left th-small">Nbr. de communes</th>
+                          <th class="th-right"></th>
+                        </tr>
+                      </thead>
+                      <tr>
+                        <td class="td-small">
+                          @if (apidata.nb_commune) {
+                            {{ apidata.nb_commune  }}
+                          }
+                          @else {
+                            Aucune information
+                          }
+                        </td>
+                        <td></td>
+                      </tr>
+                    </table>
+                    @if (data.type === "departement"){
+                      <table>
+                        <thead>
+                          <tr>
+                            <th class="th-left th-small">Nbr. d'epci</th>
+                            <th class="th-right"></th>
+                          </tr>
+                        </thead>
+                        <tr>
+                          <td class="last-tr td-small">
+                            @if (apidata.nb_epci) {
+                              {{ apidata.nb_epci }}
+                            } @else {
+                              Aucune information
+                            }
+                          </td>
+                          <td class="last-tr"></td>
+                        </tr>
+                      </table>
+                    }
+                  </div>
+              </div>
+          </div>
       </div>
     }
-    <br>
+    <!-- Informations socio économique -->
+    <h6 class="fr-h6">Démographie</h6>
+    <div class="fr-table fr-table--bordered fr-table--infos">
+        <div class="fr-table__wrapper fr-table-wrapper-cartosp">
+            <div class="fr-table__container">
+                <div class="fr-table__content">
+                  <!-- Nombre d'habitants -->
+                  <table>
+                    <thead>
+                      <tr>
+                        <th class="th-left">
+                          <div class="th-content">
+                            Nombre d'habitants
+                            <button class="fr-btn--tooltip fr-btn" type="button" id="button-pop" aria-describedby="tooltip-pop">
+                              Source
+                            </button>
+                            <span class="fr-tooltip fr-placement" id="tooltip-pop" role="tooltip" aria-hidden="true">Insee, Recensement de la Population 2021</span>
+                          </div>
+                        </th>
+                        <th class="th-right">moy. nat.</th>
+                      </tr>
+                    </thead>
+                    <tr>
+                      <td class="no-underlined">{{ formatNumber(apidata.population_recensement,'1.0-0') }}</td>
+                      <td class="no-underlined">
+                          @if (data.type === "departement"){  
+                            {{ formatNumber(moynat.departement.population_recensement,'1.0-0') }}
+                          } @else if (data.type === "epci") {
+                            {{ formatNumber(moynat.epci.population_recensement,'1.0-0') }}
+                          } @else {
+                            {{ formatNumber(moynat.commune.population_recensement,'1.0-0') }}
+                          }
+                      </td>
+                    </tr>
+                    <tr class="tr-estimate">
+                      <td>
+                        <div>Estimation 2070</div>
+                        <div>TODO</div>
+                      </td>
+                      <td>
+                        <br>
+                        <div>TODO</div>
+                      </td>
+                    </tr>
+                  </table>
+                  <!-- Densité -->
+                  <table>
+                    <thead>
+                      <tr>
+                        <th class="th-left">
+                          <div class="th-content">
+                            Densité (habitants/km2)
+                            <button class="fr-btn--tooltip fr-btn" type="button" id="button-dens" aria-describedby="tooltip-dens">
+                              Source
+                            </button>
+                            <span class="fr-tooltip fr-placement" id="tooltip-dens" role="tooltip" aria-hidden="true">Nombre d’habitants au km2 <br> Insee, Recensement de la population 2021</span>
+                          </div>
+                        </th>
+                        <th class="th-right">val. nat.</th>
+                      </tr>
+                    </thead>
+                    <tr>
+                      <td class="last-tr">{{ formatNumber(apidata.population_densite,'1.1-1') }}</td>
+                      <td class="last-tr">
+                        @if (data.type === "departement"){  
+                          {{ formatNumber(moynat.departement.population_densite,'1.1-1') }}
+                        } @else if (data.type === "epci") {
+                          {{ formatNumber(moynat.epci.population_densite,'1.1-1') }}
+                        } @else {
+                          {{ formatNumber(moynat.commune.population_densite,'1.1-1') }}
+                        }
+                      </td>
+                    </tr>
+                  </table>
+                  <!-- Vieillissement -->
+                  <table>
+                    <thead>
+                      <tr>
+                        <th class="th-left">
+                          <div class="th-content">
+                            Indice de vieillissement
+                            <button class="fr-btn--tooltip fr-btn" type="button" id="button-viei" aria-describedby="tooltip-viei">
+                              Source
+                            </button>
+                            <span class="fr-tooltip fr-placement" id="tooltip-viei" role="tooltip" aria-hidden="true">Rapport de la population des 65 ans et plus sur celle des moins de 20 ans <br> Insee, Recensement de la population 2021</span>
+                          </div>
+                        </th>
+                        <th class="th-right">val. nat.</th>
+                      </tr>
+                    </thead>
+                    <tr>
+                      <td class="no-underlined">{{ formatNumber(apidata.vieillissement_indice,'1.0-0') }}</td>
+                      <td class="no-underlined">
+                        @if (data.type === "departement"){  
+                          {{ formatNumber(moynat.departement.vieillissement_indice,'1.0-0') }}
+                        } @else if (data.type === "epci") {
+                          {{ formatNumber(moynat.epci.vieillissement_indice,'1.0-0') }}
+                        } @else {
+                          {{ formatNumber(moynat.commune.vieillissement_indice,'1.0-0') }}
+                        }
+                      </td>
+                    </tr>
+                    <tr class="tr-estimate">
+                      <td>
+                        <div>Estimation 2070</div>
+                        <div>TODO</div>
+                      </td>
+                      <td>
+                        <br>
+                        <div>TODO</div>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Informations socio économique -->
+    <h6 class="fr-h6">Données socio-économiques</h6>
+
+    <div class="fr-table fr-table--bordered fr-table--infos">
+        <div class="fr-table__wrapper fr-table-wrapper-cartosp">
+            <div class="fr-table__container">
+                <div class="fr-table__content">
+                  <!-- Taux de pauvreté -->
+                  <table>
+                    <thead>
+                      <tr>
+                        <th class="th-left">
+                          <div class="th-content">
+                            Taux de pauvreté (%)
+                            <button class="fr-btn--tooltip fr-btn" type="button" id="button-tpv" aria-describedby="tooltip-tpv">
+                              Source
+                            </button>
+                            <span class="fr-tooltip fr-placement" id="tooltip-tpv" role="tooltip" aria-hidden="true">Part d'individus vivant avec un revenu inférieur à 60% du revenu médian national <br> INSEE, Filosofi 2020</span>
+                          </div>
+                        </th>
+                        <th class="th-right">val. nat.</th>
+                      </tr>
+                    </thead>
+                    <tr>
+                      <td class="last-tr">{{ formatNumber(apidata.taux_pauvrete,'1.1-1') }}@if (apidata.taux_pauvrete){%}</td>
+                      <td class="last-tr">
+                        @if (data.type === "departement"){  
+                          {{ formatNumber(moynat.departement.taux_pauvrete,'1.1-1') }}@if (moynat.departement.taux_pauvrete){%}
+                        } @else if (data.type === "epci") {
+                          {{ formatNumber(moynat.epci.taux_pauvrete,'1.1-1') }}@if (moynat.epci.taux_pauvrete){%}
+                        } @else {
+                          {{ formatNumber(moynat.commune.taux_pauvrete,'1.1-1') }}@if (moynat.commune.taux_pauvrete){%}
+                        }
+                      </td>
+                    </tr>
+                  </table>
+                  <!-- Taux de chomage -->
+                  @if (data.type === "departement"){ 
+                    <table>
+                      <thead>
+                        <tr>
+                          <th class="th-left">
+                            <div class="th-content">
+                              Taux de chômage (%)
+                              <button class="fr-btn--tooltip fr-btn" type="button" id="button-chom" aria-describedby="tooltip-chom">
+                                Source
+                              </button>
+                              <span class="fr-tooltip fr-placement" id="tooltip-chom" role="tooltip" aria-hidden="true">Taux de chômage au sens du BIT <br> Insee, 2023</span>
+                            </div>
+                          </th>
+                          <th class="th-right">val. nat.</th>
+                        </tr>
+                      </thead>
+                      <tr>
+                        <td class="last-tr">{{ formatNumber(apidata.taux_chomage,'1.1-1') }}@if (apidata.taux_chomage){%}</td>
+                        <td class="last-tr">{{ formatNumber(moynat.departement.taux_chomage,'1.1-1') }}@if (moynat.departement.taux_chomage){%}</td>
+                      </tr>
+                    </table>
+                  }
+                  <!-- Nbr. de bénéficiaires du RSA -->
+                  <table>
+                    <thead>
+                      <tr>
+                        <th class="th-left">
+                          <div class="th-content">
+                            Nbr. de bénéficiaires du RSA
+                            <button class="fr-btn--tooltip fr-btn" type="button" id="button-rsa" aria-describedby="tooltip-rsa">
+                              Source
+                            </button>
+                            <span class="fr-tooltip fr-placement" id="tooltip-rsa" role="tooltip" aria-hidden="true">ANCT, 2025</span>
+                          </div>
+                        </th>
+                        <th class="th-right">Moy. nat.</th>
+                      </tr>
+                    </thead>
+                    <tr>
+                      <td class="last-tr">TODO</td>
+                      <td class="last-tr">
+                        TODO
+                      </td>
+                    </tr>
+                  </table>
+                  <!-- Nbr. de familles monoparentales -->
+                  <table>
+                    <thead>
+                      <tr>
+                        <th class="th-left">
+                          <div class="th-content">
+                            Nbr. de familles monoparentales
+                            <button class="fr-btn--tooltip fr-btn" type="button" id="button-familles" aria-describedby="tooltip-familles">
+                              Source
+                            </button>
+                            <span class="fr-tooltip fr-placement" id="tooltip-familles" role="tooltip" aria-hidden="true">ANCT, 2025</span>
+                          </div>
+                        </th>
+                        <th class="th-right">Moy. nat.</th>
+                      </tr>
+                    </thead>
+                    <tr>
+                      <td class="last-tr">TODO</td>
+                      <td class="last-tr">
+                        TODO
+                      </td>
+                    </tr>
+                  </table>
+                  <!-- QPV -->
+                  <table>
+                    <thead>
+                      <tr>
+                        <th class="th-left">
+                          <div class="th-content">
+                            Nbr. de QPV
+                            <button class="fr-btn--tooltip fr-btn" type="button" id="button-qpv" aria-describedby="tooltip-qpv">
+                              Source
+                            </button>
+                            <span class="fr-tooltip fr-placement" id="tooltip-qpv" role="tooltip" aria-hidden="true">ANCT, 2025</span>
+                          </div>
+                        </th>
+                        <th class="th-right">Moy. nat.</th>
+                      </tr>
+                    </thead>
+                    <tr>
+                      <td class="last-tr">{{ formatNumber(apidata.nb_qpv,'1.0-0') }}</td>
+                      <td class="last-tr">
+                        @if (data.type === "departement"){  
+                          {{ formatNumber(moynat.departement.nb_qpv,'1.0-0') }}
+                        } @else if (data.type === "epci") {
+                          {{ formatNumber(moynat.epci.nb_qpv,'1.0-0') }}
+                        } @else {
+                          {{ formatNumber(moynat.commune.nb_qpv,'1.0-0') }}
+                        } 
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+            </div>
+        </div>
+    </div>
   </dsfr-tab>
   <!-- Onglet accès aux service public -->
   <dsfr-tab

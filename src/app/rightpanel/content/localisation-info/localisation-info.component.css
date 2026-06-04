@@ -12,38 +12,6 @@
 }
 
 /* info location */
-.group-location-info{
-    width: 100%;
-    padding: 5px 2px;
-}
-
-.group-location-info > .national-info{
-    display: inline-block;
-    width: 33%;
-    padding-left: 15px;
-}
-
-.group-location-info > .location-info{
-    display: inline-block;
-    width: 67%;
-    color: var(--text-action-high-blue-france);
-}
-
-.group-location-info > .admin-info{
-  display: inline-block;
-  width: 50%;
-}
-
-.group-location-info > .location-info > .data-value, .group-location-info > .national-info > .data-value, .group-location-info > .admin-info >.data-value{
-    font-weight: 600;
-    font-size: 1.2em;
-}
-
-.group-location-info > .location-info > .data-title, .group-location-info > .national-info> .data-title, .group-location-info > .admin-info > .data-title{
-    font-weight: 100;
-    font-size: 0.8em;
-}
-
 .isochronetext{
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
@@ -55,6 +23,46 @@
     .fr-btn {
         margin-top: 20px !important;
     }
+}
+
+/* tableaux */
+.fr-table--infos {
+    margin-bottom: 40px;
+    margin-top: 0px;
+}
+
+.th-left.th-small, .td-small{
+    line-height: 24px !important;
+}
+
+.th-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    white-space: pre-line;
+}
+
+.fr-table--infos > .fr-table__wrapper > .fr-table__container > .fr-table__content > table > thead > tr > .th-left {
+    width: 60%;
+    background-image: linear-gradient(0deg, var(--border-contrast-grey), var(--border-contrast-grey)), linear-gradient( 0deg, var(--border-contrast-grey), var(--border-contrast-grey)), linear-gradient( 0deg, var(--border-contrast-grey), var(--border-contrast-grey)), linear-gradient( 0deg, var(--border-contrast-grey), var(--border-contrast-grey));
+}
+
+.fr-table--infos > .fr-table__wrapper > .fr-table__container > .fr-table__content > table > thead > tr > .th-right {
+    width: 40%;
+    background-image: linear-gradient( 0deg, var(--border-contrast-grey), var(--border-contrast-grey));
+}
+
+.fr-table__wrapper::after, .fr-table__content table thead th, .fr-table--infos > .fr-table__wrapper > .fr-table__container > .fr-table__content > table > tr > .no-underlined {
+	background-image: unset;
+}
+
+.fr-table--infos > .fr-table__wrapper > .fr-table__container > .fr-table__content > table > tr > td {
+    background-image: linear-gradient( 0deg, var(--border-contrast-grey), var(--border-contrast-grey));
+
+}
+
+.tr-estimate {
+    height: 72px;
 }
 
 
