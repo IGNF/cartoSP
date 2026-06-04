@@ -31,6 +31,10 @@
     margin-top: 0px;
 }
 
+.td-right, .th-right {
+    text-align: center;
+}
+
 .th-left.th-small, .td-small{
     line-height: 24px !important;
 }
