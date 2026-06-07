@@ -1,20 +1,24 @@
 
-import { Component } from '@angular/core';
-import { RouterLink, RouterOutlet } from '@angular/router';
+import { Component, AfterViewInit } from '@angular/core';
+import { RouterLink, RouterOutlet, Router } from '@angular/router';
 import { NgIf } from '@angular/common';
-import { DsfrDisplayComponent, DsfrFooterModule } from '@edugouvfr/ngx-dsfr';
+import { DsfrDisplayComponent, DsfrFooterModule, DsfrHeaderModule, DsfrTooltipDirective } from '@edugouvfr/ngx-dsfr';
 import { DsfrToolLinkMenuComponent, DsfrLinkComponent } from '@edugouvfr/ngx-dsfr';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, RouterLink, NgIf, DsfrFooterModule, DsfrDisplayComponent, DsfrToolLinkMenuComponent, DsfrLinkComponent],
+  imports: [RouterOutlet, RouterLink, NgIf, DsfrFooterModule, DsfrDisplayComponent, DsfrHeaderModule, DsfrToolLinkMenuComponent, DsfrLinkComponent, DsfrTooltipDirective],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent {
+export class AppComponent implements AfterViewInit {
   title = 'cartosp';
   footerExpanded = false;
+  homePage = false;
+  
+  constructor(private router: Router) {}
+
   readonly displayModalId = 'theme-modal-id';
   readonly footerDisplayLabel = "Paramètres d'affichage";
   mandatoryLinks = [
@@ -36,6 +40,19 @@ export class AppComponent {
       link: '/donnees-personnelles'
     }
   ];
+
+  ngAfterViewInit(): void {
+      this.router.events.subscribe((res) => { 
+          console.log(this.router.url,"Current URL");
+          if (this.router.url === '/') {
+            this.footerExpanded = true;
+            this.homePage = true;
+          }else{
+            this.footerExpanded = false;
+            this.homePage = false;
+          }
+      })
+  }
 
   closeMobileMenu(): void {
     const openButton = document.getElementById('button-csp-menu');

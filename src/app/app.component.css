@@ -146,6 +146,17 @@
     overflow-x: hidden;
 }
 
+.main-home {
+    position: relative;
+    z-index: 1;
+    overflow-y: auto;
+}
+
+.header__menu__button {
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
+}
+
 .csp-header .csp-header__actions .fr-nav__item,
 .csp-header .csp-header__actions .fr-access.fr-nav {
     position: relative;

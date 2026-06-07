@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
+import { AccueilComponent } from './accueil/accueil.component';
 import { GuideComponent } from './pages/annexes/guide/guide.component';
 import { AproposComponent } from './pages/annexes/apropos/apropos.component';
 import { FaqComponent } from './pages/annexes/faq/faq.component';
@@ -13,7 +14,8 @@ import { NotfoundComponent } from './pages/errors/notfound/notfound.component';
 import { AllowedLocation } from './app.routes.guard';
 
 export const routes: Routes = [ 
-  { path: '', component: HomeComponent },
+  { path: '', component: AccueilComponent },
+  { path: 'carte', component: HomeComponent },
   { path: 'guide-d-utilisation', component: GuideComponent },
   { path: 'a-propos', component: AproposComponent },
   { path: 'foire-aux-questions', component: FaqComponent },

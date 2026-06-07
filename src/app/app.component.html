@@ -1,3 +1,4 @@
+@if (!homePage) {
 <header role="banner" class="fr-header fr-header--compact csp-header">
   <div class="fr-header__body">
     <div class="fr-container--fluid">
@@ -11,7 +12,7 @@
             </div>
             <div class="fr-header__service">
               <a href="/" title="Accueil - Cartographie des services publics">
-                <p class="fr-header__service-title">Cartographie des services publics</p>
+                <p class="fr-header__service-title fr-pr-3w">Cartographie des services publics</p>
               </a>
             </div>
             <div class="fr-header__navbar">
@@ -33,6 +34,9 @@
             <div class="csp-header__actions" role="navigation" aria-label="Menu principal">
               <a class="fr-btn fr-btn--sm fr-px-2w fr-btn--icon-left fr-icon-home-4-fill" href="/">
                 Accueil
+              </a>
+              <a class="fr-btn fr-btn--sm fr-px-2w fr-btn--icon-left fr-icon-road-map-fill" href="/carte">
+                Accéder à l'outil
               </a>
               <a class="fr-btn fr-btn--sm fr-px-2w fr-btn--icon-left fr-icon-information-fill" href="/a-propos">
                 À propos
@@ -84,7 +88,65 @@
     </div>
   </div>
 </header>
-<main class="main">
+} @else {
+  <dsfr-header
+    [serviceTitle]="'La cartographie des services publics'"
+    [logoLink]="'/'"
+    [menu]="[]"
+  >
+    <ng-template #toolsLinksTemplate>
+      <li>
+        <a class="fr-btn fr-btn--sm header__menu__button fr-btn--icon-left fr-icon-home-4-fill" href="/">
+          Accueil
+        </a>
+      </li>
+      <li>
+        <a class="fr-btn fr-btn--sm header__menu__button fr-btn--icon-left fr-icon-road-map-fill" href="/carte">
+          Accéder à l'outil
+        </a>
+      </li>
+      <li>
+        <a class="fr-btn fr-btn--sm header__menu__button fr-btn--icon-left fr-icon-information-fill" href="/a-propos">
+          À propos
+        </a>
+      </li>
+      <li>
+        <dsfr-tool-link-menu
+          [outline]="false"
+          [labelMenu]="'Aide'"
+          [iconMenu]="'fr-icon-question-fill'"
+        >
+          <ng-template #linksTemplate>
+            <ul>
+              <dsfr-link
+                [link]="'/guide-d-utilisation'"
+                [label]="'Présentation de l’outil et guide d’utilisation'"
+                [icon]="'fr-icon-book-2-line'"
+                [customClass]="'fr-nav__link'"
+                [iconPosition]="'left'"
+              ></dsfr-link>
+              <dsfr-link
+                [link]="'/foire-aux-questions'"
+                [label]="'Foire aux questions'"
+                [icon]="'fr-icon-question-mark'"
+                [customClass]="'fr-nav__link'"
+                [iconPosition]="'left'"
+              ></dsfr-link>
+              <dsfr-link
+                [link]="'/nous-contacter'"
+                [label]="'Nous contacter'"
+                [icon]="'fr-icon-mail-line'"
+                [customClass]="'fr-nav__link'"
+                [iconPosition]="'left'"
+              ></dsfr-link>
+            </ul>
+          </ng-template>
+        </dsfr-tool-link-menu>
+      </li>
+    </ng-template>  
+  </dsfr-header>
+}
+<main [class]="homePage ? 'main-home' : 'main'">
   <router-outlet></router-outlet>
 </main>
 <div *ngIf="!footerExpanded" id="small-footer">
@@ -111,15 +173,17 @@
   <dsfr-display [displayId]="displayModalId"></dsfr-display>
 </div>
 <div *ngIf="footerExpanded" style="position: relative;">
-  <button
-    class="fr-btn fr-btn--sm fr-btn--tertiary-no-outline fr-btn--close fr-btn--icon-right"
-    style="position: absolute; top: 1rem; right: 1rem; z-index: 10;"
-    type="button"
-    title="Fermer"
-    (click)="collapseFooter()"
-  >
-    Fermer
-  </button>
+  @if (!homePage) {
+    <button
+      class="fr-btn fr-btn--sm fr-btn--tertiary-no-outline fr-btn--close fr-btn--icon-right"
+      style="position: absolute; top: 1rem; right: 1rem; z-index: 10;"
+      type="button"
+      title="Fermer"
+      (click)="collapseFooter()"
+    >
+      Fermer
+    </button>
+  }
   <dsfr-footer
     [presentation]="
       'Carto SP est un projet coordonné par la Direction interministérielle de la transformation publique (DITP) en lien avec l’Institut national de l’information géographique et forestière (IGN). Le site s’appuie sur la Géoplateforme, la nouvelle infrastructure publique, ouverte et collaborative des données géographiques.'
