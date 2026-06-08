@@ -149,7 +149,6 @@
 .main-home {
     position: relative;
     z-index: 1;
-    overflow-y: auto;
 }
 
 .header__menu__button {
