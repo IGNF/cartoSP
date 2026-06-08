@@ -25,7 +25,7 @@ export const routes: Routes = [
   { path: 'mentions-legales', component: MentionsLegalesComponent },
   { path: 'plan-du-site', component: PlanDuSiteComponent },
   { path: 'accessibilite', component: AccessibiliteComponent },
-  { path: 'departement/:location', 
+  { path: 'carte/departement/:location', 
     component: HomeComponent, 
     canActivate: [AllowedLocation([
       '01', '02', '03', '04', '05', '06', '07', '08', '09',
