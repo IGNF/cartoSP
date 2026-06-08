@@ -1,4 +1,4 @@
-@if (!homePage) {
+@if (mapPage) {
 <header role="banner" class="fr-header fr-header--compact csp-header">
   <div class="fr-header__body">
     <div class="fr-container--fluid">
@@ -146,7 +146,7 @@
     </ng-template>  
   </dsfr-header>
 }
-<main [class]="homePage ? 'main-home' : 'main'">
+<main [class]="mapPage ? 'main' : 'main-home'">
   <router-outlet></router-outlet>
 </main>
 <div *ngIf="!footerExpanded" id="small-footer">
@@ -173,7 +173,7 @@
   <dsfr-display [displayId]="displayModalId"></dsfr-display>
 </div>
 <div *ngIf="footerExpanded" style="position: relative;">
-  @if (!homePage) {
+  @if (mapPage) {
     <button
       class="fr-btn fr-btn--sm fr-btn--tertiary-no-outline fr-btn--close fr-btn--icon-right"
       style="position: absolute; top: 1rem; right: 1rem; z-index: 10;"

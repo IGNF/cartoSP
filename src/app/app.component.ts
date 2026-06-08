@@ -15,7 +15,7 @@ import { DsfrToolLinkMenuComponent, DsfrLinkComponent } from '@edugouvfr/ngx-dsf
 export class AppComponent implements AfterViewInit {
   title = 'cartosp';
   footerExpanded = false;
-  homePage = false;
+  mapPage = false;
   
   constructor(private router: Router) {}
 
@@ -44,12 +44,12 @@ export class AppComponent implements AfterViewInit {
   ngAfterViewInit(): void {
       this.router.events.subscribe((res) => { 
           console.log(this.router.url,"Current URL");
-          if (this.router.url === '/') {
-            this.footerExpanded = true;
-            this.homePage = true;
-          }else{
+          if (this.router.url === '/carte') {
             this.footerExpanded = false;
-            this.homePage = false;
+            this.mapPage = true;
+          }else{
+            this.footerExpanded = true;
+            this.mapPage = false;
           }
       })
   }
