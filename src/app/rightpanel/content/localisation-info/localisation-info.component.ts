@@ -32,66 +32,35 @@ export class LocalisationInfoComponent implements OnInit, OnDestroy {
   apidata = {
     code: null,
     libelle: null,
-    population_recensement: null,
-    population_evolution: null,
-    population_densite: null,
-    vieillissement_indice: null,
-    taux_chomage: null,
-    mediane_revenu: null,
-    population_rsa: null,
-    population_part_rsa: null,
-    taux_pauvrete: null,
-    nb_qpv: null,
-    population_municipale_total_qpv: null,
-    population_resident_qpv: null,
     nb_commune: null,
-    nb_epci: null
+    nb_epci: null,
+    population_densite: null,
+    population_recensement: null,
+    projection2070: null,
+    vieillissement_indice: null,
+    projection_vieillissement2070: null,
+    taux_pauvrete: null,
+    taux_chomage: null,
+    population_rsa: null,
+    nb_monoparentale: null,
+    nb_qpv: null
   };
   moynat = {
-    departement: {
-      population_recensement: "674080,52",
-      population_evolution: "0,3",
-      taux_evolution: "0,17",
-      population_densite: "106,5",
-      vieillissement_indice: "86",
-      taux_chomage: "7,3",
-      mediane_revenu: "21966,63",
-      population_rsa: "18388,81",
-      population_part_rsa: "44,01",
-      taux_pauvrete: "14,4",
-      nb_qpv: "14,19",
-      population_municipale_total_qpv: "55 285,99",
-      population_resident_qpv: "6,12"     
-    },
-    epci: {
-      population_recensement: "53921,33",
-      population_evolution: "0,3",
-      taux_evolution: "0,09",
-      population_densite: "106,5",
-      vieillissement_indice: "86",
-      taux_chomage: null,
-      mediane_revenu: "22054,88",
-      population_rsa: "1375,03",
-      population_part_rsa: "33,30",
-      taux_pauvrete: "14,4",
-      nb_qpv: null,
-      population_municipale_total_qpv: null,
-      population_resident_qpv: null
-    },
-    commune: {
-      population_recensement: "1930,47",
-      population_evolution: "0,3",
-      taux_evolution: "0,03",
-      population_densite: "106,5",
-      vieillissement_indice: "86",
-      taux_chomage: null,
-      population_rsa: "49,51",
-      population_part_rsa: "22,50",
-      taux_pauvrete: "14,4",
-      nb_qpv: null,
-      population_municipale_total_qpv: null,
-      population_resident_qpv: null
-    }
+    type: null,
+    count: null,
+    population_recensement_moyenne: null,
+    population_rsa_moyenne: null,
+    nb_epci_moyenne: null,
+    nb_qpv_moyenne: null,
+    nb_commune_moyenne: null,
+    nb_monoparentale_moyenne: null,
+    projection2070_moyenne: null,
+    densite_pop_valnat: null,
+    evolution_an_pop_valnat: null,
+    chomage_bit_valnat: null,
+    indice_vieillissement_valnat: null,
+    taux_pauvrete_moyenne: null,
+    indice_vieillissement2070_valnat: null
   }
   selectSpList = [
     {label: "Tous les services publics", value: 'tous'},
@@ -169,6 +138,12 @@ export class LocalisationInfoComponent implements OnInit, OnDestroy {
         },
         error : (error: any) => { console.error('Error fetching departement info:', error) }
       });
+      this.apicartospService.getMoyennesInfo("departement").subscribe({
+        next : (response: any) => {
+          this.fillMoynatValues(response);
+        },
+        error : (error: any) => { console.error('Error fetching departement moyennes info:', error) }
+      });
     } else if (this.data.type == "epci") {
       this.apicartospService.getEpciInfos(this.data.location.number).subscribe({
         next : (response: any) => {
@@ -177,12 +152,24 @@ export class LocalisationInfoComponent implements OnInit, OnDestroy {
         },
         error : (error: any) => { console.error('Error fetching epci info:', error) }
       });
+      this.apicartospService.getMoyennesInfo("epci").subscribe({
+        next : (response: any) => {
+          this.fillMoynatValues(response);
+        },
+        error : (error: any) => { console.error('Error fetching epci moyennes info:', error) }
+      });
     } else {
       this.apicartospService.getCommuneInfos(this.data.location.number).subscribe({
         next : (response: any) => {
           this.fillDataValues(response);
         },
         error : (error: any) => { console.error('Error fetching commune info:', error) }
+      });
+      this.apicartospService.getMoyennesInfo("commune").subscribe({
+        next : (response: any) => {
+          this.fillMoynatValues(response);
+        },
+        error : (error: any) => { console.error('Error fetching commune moyennes info:', error) }
       });
     }
     this.selectSpChange("tous");
@@ -196,20 +183,38 @@ export class LocalisationInfoComponent implements OnInit, OnDestroy {
     this.apidata = {
       code: response.code,
       libelle: response.libelle,
-      population_recensement: response.population_recensement,
-      population_evolution: response.population_evolution,
-      population_densite: response.population_densite,
-      vieillissement_indice: response.vieillissement_indice,
-      taux_chomage: response.taux_chomage,
-      mediane_revenu: response.mediane_revenu,
-      population_rsa: response.population_rsa,
-      population_part_rsa: response.population_part_rsa,
-      taux_pauvrete: response.taux_pauvrete,
-      nb_qpv: response.nb_qpv,
-      population_municipale_total_qpv: response.population_municipale_total_qpv,
-      population_resident_qpv: response.population_resident_qpv,
       nb_commune: response.nb_commune,
-      nb_epci: response.nb_epci
+      nb_epci: response.nb_epci,
+      population_densite: response.population_densite,
+      population_recensement: response.population_recensement,
+      projection2070: response.projection2070,
+      vieillissement_indice: response.vieillissement_indice,
+      projection_vieillissement2070: response.projection_vieillissement2070,
+      taux_pauvrete: response.taux_pauvrete,
+      taux_chomage: response.taux_chomage,
+      population_rsa: response.population_rsa,
+      nb_monoparentale: response.nb_monoparentale,
+      nb_qpv: response.nb_qpv
+    };
+  }
+
+  fillMoynatValues(response: any) {
+    this.moynat = {
+      type: response.type,
+      count: response.count,
+      population_recensement_moyenne: response.population_recensement_moyenne,
+      population_rsa_moyenne: response.population_rsa_moyenne,
+      nb_epci_moyenne: response.nb_epci_moyenne,
+      nb_qpv_moyenne: response.nb_qpv_moyenne,
+      nb_commune_moyenne: response.nb_commune_moyenne,
+      nb_monoparentale_moyenne: response.nb_monoparentale_moyenne,
+      projection2070_moyenne: response.projection2070_moyenne,
+      densite_pop_valnat: response.densite_pop_valnat,
+      evolution_an_pop_valnat: response.evolution_an_pop_valnat,
+      chomage_bit_valnat: response.chomage_bit_valnat,
+      indice_vieillissement_valnat: response.indice_vieillissement_valnat,
+      taux_pauvrete_moyenne: response.taux_pauvrete_moyenne,
+      indice_vieillissement2070_valnat: response.indice_vieillissement2070_valnat
     };
   }
 
@@ -291,8 +296,8 @@ export class LocalisationInfoComponent implements OnInit, OnDestroy {
     }
   }
 
-  formatNumberReal(value: number, format: string): string | null {
-    if(value){
+  formatNumberReal(value: number|null|undefined, format: string): string | null {
+    if(value != null && value !== undefined){
       return this.decimalPipe.transform(value, format);
     } else {
       return "Inconnue";

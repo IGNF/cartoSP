@@ -26,6 +26,11 @@ export class ApicartospService {
         return this.http.get(this.apiUrl + "/epci/" + query);
     }
 
+    // Get moyenne by type
+    getMoyennesInfo(query: string): Observable<any> {
+        return this.http.get(this.apiUrl + "/moyennes/" + query);
+    }
+
     // Get SP type count
     getTypeCount(options: any): Observable<any> {
         return this.http.get(this.apiUrl + "/services_publics/count",{
