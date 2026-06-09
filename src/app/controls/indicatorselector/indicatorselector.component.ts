@@ -45,7 +45,7 @@ export class IndicatorselectorComponent implements OnInit {
             thematique: "Zonage",
             indicators: [
                 {title:"Bassin de vie", layername: "IGNF_CARTO-SP_BASSINS-VIE__VALID", opacity: 1},
-                //{title:"Quartiers prioritaires de la ville", layername: "ANCT_QPV_wms", opacity: 1},
+                {title:"Quartiers prioritaires de la ville", layername: "IGNF_CARTO-SP_QUARTIERS-PRIORITAIRES-VILLE", opacity: 1},
             ]
         },
         {
@@ -62,7 +62,7 @@ export class IndicatorselectorComponent implements OnInit {
                 {title:"Densité médicale", layername: "IGNF_CARTO-SP_DENSITE-MEDECINS__VALID", opacity: 1},
                 {title:"Moyenne d'âge des médecins", layername: "IGNF_CARTO-SP_MOYENNE-AGE-MEDECINS__VALID", opacity: 1},
                 {title:"Accessibilité aux soins de premier recours", layername: "IGNF_CARTO-SP_ACCESSIBILITE-SOINS-PREMIER-RECOURS__VALID", opacity: 1},
-                //{title:"Zonage CPTS", layername: "IGNF_CARTO-SP_PPR_ZONAGE-CPTS__VALID", opacity: 1},
+                {title:"Zonage CPTS", layername: "IGNF_CARTO-SP_ZONAGE-CPTS", opacity: 1},
             ]
         }
     ];

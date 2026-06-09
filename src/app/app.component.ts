@@ -43,7 +43,6 @@ export class AppComponent implements AfterViewInit {
 
   ngAfterViewInit(): void {
       this.router.events.subscribe((res) => { 
-          console.log(this.router.url,"Current URL");
           if (this.router.url.startsWith('/carte')) {
             this.footerExpanded = false;
             this.mapPage = true;

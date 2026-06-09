@@ -27,6 +27,7 @@ export class LocalisationInfoComponent implements OnInit, OnDestroy {
   nbimplantations?: number;
   nbitinerants?: number;
   nbpermanences?: number;
+  nbtotal?: number;
   isochrones: any[] = [];
   private decimalPipe = inject(DecimalPipe);
   apidata = {
@@ -252,6 +253,13 @@ export class LocalisationInfoComponent implements OnInit, OnDestroy {
         this.nbitinerants = response;
       },
       error : (error: any) => { console.error('Error fetching Itinérant count info:', error) }
+    });
+
+    this.apicartospService.getTypeCount({code_dep: this.data.location.number, typologie: e}).subscribe({
+      next : (response: any) => {
+        this.nbtotal = response;
+      },
+      error : (error: any) => { console.error('Error fetching total count info:', error) }
     });
   }
 

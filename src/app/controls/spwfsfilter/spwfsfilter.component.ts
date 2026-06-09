@@ -50,7 +50,7 @@ export class SpwfsfilterComponent implements OnInit {
                 "Caisse d'assurance retraite et de la santé au travail (Carsat)",
                 "Caisse primaire d’assurance maladie (CPAM)",
                 "Centre communal d'action sociale (CCAS)",
-                "Centres Locaux Information Coordination P.A .(C.L.I.C.)",
+                "Centre local information coordination P.A (Clic)",
                 "Centres sociaux",
                 "Maison départementale des personnes handicapées (MDPH)",
                 "Maison départementale des solidarités (MDS)",

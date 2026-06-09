@@ -125,7 +125,7 @@
                       </td>
                       <td class="td-right">
                         <br>
-                        <div>{{ formatNumberReal(moynat.projection2070_moyenne,'1.1-1') }}</div>
+                        <div>{{ formatNumberReal(moynat.projection2070_moyenne,'1.0-0') }}</div>
                       </td>
                     </tr>
                   }
@@ -328,10 +328,11 @@
       (selectChange)="selectSpChange($event)"
     ></dsfr-form-select>
     <br>
+
     <h6 class="fr-h6">Données administratives</h6>
-    <div><strong>{{ nbimplantations || 0 }}</strong> implantations</div>
-    <div><strong>{{ nbpermanences || 0 }}</strong> permanences</div>
-    <div><strong>{{ nbitinerants || 0 }}</strong> dispositifs itinérants</div>
+    <div><strong>{{ nbimplantations || 0 }}</strong> implantation@if (nbimplantations != 1) {s}</div>
+    <div><strong>{{ nbpermanences || 0 }}</strong> permanence@if (nbpermanences != 1) {s}</div>
+    <div><strong>{{ nbitinerants || 0 }}</strong> dispositifs itinérant@if (nbitinerants != 1) {s}</div>
   </dsfr-tab>
   <!-- Onglet accès aux isochrones -->
   <dsfr-tab
@@ -340,7 +341,7 @@
     [disabled]="false"
   >
     <div class="fr-callout">
-      Affichez les données statistiques des isochrones en les sélectionnants dans le volet "Calcul d'isochrones" à gauche de l'écran.
+      Affichez les données statistiques des isochrones en les sélectionnant dans le volet "Calcul d'isochrones" à gauche de l'écran.
     </div>
     @if(isochrones.length > 0){
       @for (isochrone of isochrones; track isochrone.layername) {
