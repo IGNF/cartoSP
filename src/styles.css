@@ -15,7 +15,7 @@ dialog[id^="GPlayersList"] {
 	position: absolute !important;
 }
 
-div[id^="GPlayerSwitcher_ID_"][data-sortable-id="2"],  div[id^="GPlayerSwitcher_ID_"][data-sortable-id="4"]{
+div[id^="GPlayerSwitcher_ID_"][data-sortable-id="2"],  div[id^="GPlayerSwitcher_ID_"][data-sortable-id="4"], div[id^="GPlayerSwitcher_ID_"][data-sortable-id="1"]{
 	display: none !important;
 }
 

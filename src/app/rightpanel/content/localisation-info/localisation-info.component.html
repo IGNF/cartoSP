@@ -332,7 +332,7 @@
     <h6 class="fr-h6">Données administratives</h6>
     <div><strong>{{ nbimplantations || 0 }}</strong> implantation@if (nbimplantations != 1) {s}</div>
     <div><strong>{{ nbpermanences || 0 }}</strong> permanence@if (nbpermanences != 1) {s}</div>
-    <div><strong>{{ nbitinerants || 0 }}</strong> dispositifs itinérant@if (nbitinerants != 1) {s}</div>
+    <div><strong>{{ nbitinerants || 0 }}</strong> dispositif@if (nbitinerants != 1) {s} itinérant@if (nbitinerants != 1) {s}</div>
   </dsfr-tab>
   <!-- Onglet accès aux isochrones -->
   <dsfr-tab
