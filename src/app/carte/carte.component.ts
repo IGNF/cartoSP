@@ -33,7 +33,7 @@ export class CarteComponent implements OnInit {
         layer: "IGNF_CARTO-SP_SERVICES-PUBLICS_:_metropole",
         maxFeatures: 3000,
         olParams : {
-          minZoom: 9,
+          minZoom: 8,
           style: function(feature: Feature){
             return undefined;
           },
