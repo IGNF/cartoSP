@@ -31,7 +31,7 @@ export class CarteComponent implements OnInit {
       }),
       new GeoportalLayerWFS({
         layer: "IGNF_CARTO-SP_SERVICES-PUBLICS_:_metropole",
-        maxFeatures: 3000,
+        maxFeatures: 5000,
         olParams : {
           minZoom: 8,
           style: function(feature: Feature){
