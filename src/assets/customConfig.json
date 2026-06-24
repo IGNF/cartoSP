@@ -1959,7 +1959,7 @@
       "legends": [
         {
           "format": "image/png",
-          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=IGNF_CARTO-SP_PPR_DENTISTES__VALID&apikey=GfMCBckgGd4sHED9GPxPkuNGXsKek7di"
+          "url": "https://data.geopf.fr/annexes/ressources/cartosp_ditp/legendes/PPR_DENTISTES.png"
         }
       ],
       "formats": [
@@ -2082,7 +2082,7 @@
       "legends": [
         {
           "format": "image/png",
-          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=IGNF_CARTO-SP_PPR_INFIRMIERS__VALID&apikey=GfMCBckgGd4sHED9GPxPkuNGXsKek7di"
+          "url": "https://data.geopf.fr/annexes/ressources/cartosp_ditp/legendes/PPR_INFIRMIERS.png"
         }
       ],
       "formats": [
@@ -2205,7 +2205,7 @@
       "legends": [
         {
           "format": "image/png",
-          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=IGNF_CARTO-SP_PPR_KINESITHERAPEUTES__VALID&apikey=GfMCBckgGd4sHED9GPxPkuNGXsKek7di"
+          "url": "https://data.geopf.fr/annexes/ressources/cartosp_ditp/legendes/PPR_KINESITHERAPEUTES.png"
         }
       ],
       "formats": [
@@ -2328,7 +2328,7 @@
       "legends": [
         {
           "format": "image/png",
-          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=IGNF_CARTO-SP_PPR_MEDECINS__VALID&apikey=GfMCBckgGd4sHED9GPxPkuNGXsKek7di"
+          "url": "https://data.geopf.fr/annexes/ressources/cartosp_ditp/legendes/PPR_MEDECINS.png"
         }
       ],
       "formats": [
@@ -2451,7 +2451,7 @@
       "legends": [
         {
           "format": "image/png",
-          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=IGNF_CARTO-SP_PPR_ORTHOPHONISTES__VALID&apikey=GfMCBckgGd4sHED9GPxPkuNGXsKek7di"
+          "url": "https://data.geopf.fr/annexes/ressources/cartosp_ditp/legendes/PPR_ORTHOPHONISTES.png"
         }
       ],
       "formats": [
@@ -2574,7 +2574,7 @@
       "legends": [
         {
           "format": "image/png",
-          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=IGNF_CARTO-SP_PPR_SAGES_FEMMES__VALID&apikey=GfMCBckgGd4sHED9GPxPkuNGXsKek7di"
+          "url": "https://data.geopf.fr/annexes/ressources/cartosp_ditp/legendes/PPR_SAGES_FEMMES.png"
         }
       ],
       "formats": [
@@ -2937,8 +2937,8 @@
       "styles": [],
       "legends": [
         {
-          "format": "image/jpeg",
-          "url": "https://data.geopf.fr/annexes/cartosp_ditp/legendes/legende_SP.png?apikey=m5CCGi6CTNOHP3VrNwOnPkQmoxtenaBU",
+          "format": "image/png",
+          "url": "https://data.geopf.fr/annexes/ressources/cartosp_ditp/legendes/SERVICES_PUBLICS.png",
           "minScaleDenominator": "200"
         }
       ],
