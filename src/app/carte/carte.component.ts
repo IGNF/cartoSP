@@ -30,7 +30,7 @@ export class CarteComponent implements OnInit {
         style: "simpleadminexpress"
       }),
       new GeoportalLayerWFS({
-        layer: "IGNF_CARTO-SP_SERVICES-PUBLICS_:_metropole",
+        layer: "IGNF_CARTO-SP_SERVICES-PUBLICS:__infos",
         maxFeatures: 3000,
         olParams : {
           minZoom: 8,
@@ -60,7 +60,7 @@ export class CarteComponent implements OnInit {
           return null;
         }
         //@ts-ignore
-        if(layer.name === "IGNF_CARTO-SP_SERVICES-PUBLICS_:_metropole"){
+        if(layer.name === "IGNF_CARTO-SP_SERVICES-PUBLICS:__infos"){
           return feature;
         }else{
           return null;

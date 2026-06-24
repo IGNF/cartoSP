@@ -72,7 +72,7 @@
         "IGNF_CARTO-SP_PPR_SAGES_FEMMES__VALID$GEOPORTAIL:OGC:WMS",
         "IGNF_CARTO-SP_QUARTIERS-PRIORITAIRES-VILLE$GEOPORTAIL:OGC:WMS",
         "IGNF_CARTO-SP_ZONAGE-CPTS$GEOPORTAIL:OGC:WMS",
-        "IGNF_CARTO-SP_SERVICES-PUBLICS_:_metropole$GEOPORTAIL:OGC:WFS"
+        "IGNF_CARTO-SP_SERVICES-PUBLICS:__infos$GEOPORTAIL:OGC:WFS"
       ]
     }
   },
@@ -2910,18 +2910,18 @@
         }
       ]
     },
-    "IGNF_CARTO-SP_SERVICES-PUBLICS_:_metropole$GEOPORTAIL:OGC:WFS": {
-      "name": "IGNF_CARTO-SP_SERVICES-PUBLICS_:_metropole",
+    "IGNF_CARTO-SP_SERVICES-PUBLICS:__infos$GEOPORTAIL:OGC:WFS": {
+      "name": "IGNF_CARTO-SP_SERVICES-PUBLICS:__infos",
       "title": "Cartographie des services publics",
-      "description": "Cette table contient les données ponctuelles sur les services publics France entière. Il s'agit de données test à destination de tests techniques.",
+      "description": "Cartographie des services publics",
       "globalConstraint": {
         "minScaleDenominator": 0.0,
         "maxScaleDenominator": 62236752975597,
         "bbox": {
-          "left": -5.11625,
-          "right": 9.7475,
-          "top": 51.2346875,
-          "bottom": 41.15
+          "left": -63.28125,
+          "right": 55.8984375,
+          "top": 51.27109375,
+          "bottom": -21.421484375
         }
       },
       "serviceParams": {
@@ -2931,7 +2931,7 @@
           "GfMCBckgGd4sHED9GPxPkuNGXsKek7di": "https://data.geopf.fr/private/wfs"
         }
       },
-      "defaultProjection": "EPSG:2154",
+      "defaultProjection": "EPSG:4326",
       "queryable": false,
       "metadata": [],
       "styles": [],

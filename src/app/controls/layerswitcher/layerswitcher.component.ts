@@ -35,7 +35,7 @@ export class LayerswitcherComponent implements OnInit {
         const pinnedLayersOrder = [
           "ADMIN_EXPRESS",
           "highlight",
-          "IGNF_CARTO-SP_SERVICES-PUBLICS_:_metropole",
+          "IGNF_CARTO-SP_SERVICES-PUBLICS:__infos",
         ];
 
         const target = e?.target;
