@@ -69,28 +69,25 @@ export class LocalisationInfoComponent implements OnInit, OnDestroy {
       {label: "Conseil départemental", value: "Conseil départemental"}, 
       {label: "France services", value: "France services"}, 
       {label: "Mairie", value: "Mairie"}, 
-      {label: "Point d'accueil numérique (Préfecture et Sous-préfecture)", value: "Point d'accueil numérique (Préfecture et Sous-préfecture)"},
       {label: "Préfecture", value: "Préfecture"}, 
       {label: "Sous-préfecture", value: "Sous-préfecture"}
     ]},
     {label: "Santé", options: [
       {label: "Centre de Santé", value: "Centre de Santé"},
-      {label: "Centre Hospitalier (C.H.)", value: "Centre Hospitalier (C.H.)"},
-      {label: "Centre Hospitalier Régional (C.H.R.)", value: "Centre Hospitalier Régional (C.H.R.)"},
+      {label: "Centre hospitalier (CH)", value: "Centre hospitalier (CH)"},
+      {label: "Centre hospitalier régional (CHR)", value: "Centre hospitalier régional (CHR)"},
       {label: "Centre hospitalier universitaire (CHU)", value: "Centre hospitalier universitaire (CHU)"},
       {label: "France Santé", value: "France Santé"},
-      {label: "Maison de santé (L.6223-3)", value: "Maison de santé (L.6223-3)"}
+      {label: "Maison de santé", value: "Maison de santé"}
     ]},
     {label: "Social", options: [
-      {label: "Caisse commune de Sécurité sociale (CCSS)", value: "Caisse commune de Sécurité sociale (CCSS)"},
       {label: "Caisse d'allocations familiales (Caf)", value: "Caisse d'allocations familiales (Caf)"},
       {label: "Caisse d'assurance retraite et de la santé au travail (Carsat)", value: "Caisse d'assurance retraite et de la santé au travail (Carsat)"},
       {label: "Caisse primaire d’assurance maladie (CPAM)", value: "Caisse primaire d’assurance maladie (CPAM)"},
       {label: "Centre communal d'action sociale (CCAS)", value: "Centre communal d'action sociale (CCAS)"},
-      {label: "Centres Locaux Information Coordination P.A .(C.L.I.C.)", value: "Centres Locaux Information Coordination P.A .(C.L.I.C.)"},
-      {label: "Centres sociaux", value: "Centres sociaux"},
+      {label: "Centre local information coordination P.A (Clic)", value: "Centre local information coordination P.A (Clic)"},
+      {label: "Centre social", value: "Centre social"},
       {label: "Maison départementale des personnes handicapées (MDPH)", value: "Maison départementale des personnes handicapées (MDPH)"},
-      {label: "Maison départementale des solidarités (MDS)", value: "Maison départementale des solidarités (MDS)"},
       {label: "Mutualité sociale agricole (MSA)", value: "Mutualité sociale agricole (MSA)"},
       {label: "Union de recouvrement des cotisations de sécurité sociale et d’allocations familiales (Urssaf)", value: "Union de recouvrement des cotisations de sécurité sociale et d’allocations familiales (Urssaf)"}
     ]}, 
@@ -99,22 +96,20 @@ export class LocalisationInfoComponent implements OnInit, OnDestroy {
       {label: "Mission locale pour l'insertion professionnelle et sociale des jeunes (16-25 ans)", value: "Mission locale pour l'insertion professionnelle et sociale des jeunes (16-25 ans)"}
     ]},
     {label: "Economie, finances, consommation", options: [
-      {label: "Direction départementale des finances publiques (DDFIP)", value: "Direction départementale des finances publiques (DDFIP)"}, 
+      {label: "Service de gestion comptable ou trésorerie", value: "Service de gestion comptable ou trésorerie"}, 
+      {label: "Service départemental des impôts foncier (SDIF)", value: "Service départemental des impôts foncier (SDIF)"},
       {label: "Service des impôts des entreprises (SIE)", value: "Service des impôts des entreprises (SIE)"}, 
-      {label: "Service des impôts des particuliers (SIP)", value: "Service des impôts des particuliers (SIP)"},
-      {label: "Trésorerie", value: "Trésorerie"}
+      {label: "Service des impôts des particuliers (SIP)", value: "Service des impôts des particuliers (SIP)"}
     ]},
     {label: "Droit, justice", options: [
-      {label: "Conseil départemental d'accès au droit (CDAD)", value: "Conseil départemental d'accès au droit (CDAD)"}, 
-      {label: "Maison de justice", value: "Maison de justice"},
+      {label: "Bureau d'aide aux victimes du tribunal judiciaire", value: "Bureau d'aide aux victimes du tribunal judiciaire"},
       {label: "Point-justice", value: "Point-justice"}, 
       {label: "Tribunal de proximité", value: "Tribunal de proximité"},
-      {label: "Tribunal judiciaire", value: "Tribunal judiciaire"},
-      {label: "Bureau d'aide aux victimes du tribunal judiciaire", value: "Bureau d'aide aux victimes du tribunal judiciaire"}
+      {label: "Tribunal judiciaire", value: "Tribunal judiciaire"}
     ]},
     {label: "Environnement, logement, transports", options: [
       {label: "Agence départementale d'information sur le logement (Adil)", value: "Agence départementale d'information sur le logement (Adil)"}, 
-      {label: "Agence nationale de l’habitat (ANAH)", value: "Agence nationale de l’habitat (ANAH)"},
+      {label: "Agence nationale de l'habitat (ANAH) - réseau local", value: "Agence nationale de l'habitat (ANAH) - réseau local"},
       {label: "Espace conseil France rénov'", value: "Espace conseil France rénov'"}
     ]},
     {label: "Sécurité, défense", options: [
@@ -123,7 +118,7 @@ export class LocalisationInfoComponent implements OnInit, OnDestroy {
     ]},
     {label: "Enseignement", options: [
       {label: "Collège", value: "Collège"},
-      {label: "DASEN", value: "DASEN"},
+      {label: "Direction de services départementaux de l'Éducation nationale (Dsden)", value: "Direction de services départementaux de l'Éducation nationale (Dsden)"},
       {label: "École maternelle", value: "École maternelle"},
       {label: "École primaire", value: "École primaire"},
       {label: "Lycée", value: "Lycée"},

@@ -26,7 +26,6 @@ export class SpwfsfilterComponent implements OnInit {
                 "Conseil départemental",
                 "France services",
                 "Mairie",
-                "Point d'accueil numérique (Préfecture et Sous-préfecture)",
                 "Préfecture",
                 "Sous-préfecture"
             ]
@@ -35,25 +34,23 @@ export class SpwfsfilterComponent implements OnInit {
             markerPath: "assets/images/mapmarker/sante/",
             topologies: [
                 "Centre de Santé",
-                "Centre Hospitalier (C.H.)", 
-                "Centre Hospitalier Régional (C.H.R.)",
+                "Centre hospitalier (CH)",
+                "Centre hospitalier régional (CHR)",
                 "Centre hospitalier universitaire (CHU)",
                 "France Santé",
-                "Maison de santé (L.6223-3)"           
+                "Maison de santé"        
             ]
         },
         "Social" : {
             markerPath: "assets/images/mapmarker/social/",
             topologies: [
-                "Caisse commune de sécurité sociale (CCSS)",   
                 "Caisse d'allocations familiales (Caf)",
                 "Caisse d'assurance retraite et de la santé au travail (Carsat)",
                 "Caisse primaire d’assurance maladie (CPAM)",
                 "Centre communal d'action sociale (CCAS)",
                 "Centre local information coordination P.A (Clic)",
-                "Centres sociaux",
+                "Centre social",
                 "Maison départementale des personnes handicapées (MDPH)",
-                "Maison départementale des solidarités (MDS)",
                 "Mutualité sociale agricole (MSA)",
                 "Union de recouvrement des cotisations de sécurité sociale et d’allocations familiales (Urssaf)"        
             ]
@@ -68,28 +65,27 @@ export class SpwfsfilterComponent implements OnInit {
         "Economie, finances, consommation" : {
             markerPath: "assets/images/mapmarker/finance/",
             topologies: [
-                "Direction départementale des finances publiques (DDFIP)",
+                "Service de gestion comptable ou trésorerie",
+                "Service départemental des impôts foncier (SDIF)",
                 "Service des impôts des entreprises (SIE)",
-                "Service des impôts des particuliers (SIP)",
-                "Trésorerie"
+                "Service des impôts des particuliers (SIP)"
             ]
         },
         "Droit, justice": {
             markerPath: "assets/images/mapmarker/droit-justice/",
             topologies: [
-                "Conseil départemental d'accès au droit (CDAD)",
-                "Maison de justice",
+                "Bureau d'aide aux victimes du tribunal judiciaire",
                 "Point-justice",
                 "Tribunal de proximité",
-                "Tribunal judiciaire",
-                "Bureau d'aide aux victimes du tribunal judiciaire"
+                "Tribunal judiciaire"
+
             ]
         },
         "Environnement, logement, transports":  {
             markerPath: "assets/images/mapmarker/environnement/",
             topologies: [
                 "Agence départementale d'information sur le logement (Adil)",
-                "Agence nationale de l’habitat (ANAH) - réseau local",
+                "Agence nationale de l'habitat (ANAH) - réseau local",
                 "Espace conseil France rénov'"
             ]
         },
@@ -104,7 +100,7 @@ export class SpwfsfilterComponent implements OnInit {
             markerPath: "assets/images/mapmarker/enseignement/",
             topologies: [
                 "Collège",
-                "DASEN",
+                "Direction de services départementaux de l'Éducation nationale (Dsden)",
                 "École maternelle",
                 "École primaire",
                 "Lycée",
