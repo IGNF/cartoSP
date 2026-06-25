@@ -330,9 +330,43 @@
     <br>
 
     <h6 class="fr-h6">Données administratives</h6>
-    <div><strong>{{ nbimplantations || 0 }}</strong> implantation@if (nbimplantations != 1) {s}</div>
-    <div><strong>{{ nbpermanences || 0 }}</strong> permanence@if (nbpermanences != 1) {s}</div>
-    <div><strong>{{ nbitinerants || 0 }}</strong> dispositif@if (nbitinerants != 1) {s} itinérant@if (nbitinerants != 1) {s}</div>
+
+    <div class="fr-table fr-table--bordered fr-table--infos">
+        <div class="fr-table__wrapper fr-table-wrapper-cartosp">
+            <div class="fr-table__container">
+                <div class="fr-table__content">
+                    <table>
+                      <thead>
+                        <tr>
+                          <th class="th-left th-left-sp">
+                            <div class="th-content">
+                              Nombre total de points d'accueil
+                              <button class="fr-btn--tooltip fr-btn" type="button" id="button-nbpa" aria-describedby="tooltip-nbpa">
+                                Source
+                              </button>
+                              <span class="fr-tooltip fr-placement" id="tooltip-nbpa" role="tooltip" aria-hidden="true">TODO <br> Insee, 2024</span>
+                            </div>
+                          </th>
+                          <th class="th-right-sp">{{ nbtotal }}</th>
+                        </tr>
+                      </thead>
+                      <tr>
+                        <td class="td-left-sp">Implantation@if (nbimplantations != 1) {s}</td>
+                        <td class="td-right-sp">{{ nbimplantations || 0 }}</td>
+                      </tr>
+                      <tr>
+                        <td class="td-left-sp">Permanence@if (nbpermanences != 1) {s}</td>
+                        <td class="td-right-sp">{{ nbpermanences || 0 }}</td>
+                      </tr>
+                      <tr>
+                        <td class="td-left-sp">Dispositif@if (nbitinerants != 1) {s} itinérant@if (nbitinerants != 1) {s}</td>
+                        <td class="td-right-sp">{{ nbitinerants || 0 }}</td>
+                      </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
   </dsfr-tab>
   <!-- Onglet accès aux isochrones -->
   <dsfr-tab

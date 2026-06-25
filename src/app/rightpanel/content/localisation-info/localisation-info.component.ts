@@ -221,9 +221,7 @@ export class LocalisationInfoComponent implements OnInit, OnDestroy {
   selectSpChange(e: any){
     var options = {};
 
-    if(e != "tous"){
-      options = Object.assign(options, {typologie: e});
-    }
+    options = Object.assign(options, {typologie: e});
     
     if (this.data.type == "departement") {
       options = Object.assign(options, {code_dep: this.data.location.number});
@@ -232,6 +230,8 @@ export class LocalisationInfoComponent implements OnInit, OnDestroy {
     } else {
       options = Object.assign(options, {code_insee: this.data.location.number});
     }
+
+    var totalOptions = Object.assign({}, options);
 
     this.apicartospService.getTypeCount(Object.assign(options, {type_structure: "Implantation"})).subscribe({
       next : (response: any) => {
@@ -254,7 +254,7 @@ export class LocalisationInfoComponent implements OnInit, OnDestroy {
       error : (error: any) => { console.error('Error fetching Itinérant count info:', error) }
     });
 
-    this.apicartospService.getTypeCount({code_dep: this.data.location.number, typologie: e}).subscribe({
+    this.apicartospService.getTypeCount(totalOptions).subscribe({
       next : (response: any) => {
         this.nbtotal = response;
       },
