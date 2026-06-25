@@ -1098,7 +1098,7 @@
       "legends": [
         {
           "format": "image/png",
-          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=IGNF_CARTO-SP_BASSINS-VIE__VALID&apikey=GfMCBckgGd4sHED9GPxPkuNGXsKek7di"
+          "url": "https://data.geopf.fr/annexes/ressources/cartosp_ditp/legendes/BASSINS2VIE.png"
         }
       ],
       "formats": [
@@ -2697,7 +2697,7 @@
       "legends": [
         {
           "format": "image/png",
-          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=IGNF_CARTO-SP_QUARTIERS-PRIORITAIRES-VILLE&apikey=GfMCBckgGd4sHED9GPxPkuNGXsKek7di"
+          "url": "https://data.geopf.fr/annexes/ressources/cartosp_ditp/legendes/QPV.png"
         }
       ],
       "formats": [
@@ -2820,7 +2820,7 @@
       "legends": [
         {
           "format": "image/png",
-          "url": "https://data.geopf.fr/private/wms-v/ows?service=WMS&version=1.3.0&request=GetLegendGraphic&format=image%2Fpng&width=20&height=20&layer=IGNF_CARTO-SP_ZONAGE-CPTS&apikey=GfMCBckgGd4sHED9GPxPkuNGXsKek7di"
+          "url": "https://data.geopf.fr/annexes/ressources/cartosp_ditp/legendes/CPTS.png"
         }
       ],
       "formats": [
