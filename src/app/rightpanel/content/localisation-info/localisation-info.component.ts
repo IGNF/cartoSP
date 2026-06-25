@@ -68,7 +68,8 @@ export class LocalisationInfoComponent implements OnInit, OnDestroy {
     {label: "Administration locale", options: [
       {label: "Conseil départemental", value: "Conseil départemental"}, 
       {label: "France services", value: "France services"}, 
-      {label: "Mairie", value: "Mairie"}, 
+      {label: "Mairie", value: "Mairie"},
+      {label: "Point d'accueil numérique (Préfecture et Sous-préfecture)", value: "Point d'accueil numérique (Préfecture et Sous-préfecture)"}, 
       {label: "Préfecture", value: "Préfecture"}, 
       {label: "Sous-préfecture", value: "Sous-préfecture"}
     ]},
@@ -81,6 +82,7 @@ export class LocalisationInfoComponent implements OnInit, OnDestroy {
       {label: "Maison de santé", value: "Maison de santé"}
     ]},
     {label: "Social", options: [
+      {label: "Caisse commune de sécurité sociale (CCSS)", value: "Caisse commune de sécurité sociale (CCSS)"},
       {label: "Caisse d'allocations familiales (Caf)", value: "Caisse d'allocations familiales (Caf)"},
       {label: "Caisse d'assurance retraite et de la santé au travail (Carsat)", value: "Caisse d'assurance retraite et de la santé au travail (Carsat)"},
       {label: "Caisse primaire d’assurance maladie (CPAM)", value: "Caisse primaire d’assurance maladie (CPAM)"},
@@ -88,6 +90,7 @@ export class LocalisationInfoComponent implements OnInit, OnDestroy {
       {label: "Centre local information coordination P.A (Clic)", value: "Centre local information coordination P.A (Clic)"},
       {label: "Centre social", value: "Centre social"},
       {label: "Maison départementale des personnes handicapées (MDPH)", value: "Maison départementale des personnes handicapées (MDPH)"},
+      {label: "Maison départementale des solidarités (MDS)", value: "Maison départementale des solidarités (MDS)"},
       {label: "Mutualité sociale agricole (MSA)", value: "Mutualité sociale agricole (MSA)"},
       {label: "Union de recouvrement des cotisations de sécurité sociale et d’allocations familiales (Urssaf)", value: "Union de recouvrement des cotisations de sécurité sociale et d’allocations familiales (Urssaf)"}
     ]}, 
@@ -103,6 +106,7 @@ export class LocalisationInfoComponent implements OnInit, OnDestroy {
     ]},
     {label: "Droit, justice", options: [
       {label: "Bureau d'aide aux victimes du tribunal judiciaire", value: "Bureau d'aide aux victimes du tribunal judiciaire"},
+      {label: "Maison de justice", value: "Maison de justice"},
       {label: "Point-justice", value: "Point-justice"}, 
       {label: "Tribunal de proximité", value: "Tribunal de proximité"},
       {label: "Tribunal judiciaire", value: "Tribunal judiciaire"}
@@ -118,7 +122,7 @@ export class LocalisationInfoComponent implements OnInit, OnDestroy {
     ]},
     {label: "Enseignement", options: [
       {label: "Collège", value: "Collège"},
-      {label: "Direction de services départementaux de l'Éducation nationale (Dsden)", value: "Direction de services départementaux de l'Éducation nationale (Dsden)"},
+      {label: "Direction de services départementaux de l'Éducation nationale (Dsden) ", value: "Direction de services départementaux de l'Éducation nationale (Dsden) "},
       {label: "École maternelle", value: "École maternelle"},
       {label: "École primaire", value: "École primaire"},
       {label: "Lycée", value: "Lycée"},

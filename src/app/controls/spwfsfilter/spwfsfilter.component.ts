@@ -26,6 +26,7 @@ export class SpwfsfilterComponent implements OnInit {
                 "Conseil départemental",
                 "France services",
                 "Mairie",
+                "Point d'accueil numérique (Préfecture et Sous-préfecture)",
                 "Préfecture",
                 "Sous-préfecture"
             ]
@@ -44,6 +45,7 @@ export class SpwfsfilterComponent implements OnInit {
         "Social" : {
             markerPath: "assets/images/mapmarker/social/",
             topologies: [
+                "Caisse commune de sécurité sociale (CCSS)",
                 "Caisse d'allocations familiales (Caf)",
                 "Caisse d'assurance retraite et de la santé au travail (Carsat)",
                 "Caisse primaire d’assurance maladie (CPAM)",
@@ -51,6 +53,7 @@ export class SpwfsfilterComponent implements OnInit {
                 "Centre local information coordination P.A (Clic)",
                 "Centre social",
                 "Maison départementale des personnes handicapées (MDPH)",
+                "Maison départementale des solidarités (MDS)",
                 "Mutualité sociale agricole (MSA)",
                 "Union de recouvrement des cotisations de sécurité sociale et d’allocations familiales (Urssaf)"        
             ]
@@ -75,6 +78,7 @@ export class SpwfsfilterComponent implements OnInit {
             markerPath: "assets/images/mapmarker/droit-justice/",
             topologies: [
                 "Bureau d'aide aux victimes du tribunal judiciaire",
+                "Maison de justice",
                 "Point-justice",
                 "Tribunal de proximité",
                 "Tribunal judiciaire"
@@ -100,7 +104,7 @@ export class SpwfsfilterComponent implements OnInit {
             markerPath: "assets/images/mapmarker/enseignement/",
             topologies: [
                 "Collège",
-                "Direction de services départementaux de l'Éducation nationale (Dsden)",
+                "Direction de services départementaux de l'Éducation nationale (Dsden) ",
                 "École maternelle",
                 "École primaire",
                 "Lycée",
