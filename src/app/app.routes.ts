@@ -5,8 +5,6 @@ import { GuideComponent } from './pages/annexes/guide/guide.component';
 import { AproposComponent } from './pages/annexes/apropos/apropos.component';
 import { FaqComponent } from './pages/annexes/faq/faq.component';
 import { ContactComponent } from './pages/annexes/contact/contact.component';
-import { CguComponent } from './pages/annexes/cgu/cgu.component';
-import { DonneesPersonnellesComponent } from './pages/annexes/donnees-personnelles/donnees-personnelles.component';
 import { MentionsLegalesComponent } from './pages/annexes/mentions-legales/mentions-legales.component';
 import { PlanDuSiteComponent } from './pages/annexes/plan-du-site/plan-du-site.component';
 import { AccessibiliteComponent } from './pages/annexes/accessibilite/accessibilite.component';
@@ -20,8 +18,6 @@ export const routes: Routes = [
   { path: 'a-propos', component: AproposComponent },
   { path: 'foire-aux-questions', component: FaqComponent },
   { path: 'nous-contacter', component: ContactComponent },
-  { path: 'cgu', component: CguComponent },
-  { path: 'donnees-personnelles', component: DonneesPersonnellesComponent },
   { path: 'mentions-legales', component: MentionsLegalesComponent },
   { path: 'plan-du-site', component: PlanDuSiteComponent },
   { path: 'accessibilite', component: AccessibiliteComponent },
