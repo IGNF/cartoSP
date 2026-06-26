@@ -57,7 +57,7 @@
 }
 
 .td-left-sp {
-    color: var(--light-decisions-text-text-title-grey, #161616);
+    color: var(--light-decisions-text-text-title-grey, #3A3A3A);
     /* 2.Corps de texte/SM - Texte détail/Desktop & Mobile - Regular */
     font-family: Marianne;
     font-size: 14px;
