@@ -126,17 +126,8 @@ export class IsochroneSimpleComponent implements OnInit {
         {nom:"Seine-Saint-Denis", code: "93"},
         {nom:"Val-de-Marne", code: "94"},
         {nom:"Val-d'Oise", code: "95"},
-        {nom:"Guyane française", code: "973"},
-        {nom:"Guadeloupe", code: "971"},
         {nom:"Martinique", code: "972"},
-        {nom:"Réunion", code: "974"},
-        {nom:"Mayotte", code: "976"},
-        {nom:"Saint-Barthélemy", code: "977"},
-        {nom:"Saint-Martin", code: "978"},
-        {nom:"Saint-Pierre-et-Miquelon", code: "975"},
-        {nom:"Wallis-et-Futuna", code: "986"},
-        {nom:"Polynésie française", code: "987"},
-        {nom:"Nouvelle-Calédonie", code: "988"}
+        {nom:"Réunion", code: "974"}
       ],
       typologies: [
         {nom:"Caisse d'allocations familiales (Caf)"}, 
