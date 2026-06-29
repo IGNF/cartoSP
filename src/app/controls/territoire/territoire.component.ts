@@ -173,5 +173,6 @@ export class TerritoireComponent implements OnInit {
     this.rightpanelService.setTerritoriesControl(this.control);
     this.rightpanelService.territoryControl.element.firstChild.firstChild.textContent = "Zoomer sur un territoire";
     this.rightpanelService.territoryControl.element.firstChild.classList.remove('gpf-btn-icon', 'gpf-btn-icon-territories');
+    this.rightpanelService.territoryControl.element.firstChild.classList.add('fr-icon-france-line');
   }
 }

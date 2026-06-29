@@ -12,7 +12,7 @@
   "dependencies": {
     "@edugouvfr/ngx-dsfr": "^1.16.2",
     "@gouvfr/dsfr": "^1.13.1",
-    "geopf-extensions-openlayers": "./lib/geopf-extensions-openlayers-1.0.0-beta.8-501.tgz",
+    "geopf-extensions-openlayers": "./lib/geopf-extensions-openlayers-1.0.0-beta.12-560.tgz",
     "geoportal-access-lib": "^3.4.4",
     "ol": "^10.3.1",
     "opening_hours": "^3.8.0"
