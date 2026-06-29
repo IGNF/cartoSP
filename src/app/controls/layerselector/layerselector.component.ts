@@ -5,11 +5,10 @@ import Control from 'ol/control/Control';
 import { Layerselector } from "geopf-extensions-openlayers/src";
 
 @Component({
-  selector: 'app-layerselector',
-  standalone: true,
-  imports: [],
-  template: '',
-  styles: ['::ng-deep dialog[id^="GPcatalogPanel-"] { top: unset !important; bottom:3px!important; }'],
+    selector: 'app-layerselector',
+    imports: [],
+    template: '',
+    styles: ['::ng-deep dialog[id^="GPcatalogPanel-"] { top: unset !important; bottom:3px!important; }']
 })
 export class LayerselectorComponent implements OnInit {
   @Input() map!: Map;

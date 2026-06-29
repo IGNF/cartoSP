@@ -37,12 +37,11 @@ export interface Commune {
 }
 
 @Component({
-  selector: 'app-localisation',
-  standalone: true,
-  imports: [DsfrTabsModule, DsfrButtonModule, DsfrSearchBarModule],
-  templateUrl: './localisation.component.html',
-  styleUrl: './localisation.component.css',
-  providers: [WfsService, GeocodageService]
+    selector: 'app-localisation',
+    imports: [DsfrTabsModule, DsfrButtonModule, DsfrSearchBarModule],
+    templateUrl: './localisation.component.html',
+    styleUrl: './localisation.component.css',
+    providers: [WfsService, GeocodageService]
 })
 export class LocalisationComponent implements OnInit, AfterViewInit {
 

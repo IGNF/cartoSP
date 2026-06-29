@@ -5,11 +5,10 @@ import Control from 'ol/control/Control';
 import { GeoportalOverviewMap } from "geopf-extensions-openlayers/src";
 
 @Component({
-  selector: 'app-minimap',
-  standalone: true,
-  imports: [],
-  template: '',
-  styleUrls: []
+    selector: 'app-minimap',
+    imports: [],
+    template: '',
+    styleUrls: []
 })
 export class MinimapComponent implements OnInit {
   @Input() map!: Map;

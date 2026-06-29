@@ -5,11 +5,10 @@ import Control from 'ol/control/Control';
 import { LayerSwitcher } from "geopf-extensions-openlayers/src";
 
 @Component({
-  selector: 'app-layerswitcher',
-  standalone: true,
-  imports: [],
-  template: '',
-  styles: [],
+    selector: 'app-layerswitcher',
+    imports: [],
+    template: '',
+    styles: []
 })
 export class LayerswitcherComponent implements OnInit {
   @Input() map!: Map;

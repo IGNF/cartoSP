@@ -32,12 +32,11 @@ import { SimpleGeometry } from 'ol/geom';
 import Gp from 'geoportal-access-lib';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrl: './home.component.css',
-  standalone: true,
-  imports: [CommonModule, CarteComponent, SearchComponent, LayerswitcherComponent, IsochroneSimpleComponent, LegendeComponent, ZoomComponent, FullscreenComponent, AttributionComponent, ScalelineComponent, LayerselectorComponent, SpwfsfilterComponent, RightpanelComponent, SpselectorComponent, IndicatorselectorComponent, TerritoireComponent, MinimapComponent],
-  providers: [GeocodageService]
+    selector: 'app-home',
+    templateUrl: './home.component.html',
+    styleUrl: './home.component.css',
+    imports: [CommonModule, CarteComponent, SearchComponent, LayerswitcherComponent, IsochroneSimpleComponent, LegendeComponent, ZoomComponent, FullscreenComponent, AttributionComponent, ScalelineComponent, LayerselectorComponent, SpwfsfilterComponent, RightpanelComponent, SpselectorComponent, IndicatorselectorComponent, TerritoireComponent, MinimapComponent],
+    providers: [GeocodageService]
 })
 export class HomeComponent implements OnInit {
 

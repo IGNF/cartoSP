@@ -21,11 +21,10 @@ interface responseListType {
 }
 
 @Component({
-  selector: 'app-service-public',
-  standalone: true,
-  imports: [DsfrTabsModule, DsfrAccordionModule, DsfrButtonModule, TitleCasePipe],
-  templateUrl: './service-public.component.html',
-  styleUrl: './service-public.component.css'
+    selector: 'app-service-public',
+    imports: [DsfrTabsModule, DsfrAccordionModule, DsfrButtonModule, TitleCasePipe],
+    templateUrl: './service-public.component.html',
+    styleUrl: './service-public.component.css'
 })
 export class ServicePublicComponent implements OnInit {
   

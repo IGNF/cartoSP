@@ -5,11 +5,10 @@ import Control from 'ol/control/Control';
 import { WfsFilter } from "geopf-extensions-openlayers/src";
 
 @Component({
-  selector: 'app-spwfsfilter',
-  standalone: true,
-  imports: [],
-  template: '',
-  styles: []
+    selector: 'app-spwfsfilter',
+    imports: [],
+    template: '',
+    styles: []
 })
 export class SpwfsfilterComponent implements OnInit {
   @Input() map!: Map;

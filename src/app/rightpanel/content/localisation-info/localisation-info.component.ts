@@ -8,12 +8,11 @@ import { HttpParams } from '@angular/common/http';
 import { DecimalPipe } from '@angular/common';
 
 @Component({
-  selector: 'app-localisation-info',
-  standalone: true,
-  imports: [DsfrButtonModule, DsfrTabsModule, DsfrAccordionModule, DsfrFormSelectModule],
-  templateUrl: './localisation-info.component.html',
-  styleUrl: './localisation-info.component.css',
-  providers: [ApicartospService,DecimalPipe,{provide: LOCALE_ID, useValue: "fr-Fr"}]
+    selector: 'app-localisation-info',
+    imports: [DsfrButtonModule, DsfrTabsModule, DsfrAccordionModule, DsfrFormSelectModule],
+    templateUrl: './localisation-info.component.html',
+    styleUrl: './localisation-info.component.css',
+    providers: [ApicartospService, DecimalPipe, { provide: LOCALE_ID, useValue: "fr-Fr" }]
 })
 export class LocalisationInfoComponent implements OnInit, OnDestroy {
 

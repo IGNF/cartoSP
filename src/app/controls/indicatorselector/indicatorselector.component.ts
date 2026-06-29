@@ -5,11 +5,10 @@ import Control from 'ol/control/Control';
 import { Indicator } from "geopf-extensions-openlayers/src";
 
 @Component({
-  selector: 'app-indicatorselector',
-  standalone: true,
-  imports: [],
-  template: '',
-  styles: []
+    selector: 'app-indicatorselector',
+    imports: [],
+    template: '',
+    styles: []
 })
 export class IndicatorselectorComponent implements OnInit {
   @Input() map!: Map;

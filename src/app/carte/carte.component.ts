@@ -7,11 +7,10 @@ import { LayerWFS as GeoportalLayerWFS, LayerMapBox as GeoportalLayerTMS } from 
 import Overlay from 'ol/Overlay';
 
 @Component({
-  selector: 'app-carte',
-  template: '',
-  styleUrl: './carte.component.css',
-  imports:[],
-  standalone: true,
+    selector: 'app-carte',
+    template: '',
+    styleUrl: './carte.component.css',
+    imports: []
 })
 export class CarteComponent implements OnInit {
   @Input() map!: Map;

@@ -12,10 +12,9 @@ import { ServicePublicComponent } from '../../rightpanel/content/service-public/
 
 
 @Component({
-  selector: 'app-spselector',
-  standalone: true,
-  imports: [],
-  template: '',
+    selector: 'app-spselector',
+    imports: [],
+    template: ''
 })
 export class SpselectorComponent implements OnInit {
   @Input() map!: Map;

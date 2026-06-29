@@ -3,11 +3,10 @@ import { ActivatedRoute } from '@angular/router';
 import { RouterModule } from '@angular/router';
 
 @Component({
-  selector: 'app-guide',
-  standalone: true,
-  imports: [RouterModule],
-  templateUrl: './guide.component.html',
-  styleUrl: './guide.component.css'
+    selector: 'app-guide',
+    imports: [RouterModule],
+    templateUrl: './guide.component.html',
+    styleUrl: './guide.component.css'
 })
 export class GuideComponent implements AfterViewInit {
   @ViewChild('guideScroll') guideScroll: ElementRef | undefined;

@@ -6,11 +6,10 @@ import { DsfrDisplayComponent, DsfrFooterModule, DsfrHeaderModule, DsfrTooltipDi
 import { DsfrToolLinkMenuComponent, DsfrLinkComponent } from '@edugouvfr/ngx-dsfr';
 
 @Component({
-  selector: 'app-root',
-  standalone: true,
-  imports: [RouterOutlet, RouterLink, NgIf, DsfrFooterModule, DsfrDisplayComponent, DsfrHeaderModule, DsfrToolLinkMenuComponent, DsfrLinkComponent],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+    selector: 'app-root',
+    imports: [RouterOutlet, RouterLink, NgIf, DsfrFooterModule, DsfrDisplayComponent, DsfrHeaderModule, DsfrToolLinkMenuComponent, DsfrLinkComponent],
+    templateUrl: './app.component.html',
+    styleUrl: './app.component.css'
 })
 export class AppComponent implements AfterViewInit {
   title = 'cartosp';

@@ -4,11 +4,10 @@ import { Router } from '@angular/router';
 import { DsfrResponseModule } from '@edugouvfr/ngx-dsfr';
 
 @Component({
-  selector: 'app-notfound',
-  standalone: true,
-  imports: [DsfrResponseModule],
-  templateUrl: './notfound.component.html',
-  styleUrl: './notfound.component.css'
+    selector: 'app-notfound',
+    imports: [DsfrResponseModule],
+    templateUrl: './notfound.component.html',
+    styleUrl: './notfound.component.css'
 })
 export class NotfoundComponent {
 
