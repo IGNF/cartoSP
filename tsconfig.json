@@ -15,6 +15,12 @@
     "declaration": false,
     "experimentalDecorators": true,
     "moduleResolution": "bundler",
+    "baseUrl": ".",
+    "paths": {
+      "opening_hours": [
+        "node_modules/opening_hours/types/index.d.ts"
+      ]
+    },
     "importHelpers": true,
     "target": "ES2022",
     "module": "ES2022",
