@@ -28,6 +28,7 @@ export class LocalisationInfoComponent implements OnInit, OnDestroy {
   nbitinerants?: number;
   nbpermanences?: number;
   nbtotal?: number;
+  spStatistiques?: any;
   isochrones: any[] = [];
   private decimalPipe = inject(DecimalPipe);
   apidata = {
@@ -259,6 +260,16 @@ export class LocalisationInfoComponent implements OnInit, OnDestroy {
         this.nbtotal = response;
       },
       error : (error: any) => { console.error('Error fetching total count info:', error) }
+    });
+    
+    this.apicartospService.getSpStatistiques(totalOptions).subscribe({
+      next : (response: any) => {
+        this.spStatistiques = response;
+      },
+      error : (error: any) => { 
+        this.spStatistiques = null;
+        console.error('Error fetching SP statistiques info:', error)
+       }
     });
   }
 

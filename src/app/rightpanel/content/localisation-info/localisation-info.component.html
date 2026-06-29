@@ -331,7 +331,7 @@
 
     <h6 class="fr-h6">Données administratives</h6>
 
-    <div class="fr-table fr-table--bordered fr-table--infos">
+    <div class="fr-table fr-table--bordered fr-table--infos fr-tables--infos-nomargin">
         <div class="fr-table__wrapper fr-table-wrapper-cartosp">
             <div class="fr-table__container">
                 <div class="fr-table__content">
@@ -367,6 +367,44 @@
             </div>
         </div>
     </div>
+    @if(spStatistiques){
+    <div class="fr-table fr-table--bordered fr-table--infos">
+        <div class="fr-table__wrapper fr-table-wrapper-cartosp">
+            <div class="fr-table__container">
+                <div class="fr-table__content">
+                    <table>
+                      <thead>
+                        <tr>
+                          <th class="th-left th-left-sp">
+                            <div class="th-content">
+                              Nombre de points d'accueil pour 100 000 hts
+                              <button class="fr-btn--tooltip fr-btn" type="button" id="button-nbpa100000" aria-describedby="tooltip-nbpa100000">
+                                Source
+                              </button>
+                              <span class="fr-tooltip fr-placement" id="tooltip-nbpa100000" role="tooltip" aria-hidden="true">TODO <br> Insee, 2024</span>
+                            </div>
+                          </th>
+                          <th class="th-right-sp">{{ formatNumberReal(spStatistiques.sp_pour_100000_habitants || 0, '1.2-2') }}</th>
+                        </tr>
+                      </thead>
+                      <tr>
+                        <td class="td-left-sp">Val. nat.</td>
+                        <td class="td-right-sp">{{ formatNumberReal(spStatistiques.sp_pour_100000_habitants_moyenne_nationale || 0, '1.2-2') }}</td>
+                      </tr>
+                      <tr>
+                        <td class="td-left-sp">Min</td>
+                        <td class="td-right-sp">{{ formatNumberReal(spStatistiques.sp_pour_100000_habitants_min || 0, '1.2-2') }}</td>
+                      </tr>
+                      <tr>
+                        <td class="td-left-sp">Max</td>
+                        <td class="td-right-sp">{{ formatNumberReal(spStatistiques.sp_pour_100000_habitants_max || 0, '1.2-2') }}</td>
+                      </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    }
   </dsfr-tab>
   <!-- Onglet accès aux isochrones -->
   <dsfr-tab

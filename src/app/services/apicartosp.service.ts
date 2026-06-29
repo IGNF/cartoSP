@@ -59,4 +59,11 @@ export class ApicartospService {
             params: options
         });
     }
+
+    // Get SP statistics by typologie and departement
+    getSpStatistiques(options: any): Observable<any> {
+        return this.http.get(this.apiUrl + "/services_publics/statistiques",{
+            params: options
+        });
+    }
 }

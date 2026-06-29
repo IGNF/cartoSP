@@ -35,6 +35,10 @@
     margin-top: 0px;
 }
 
+.fr-tables--infos-nomargin {
+    margin-bottom: 0px !important;
+}
+
 .td-right, .th-right, .th-right-sp {
     text-align: center;
 }
