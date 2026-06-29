@@ -8,6 +8,7 @@
     border-left: 1px solid var(--border-default-grey);
     position: sticky;
     background-color: var(--background-default-grey);
+    padding-top: 15px;
 }
 
 :host > .rightpanel-body-container{
