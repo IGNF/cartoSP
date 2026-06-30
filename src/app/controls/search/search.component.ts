@@ -23,6 +23,7 @@ export class SearchComponent implements OnInit {
     this.dialog = new Searchdialog({
         position: "top-left",
         panel: true,
+        markerUrl: "assets/images/marker.png"
     });
     this.map.addControl(this.dialog);
 
