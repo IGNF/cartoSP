@@ -39,6 +39,7 @@ export const routes: Routes = [
       '984', '986', '987', '988'
     ])]
   },
+  //{ path: 'assets/', pathMatch: 'full', component: NotfoundComponent },
   //Wild Card Route for any 404 request 
   { path: '**', pathMatch: 'full', component: NotfoundComponent }, 
 ];
