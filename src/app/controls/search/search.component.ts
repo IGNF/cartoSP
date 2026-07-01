@@ -65,7 +65,7 @@ export class SearchComponent implements OnInit {
     var location = new LocationAdvancedSearch({})
 
     this.search = new SearchEngineAdvanced({
-      advancedSearch : [location],
+      advancedSearch : false,
       returnTrueGeometry : true,
     })
 
