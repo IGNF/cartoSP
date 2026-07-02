@@ -23,6 +23,9 @@
             "loader": {
               ".svg": "text"
             },
+            "security": {
+              "autoCsp": true
+            },
             "assets": [
               "src/favicon.ico",
               "src/assets",
