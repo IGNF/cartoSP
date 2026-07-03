@@ -44,7 +44,6 @@ export class SpwfsfilterComponent implements OnInit {
         "Social" : {
             markerPath: "assets/images/mapmarker/social/",
             topologies: [
-                "Caisse commune de sécurité sociale (CCSS)",
                 "Caisse d'allocations familiales (Caf)",
                 "Caisse d'assurance retraite et de la santé au travail (Carsat)",
                 "Caisse primaire d’assurance maladie (CPAM)",

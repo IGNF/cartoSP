@@ -82,7 +82,6 @@ export class LocalisationInfoComponent implements OnInit, OnDestroy {
       {label: "Maison de santé", value: "Maison de santé"}
     ]},
     {label: "Social", options: [
-      {label: "Caisse commune de sécurité sociale (CCSS)", value: "Caisse commune de sécurité sociale (CCSS)"},
       {label: "Caisse d'allocations familiales (Caf)", value: "Caisse d'allocations familiales (Caf)"},
       {label: "Caisse d'assurance retraite et de la santé au travail (Carsat)", value: "Caisse d'assurance retraite et de la santé au travail (Carsat)"},
       {label: "Caisse primaire d’assurance maladie (CPAM)", value: "Caisse primaire d’assurance maladie (CPAM)"},
