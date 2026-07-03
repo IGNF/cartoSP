@@ -134,8 +134,12 @@
     width: 40%;
 }
 
-.fr-table__wrapper::after, .fr-table__content table thead th, .fr-table--infos > .fr-table__wrapper > .fr-table__container > .fr-table__content > table > tr > .no-underlined {
-	background-image: unset;
+.fr-table__wrapper::after, .fr-table__content table thead th, .fr-table--infos > .fr-table__wrapper > .fr-table__container > .fr-table__content > table > tbody > tr > .no-underlined {
+	background-image: unset; 
+}
+
+.fr-table__content table tbody td {
+    background-image: unset;
 }
 
 .tr-estimate {

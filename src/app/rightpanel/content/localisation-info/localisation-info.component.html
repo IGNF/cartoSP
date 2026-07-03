@@ -48,17 +48,19 @@
                           <th class="th-right fr-tabble--hidden"></th>
                         </tr>
                       </thead>
-                      <tr>
-                        <td class="td-small highlight-value">
-                          @if (apidata.nb_commune) {
-                            {{ apidata.nb_commune  }}
-                          }
-                          @else {
-                            Inconnue
-                          }
-                        </td>
-                        <td class="fr-tabble--hidden"></td>
-                      </tr>
+                      <tbody>
+                        <tr>
+                          <td class="td-small highlight-value">
+                            @if (apidata.nb_commune) {
+                              {{ apidata.nb_commune  }}
+                            }
+                            @else {
+                              Inconnue
+                            }
+                          </td>
+                          <td class="fr-tabble--hidden"></td>
+                        </tr>
+                      </tbody>
                     </table>
                     @if (data.type === "departement"){
                       <table>
@@ -68,16 +70,18 @@
                             <th class="th-right fr-tabble--hidden"></th>
                           </tr>
                         </thead>
-                        <tr>
-                          <td class="last-tr td-small highlight-value">
-                            @if (apidata.nb_epci) {
-                              {{ apidata.nb_epci }}
-                            } @else {
-                              Inconnue
-                            }
-                          </td>
-                          <td class="last-tr fr-tabble--hidden"></td>
-                        </tr>
+                        <tbody>
+                          <tr>
+                            <td class="last-tr td-small highlight-value">
+                              @if (apidata.nb_epci) {
+                                {{ apidata.nb_epci }}
+                              } @else {
+                                Inconnue
+                              }
+                            </td>
+                            <td class="last-tr fr-tabble--hidden"></td>
+                          </tr>
+                        </tbody>
                       </table>
                     }
                   </div>
@@ -107,28 +111,30 @@
                         <th class="th-right">Moy. nat.</th>
                       </tr>
                     </thead>
-                    <tr>
-                      <td class="no-underlined highlight-value">{{ formatNumber(apidata.population_recensement,'1.0-0') }}</td>
-                      <td class="no-underlined td-right">{{ formatNumberReal(moynat.population_recensement_moyenne,'1.0-0') }}</td>
-                    </tr>
-                  @if (data.type === "departement"){ 
-                    <tr class="tr-estimate">
-                      <td>
-                        <div>
-                          Projection 2070
-                          <button class="fr-btn--tooltip fr-btn" type="button" id="button-proj2070" aria-describedby="tooltip-proj2070">
-                            Source
-                          </button>
-                          <span class="fr-tooltip fr-placement" id="tooltip-proj2070" role="tooltip" aria-hidden="true">Calcul DITP, données sources INSEE <br> Projections de population 2018-2070 pour les départements et les régions, 2022</span>
-                        </div>
-                        <div class="highlight-value">{{ formatNumber(apidata.projection2070,'1.0-0') }}</div>
-                      </td>
-                      <td class="td-right">
-                        <br>
-                        <div>{{ formatNumberReal(moynat.projection2070_moyenne,'1.0-0') }}</div>
-                      </td>
-                    </tr>
-                  }
+                    <tbody>
+                      <tr>
+                        <td class="no-underlined highlight-value">{{ formatNumber(apidata.population_recensement,'1.0-0') }}</td>
+                        <td class="no-underlined td-right">{{ formatNumberReal(moynat.population_recensement_moyenne,'1.0-0') }}</td>
+                      </tr>
+                    @if (data.type === "departement"){ 
+                      <tr class="tr-estimate">
+                        <td>
+                          <div>
+                            Projection 2070
+                            <button class="fr-btn--tooltip fr-btn" type="button" id="button-proj2070" aria-describedby="tooltip-proj2070">
+                              Source
+                            </button>
+                            <span class="fr-tooltip fr-placement" id="tooltip-proj2070" role="tooltip" aria-hidden="true">Calcul DITP, données sources INSEE <br> Projections de population 2018-2070 pour les départements et les régions, 2022</span>
+                          </div>
+                          <div class="highlight-value">{{ formatNumber(apidata.projection2070,'1.0-0') }}</div>
+                        </td>
+                        <td class="td-right">
+                          <br>
+                          <div>{{ formatNumberReal(moynat.projection2070_moyenne,'1.0-0') }}</div>
+                        </td>
+                      </tr>
+                    }
+                    </tbody>
                   </table>
                   <!-- Densité -->
                   <table>
@@ -146,10 +152,12 @@
                         <th class="th-right">Val. nat.</th>
                       </tr>
                     </thead>
-                    <tr>
-                      <td class="last-tr highlight-value">{{ formatNumber(apidata.population_densite,'1.1-1') }}</td>
-                      <td class="last-tr td-right">{{ formatNumberReal(moynat.densite_pop_valnat,'1.1-1') }}</td>
-                    </tr>
+                    <tbody>
+                      <tr>
+                        <td class="last-tr highlight-value">{{ formatNumber(apidata.population_densite,'1.1-1') }}</td>
+                        <td class="last-tr td-right">{{ formatNumberReal(moynat.densite_pop_valnat,'1.1-1') }}</td>
+                      </tr>
+                    </tbody>
                   </table>
                   <!-- Vieillissement -->
                   <table>
@@ -167,28 +175,30 @@
                         <th class="th-right">Val. nat.</th>
                       </tr>
                     </thead>
-                    <tr>
-                      <td class="no-underlined highlight-value">{{ formatNumber(apidata.vieillissement_indice,'1.0-0') }}</td>
-                      <td class="no-underlined td-right">{{ formatNumberReal(moynat.indice_vieillissement_valnat,'1.0-0') }}</td>
-                    </tr>
-                  @if (data.type === "departement"){ 
-                    <tr class="tr-estimate">
-                      <td>
-                        <div>
-                          Projection 2070
-                          <button class="fr-btn--tooltip fr-btn" type="button" id="button-indice-2070" aria-describedby="tooltip-indice-2070">
-                            Source
-                          </button>
-                          <span class="fr-tooltip fr-placement" id="tooltip-indice-2070" role="tooltip" aria-hidden="true">Calcul DITP, données sources INSEE <br> Projections de population 2018-2070 pour les départements et les régions, 2022</span>
-                        </div>
-                        <div class="highlight-value">{{ formatNumber(apidata.projection_vieillissement2070,'1.0-0') }}</div>
-                      </td>
-                      <td class="td-right">
-                        <br>
-                        <div>{{ formatNumberReal(moynat.indice_vieillissement2070_valnat,'1.0-0') }}</div>
-                      </td>
-                    </tr>
-                  }
+                    <tbody>
+                      <tr>
+                        <td class="no-underlined highlight-value">{{ formatNumber(apidata.vieillissement_indice,'1.0-0') }}</td>
+                        <td class="no-underlined td-right">{{ formatNumberReal(moynat.indice_vieillissement_valnat,'1.0-0') }}</td>
+                      </tr>
+                      @if (data.type === "departement"){ 
+                      <tr class="tr-estimate">
+                        <td>
+                          <div>
+                            Projection 2070
+                            <button class="fr-btn--tooltip fr-btn" type="button" id="button-indice-2070" aria-describedby="tooltip-indice-2070">
+                              Source
+                            </button>
+                            <span class="fr-tooltip fr-placement" id="tooltip-indice-2070" role="tooltip" aria-hidden="true">Calcul DITP, données sources INSEE <br> Projections de population 2018-2070 pour les départements et les régions, 2022</span>
+                          </div>
+                          <div class="highlight-value">{{ formatNumber(apidata.projection_vieillissement2070,'1.0-0') }}</div>
+                        </td>
+                        <td class="td-right">
+                          <br>
+                          <div>{{ formatNumberReal(moynat.indice_vieillissement2070_valnat,'1.0-0') }}</div>
+                        </td>
+                      </tr>
+                      }
+                    </tbody>
                   </table>
                 </div>
             </div>
@@ -218,10 +228,12 @@
                         <th class="th-right">Val. nat.</th>
                       </tr>
                     </thead>
-                    <tr>
-                      <td class="last-tr highlight-value">{{ formatNumber(apidata.taux_pauvrete,'1.1-1') }}@if (apidata.taux_pauvrete){%}</td>
-                      <td class="last-tr td-right">{{ formatNumberReal(moynat.taux_pauvrete_moyenne,'1.1-1') }}@if (moynat.taux_pauvrete_moyenne){%}</td>
-                    </tr>
+                    <tbody>
+                      <tr>
+                        <td class="last-tr highlight-value">{{ formatNumber(apidata.taux_pauvrete,'1.1-1') }}@if (apidata.taux_pauvrete){%}</td>
+                        <td class="last-tr td-right">{{ formatNumberReal(moynat.taux_pauvrete_moyenne,'1.1-1') }}@if (moynat.taux_pauvrete_moyenne){%}</td>
+                      </tr>
+                    </tbody>
                   </table>
                   <!-- Taux de chomage -->
                   @if (data.type === "departement"){ 
@@ -240,10 +252,12 @@
                           <th class="th-right">Val. nat.</th>
                         </tr>
                       </thead>
-                      <tr>
-                        <td class="last-tr highlight-value">{{ formatNumber(apidata.taux_chomage,'1.1-1') }}@if (apidata.taux_chomage){%}</td>
-                        <td class="last-tr td-right">{{ formatNumberReal(moynat.chomage_bit_valnat,'1.1-1') }}@if (moynat.chomage_bit_valnat){%}</td>
-                      </tr>
+                      <tbody>
+                        <tr>
+                          <td class="last-tr highlight-value">{{ formatNumber(apidata.taux_chomage,'1.1-1') }}@if (apidata.taux_chomage){%}</td>
+                          <td class="last-tr td-right">{{ formatNumberReal(moynat.chomage_bit_valnat,'1.1-1') }}@if (moynat.chomage_bit_valnat){%}</td>
+                        </tr>
+                      </tbody>
                     </table>
                   }
                   <!-- Nbr. de bénéficiaires du RSA -->
@@ -262,10 +276,12 @@
                         <th class="th-right">Moy. nat.</th>
                       </tr>
                     </thead>
-                    <tr>
-                      <td class="last-tr highlight-value">{{ formatNumber(apidata.population_rsa,'1.0-0') }}</td>
-                      <td class="last-tr td-right">{{ formatNumberReal(moynat.population_rsa_moyenne,'1.0-0') }}</td>
-                    </tr>
+                    <tbody>
+                      <tr>
+                        <td class="last-tr highlight-value">{{ formatNumber(apidata.population_rsa,'1.0-0') }}</td>
+                        <td class="last-tr td-right">{{ formatNumberReal(moynat.population_rsa_moyenne,'1.0-0') }}</td>
+                      </tr>
+                    </tbody>
                   </table>
                   <!-- Nbr. de familles monoparentales -->
                   <table>
@@ -283,10 +299,12 @@
                         <th class="th-right">Moy. nat.</th>
                       </tr>
                     </thead>
-                    <tr>
-                      <td class="last-tr highlight-value">{{ formatNumber(apidata.nb_monoparentale,'1.0-0') }}</td>
-                      <td class="last-tr td-right">{{ formatNumberReal(moynat.nb_monoparentale_moyenne,'1.0-0') }}</td>
-                    </tr>
+                    <tbody>
+                      <tr>
+                        <td class="last-tr highlight-value">{{ formatNumber(apidata.nb_monoparentale,'1.0-0') }}</td>
+                        <td class="last-tr td-right">{{ formatNumberReal(moynat.nb_monoparentale_moyenne,'1.0-0') }}</td>
+                      </tr>
+                    </tbody>
                   </table>
                   <!-- QPV -->
                   <table>
@@ -304,10 +322,12 @@
                         <th class="th-right">Moy. nat.</th>
                       </tr>
                     </thead>
-                    <tr>
-                      <td class="last-tr highlight-value">{{ formatNumber(apidata.nb_qpv,'1.0-0') }}</td>
-                      <td class="last-tr td-right">{{ formatNumberReal(moynat.nb_qpv_moyenne,'1.0-0') }}</td>
-                    </tr>
+                    <tbody>
+                      <tr>
+                        <td class="last-tr highlight-value">{{ formatNumber(apidata.nb_qpv,'1.0-0') }}</td>
+                        <td class="last-tr td-right">{{ formatNumberReal(moynat.nb_qpv_moyenne,'1.0-0') }}</td>
+                      </tr>
+                    </tbody>
                   </table>
                 </div>
             </div>
@@ -350,18 +370,20 @@
                           <th class="th-right-sp">{{ nbtotal }}</th>
                         </tr>
                       </thead>
-                      <tr>
-                        <td class="td-left-sp">Implantation@if (nbimplantations != 1) {s}</td>
-                        <td class="td-right-sp">{{ nbimplantations || 0 }}</td>
-                      </tr>
-                      <tr>
-                        <td class="td-left-sp">Permanence@if (nbpermanences != 1) {s}</td>
-                        <td class="td-right-sp">{{ nbpermanences || 0 }}</td>
-                      </tr>
-                      <tr>
-                        <td class="td-left-sp">Dispositif@if (nbitinerants != 1) {s} itinérant@if (nbitinerants != 1) {s}</td>
-                        <td class="td-right-sp">{{ nbitinerants || 0 }}</td>
-                      </tr>
+                      <tbody>
+                        <tr>
+                          <td class="td-left-sp">Implantation@if (nbimplantations != 1) {s}</td>
+                          <td class="td-right-sp">{{ nbimplantations || 0 }}</td>
+                        </tr>
+                        <tr>
+                          <td class="td-left-sp">Permanence@if (nbpermanences != 1) {s}</td>
+                          <td class="td-right-sp">{{ nbpermanences || 0 }}</td>
+                        </tr>
+                        <tr>
+                          <td class="td-left-sp">Dispositif@if (nbitinerants != 1) {s} itinérant@if (nbitinerants != 1) {s}</td>
+                          <td class="td-right-sp">{{ nbitinerants || 0 }}</td>
+                        </tr>
+                      </tbody>
                     </table>
                 </div>
             </div>
@@ -387,18 +409,20 @@
                           <th class="th-right-sp">{{ formatNumberReal(spStatistiques.sp_pour_100000_habitants || 0, '1.2-2') }}</th>
                         </tr>
                       </thead>
-                      <tr>
-                        <td class="td-left-sp">Val. nat.</td>
-                        <td class="td-right-sp">{{ formatNumberReal(spStatistiques.sp_pour_100000_habitants_moyenne_nationale || 0, '1.2-2') }}</td>
-                      </tr>
-                      <tr>
-                        <td class="td-left-sp">Min</td>
-                        <td class="td-right-sp">{{ formatNumberReal(spStatistiques.sp_pour_100000_habitants_min || 0, '1.2-2') }}</td>
-                      </tr>
-                      <tr>
-                        <td class="td-left-sp">Max</td>
-                        <td class="td-right-sp">{{ formatNumberReal(spStatistiques.sp_pour_100000_habitants_max || 0, '1.2-2') }}</td>
-                      </tr>
+                      <tbody>
+                        <tr>
+                          <td class="td-left-sp">Val. nat.</td>
+                          <td class="td-right-sp">{{ formatNumberReal(spStatistiques.sp_pour_100000_habitants_moyenne_nationale || 0, '1.2-2') }}</td>
+                        </tr>
+                        <tr>
+                          <td class="td-left-sp">Min</td>
+                          <td class="td-right-sp">{{ formatNumberReal(spStatistiques.sp_pour_100000_habitants_min || 0, '1.2-2') }}</td>
+                        </tr>
+                        <tr>
+                          <td class="td-left-sp">Max</td>
+                          <td class="td-right-sp">{{ formatNumberReal(spStatistiques.sp_pour_100000_habitants_max || 0, '1.2-2') }}</td>
+                        </tr>
+                      </tbody>
                     </table>
                 </div>
             </div>
