@@ -4,13 +4,13 @@ import { Router } from '@angular/router';
 import { DsfrResponseModule } from '@edugouvfr/ngx-dsfr';
 
 @Component({
-    selector: 'app-notfound',
-    imports: [DsfrResponseModule],
-    templateUrl: './notfound.component.html',
-    styleUrl: './notfound.component.css'
+  selector: 'app-exception',
+  imports: [DsfrResponseModule],
+  templateUrl: './exception.component.html',
+  styleUrl: './exception.component.css',
 })
-export class NotfoundComponent {
-
+export class ExceptionComponent {
+  
   constructor(private router: Router) { }
 
   contactSelect() {
@@ -20,4 +20,5 @@ export class NotfoundComponent {
   backToHomeSelect() {
     this.router.navigate(['']);
   }
+
 }

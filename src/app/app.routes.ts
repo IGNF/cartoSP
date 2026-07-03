@@ -9,6 +9,7 @@ import { MentionsLegalesComponent } from './pages/annexes/mentions-legales/menti
 import { PlanDuSiteComponent } from './pages/annexes/plan-du-site/plan-du-site.component';
 import { AccessibiliteComponent } from './pages/annexes/accessibilite/accessibilite.component';
 import { NotfoundComponent } from './pages/errors/notfound/notfound.component';
+import { ExceptionComponent } from './pages/errors/exception/exception.component';
 import { AllowedLocation } from './app.routes.guard';
 
 export const routes: Routes = [ 
@@ -39,7 +40,8 @@ export const routes: Routes = [
       '984', '986', '987', '988'
     ])]
   },
-  //{ path: 'assets/', pathMatch: 'full', component: NotfoundComponent },
+  { path: 'erreur', pathMatch: 'full', component: ExceptionComponent },
+  { path: 'page-introuvable', pathMatch: 'full', component: NotfoundComponent },
   //Wild Card Route for any 404 request 
   { path: '**', pathMatch: 'full', component: NotfoundComponent }, 
 ];
