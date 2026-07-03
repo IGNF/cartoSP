@@ -266,8 +266,10 @@ export class LocalisationInfoComponent implements OnInit, OnDestroy {
       },
       error : (error: any) => { 
         this.spStatistiques = null;
-        console.error('Error fetching SP statistiques info:', error)
-       }
+        if(error.status != 200){
+          console.error('Error fetching SP statistiques info:', error)
+        }
+      }
     });
   }
 
