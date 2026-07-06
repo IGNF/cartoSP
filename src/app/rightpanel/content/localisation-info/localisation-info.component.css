@@ -134,6 +134,10 @@
     width: 40%;
 }
 
+.thead-ajust-height {
+    height: 65px;
+}
+
 .fr-table__wrapper::after, .fr-table__content table thead th, .fr-table--infos > .fr-table__wrapper > .fr-table__container > .fr-table__content > table > tbody > tr > .no-underlined {
 	background-image: unset; 
 }
