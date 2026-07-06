@@ -498,9 +498,126 @@
             <ng-container heading>{{isochrone.layername}} ({{isochrone.name_location}} - {{isochrone.location}}; {{isochrone.time}}; {{isochrone.ride}}) </ng-container>
             <ng-container content>
               @if(isochrone.totalsDepartement.percentages){
-                <p class="isochronetext"><strong>{{formatNumberReal(isochrone.totalsDepartement.percentages.population,'1.2-2')}}%</strong> de la population du département couverte</p>
-                <p class="isochronetext"><strong>{{formatNumberReal(isochrone.totalsDepartement.percentages.nb_men_pauv,'1.2-2')}}%</strong> des ménages pauvres du département couverte</p>
-                <p class="isochronetext"><strong>{{formatNumberReal(isochrone.totalsDepartement.percentages.nb_plus_65 ,'1.2-2') }}%</strong> des + 65ans du département couverte</p>
+                @if(isochrone.totalsDepartement.percentages.pauv){
+                  <div class="fr-table fr-table--bordered fr-table--infos fr-tables--infos-nomargin">
+                      <div class="fr-table__wrapper fr-table-wrapper-cartosp">
+                          <div class="fr-table__container">
+                              <div class="fr-table__content">
+                                  <table>
+                                    <thead>
+                                      <tr>
+                                        <th class="th-left th-left-sp">
+                                          <div class="th-content">
+                                            Pourcentage de la population du département couverte
+                                            <button class="fr-btn--tooltip fr-btn" type="button" id="button-vohm" aria-describedby="tooltip-vohm">
+                                              Source
+                                            </button>
+                                            <span class="fr-tooltip fr-placement" id="tooltip-vohm" role="tooltip" aria-hidden="true"> Volume d’ouverture hebdomadaire moyen pour les implantations. Cet indicateur est calculé lorsqu’au moins 50% des implantations du service ont renseigné leurs horaires d’ouverture.<br>Les « min » et « max » correspondent aux départements avec la plus faible et la plus grande valeur.</span>
+                                          </div>
+                                        </th>
+                                        <th class="th-right-sp">{{formatNumberReal(isochrone.totalsDepartement.percentages.population,'1.2-2')}}%</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      <tr>
+                                        <td class="td-left-sp">Médiane</td>
+                                        <td class="td-right-sp">{{formatNumberReal(isochrone.totalsDepartement.percentages.pop.mediane,'1.2-2')}}%</td>
+                                      </tr>
+                                      <tr>
+                                        <td class="td-left-sp">Min</td>
+                                        <td class="td-right-sp">{{formatNumberReal(isochrone.totalsDepartement.percentages.pop.min,'1.2-2')}}%</td>
+                                      </tr>
+                                      <tr>
+                                        <td class="td-left-sp">Max</td>
+                                        <td class="td-right-sp">{{formatNumberReal(isochrone.totalsDepartement.percentages.pop.max,'1.2-2')}}%</td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="fr-table fr-table--bordered fr-table--infos fr-tables--infos-nomargin">
+                      <div class="fr-table__wrapper fr-table-wrapper-cartosp">
+                          <div class="fr-table__container">
+                              <div class="fr-table__content">
+                                  <table>
+                                    <thead>
+                                      <tr>
+                                        <th class="th-left th-left-sp">
+                                          <div class="th-content">
+                                            Pourcentage des ménages pauvres du département couverts
+                                            <button class="fr-btn--tooltip fr-btn" type="button" id="button-vohm" aria-describedby="tooltip-vohm">
+                                              Source
+                                            </button>
+                                            <span class="fr-tooltip fr-placement" id="tooltip-vohm" role="tooltip" aria-hidden="true"> Volume d’ouverture hebdomadaire moyen pour les implantations. Cet indicateur est calculé lorsqu’au moins 50% des implantations du service ont renseigné leurs horaires d’ouverture.<br>Les « min » et « max » correspondent aux départements avec la plus faible et la plus grande valeur.</span>
+                                          </div>
+                                        </th>
+                                        <th class="th-right-sp">{{formatNumberReal(isochrone.totalsDepartement.percentages.nb_men_pauv,'1.2-2')}}%</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      <tr>
+                                        <td class="td-left-sp">Médiane</td>
+                                        <td class="td-right-sp">{{formatNumberReal(isochrone.totalsDepartement.percentages.pauv.mediane,'1.2-2')}}%</td>
+                                      </tr>
+                                      <tr>
+                                        <td class="td-left-sp">Min</td>
+                                        <td class="td-right-sp">{{formatNumberReal(isochrone.totalsDepartement.percentages.pauv.min,'1.2-2')}}%</td>
+                                      </tr>
+                                      <tr>
+                                        <td class="td-left-sp">Max</td>
+                                        <td class="td-right-sp">{{formatNumberReal(isochrone.totalsDepartement.percentages.pauv.max,'1.2-2')}}%</td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="fr-table fr-table--bordered fr-table--infos fr-tables--infos-nomargin">
+                      <div class="fr-table__wrapper fr-table-wrapper-cartosp">
+                          <div class="fr-table__container">
+                              <div class="fr-table__content">
+                                  <table>
+                                    <thead>
+                                      <tr>
+                                        <th class="th-left th-left-sp">
+                                          <div class="th-content">
+                                            Pourcentage des plus de 65 ans du département couverts
+                                            <button class="fr-btn--tooltip fr-btn" type="button" id="button-vohm" aria-describedby="tooltip-vohm">
+                                              Source
+                                            </button>
+                                            <span class="fr-tooltip fr-placement" id="tooltip-vohm" role="tooltip" aria-hidden="true"> Volume d’ouverture hebdomadaire moyen pour les implantations. Cet indicateur est calculé lorsqu’au moins 50% des implantations du service ont renseigné leurs horaires d’ouverture.<br>Les « min » et « max » correspondent aux départements avec la plus faible et la plus grande valeur.</span>
+                                          </div>
+                                        </th>
+                                        <th class="th-right-sp">{{formatNumberReal(isochrone.totalsDepartement.percentages.nb_plus_65 ,'1.2-2') }}%</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      <tr>
+                                        <td class="td-left-sp">Médiane</td>
+                                        <td class="td-right-sp">{{formatNumberReal(isochrone.totalsDepartement.percentages.plus_65.mediane,'1.2-2')}}%</td>
+                                      </tr>
+                                      <tr>
+                                        <td class="td-left-sp">Min</td>
+                                        <td class="td-right-sp">{{formatNumberReal(isochrone.totalsDepartement.percentages.plus_65.min,'1.2-2')}}%</td>
+                                      </tr>
+                                      <tr>
+                                        <td class="td-left-sp">Max</td>
+                                        <td class="td-right-sp">{{formatNumberReal(isochrone.totalsDepartement.percentages.plus_65.max,'1.2-2')}}%</td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                } @else {
+                  <p class="isochronetext"><strong>{{formatNumberReal(isochrone.totalsDepartement.percentages.population,'1.2-2')}}%</strong> de la population du département couverte</p>
+                  <p class="isochronetext"><strong>{{formatNumberReal(isochrone.totalsDepartement.percentages.nb_men_pauv,'1.2-2')}}%</strong> des ménages pauvres du département couverte</p>
+                  <p class="isochronetext"><strong>{{formatNumberReal(isochrone.totalsDepartement.percentages.nb_plus_65 ,'1.2-2') }}%</strong> des + 65ans du département couverte</p>
+                }
               } @else {
                 <p>Aucune données pour cet isochrone.</p>
               }

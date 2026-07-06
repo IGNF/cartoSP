@@ -12,6 +12,7 @@ import { LocalisationInfoComponent } from '../../rightpanel/content/localisation
 import { ApicartospService } from '../../services/apicartosp.service';
 import { GeocodageService } from '../../services/geocodage.service';
 import { IsochroneStatsService } from '../../services/isochronestats.service';
+import { catchError, forkJoin, of } from 'rxjs';
 
 @Component({
   selector: 'app-isochrone-simple',
@@ -174,10 +175,29 @@ export class IsochroneSimpleComponent implements OnInit {
             const [maxLon, maxLat] = transform([extent3857[2], extent3857[3]], 'EPSG:3857', 'EPSG:4326');
             const BBOX = `${minLat},${minLon},${maxLat},${maxLon}`;
 
-            this.isochroneStatsService.getIsochroneStatsByBbox({location_code: location, bbox: BBOX}, isochrones).subscribe({
-              next : (response: any) => {
-                e.layer.set('totalsDepartement', response);
-                console.log("Isochrone statistics totals:", response);
+            forkJoin({
+              totalsDepartement: this.isochroneStatsService.getIsochroneStatsByBbox({location_code: location, bbox: BBOX}, isochrones),
+              isochroneStatistiques: this.apicartospService.getIsochroneStatistiques({
+                code_dep: location,
+                temps: e.layer.values_.time,
+                typologie: e.layer.values_.layername
+              }).pipe(
+                catchError((error: any) => {
+                  console.error('Error fetching isochrone statistiques:', error);
+                  return of(null);
+                })
+              )
+            }).subscribe({
+              next : ({ totalsDepartement, isochroneStatistiques }: any) => {
+                const mergedTotalsDepartement = {
+                  ...totalsDepartement,
+                  percentages: {
+                    ...(totalsDepartement?.percentages ?? {}),
+                    ...(isochroneStatistiques ?? {})
+                  }
+                };
+                e.layer.set('totalsDepartement', mergedTotalsDepartement);
+                console.log("Isochrone statistics totals:", mergedTotalsDepartement);
                 const TARGET_LAYER_NAME = "IGNF_CARTO-SP_SERVICES-PUBLICS:__infos";
                 const layers = this.map.getLayers().getArray();
                 const targetLayer = layers.find((l: any) => l.name === TARGET_LAYER_NAME);
