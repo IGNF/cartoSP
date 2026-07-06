@@ -390,7 +390,7 @@
         </div>
     </div>
     @if(spStatistiques){
-    <div class="fr-table fr-table--bordered fr-table--infos">
+    <div class="fr-table fr-table--bordered fr-table--infos fr-tables--infos-nomargin">
         <div class="fr-table__wrapper fr-table-wrapper-cartosp">
             <div class="fr-table__container">
                 <div class="fr-table__content">
@@ -399,11 +399,11 @@
                         <tr>
                           <th class="th-left th-left-sp">
                             <div class="th-content">
-                              Nombre de points d'accueil pour 100 000 hts
+                              Nombre de points d'accueil pour 100 000 habitants
                               <button class="fr-btn--tooltip fr-btn" type="button" id="button-nbpa100000" aria-describedby="tooltip-nbpa100000">
                                 Source
                               </button>
-                              <span class="fr-tooltip fr-placement" id="tooltip-nbpa100000" role="tooltip" aria-hidden="true">TODO <br> Insee, 2024</span>
+                              <span class="fr-tooltip fr-placement" id="tooltip-nbpa100000" role="tooltip" aria-hidden="true">Nombre total de points d’accueil (implantations, permanences, dispositifs itinérants) rapporté à 100 000 habitants.<br>Les « min » et « max » correspondent aux départements avec la plus faible et la plus grande valeur.</span>
                             </div>
                           </th>
                           <th class="th-right-sp">{{ formatNumberReal(spStatistiques.sp_pour_100000_habitants || 0, '1.2-2') }}</th>
@@ -428,6 +428,46 @@
             </div>
         </div>
     </div>
+      @if(spStatistiques.volume_ouverture_hebdomadaire_moyen != null || spStatistiques.volume_ouverture_hebdomadaire_moyen_moyenne_nationale != null || spStatistiques.volume_ouverture_hebdomadaire_moyen_min != null || spStatistiques.volume_ouverture_hebdomadaire_moyen_max != null){ 
+      <div class="fr-table fr-table--bordered fr-table--infos">
+          <div class="fr-table__wrapper fr-table-wrapper-cartosp">
+              <div class="fr-table__container">
+                  <div class="fr-table__content">
+                      <table>
+                        <thead>
+                          <tr>
+                            <th class="th-left th-left-sp">
+                              <div class="th-content">
+                                Volume d’ouverture hebdomadaire moyen
+                                <button class="fr-btn--tooltip fr-btn" type="button" id="button-vohm" aria-describedby="tooltip-vohm">
+                                  Source
+                                </button>
+                                <span class="fr-tooltip fr-placement" id="tooltip-vohm" role="tooltip" aria-hidden="true"> Volume d’ouverture hebdomadaire moyen pour les implantations. Cet indicateur est calculé lorsqu’au moins 50% des implantations du service ont renseigné leurs horaires d’ouverture.<br>Les « min » et « max » correspondent aux départements avec la plus faible et la plus grande valeur.</span>
+                              </div>
+                            </th>
+                            <th class="th-right-sp">{{ formatNumberReal(spStatistiques.volume_ouverture_hebdomadaire_moyen || 0, '1.2-2') }}</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td class="td-left-sp">Val. nat.</td>
+                            <td class="td-right-sp">{{ formatNumberReal(spStatistiques.volume_ouverture_hebdomadaire_moyen_moyenne_nationale || 0, '1.2-2') }}</td>
+                          </tr>
+                          <tr>
+                            <td class="td-left-sp">Min</td>
+                            <td class="td-right-sp">{{ formatNumberReal(spStatistiques.volume_ouverture_hebdomadaire_moyen_min || 0, '1.2-2') }}</td>
+                          </tr>
+                          <tr>
+                            <td class="td-left-sp">Max</td>
+                            <td class="td-right-sp">{{ formatNumberReal(spStatistiques.volume_ouverture_hebdomadaire_moyen_max || 0, '1.2-2') }}</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                  </div>
+              </div>
+          </div>
+      </div>
+      }
     }
   </dsfr-tab>
   <!-- Onglet accès aux isochrones -->
