@@ -3,281 +3,218 @@
         <nav role="navigation" class="fr-breadcrumb fr-col-12" aria-label="vous êtes ici :">
             <button type="button" class="fr-breadcrumb__button" aria-expanded="false" aria-controls="breadcrumb">Voir le fil d&#39;arianne</button>
             <div class="fr-collapse" id="breadcrumb">
-              <ol class="fr-breadcrumb__list">
-                <li>
-                  <a class="fr-breadcrumb__link" id="segment-0" href="/">Accueil</a>
-                </li>
-                <li>
-                  <a class="fr-breadcrumb__link" id="segment-1" aria-current="page">Guide d'utilisation</a>
-                </li>
-              </ol>
+                <ol class="fr-breadcrumb__list">
+                    <li>
+                        <a class="fr-breadcrumb__link" id="segment-0" href="/">Accueil</a>
+                    </li>
+                    <li>
+                        <a class="fr-breadcrumb__link" id="segment-1" aria-current="page">Guide d'utilisation</a>
+                    </li>
+                </ol>
             </div>
         </nav>
         <h1>Présentation de l’outil et guide d’utilisation</h1>
         <p>TODO : ajouter ici une vidéo de présentation de l'outil</p>
         <p class="fr-col-12"><dsfr-download [fileName]="'Cartographie des services publics - Mode d\'emploi.pdf'" [link]="'/assets/telechargements/Cartographie des services publics - Mode d\'emploi.pdf'">Accéder au guide d'utilisation</dsfr-download></p>
         <br>
-        <h1>Guide d'utilisation</h1>
+        <h1>Mode d’emploi de la cartographie des services publics</h1>
+
         <div id="tutorial">
             <div class="fr-col-12">
-                <h2>Sommaire</h2>
+                <h2>Table des matières</h2>
+                <nav class="fr-summary" role="navigation" aria-label="Sommaire">
+                    <ul>
+                        <li><a routerLink="." fragment="presentation">1 - Présentation</a></li>
+                        <li><a routerLink="." fragment="interface-generale">2 - Interface générale</a></li>
+                        <li><a routerLink="." fragment="territoires">3 - Volet de droite - Territoires</a></li>
+                        <li><a routerLink="." fragment="services-publics">4 - Services publics</a></li>
+                        <li><a routerLink="." fragment="fiches-identite">5 - Fiches d'identité des points d'accueil</a></li>
+                        <li><a routerLink="." fragment="indicateurs">6 - Indicateurs</a></li>
+                        <li><a routerLink="." fragment="gestionnaire-couches">7 - Gestionnaire de couches</a></li>
+                        <li><a routerLink="." fragment="isochrones">8 - Isochrones</a></li>
+                        <li><a routerLink="." fragment="glossaire">Glossaire</a></li>
+                    </ul>
+                </nav>
+
+                <!-- Debut des sections detaillees du guide -->
+                <br>
+
+                <!-- Section 1 : Contexte, objectifs et points cles -->
+                <h2 id="presentation">1 - Présentation</h2>
+                <p>Ce guide vous permettra d'identifier et d'utiliser les informations et les fonctionnalités présentes dans cet outil de cartographie d'aide à la décision.</p>
+                <p>La cartographie a vocation à accompagner les préfets, les collectivités territoriales, les opérateurs de services publics et l'ensemble des acteurs locaux dans la prise de décision adaptée aux réalités locales et aux besoins des habitants.</p>
+                <div class="fr-alert fr-alert--info fr-my-2w">                  
+                    <strong>A retenir :</strong> 
+                    <ul>
+                        <li>Consultation cartographique nationale et départementale.</li>
+                        <li>Analyse territoriale multicritère.</li>
+                        <li>Recherche de services et d'adresses.</li>
+                        <li>Calcul de couverture territoriale selon des temps d'accès (isochrone).</li>
+                    </ul>       
+                </div>
+                <br>
+                <h4 class="fr-primary">Figure 1 : Page d’accueil de l’outil</h4>
+                <img src="/assets/images/guide/figure1.jpg" alt="Guide figure 1" class="fr-responsive-img fr-my-2w guide-figure-centered">
+
+                <!-- Section 2 : Organisation generale de l'interface -->
+                <h2 id="interface-generale">2 - Interface générale</h2>
+                <p>L'interface est organisée autour de trois espaces principaux :</p>
                 <ul>
-                    <li><a routerLink="." fragment="presentation-generale">I. Présentation générale</a>
-                        <ul>
-                            <li><a routerLink="." fragment="ecran-accueil">1. Écran d'accueil</a></li>
-                            <li><a routerLink="." fragment="volet-informations">2. Le volet informations</a>
-                                <ul>
-                                    <li><a routerLink="." fragment="zone-selectionnee">a. Informations relatives à une zone sélectionnée</a></li>
-                                    <li><a routerLink="." fragment="service-public">b. Informations relatives à un service public</a></li>
-                                    <li><a routerLink="." fragment="isochrones">c. Informations relatives aux isochrones</a></li>
-                                </ul>
-                            </li>
-                            <li><a routerLink="." fragment="volet-fonctionnalites">3. Le volet fonctionnalités</a></li>
-                        </ul>
-                    </li>
-                    <li><a routerLink="." fragment="exemples-utilisation">II. Exemples d'utilisation</a>
-                        <ul>
-                            <li><a routerLink="." fragment="recherche">1. Fonctionnalité Recherche</a></li>
-                            <li><a routerLink="." fragment="services-publics">2. Fonctionnalité Services publics</a></li>
-                            <li><a routerLink="." fragment="indicateurs">3. Fonctionnalité Indicateurs</a>
-                                <ul>
-                                    <li><a routerLink="." fragment="indicateurs-sp">a. Indicateurs « Services publics »</a></li>
-                                    <li><a routerLink="." fragment="indicateurs-demo">b. Indicateurs « démographie »</a></li>
-                                    <li><a routerLink="." fragment="indicateurs-precarite">c. Indicateurs « précarité »</a></li>
-                                    <li><a routerLink="." fragment="indicateurs-numerique">d. Indicateur « inclusion numérique »</a></li>
-                                    <li><a routerLink="." fragment="indicateurs-zonage">e. Indicateur « zonage »</a></li>
-                                    <li><a routerLink="." fragment="indicateurs-sante">f. Indicateur « santé et accès aux soins »</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
+                    <li>Carte interactive (au centre).</li>
+                    <li>Volet d'information (volet de droite).</li>
+                    <li>Volet de fonctionnalités (volet de gauche comprenant le volet services publics).</li>
+                </ul>
+                <div class="fr-alert fr-alert--info fr-my-2w">
+                    <p><strong>Bon à savoir :</strong> les éléments sélectionnés dans les volets information et fonctionnalités apparaissent sur la carte interactive.</p>
+                </div>
+                <h4 class="fr-primary">Figure 2 : Organisation générale de l'interface</h4>
+                <img src="/assets/images/guide/figure2.png" alt="Guide figure 2" class="fr-responsive-img fr-my-2w guide-figure-centered">
+                <br>
+
+                <!-- Section 3 : Navigation territoriale dans le volet droit -->
+                <h2 id="territoires">3 - Volet de droite - Territoires</h2>
+                <p>Ce volet permet de consulter les informations associées à un territoire.</p>
+                <p>Vous pouvez sélectionner :</p>
+                <ul>
+                    <li>Un département.</li>
+                    <li>Un établissement public de coopération intercommunale (EPCI).</li>
+                    <li>Une commune.</li>
+                </ul>
+                <p>La sélection affiche les informations disponibles pour le territoire choisi.</p>
+                <h4 class="fr-primary">Figure 3-1 : Utilisation du zoom</h4>
+                <img src="/assets/images/guide/figure311.jpg" alt="Guide figure 3-1-1" class="fr-responsive-img fr-my-2w guide-figure-centered">
+                <img src="/assets/images/guide/figure312.jpg" alt="Guide figure 3-1-2" class="fr-responsive-img fr-my-2w guide-figure-centered">
+                <h4 class="fr-primary">Figure 3-2 : Saisie prédictive du nom de département</h4>
+                <img src="/assets/images/guide/figure32.jpg" alt="Guide figure 3-2" class="fr-responsive-img fr-my-2w guide-figure-centered">
+                <h4 class="fr-primary">Figure 3-3 : Sélection d’un établissement public de coopération intercommunale (EPCI)</h4>
+                <img src="/assets/images/guide/figure331.png" alt="Guide figure 3-3-1" class="fr-responsive-img fr-my-2w guide-figure-centered">
+                <img src="/assets/images/guide/figure332.jpg" alt="Guide figure 3-3-2" class="fr-responsive-img fr-my-2w guide-figure-centered">
+                <h4 class="fr-primary">Figure 3-4 : Sélection d’une commune</h4>
+                <img src="/assets/images/guide/figure34.jpg" alt="Guide figure 3-4" class="fr-responsive-img fr-my-2w guide-figure-centered">
+                <h4 class="fr-primary">Figure 3-5 : Affichage des services publics présents et indicateurs associés</h4>
+                <img src="/assets/images/guide/figure35.jpg" alt="Guide figure 3-5" class="fr-responsive-img fr-my-2w guide-figure-centered">
+
+                <!-- Section 4 : Filtrage et selection des services publics -->
+                <h2 id="services-publics">4 - Services publics</h2>
+                <p>Cette rubrique permet de sélectionner les services publics à afficher.</p>
+                <p>Les filtres disponibles permettent de choisir les services publics selon :</p>
+                <ul>
+                    <li>Une caractéristique de service (implantation, permanence, itinérance).</li>
+                    <li>Un volume horaire d'ouverture hebdomadaire.</li>
+                    <li>Une modalité d'accueil (sans rendez-vous, avec rendez-vous, avec et sans rendez-vous).</li>
+                </ul>
+                <div class="fr-alert fr-alert--info fr-my-2w">                  
+                    <strong>A retenir :</strong> 
+                    <ul>
+                        <li>Les filtres peuvent être appliqués simultanément.</li>
+                        <li>Plusieurs typologies de services publics peuvent être affichées en même temps.</li>
+                        <li>Les services publics d'une même typologie sont symbolisés à l'identique (évolution prévue).</li>
+                        <li>Les informations des filtres ne sont pas disponibles pour tous les points d'accueil répertoriés. Les filtres n'affichent que les points pour lesquels l'information a été renseignée.</li>
+                    </ul>       
+                </div>
+                <h4 class="fr-primary">Figure 4-1 : Application des filtres</h4>
+                <img src="/assets/images/guide/figure41.jpg" alt="Guide figure 4-1" class="fr-responsive-img fr-my-2w guide-figure-centered">
+                <h4 class="fr-primary">Figure 4-2 : Sélection des typologies de service public</h4>
+                <img src="/assets/images/guide/figure42.jpg" alt="Guide figure 4-2" class="fr-responsive-img fr-my-2w guide-figure-centered">
+
+                <!-- Section 5 : Lecture des fiches d'identite des points d'accueil -->
+                <h2 id="fiches-identite">5 - Fiches d'identité des points d'accueil</h2>
+                <p>Chaque point affiché sur la carte dispose d'une fiche détaillée.</p>
+                <p>Choisissez une ou plusieurs typologies de service public, appliquez des filtres, puis cliquez sur un point de présence pour afficher :</p>
+                <ul>
+                    <li>Le nom du service.</li>
+                    <li>Les coordonnées.</li>
+                    <li>Les modalités d'accueil.</li>
+                    <li>Les informations disponibles sur le service.</li>
+                    <li>Lorsqu'il s'agit d'une permanence, la liste des autres permanences accueillies dans les locaux.</li>
+                    <li>Lorsqu'il s'agit d'un point d'arrêt d'un dispositif itinérant, le circuit avec les autres arrêts du même dispositif.</li>
+                </ul>
+                <h4 class="fr-primary">Figure 5-1 : Fiche d’identité d’une implantation</h4>
+                <img src="/assets/images/guide/figure51.jpg" alt="Guide figure 5-1" class="fr-responsive-img fr-my-2w guide-figure-centered">
+                <h4 class="fr-primary">Figure 5-2 : Fiche d’identité d’une permanence</h4>
+                <img src="/assets/images/guide/figure52.jpg" alt="Guide figure 5-2" class="fr-responsive-img fr-my-2w guide-figure-centered">
+                <h4 class="fr-primary">Figure 5-3 : Fiche d’identité d’un point d’itinérance</h4>
+                <img src="/assets/images/guide/figure53.png" alt="Guide figure 5-3" class="fr-responsive-img fr-my-2w guide-figure-centered">
+
+                <!-- Section 6 : Utilisation des indicateurs thematiques -->
+                <h2 id="indicateurs">6 - Indicateurs</h2>
+                <p>Les indicateurs enrichissent l'analyse territoriale. Ils sont de différents types :</p>
+                <ul>
+                    <li>Démographie (hors Guadeloupe et Mayotte).</li>
+                    <li>Précarité (hors Guadeloupe et Mayotte).</li>
+                    <li>Fragilité numérique.</li>
+                    <li>Zonage.</li>
+                    <li>Santé et accès aux soins.</li>
                 </ul>
 
-                <h2 id="presentation-generale">I. Présentation générale</h2>
-
-                <h3 id="ecran-accueil">1. Écran d'accueil</h3>
-                <ul>
-                    <li><strong>À propos :</strong> Origine du projet de cartographie des services publics et crédits</li>
-                    <li><strong>Première prise en main :</strong> Voir détails ci-dessous</li>
-                    <li><strong>Assistance :</strong> Foire aux questions et lien de contact</li>
-                    <li><strong>Volet fonctionnalités :</strong> Voir détail en partie I-3</li>
-                    <li><strong>Volet informations :</strong> Voir détail en partie I-2</li>
-                    <li><strong>Choix du fond de carte :</strong> Gris, aérien, relief</li>
-                    <li><strong>Zoom sur la carte</strong></li>
-                </ul>
-
-                <p><strong>Détail du menu Première prise en main :</strong> Accès au guide d'utilisation et au téléchargement des données utilisées au format Excel par département.</p>
-
-                <div class="fr-alert fr-alert--info">
-                    <p>Quand vous voudrez ouvrir le fichier téléchargé, vous pourriez avoir un message d'erreur. Il faudra répondre « oui » à la question qui vous est posée.</p>
+                <div class="fr-alert fr-alert--info fr-my-2w">
+                    <p><strong>Bon à savoir :</strong> les indicateurs peuvent être affichés en complément des services publics.</p>
                 </div>
 
-                <h3 id="volet-informations">2. Le volet informations</h3>
+                <h4 class="fr-primary">Figure 6 : Affichage d’un indicateur</h4>
+                <img src="/assets/images/guide/figure6.jpg" alt="Guide figure 6" class="fr-responsive-img fr-my-2w guide-figure-centered">
 
-                <h4 id="zone-selectionnee">a. Informations relatives à une zone sélectionnée</h4>
-
-                <p><strong>Choix de zone :</strong> département, EPCI ou communes</p>
-                <p>Vous pouvez choisir l'un des trois départements pilotes, les EPCI ou les communes.</p>
-
-                <p>Pour faire apparaître la liste des EPCI ou communes, il conviendra de zoomer fortement sur la zone choisie sur la carte (et de veiller à être bien dans le département concerné). La liste des communes et EPCI proposée évolue en fonction du survol de la carte.</p>
-
-                <p><strong>Affichage des informations relatives à la zone choisie :</strong></p>
-                <p>Les manipulations présentées ci-dessous sont les mêmes pour les différentes strates.</p>
-
-                <p>Affichage de la page écran d'accueil suite au choix de la strate :</p>
+                <!-- Section 7 : Superposition et ordre des couches cartographiques -->
+                <h2 id="gestionnaire-couches">7 - Gestionnaire de couches</h2>
+                <p>Le gestionnaire de couches contrôle l'affichage des données. Il permet les actions suivantes :</p>
                 <ul>
-                    <li>Limites du département sur la carte</li>
-                    <li><strong>Onglet présentation</strong>
-                        <ul>
-                            <li>Présentation – données socio-économiques (source : INSEE)</li>
-                            <li>Présentation – données administratives (source : INSEE)</li>
-                        </ul>
-                    </li>
-                    <li><strong>Onglet services publics</strong> : Liste des services publics</li>
+                    <li>Afficher une couche.</li>
+                    <li>Masquer une couche.</li>
+                    <li>Modifier l'ordre d'affichage.</li>
+                    <li>Régler la transparence.</li>
                 </ul>
+                <h4 class="fr-primary">Figure 7 : Gestionnaire de couche</h4>
+                <img src="/assets/images/guide/figure7.jpg" alt="Guide figure 7" class="fr-responsive-img fr-my-2w guide-figure-centered">
 
-                <p><strong>Données administratives disponibles :</strong></p>
-                <p>Il s'agit de la répartition des services publics par type de présence (implantation, permanence, itinérance) pour tous les services publics, ou pour un réseau de service public.</p>
-
-                <h4 id="service-public">b. Informations relatives à un service public</h4>
-                <p>Il est possible d'accéder aux informations relatives à un service public à partir de la carte, en cliquant sur le point le représentant. Les informations qui s'affichent dans le volet de droite sont différentes selon que le point d'accueil est :</p>
+                <!-- Section 8 : Calcul de couverture via les isochrones -->
+                <h2 id="isochrones">8 - Isochrones</h2>
+                <p>Les isochrones permettent d'évaluer la couverture territoriale associée au temps d'accès à un service.</p>
+                <p>Le calcul peut être réalisé à partir :</p>
                 <ul>
-                    <li>Une <strong>implantation</strong> : coordonnées, fréquentation, horaires d'ouverture</li>
-                    <li>Une <strong>permanence</strong> : en plus de ces informations, un volet « autres permanences » recense les permanences d'autres services qui sont hébergées dans le même lieu</li>
-                    <li>Un <strong>dispositif itinérant</strong></li>
+                    <li>D'une adresse (isochrone piéton ou voiture).</li>
+                    <li>D'une typologie de service (isochrone voiture 20 et 30 min).</li>
                 </ul>
-
-                <h4 id="isochrones">c. Informations relatives aux isochrones</h4>
-                <p>Les isochrones 30 et 20mn par typologie de service seront accessibles à partir du menu isochrone à partir du mois de juin 2025. À partir d'une typologie de services, le menu permettra de sélectionner la typologie de service souhaitée et la durée de trajet (20 ou 30 mn).</p>
-                <p>Le volet informations présentera les informations relatives à la proportion de la population résidant à moins de 30 mn (resp. 20 mn) d'un des points d'accueil du service.</p>
-
-                <h3 id="volet-fonctionnalites">3. Le volet fonctionnalités</h3>
-                <p>Après sélection d'un département ou d'une zone (à défaut, la carte sera France entière)</p>
-                <p><strong>À noter :</strong> pour tous les menus de sélection décrits ci-dessous (services, indicateurs), une option « réinitialiser » vous permet de supprimer l'ensemble des sélections et de revenir à une carte vierge.</p>
-
-                <h4>La fonction Recherche</h4>
-                <p>Permet de rechercher une localisation ou un service sur la carte.</p>
-
-                <h4>La fonction Sélection des services publics</h4>
-                <p>Permet à la fois de filtrer les services affichés sur la carte selon certaines caractéristiques et de sélectionner les typologies à afficher :</p>
-
-                <p><strong>Filtre (combinaison possible de plusieurs filtres)</strong> - uniquement pour les services publics qui ont communiqué leurs informations sur la donnée filtrée :</p>
+                <p>L'outil affiche :</p>
                 <ul>
-                    <li>Caractéristiques du service (implantation, permanence, dispositif itinérant)</li>
-                    <li>Volume horaire d'ouverture par semaine</li>
-                    <li>Modalité d'accueil (rendez-vous, sans rendez-vous, avec et sans rendez-vous)</li>
-                    <li>Fréquentation (nombre de visiteurs annuels par catégories de moins de 100 à plus de 50 000)</li>
+                    <li>Les zones couvertes par le temps de trajet.</li>
+                    <li>La population couverte (isochrone par typologie de service).</li>
                 </ul>
-
-                <p><strong>Typologie de service public (plusieurs choix possibles) :</strong></p>
-                <ul>
-                    <li><strong>Administration locale :</strong> Conseil départemental, France services, Mairie, Maison départementale des solidarités, PAN (préfecture et sous-préfecture), préfecture, sous-préfecture</li>
-                    <li><strong>Social, santé :</strong> Caisse commune de sécurité sociale, caisse d'allocations familiales, caisse d'assurance retraite et de la santé au travail, caisse primaire d'assurance maladie, centre de santé, centre hospitalier, centre hospitalier régional, centre hospitalier universitaire, centre local information coordination P.A. (CLIC), centre social, communauté professionnelle territoriale de santé, maison départementale des personnes handicapées, mutualité sociale agricole</li>
-                    <li><strong>Travail, emploi, formation :</strong> France travail, mission locale</li>
-                    <li><strong>Economie, finances, consommation :</strong> DDFiP, service des impôts des entreprises, service des impôts des particuliers, trésorerie</li>
-                    <li><strong>Droit, justice :</strong> Conseil départemental d'accès au droit, point-justice, tribunal judiciaire</li>
-                    <li><strong>Environnement, logement, transport :</strong> Agence départementale d'information sur le logement (Adil), agence nationale de l'habitat (ANAH), espace conseil France rénov'</li>
-                    <li><strong>Sécurité, défense :</strong> Brigade de gendarmerie, commissariat de police</li>
-                </ul>
-
-                <p>Il est possible d'afficher « tous les services » : dans ce cas, il est recommandé de désélectionner les mairies (rubrique administration locale) afin d'alléger le nombre de services affichés.</p>
-
-                <h4>La fonction Sélection des indicateurs</h4>
-                <p>Permet d'afficher différents types d'informations sur la carte :</p>
-
-                <p><strong>Services publics :</strong></p>
-                <ul>
-                    <li>Fréquentation des points d'accueil de type implantations</li>
-                    <li>Fréquentation des points d'accueil de type permanences</li>
-                </ul>
-                <p>Les différents volumes de fréquentation s'affichent sur la carte sous forme de points de taille différente. Il n'est pas possible dans cette version de l'outil de sélectionner uniquement une catégorie de service, ni d'avoir de l'information sur chaque point au survol de la carte. Pour connaître les services auxquelles ces valeurs sont liées, il convient de sélectionner tous les services et d'activer tous les filtres de fréquentation pour n'afficher que les services pour lesquels la donnée fréquentation est renseignée.</p>
-
-                <p><strong>Démographie :</strong></p>
-                <ul>
-                    <li>Densité de la population</li>
-                    <li>Part des plus de 65 ans</li>
-                    <li>Part des moins de 18 ans</li>
-                </ul>
-
-                <p><strong>Précarité :</strong></p>
-                <ul>
-                    <li>Part des ménages pauvres</li>
-                    <li>Niveau de vie moyen</li>
-                </ul>
-
-                <p><strong>Inclusion numérique :</strong> Indicateur de fragilité numérique</p>
-
-                <p><strong>Zonage :</strong></p>
-                <ul>
-                    <li>QPV</li>
-                    <li>Bassins de vie</li>
-                </ul>
-
-                <p><strong>Santé et accès aux soins :</strong></p>
-                <ul>
-                    <li>Nombre de professionnels de premier recours : médecins généralistes, infirmiers, kinésithérapeutes, chirurgiens-dentistes, orthophonistes, sage-femmes</li>
-                    <li>Territoire : densité médicale, moyenne d'âge des médecins, accessibilité aux soins de premiers recours, zonage CPTS</li>
-                </ul>
-
-                <p><strong>Isochrones 30 mn</strong> (à compter du mois de juin, les isochrones 30 et 20mn seront accessibles à partir du menu isochrone)</p>
-
-                <h4>La fonction Gestionnaire de couches</h4>
-                <p>Donne le sens d'empilement des couches de données. La dernière couche choisie apparaît en premier. Il est possible de jouer sur la transparence des différentes couches, de masquer une ou plusieurs couches, de changer l'ordre des couches à la discrétion de l'utilisateur, en fonction du rendu sur la cartographie.</p>
-
-                <h4>La fonction Isochrones</h4>
-                <p>Permet de calculer des isochrones selon deux modalités :</p>
-
-                <p><strong>À partir d'un point unique :</strong> ce point peut être sélectionné soit sur la base d'une adresse (à saisir dans le champ « départ ») ou en positionnant directement un point sur la carte en utilisant le pointeur. Le menu permet de choisir les options de calcul : trajet piéton ou voiture, durée du trajet.</p>
-
-                <p><strong>À partir d'une typologie de services (fonctionnalité à venir) :</strong> le menu permettra de sélectionner la typologie de service souhaitée et la durée de trajet (20 ou 30 mn). Des informations relatives à la proportion de la population résidant à moins de 30 mn d'un des points d'accueil du service s'affichent dans le volet informations de droite. L'isochrone calculé prend en compte tous les implantations et les permanences.</p>
-
-                <h4>La fonction Légendes</h4>
-                <p>Permet d'afficher les légendes correspondant aux indicateurs sélectionnés.</p>
-
-                <h2 id="exemples-utilisation">II. Exemples d'utilisation</h2>
-
-                <h3 id="recherche">1. Fonctionnalité Recherche</h3>
-                <p>La fonctionnalité recherche vise à permettre la visualisation sur l'outil cartographique d'un lieu ou d'un service.</p>
-                <ul>
-                    <li><strong>Recherche par localisation :</strong> Choix d'une localisation → Visualisation sur la carte</li>
-                    <li><strong>Recherche par service :</strong> Choix d'un service → Visualisation sur la carte</li>
-                </ul>
-
-                <h3 id="services-publics">2. Fonctionnalité Services publics</h3>
-                <p>La fonctionnalité Services publics vous permet de connaître les accueils physiques des services retenus dans le cadre de l'expérimentation présents sur le territoire. Différents filtres vous permettent d'affiner votre recherche.</p>
-
-                <p><strong>Étapes :</strong></p>
-                <ol>
-                    <li>Je sélectionne le territoire – ici, les Hautes-Alpes et je vais sur « services »</li>
-                    <li>Je sélectionne le ou les services - Ici – tous les services</li>
-                </ol>
-
-                <p>Les typologies de services sont de différentes couleurs. Les services relevant de la même typologie ressortent avec la même couleur.</p>
-
-                <p><strong>Important :</strong> Pour l'instant, il est conseillé de cartographier chaque service l'un après l'autre pour affiner le diagnostic.</p>
-
-                <p><strong>Symboles :</strong> Un symbole différencie les permanences (cf. ci-dessous sur la carte) et les points d'accueil des services itinérants des points d'accueil de type « implantation ».</p>
-
-                <p>Quand on clique sur un point de la carte (en rouge maintenant), le volet d'information lié au service concerné s'affiche. Sur la carte, il s'agit d'une permanence du SIP dans les locaux de la France service de Guillestrois. Il est possible de visualiser les autres permanences accueillies en cliquant sur l'onglet autres permanences.</p>
-
-                <div class="fr-alert fr-alert--warning">
-                    <p><strong>Important :</strong> Ne pas oublier de réinitialiser lorsque vous souhaitez passer à autre chose (rubriques services publics ou indicateurs)</p>
+                <div class="fr-alert fr-alert--info fr-my-2w">                  
+                    <strong>A retenir :</strong> 
+                    <ul>
+                        <li>Les isochrones facilitent l'analyse de la couverture territoriale par les services publics.</li>
+                        <li>Elles permettent également de simuler une couverture potentielle à partir d'une adresse.</li>
+                    </ul>       
                 </div>
+                <h4 class="fr-primary">Figure 8-1 : Isochrone à l’adresse</h4>
+                <img src="/assets/images/guide/figure811.jpg" alt="Guide figure 8-1-1" class="fr-responsive-img fr-my-2w guide-figure-centered">
+                <img src="/assets/images/guide/figure812.jpg" alt="Guide figure 8-1-2" class="fr-responsive-img fr-my-2w guide-figure-centered">
+                <h4 class="fr-primary">Figure 8-2 : Isochrone à l’adresse</h4>
+                <img src="/assets/images/guide/figure82.jpg" alt="Guide figure 8-2" class="fr-responsive-img fr-my-2w guide-figure-centered">
+                <br>
 
-                <h3 id="indicateurs">3. Fonctionnalité Indicateurs</h3>
-                <p>Cette fonctionnalité vous permet d'enrichir votre carte d'informations supplémentaires pour affiner votre analyse.</p>
-
-                <h4 id="indicateurs-sp">a. Indicateurs « Services publics » – exemple</h4>
-                <ul>
-                    <li>Fréquentation des implantations</li>
-                    <li>Fréquentation des implantations et couche services publics</li>
-                    <li>Affinage</li>
-                    <li>Dernières manipulations et résultat</li>
-                </ul>
-
-                <h4 id="indicateurs-demo">b. Indicateurs « démographie » – exemple</h4>
-                <ul>
-                    <li>Choix de l'indicateur densité de population</li>
-                    <li>Choix de tous les services publics (sauf les mairies). Ce choix peut être affiné via les filtres ou la typologie de services.</li>
-                </ul>
-
-                <p>Les couleurs liées aux indicateurs « Démographie » apparaîtront sur la carte à une maille fine. Elles sont à l'échelle du carreau INSEE (carreau de 200x200 mètres).</p>
-
-                <h4 id="indicateurs-precarite">c. Indicateurs « précarité » – exemple</h4>
-                <ul>
-                    <li>Choix de l'indicateur part des ménages pauvres</li>
-                    <li>Choix de services relevant de la typologie Social, Santé et tous types d'accueil physique. Ce choix peut être affiné via les filtres ou la typologie de services.</li>
-                </ul>
-
-                <p>Les couleurs liées aux indicateurs « Précarité » apparaîtront sur la carte à une maille fine. Elles sont à l'échelle du carreau INSEE (carreau de 200x200 mètres). Les services choisis relevant d'une typologie unique sont représentés par le même symbole sur la carte.</p>
-
-                <h4 id="indicateurs-numerique">d. Indicateur « inclusion numérique » – exemple</h4>
-                <ul>
-                    <li>Choix de l'indicateur « fragilité numérique »</li>
-                    <li>Plus c'est clair sur la carte, plus la fragilité numérique est importante</li>
-                    <li>Choix de tous types d'accueil physique et de services relevant de la typologie Social, Santé + France services. Ce choix peut être affiné via les filtres ou la typologie de services.</li>
-                </ul>
-
-                <p>Les couleurs liées aux indicateurs « Fragilité numérique » apparaîtront à l'échelle de la commune. Les services relevant de la typologie « social, santé » sont représentés par le symbole orange sur la carte. Les France services sont en bleu (autre typologie).</p>
-
-                <h4 id="indicateurs-zonage">e. Indicateur « zonage » – exemple</h4>
-                <ul>
-                    <li>Choix de l'indicateur « Quartiers prioritaires de la ville »</li>
-                    <li>Choix de tous types d'accueil physique et de services relevant de la typologie Social, Santé + France services. Ce choix peut être affiné via les filtres ou la typologie de services.</li>
-                </ul>
-
-                <h4 id="indicateurs-sante">f. Indicateur « santé et accès aux soins » – exemple</h4>
-                <ul>
-                    <li>Choix de l'indicateur « accessibilité aux soins de premiers recours »</li>
-                    <li>Choix de l'indicateur « part des plus de 65 ans » dans la partie « démographie »</li>
-                </ul>
-
-                <hr class="fr-separator fr-my-3w">
-
-                <div class="fr-alert fr-alert--info fr-my-3w">
-                    <p><strong>Rappel :</strong> Pour des raisons de confidentialité, l'accès à l'outil est restreint aux plages et aux adresses IP déclarées préalablement par les services associés à l'expérimentation auprès de la Direction interministérielle de la transformation publique.</p>
-                    <p><strong>Contact pour tout sujet lié à l'outil :</strong> <a href="mailto:experimentation-carto.ditp@modernisation.gouv.fr">experimentation-carto.ditp&#64;modernisation.gouv.fr</a></p>
-                </div>
+                <!-- Glossaire : Definitions des termes utilises dans le guide -->
+                <h2 id="glossaire">Glossaire</h2>
+                <p><strong>Analyse multicritère :</strong> méthode d'analyse consistant à croiser plusieurs indicateurs ou données afin d'éclairer la prise de décision sur un territoire.</p>
+                <p><strong>Cartographie :</strong> représentation visuelle de données géographiques sur une carte interactive permettant leur consultation et leur analyse.</p>
+                <p><strong>Couche cartographique :</strong> ensemble de données géographiques affichées sur la carte. Plusieurs couches peuvent être superposées pour enrichir l'analyse.</p>
+                <p><strong>Fiche d'identité :</strong> fenêtre d'information présentant les caractéristiques détaillées d'un point d'accueil d'un service public.</p>
+                <p><strong>Fragilité numérique :</strong> situation dans laquelle une population rencontre des difficultés d'accès ou d'usage des outils numériques et des services en ligne.</p>
+                <p><strong>Gestionnaire de couches :</strong> outil permettant d'afficher, masquer, ordonner ou modifier la transparence des différentes couches d'information présentes sur la carte.</p>
+                <p><strong>Indicateur territorial :</strong> donnée statistique permettant de caractériser un territoire selon différents thèmes : démographie, précarité, santé, accès aux services.</p>
+                <p><strong>Isochrone :</strong> zone géographique accessible depuis un point donné dans un temps de trajet défini, quel que soit l'itinéraire emprunté.</p>
+                <p><strong>Implantation :</strong> local occupé par un service public dédié de manière continue à l'accueil physique de ses usagers.</p>
+                <p><strong>Itinérance :</strong> mode d'organisation d'un service public dont l'activité est assurée de manière mobile sur plusieurs lieux ou communes selon un schéma d'itinérance prédéfini.</p>
+                <p><strong>Modalité d'accueil :</strong> condition selon laquelle un usager peut accéder à un service : avec rendez-vous, sans rendez-vous, ou selon les deux modalités.</p>
+                <p><strong>Permanence :</strong> local d'une structure occupé par intermittence par un service public différent pour qu'il accueille physiquement ses usagers.</p>
+                <p><strong>Point d'accueil :</strong> lieu physique au sein duquel un usager peut accéder à un service public ou rencontrer un agent.</p>
+                <p><strong>Population couverte :</strong> population située à l'intérieur d'une zone géographique pouvant atteindre un lieu donné dans un temps de trajet spécifique.</p>
+                <p><strong>Précarité :</strong> situation de vulnérabilité économique ou sociale pouvant affecter les conditions de vie d'une population.</p>
+                <p><strong>Service public :</strong> administration, établissement public, entreprise publique ou organisme du secteur privé assurant une activité d'intérêt général.</p>
+                <p><strong>Typologie de service public :</strong> catégorie permettant de regrouper les services publics selon leur domaine d'intervention (emploi, santé, justice, accompagnement social).</p>
+                <p><strong>Volet d'information :</strong> panneau latéral présentant les informations relatives à un territoire ou à un point d'accueil.</p>
+                <p><strong>Volet de fonctionnalités :</strong> panneau latéral regroupant les outils de recherche, de filtrage, d'analyse et de sélection disponibles dans l'application.</p>
+                <p><strong>Zonage :</strong> découpage géographique utilisé pour représenter ou analyser un territoire selon des critères administratifs, statistiques ou thématiques.</p>
             </div>
         </div>
     </div>
