@@ -6,6 +6,7 @@ import { DsfrTabsModule, DsfrAccordionModule, DsfrButtonModule } from '@edugouvf
 
 import { RightpanelService } from '../../rightpanel.service';
 import { ApicartospService } from './../../../services/apicartosp.service';
+import { AcceslibreService } from './../../../services/acceslibre.service';
 import { LocalisationComponent } from '../../content/localisation/localisation.component';
 
 import opening_hours from 'opening_hours';
@@ -28,7 +29,7 @@ interface responseListType {
 })
 export class ServicePublicComponent implements OnInit {
   
-  constructor(private rightpanelService: RightpanelService, private apicartospService: ApicartospService) {}
+  constructor(private rightpanelService: RightpanelService, private apicartospService: ApicartospService, private acceslibreService: AcceslibreService) {}
 
   @Input() data!: any;    
   selectedTabIndex = 0;
@@ -39,12 +40,14 @@ export class ServicePublicComponent implements OnInit {
   responseList?: any|null;
   serviceName?: string|null;
   websiteUrls: string[] = [];
+  accessibilityLink: string | null = null;
 
   ngOnInit() {
     this.serviceName = null;
     this.responseList = null;
     this.typeStructure = this.data.selectedSP.type_structure;
     this.websiteUrls = this.extractWebsiteUrls(this.data.selectedSP.site_internet);
+    this.fetchAccessibilityLink(this.data.selectedSP.identifiants_sources);
 
     switch (this.typeStructure) {
       case "Implantation":
@@ -153,6 +156,34 @@ export class ServicePublicComponent implements OnInit {
 
   onButtonBackLocationClic(){
     this.rightpanelService.setContent(LocalisationComponent, this.data.map, "location");
+  }
+
+  fetchAccessibilityLink(dila_id: string) {
+    if(!dila_id) {
+      this.accessibilityLink = null;
+      return;
+    }
+
+    dila_id = dila_id.trim();
+
+    if(!dila_id.startsWith('DILA:')) {
+      this.accessibilityLink = null;
+      return;
+    }
+
+    dila_id = dila_id.replace(/^DILA:/, '').replace(/\/.*/, '');
+
+    this.acceslibreService.getAccessibilityLink(dila_id).subscribe({
+      next : (response: any) => {
+        if(response && response.count > 0 && response.results[0].web_url) {
+          console.log('Accessibility link fetched:', response);
+          this.accessibilityLink = response.results[0].web_url;
+        } else {
+          this.accessibilityLink =  null;
+        }
+      },
+      error : (error: any) => { this.accessibilityLink =  null; console.error('Error fetching accessibility link:', error) }
+    });
   }
 
   buildTimeTable(data: string){
