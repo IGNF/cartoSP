@@ -368,15 +368,15 @@
                       </thead>
                       <tbody>
                         <tr>
-                          <td class="td-left-sp">Implantation@if (nbimplantations != 1) {s}</td>
+                          <td class="td-left-sp">Implantation@if ((nbimplantations || 0) > 1) {s}</td>
                           <td class="td-right-sp">{{ nbimplantations || 0 }}</td>
                         </tr>
                         <tr>
-                          <td class="td-left-sp">Permanence@if (nbpermanences != 1) {s}</td>
+                          <td class="td-left-sp">Permanence@if ((nbpermanences || 0) > 1) {s}</td>
                           <td class="td-right-sp">{{ nbpermanences || 0 }}</td>
                         </tr>
                         <tr>
-                          <td class="td-left-sp">Dispositif@if (nbitinerants != 1) {s} itinérant@if (nbitinerants != 1) {s}</td>
+                          <td class="td-left-sp">Dispositif@if ((nbitinerants || 0) > 1) {s} itinérant@if ((nbitinerants || 0) > 1) {s}</td>
                           <td class="td-right-sp">{{ nbitinerants || 0 }}</td>
                         </tr>
                       </tbody>
