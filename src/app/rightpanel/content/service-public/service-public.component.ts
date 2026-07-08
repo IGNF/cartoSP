@@ -6,7 +6,6 @@ import { DsfrTabsModule, DsfrAccordionModule, DsfrButtonModule } from '@edugouvf
 
 import { RightpanelService } from '../../rightpanel.service';
 import { ApicartospService } from './../../../services/apicartosp.service';
-import { AcceslibreService } from './../../../services/acceslibre.service';
 import { LocalisationComponent } from '../../content/localisation/localisation.component';
 
 import opening_hours from 'opening_hours';
@@ -29,7 +28,7 @@ interface responseListType {
 })
 export class ServicePublicComponent implements OnInit {
   
-  constructor(private rightpanelService: RightpanelService, private apicartospService: ApicartospService, private acceslibreService: AcceslibreService) {}
+  constructor(private rightpanelService: RightpanelService, private apicartospService: ApicartospService) {}
 
   @Input() data!: any;    
   selectedTabIndex = 0;
@@ -173,7 +172,7 @@ export class ServicePublicComponent implements OnInit {
 
     dila_id = dila_id.replace(/^DILA:/, '').replace(/\/.*/, '');
 
-    this.acceslibreService.getAccessibilityLink(dila_id).subscribe({
+    this.apicartospService.getSpAccessibilite(dila_id).subscribe({
       next : (response: any) => {
         if(response && response.count > 0 && response.results[0].web_url) {
           console.log('Accessibility link fetched:', response);

@@ -66,4 +66,9 @@ export class ApicartospService {
             params: options
         });
     }
+
+    // Get SP accessibility by uuid
+    getSpAccessibilite(query: any): Observable<any> {
+        return this.http.get(this.apiUrl + "/services_publics/accessibilite/" + query);
+    }
 }
