@@ -1,4 +1,4 @@
-import { Component, Input, OnInit  } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, HostListener, Input, OnInit, ViewChild } from '@angular/core';
 
 import {TitleCasePipe} from '@angular/common';
 
@@ -26,9 +26,13 @@ interface responseListType {
     templateUrl: './service-public.component.html',
     styleUrl: './service-public.component.css'
 })
-export class ServicePublicComponent implements OnInit {
+export class ServicePublicComponent implements OnInit, AfterViewInit {
   
-  constructor(private rightpanelService: RightpanelService, private apicartospService: ApicartospService) {}
+  constructor(
+    private rightpanelService: RightpanelService,
+    private apicartospService: ApicartospService,
+    private cdr: ChangeDetectorRef
+  ) {}
 
   @Input() data!: any;    
   selectedTabIndex = 0;
@@ -40,6 +44,10 @@ export class ServicePublicComponent implements OnInit {
   serviceName?: string|null;
   websiteUrls: string[] = [];
   accessibilityLink: string | null = null;
+  readonly modaliteDetailsMaxHeight = 100;
+  isModaliteDetailsExpanded = false;
+  isModaliteDetailsOverflowing = false;
+  @ViewChild('modaliteDetailsContent') modaliteDetailsContent?: ElementRef<HTMLDivElement>;
 
   ngOnInit() {
     this.serviceName = null;
@@ -63,6 +71,15 @@ export class ServicePublicComponent implements OnInit {
         this.serviceOpeningHours = this.buildTimeTable(this.data.selectedSP.horaires_ouverture);
       ;
     }
+  }
+
+  ngAfterViewInit(): void {
+    this.updateModaliteDetailsOverflow();
+  }
+
+  @HostListener('window:resize')
+  onWindowResize(): void {
+    this.updateModaliteDetailsOverflow();
   }
 
   // Normalisation des URLs pour garantir qu'elles sont valides et sécurisées
@@ -279,6 +296,30 @@ export class ServicePublicComponent implements OnInit {
           e.target.innerHTML = e.target.innerHTML.replace("Voirs moins ˄", "Voir les horaires ˅");
         }
       }
+    }
+  }
+
+  toggleModaliteDetails(): void {
+    this.isModaliteDetailsExpanded = !this.isModaliteDetailsExpanded;
+  }
+
+  private updateModaliteDetailsOverflow(): void {
+    const detailsContent = this.modaliteDetailsContent?.nativeElement;
+
+    if (!detailsContent) {
+      return;
+    }
+
+    const hasOverflow = detailsContent.scrollHeight > this.modaliteDetailsMaxHeight;
+    const overflowChanged = hasOverflow !== this.isModaliteDetailsOverflowing;
+
+    this.isModaliteDetailsOverflowing = hasOverflow;
+    if (!hasOverflow) {
+      this.isModaliteDetailsExpanded = false;
+    }
+
+    if (overflowChanged) {
+      this.cdr.detectChanges();
     }
   }
 }

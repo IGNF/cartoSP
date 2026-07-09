@@ -125,6 +125,23 @@
             <div class="info-content"> {{ data.selectedSP.modalite_d_accueil || "Aucune informations sur les modalités d'accueil" }}</div>
         }
     </div>
+    <!-- Modalités détails -->
+    @if (data.selectedSP.modalite_d_accueil_details) {
+            <div
+                #modaliteDetailsContainer
+                class="info-modalite-details fr-callout"
+            >
+                <div #modaliteDetailsContent class="info-modalite-details-content" [class.info-modalite-details--collapsed]="isModaliteDetailsOverflowing && !isModaliteDetailsExpanded">
+                    <h6>Commentaire</h6>
+                    <div class="info-content">{{ data.selectedSP.modalite_d_accueil_details }}</div>
+                </div>
+                @if (isModaliteDetailsOverflowing) {
+                    <button type="button" class="fr-link info-modalite-toggle" (click)="toggleModaliteDetails()">
+                        {{ isModaliteDetailsExpanded ? "Voir moins" : "Voir plus" }}
+                    </button>
+                }
+            </div>
+    }
     <!-- Horaires -->
     @if (data.selectedSP.type_structure == "Itinérance") {
         <h6 class="date-title">Dates & horaires de l'étape</h6>

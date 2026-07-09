@@ -44,6 +44,7 @@
     font-weight: 700;
     line-height: 28px;
     padding-bottom: 6px !important;
+    padding-top: 15px !important;
     margin-bottom: 0px !important;
 }
 
@@ -97,7 +98,26 @@
 }
 
 .info-modalite {
-    padding-bottom: 40px;
+    padding-bottom: 25px;
+}
+
+.info-modalite-details {
+    padding-bottom: 25px;
+}
+
+.info-modalite-details-content {
+    width: 100%;
+    max-height: none;
+}
+
+.info-modalite-details--collapsed {
+    max-height: 100px;
+    overflow: hidden;
+}
+
+.info-modalite-toggle {
+    margin-top: 16px;
+    margin-bottom: 7px;
 }
 
 #presentTab {
