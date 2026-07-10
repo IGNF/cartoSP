@@ -88,3 +88,7 @@
 #territories > .GPwidget {
     padding: 0px !important;
 }
+
+.gpf-panel__menuviews_territories {
+    display: none;
+}
