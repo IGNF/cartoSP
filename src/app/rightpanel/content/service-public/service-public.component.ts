@@ -284,16 +284,16 @@ export class ServicePublicComponent implements OnInit, AfterViewInit {
       if (element.style.display === "none" || element.style.display === "") {
         element.style.display = "inline-block";
         if(e.target.getAttribute("name") == "datetime") {
-          e.target.innerHTML = e.target.innerHTML.replace("Voir les dates ˅", "Voirs moins ˄");
+          e.target.innerHTML = e.target.innerHTML.replace("Voir les dates ˅", "Voir moins ˄");
         } else {
-          e.target.innerHTML = e.target.innerHTML.replace("Voir les horaires ˅", "Voirs moins ˄");
+          e.target.innerHTML = e.target.innerHTML.replace("Voir les horaires ˅", "Voir moins ˄");
         }
       } else {
         element.style.display = "none";
         if(e.target.getAttribute("name") == "datetime") {
-          e.target.innerHTML = e.target.innerHTML.replace("Voirs moins ˄", "Voir les dates ˅");
+          e.target.innerHTML = e.target.innerHTML.replace("Voir moins ˄", "Voir les dates ˅");
         } else {
-          e.target.innerHTML = e.target.innerHTML.replace("Voirs moins ˄", "Voir les horaires ˅");
+          e.target.innerHTML = e.target.innerHTML.replace("Voir moins ˄", "Voir les horaires ˅");
         }
       }
     }
