@@ -192,7 +192,6 @@ export class ServicePublicComponent implements OnInit, AfterViewInit {
     this.apicartospService.getSpAccessibilite(dila_id).subscribe({
       next : (response: any) => {
         if(response && response.count > 0 && response.results[0].web_url) {
-          console.log('Accessibility link fetched:', response);
           this.accessibilityLink = response.results[0].web_url;
         } else {
           this.accessibilityLink =  null;
