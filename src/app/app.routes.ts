@@ -1,4 +1,4 @@
-import { Routes } from '@angular/router';
+import { Routes, ActivatedRouteSnapshot } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { AccueilComponent } from './accueil/accueil.component';
 import { GuideComponent } from './pages/annexes/guide/guide.component';
@@ -13,16 +13,17 @@ import { ExceptionComponent } from './pages/errors/exception/exception.component
 import { AllowedLocation } from './app.routes.guard';
 
 export const routes: Routes = [ 
-  { path: '', component: AccueilComponent },
-  { path: 'carte', component: HomeComponent },
-  { path: 'guide-d-utilisation', component: GuideComponent },
-  { path: 'a-propos', component: AproposComponent },
-  { path: 'foire-aux-questions', component: FaqComponent },
-  { path: 'nous-contacter', component: ContactComponent },
-  { path: 'mentions-legales', component: MentionsLegalesComponent },
-  { path: 'plan-du-site', component: PlanDuSiteComponent },
-  { path: 'accessibilite', component: AccessibiliteComponent },
-  { path: 'carte/departement/:location', 
+  { path: '', title: 'Cartographie des services publics - Accueil', component: AccueilComponent },
+  { path: 'carte', title: 'Cartographie des services publics - Carte', component: HomeComponent },
+  { path: 'guide-d-utilisation', title: 'Cartographie des services publics - Guide d\'utilisation', component: GuideComponent },
+  { path: 'a-propos', title: 'Cartographie des services publics - À propos', component: AproposComponent },
+  { path: 'foire-aux-questions', title: 'Cartographie des services publics - Foire aux questions', component: FaqComponent },
+  { path: 'nous-contacter', title: 'Cartographie des services publics - Nous contacter', component: ContactComponent },
+  { path: 'mentions-legales', title: 'Cartographie des services publics - Mentions légales', component: MentionsLegalesComponent },
+  { path: 'plan-du-site', title: 'Cartographie des services publics - Plan du site', component: PlanDuSiteComponent },
+  { path: 'accessibilite', title: 'Cartographie des services publics - Accessibilité', component: AccessibiliteComponent },
+  { path: 'carte/departement/:location',
+    title: (route: ActivatedRouteSnapshot) => `Cartographie des services publics - Département - ${route.paramMap.get('location')}`,
     component: HomeComponent, 
     canActivate: [AllowedLocation([
       '01', '02', '03', '04', '05', '06', '07', '08', '09',
@@ -40,8 +41,8 @@ export const routes: Routes = [
       '984', '986', '987', '988'
     ])]
   },
-  { path: 'erreur', pathMatch: 'full', component: ExceptionComponent },
-  { path: 'page-introuvable', pathMatch: 'full', component: NotfoundComponent },
+  { path: 'erreur', title: 'Cartographie des services publics - Erreur', pathMatch: 'full', component: ExceptionComponent },
+  { path: 'page-introuvable', title: 'Cartographie des services publics - Page introuvable', pathMatch: 'full', component: NotfoundComponent },
   //Wild Card Route for any 404 request 
-  { path: '**', pathMatch: 'full', component: NotfoundComponent }, 
+  { path: '**', title: 'Cartographie des services publics - Page introuvable', pathMatch: 'full', component: NotfoundComponent },
 ];
