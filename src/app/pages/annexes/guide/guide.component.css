@@ -24,3 +24,9 @@
     margin-right: auto;
     max-width: 70%;
 }
+
+.group-figure {
+    display: flex;
+    justify-content: center;
+    width: auto;
+}

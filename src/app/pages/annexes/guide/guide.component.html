@@ -21,19 +21,59 @@
 
         <div id="tutorial">
             <div class="fr-col-12">
-                <h2>Table des matières</h2>
                 <nav class="fr-summary" role="navigation" aria-label="Sommaire">
-                    <ul>
-                        <li><a routerLink="." fragment="presentation">1 - Présentation</a></li>
-                        <li><a routerLink="." fragment="interface-generale">2 - Interface générale</a></li>
-                        <li><a routerLink="." fragment="territoires">3 - Volet de droite - Territoires</a></li>
-                        <li><a routerLink="." fragment="services-publics">4 - Services publics</a></li>
-                        <li><a routerLink="." fragment="fiches-identite">5 - Fiches d'identité des points d'accueil</a></li>
-                        <li><a routerLink="." fragment="indicateurs">6 - Indicateurs</a></li>
-                        <li><a routerLink="." fragment="gestionnaire-couches">7 - Gestionnaire de couches</a></li>
-                        <li><a routerLink="." fragment="isochrones">8 - Isochrones</a></li>
-                        <li><a routerLink="." fragment="glossaire">Glossaire</a></li>
-                    </ul>
+                    <h2 class="fr-summary__title" id="fr-summary-title">Table des matières</h2>
+                    <ol>
+                        <li><a class="fr-summary__link" routerLink="." fragment="presentation">Présentation</a>
+                            <ol>
+                                <li><a class="fr-summary__link" routerLink="." fragment="fig-1">Figure 1 : Page d'accueil de l'outil</a></li>
+                            </ol>
+                        </li>
+                        <li><a class="fr-summary__link" routerLink="." fragment="interface-generale">Interface générale</a>
+                            <ol>
+                                <li><a class="fr-summary__link" routerLink="." fragment="fig-2">Figure 2 : Organisation générale de l'interface</a></li>
+                            </ol>
+                        </li>
+                        <li><a class="fr-summary__link" routerLink="." fragment="territoires">Volet de droite - Territoires</a>
+                            <ol>
+                                <li><a class="fr-summary__link" routerLink="." fragment="fig-3-1">Figure 3-1 : Utilisation du zoom</a></li>
+                                <li><a class="fr-summary__link" routerLink="." fragment="fig-3-2">Figure 3-2 : Saisie prédictive du nom de département</a></li>
+                                <li><a class="fr-summary__link" routerLink="." fragment="fig-3-3">Figure 3-3 : Sélection d'un EPCI</a></li>
+                                <li><a class="fr-summary__link" routerLink="." fragment="fig-3-4">Figure 3-4 : Sélection d'une commune</a></li>
+                                <li><a class="fr-summary__link" routerLink="." fragment="fig-3-5">Figure 3-5 : Affichage des services publics présents et indicateurs</a></li>
+                            </ol>
+                        </li>
+                        <li><a class="fr-summary__link" routerLink="." fragment="services-publics">Services publics</a>
+                            <ol>
+                                <li><a class="fr-summary__link" routerLink="." fragment="fig-4-1">Figure 4-1 : Application des filtres</a></li>
+                                <li><a class="fr-summary__link" routerLink="." fragment="fig-4-2">Figure 4-2 : Sélection des typologies de service public</a></li>
+                            </ol>
+                        </li>
+                        <li><a class="fr-summary__link" routerLink="." fragment="fiches-identite">Fiches d'identité des points d'accueil</a>
+                            <ol>
+                                <li><a class="fr-summary__link" routerLink="." fragment="fig-5-1">Figure 5-1 : Fiche d'identité d'une implantation</a></li>
+                                <li><a class="fr-summary__link" routerLink="." fragment="fig-5-2">Figure 5-2 : Fiche d'identité d'une permanence</a></li>
+                                <li><a class="fr-summary__link" routerLink="." fragment="fig-5-3">Figure 5-3 : Fiche d'identité d'un point d'itinérance</a></li>
+                            </ol>
+                        </li>
+                        <li><a class="fr-summary__link" routerLink="." fragment="indicateurs">Indicateurs</a>
+                            <ol>
+                                <li><a class="fr-summary__link" routerLink="." fragment="fig-6">Figure 6 : Affichage d'un indicateur</a></li>
+                            </ol>
+                        </li>
+                        <li><a class="fr-summary__link" routerLink="." fragment="gestionnaire-couches">Gestionnaire de couches</a>
+                            <ol>
+                                <li><a class="fr-summary__link" routerLink="." fragment="fig-7">Figure 7 : Gestionnaire de couche</a></li>
+                            </ol>
+                        </li>
+                        <li><a class="fr-summary__link" routerLink="." fragment="isochrones">Isochrones</a>
+                            <ol>
+                                <li><a class="fr-summary__link" routerLink="." fragment="fig-8-1">Figure 8-1 : Isochrone à l'adresse</a></li>
+                                <li><a class="fr-summary__link" routerLink="." fragment="fig-8-2">Figure 8-2 : Isochrone par typologie de service</a></li>
+                            </ol>
+                        </li>
+                        <li><a class="fr-summary__link" routerLink="." fragment="glossaire">Glossaire</a></li>
+                    </ol>
                 </nav>
 
                 <!-- Debut des sections detaillees du guide -->
@@ -53,7 +93,7 @@
                     </ul>       
                 </div>
                 <br>
-                <h4 class="fr-primary">Figure 1 : Page d’accueil de l’outil</h4>
+                <h4 id="fig-1" class="fr-primary">Figure 1 : Page d'accueil de l'outil</h4>
                 <img src="/assets/images/guide/figure1.jpg" alt="Guide figure 1" class="fr-responsive-img fr-my-2w guide-figure-centered">
 
                 <!-- Section 2 : Organisation generale de l'interface -->
@@ -67,7 +107,7 @@
                 <div class="fr-alert fr-alert--info fr-my-2w">
                     <p><strong>Bon à savoir :</strong> les éléments sélectionnés dans les volets information et fonctionnalités apparaissent sur la carte interactive.</p>
                 </div>
-                <h4 class="fr-primary">Figure 2 : Organisation générale de l'interface</h4>
+                <h4 id="fig-2" class="fr-primary">Figure 2 : Organisation générale de l'interface</h4>
                 <img src="/assets/images/guide/figure2.jpg" alt="Guide figure 2" class="fr-responsive-img fr-my-2w guide-figure-centered">
                 <br>
 
@@ -81,26 +121,34 @@
                     <li>Une commune.</li>
                 </ul>
                 <p>La sélection affiche les informations disponibles pour le territoire choisi.</p>
-                <h4 class="fr-primary">Figure 3-1 : Utilisation du zoom</h4>
-                <img src="/assets/images/guide/figure311.jpg" alt="Guide figure 3-1-1" class="fr-responsive-img fr-my-2w guide-figure-centered">
-                <img src="/assets/images/guide/figure312.jpg" alt="Guide figure 3-1-2" class="fr-responsive-img fr-my-2w guide-figure-centered">
-                <img src="/assets/images/guide/figure313.jpg" alt="Guide figure 3-1-3" class="fr-responsive-img fr-my-2w guide-figure-centered">
+                <h4 id="fig-3-1" class="fr-primary">Figure 3-1 : Utilisation du zoom</h4>
+                <div class="group-figure">
+                    <img style="height: 50%;" src="/assets/images/guide/figure311.jpg" alt="Guide figure 3-1-1" class="fr-responsive-img fr-my-2w">
+                    <img style="height: 50%;" src="/assets/images/guide/figure312.jpg" alt="Guide figure 3-1-2" class="fr-responsive-img fr-my-2w">
+                    <img src="/assets/images/guide/figure313.jpg" alt="Guide figure 3-1-3" class="fr-responsive-img fr-my-2w">
+                </div>
                 <img src="/assets/images/guide/figure314.jpg" alt="Guide figure 3-1-4" class="fr-responsive-img fr-my-2w guide-figure-centered">
-                <h4 class="fr-primary">Figure 3-2 : Saisie prédictive du nom de département</h4>
-                <img src="/assets/images/guide/figure321.jpg" alt="Guide figure 3-2-1" class="fr-responsive-img fr-my-2w guide-figure-centered">
-                <img src="/assets/images/guide/figure322.jpg" alt="Guide figure 3-2-2" class="fr-responsive-img fr-my-2w guide-figure-centered">
-                <h4 class="fr-primary">Figure 3-3 : Sélection d’un établissement public de coopération intercommunale (EPCI)</h4>
-                <img src="/assets/images/guide/figure331.png" alt="Guide figure 3-3-1" class="fr-responsive-img fr-my-2w guide-figure-centered">
-                <img src="/assets/images/guide/figure332.jpg" alt="Guide figure 3-3-2" class="fr-responsive-img fr-my-2w guide-figure-centered">
+                <h4 id="fig-3-2" class="fr-primary">Figure 3-2 : Saisie prédictive du nom de département</h4>
+                <div class="group-figure">
+                    <img style="width: 30%; height: 80%;" src="/assets/images/guide/figure321.jpg" alt="Guide figure 3-2-1" class="fr-responsive-img fr-my-2w guide-figure-centered">
+                    <img src="/assets/images/guide/figure322.jpg" alt="Guide figure 3-2-2" class="fr-responsive-img fr-my-2w guide-figure-centered">
+                </div>
+                <h4 id="fig-3-3" class="fr-primary">Figure 3-3 : Sélection d'un établissement public de coopération intercommunale (EPCI)</h4>
+                <div class="group-figure">
+                    <img style="height: 50%;" src="/assets/images/guide/figure331.jpg" alt="Guide figure 3-3-1" class="fr-responsive-img fr-my-2w guide-figure-centered">
+                    <img style="width: 90%; height: 80%;" src="/assets/images/guide/figure332.jpg" alt="Guide figure 3-3-2" class="fr-responsive-img fr-my-2w guide-figure-centered">
+                </div>
                 <img src="/assets/images/guide/figure333.jpg" alt="Guide figure 3-3-3" class="fr-responsive-img fr-my-2w guide-figure-centered">
-                <h4 class="fr-primary">Figure 3-4 : Sélection d’une commune</h4>
+                <h4 id="fig-3-4" class="fr-primary">Figure 3-4 : Sélection d'une commune</h4>
                 <p>La procédure est identique à la précédente. Il convient simplement de sélectionner l’onglet commune, de vous déplacer sur la carte et de zoomer.</p>
-                <h4 class="fr-primary">Figure 3-5 : Affichage des services publics présents et indicateurs associés</h4>
+                <h4 id="fig-3-5" class="fr-primary">Figure 3-5 : Affichage des services publics présents et indicateurs associés</h4>
                 <p>Ensemble des services publics dans le département</p>
-                <img src="/assets/images/guide/figure351.jpg" alt="Guide figure 3-5-1" class="fr-responsive-img fr-my-2w guide-figure-centered">
-                <img src="/assets/images/guide/figure352.jpg" alt="Guide figure 3-5-2" class="fr-responsive-img fr-my-2w guide-figure-centered">
+                <div class="group-figure">
+                    <img src="/assets/images/guide/figure351.jpg" alt="Guide figure 3-5-1" class="fr-responsive-img fr-my-2w guide-figure-centered">
+                    <img src="/assets/images/guide/figure352.jpg" alt="Guide figure 3-5-2" class="fr-responsive-img fr-my-2w guide-figure-centered">
+                </div>
                 <p>Choix d’un service public et indicateurs le concernant, avec comparaison à la maille nationale.</p>
-                <img src="/assets/images/guide/figure353.jpg" alt="Guide figure 3-5-3" class="fr-responsive-img fr-my-2w guide-figure-centered">
+                <img style="width: 50%;" src="/assets/images/guide/figure353.jpg" alt="Guide figure 3-5-3" class="fr-responsive-img fr-my-2w guide-figure-centered">
 
                 <!-- Section 4 : Filtrage et selection des services publics -->
                 <h2 id="services-publics">4 - Services publics</h2>
@@ -120,9 +168,9 @@
                         <li>Les informations des filtres ne sont pas disponibles pour tous les points d'accueil répertoriés dans la carte. L'application de filtres ne permet d'afficher que les points pour lesquels l'information a été renseignée.</li>
                     </ul>       
                 </div>
-                <h4 class="fr-primary">Figure 4-1 : Application des filtres</h4>
-                <img src="/assets/images/guide/figure41.jpg" alt="Guide figure 4-1" class="fr-responsive-img fr-my-2w guide-figure-centered">
-                <h4 class="fr-primary">Figure 4-2 : Sélection des typologies de service public</h4>
+                <h4 id="fig-4-1" class="fr-primary">Figure 4-1 : Application des filtres</h4>
+                <img style="width: 40%;" src="/assets/images/guide/figure41.jpg" alt="Guide figure 4-1" class="fr-responsive-img fr-my-2w guide-figure-centered">
+                <h4 id="fig-4-2" class="fr-primary">Figure 4-2 : Sélection des typologies de service public</h4>
                 <img src="/assets/images/guide/figure42.jpg" alt="Guide figure 4-2" class="fr-responsive-img fr-my-2w guide-figure-centered">
 
                 <!-- Section 5 : Lecture des fiches d'identite des points d'accueil -->
@@ -137,14 +185,18 @@
                     <li>Lorsqu'il s'agit d'une permanence, la liste des autres permanences accueillies dans les locaux.</li>
                     <li>Lorsqu'il s'agit d'un point d'arrêt d'un dispositif itinérant, le circuit avec les autres arrêts du même dispositif.</li>
                 </ul>
-                <h4 class="fr-primary">Figure 5-1 : Fiche d’identité d’une implantation</h4>
+                <h4 id="fig-5-1" class="fr-primary">Figure 5-1 : Fiche d'identité d'une implantation</h4>
                 <img src="/assets/images/guide/figure51.jpg" alt="Guide figure 5-1" class="fr-responsive-img fr-my-2w guide-figure-centered">
-                <h4 class="fr-primary">Figure 5-2 : Fiche d’identité d’une permanence</h4>
-                <img src="/assets/images/guide/figure521.jpg" alt="Guide figure 5-2-1" class="fr-responsive-img fr-my-2w guide-figure-centered">
-                <img src="/assets/images/guide/figure522.jpg" alt="Guide figure 5-2-2" class="fr-responsive-img fr-my-2w guide-figure-centered">
-                <h4 class="fr-primary">Figure 5-3 : Fiche d’identité d’un point d’itinérance</h4>
-                <img src="/assets/images/guide/figure531.jpg" alt="Guide figure 5-3-1" class="fr-responsive-img fr-my-2w guide-figure-centered">
-                <img src="/assets/images/guide/figure532.jpg" alt="Guide figure 5-3-2" class="fr-responsive-img fr-my-2w guide-figure-centered">
+                <h4 id="fig-5-2" class="fr-primary">Figure 5-2 : Fiche d'identité d'une permanence</h4>
+                <div class="group-figure">
+                    <img src="/assets/images/guide/figure521.jpg" alt="Guide figure 5-2-1" class="fr-responsive-img fr-my-2w guide-figure-centered">
+                    <img style="width: 40%; height: 80%;" src="/assets/images/guide/figure522.jpg" alt="Guide figure 5-2-2" class="fr-responsive-img fr-my-2w guide-figure-centered">
+                </div>
+                <h4 id="fig-5-3" class="fr-primary">Figure 5-3 : Fiche d'identité d'un point d'itérance</h4>
+                <div class="group-figure">
+                    <img style="height: 80%;" src="/assets/images/guide/figure531.jpg" alt="Guide figure 5-3-1" class="fr-responsive-img fr-my-2w guide-figure-centered">
+                    <img style="width: 40%; height: 80%;" src="/assets/images/guide/figure532.jpg" alt="Guide figure 5-3-2" class="fr-responsive-img fr-my-2w guide-figure-centered">
+                </div>
 
                 <!-- Section 6 : Utilisation des indicateurs thematiques -->
                 <h2 id="indicateurs">6 - Indicateurs</h2>
@@ -161,7 +213,7 @@
                     <p><strong>Bon à savoir :</strong> les indicateurs peuvent être affichés en complément des services publics.</p>
                 </div>
 
-                <h4 class="fr-primary">Figure 6 : Affichage d’un indicateur</h4>
+                <h4 id="fig-6" class="fr-primary">Figure 6 : Affichage d'un indicateur</h4>
                 <img src="/assets/images/guide/figure6.jpg" alt="Guide figure 6" class="fr-responsive-img fr-my-2w guide-figure-centered">
 
                 <!-- Section 7 : Superposition et ordre des couches cartographiques -->
@@ -173,7 +225,7 @@
                     <li>Modifier l'ordre d'affichage.</li>
                     <li>Régler la transparence.</li>
                 </ul>
-                <h4 class="fr-primary">Figure 7 : Gestionnaire de couche</h4>
+                <h4 id="fig-7" class="fr-primary">Figure 7 : Gestionnaire de couche</h4>
                 <img src="/assets/images/guide/figure7.jpg" alt="Guide figure 7" class="fr-responsive-img fr-my-2w guide-figure-centered">
 
                 <!-- Section 8 : Calcul de couverture via les isochrones -->
@@ -196,15 +248,17 @@
                         <li>Elles permettent également de simuler une couverture potentielle à partir d'une adresse.</li>
                     </ul>       
                 </div>
-                <h4 class="fr-primary">Figure 8-1 : Isochrone à l’adresse</h4>
-                <img src="/assets/images/guide/figure811.jpg" alt="Guide figure 8-1-1" class="fr-responsive-img fr-my-2w guide-figure-centered">
-                <img src="/assets/images/guide/figure812.jpg" alt="Guide figure 8-1-2" class="fr-responsive-img fr-my-2w guide-figure-centered">
-                <h4 class="fr-primary">Figure 8-2 : Isochrone à l’adresse</h4>
+                <h4 id="fig-8-1" class="fr-primary">Figure 8-1 : Isochrone à l'adresse</h4>
+                <div class="group-figure">
+                    <img src="/assets/images/guide/figure811.jpg" alt="Guide figure 8-1-1" class="fr-responsive-img fr-my-2w guide-figure-centered">
+                    <img style="width: 80%; height: 80%;" src="/assets/images/guide/figure812.jpg" alt="Guide figure 8-1-2" class="fr-responsive-img fr-my-2w guide-figure-centered">
+                </div>
+                <h4 id="fig-8-2" class="fr-primary">Figure 8-2 : Isochrone par typologie de service</h4>
                 <img src="/assets/images/guide/figure82.jpg" alt="Guide figure 8-2" class="fr-responsive-img fr-my-2w guide-figure-centered">
                 <br>
 
                 <!-- Glossaire : Definitions des termes utilises dans le guide -->
-                <h2 id="glossaire">Glossaire</h2>
+                <h2 id="glossaire">9 - Glossaire</h2>
                 <p><strong>Analyse multicritère :</strong> méthode d'analyse consistant à croiser plusieurs indicateurs ou données afin d'éclairer la prise de décision sur un territoire.</p>
                 <p><strong>Cartographie :</strong> représentation visuelle de données géographiques sur une carte interactive permettant leur consultation et leur analyse.</p>
                 <p><strong>Couche cartographique :</strong> ensemble de données géographiques affichées sur la carte. Plusieurs couches peuvent être superposées pour enrichir l'analyse.</p>
