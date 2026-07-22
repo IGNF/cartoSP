@@ -97,10 +97,10 @@ export class IsochroneStatsService {
 
         let hasMorePages = true;
         while (hasMorePages) {
-            const pageIndexes = Array.from(
-                { length: maxConcurrentRequests },
-                (_, index) => startIndex + (index * pageSize)
-            );
+            const pageIndexes: number[] = [];
+            for (let i = 0; i < maxConcurrentRequests; i++) {
+                pageIndexes.push(startIndex + (i * pageSize));
+            }
 
             try {
                 const pageResults = await Promise.all(
