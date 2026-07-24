@@ -69,4 +69,12 @@ export class AppComponent implements AfterViewInit {
   collapseFooter(): void {
     this.footerExpanded = false;
   }
+
+  hideNotice(): void {
+    const button = event?.target as HTMLButtonElement;
+    const notice = button?.parentNode?.parentNode as HTMLElement;
+    notice?.parentNode?.removeChild(notice);
+    const mainInfoReduce = document.getElementsByClassName('main--info-reduce')[0] as HTMLElement;
+    mainInfoReduce?.classList.remove('main--info-reduce');
+  }
 }
