@@ -88,6 +88,15 @@
     </div>
   </div>
 </header>
+<div class="fr-notice fr-notice--info fr-notice--reduced"> 
+  <div class="fr-notice__body">
+      <p>
+          <span class="fr-notice__title">Ce site est en phase de lancement :</span>
+          <span class="fr-notice__desc">certaines informations peuvent être manquantes, imprécises ou en cours de mise à jour</span>
+      </p>
+      <button title="Masquer le message" onclick="const notice = this.parentNode.parentNode; notice.parentNode.removeChild(notice); document.getElementsByClassName('main--info-reduce')[0].classList.remove('main--info-reduce');" type="button" class="fr-btn--close fr-btn">Masquer le message</button>
+  </div>
+</div>
 } @else {
   <dsfr-header
     [serviceTitle]="'La cartographie des services publics'"
@@ -145,8 +154,18 @@
       </li>
     </ng-template>  
   </dsfr-header>
+  <div class="fr-notice fr-notice--info">
+      <div class="fr-container">
+          <div class="fr-notice__body">
+              <p>
+                  <span class="fr-notice__title">Ce site est en phase de lancement :</span>
+                  <span class="fr-notice__desc">certaines informations peuvent être manquantes, imprécises ou en cours de mise à jour</span>
+              </p>
+          </div>
+      </div>
+  </div>
 }
-<main [class]="mapPage ? 'main' : 'main-home'">
+<main [class]="mapPage ? 'main main--info-reduce' : 'main-home'">
   <router-outlet></router-outlet>
 </main>
 <div *ngIf="!footerExpanded" id="small-footer">

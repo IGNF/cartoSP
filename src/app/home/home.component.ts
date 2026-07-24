@@ -19,6 +19,7 @@ import { IndicatorselectorComponent } from '../controls/indicatorselector/indica
 import { TerritoireComponent } from '../controls/territoire/territoire.component';
 import { MinimapComponent } from '../controls/minimap/minimap.component';
 import { LocalisationInfoComponent } from '../rightpanel/content/localisation-info/localisation-info.component';
+import { GetfeatureinfoComponent } from '../controls/getfeatureinfo/getfeatureinfo.component';
 
 import { GeocodageService } from './../services/geocodage.service';
 import { RightpanelService } from './../rightpanel/rightpanel.service';
@@ -37,7 +38,7 @@ import Gp from 'geoportal-access-lib';
     selector: 'app-home',
     templateUrl: './home.component.html',
     styleUrl: './home.component.css',
-    imports: [CommonModule, CarteComponent, SearchComponent, LayerswitcherComponent, IsochroneSimpleComponent, LegendeComponent, ZoomComponent, FullscreenComponent, AttributionComponent, ScalelineComponent, LayerselectorComponent, SpwfsfilterComponent, RightpanelComponent, SpselectorComponent, IndicatorselectorComponent, TerritoireComponent, MinimapComponent],
+    imports: [CommonModule, CarteComponent, SearchComponent, LayerswitcherComponent, IsochroneSimpleComponent, LegendeComponent, ZoomComponent, FullscreenComponent, AttributionComponent, ScalelineComponent, LayerselectorComponent, SpwfsfilterComponent, RightpanelComponent, SpselectorComponent, IndicatorselectorComponent, TerritoireComponent, MinimapComponent, GetfeatureinfoComponent],
     providers: [GeocodageService]
 })
 export class HomeComponent implements OnInit {

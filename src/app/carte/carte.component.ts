@@ -5,8 +5,6 @@ import Feature from 'ol/Feature';
 import { bbox as bboxStrategy } from 'ol/loadingstrategy';
 import { LayerWFS as GeoportalLayerWFS, LayerMapBox as GeoportalLayerTMS } from "geopf-extensions-openlayers/src";  
 import Overlay from 'ol/Overlay';
-// import TileWMS from 'ol/source/TileWMS';
-// import WMSGetFeatureInfo from 'ol/format/WMSGetFeatureInfo';
 
 @Component({
     selector: 'app-carte',
@@ -98,55 +96,6 @@ export class CarteComponent implements OnInit {
       //@ts-ignore
       document.getElementById("tooltip-feature").style.visibility = 'hidden';
     });
-
-    // Event pour récupérer les informations des couches WMS au clic
-    /*this.map.on('click', (evt) => {
-      const view = this.map.getView();
-      const viewResolution = view.getResolution();
-      const projection = view.getProjection();
-
-      if (viewResolution === undefined) {
-        return;
-      }
-
-      const featurePromises: Promise<{ layerName: string; features: Feature[] }>[] = [];
-
-      this.map.getLayers().forEach((layer) => {
-        const source = (layer as any).getSource?.();
-        if (!(source instanceof TileWMS)) {
-          return;
-        }
-
-        const layerName: string = layer.get('name') || '(unnamed)';
-        console.log(layer);
-        const url = source.getFeatureInfoUrl(
-          evt.coordinate,
-          viewResolution,
-          projection,
-          { INFO_FORMAT: 'application/vnd.ogc.gml' }
-        );
-
-        if (!url) {
-          return;
-        }
-
-        const promise = fetch(url)
-          .then((response) => response.text())
-          .then((text) => ({
-            layerName,
-            features: new WMSGetFeatureInfo({ layers: [layerName] }).readFeatures(text) as Feature[]
-          }));
-
-        featurePromises.push(promise);
-      });
-
-      Promise.all(featurePromises).then((results) => {
-        const allFeatures = results.flatMap(({ layerName, features }) =>
-          features.map((feature) => ({ layerName, feature }))
-        );
-        console.log('All WMS features clicked:', allFeatures);
-      });
-    });*/
 
     this.map.addOverlay(overlay);
   }

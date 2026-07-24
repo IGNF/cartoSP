@@ -146,6 +146,24 @@
     overflow-x: hidden;
 }
 
+.main--info-reduce {
+    height: calc(100vh - 3.5rem - 2.625rem - 2.525rem);
+}
+
+.fr-notice--reduced {
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+}
+
+.fr-notice--reduced > .fr-notice__body {
+    margin-left: 26px;
+    margin-right: 1.4rem;
+}
+
+.fr-notice--reduced > .fr-notice__body > p > .fr-notice__title::before {
+    margin-right: 1.75rem;
+}
+
 .main-home {
     position: relative;
     z-index: 1;
