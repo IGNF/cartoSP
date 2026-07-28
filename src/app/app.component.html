@@ -1,102 +1,255 @@
-<dsfr-header
-[serviceTitle]="'Carto SP'"
-[logoLink]="'https://cartosp.modernisation.gouv.fr'"
-[serviceTagline]="'La cartographie des services publics'"
-[menu]="[
-{ label: 'Guide d\'utilisation', link: '/guide-d-utilisation' },
-{ label: 'Expérimentation', link: '/experimentation' },
-{ 
-  label: 'Données',
-  subItems: [
-    {
-      label: 'Téléchargement des données',
-      link: '/telechargement-des-donnees'
-    },
-    {
-      label: 'Correction des données',
-      link: '/correction-des-donnees'
-    }
-  ]
-},
-{ label: 'À propos', link: '/a-propos' },
-{
-  label: 'Assistance',
-  subItems: [
-    { label: 'Foire aux questions', link: '/foire-aux-questions' },
-    { label: 'Nous contacter', link: '/nous-contacter' }
-  ]
+@if (mapPage) {
+<header role="banner" class="fr-header fr-header--compact csp-header">
+  <div class="fr-header__body">
+    <div class="fr-container--fluid">
+      <div class="fr-header__body-row">
+        <div class="fr-header__brand fr-enlarge-link">
+          <div class="fr-header__brand-top">
+            <div class="fr-header__logo">
+              <a href="/" title="Accueil - République Française">
+                <p class="fr-logo"></p>
+              </a>
+            </div>
+            <div class="fr-header__service">
+              <a href="/" title="Accueil - Cartographie des services publics">
+                <p class="fr-header__service-title fr-pr-3w">Cartographie des services publics</p>
+              </a>
+            </div>
+            <div class="fr-header__navbar">
+              <button
+                class="fr-btn--menu fr-btn"
+                type="button"
+                id="button-csp-menu"
+                aria-controls="modal-csp-menu"
+                title="Menu"
+                data-fr-opened="false"
+              >
+                Menu
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="fr-header__tools">
+          <div class="fr-header__tools-links">
+            <div class="csp-header__actions" role="navigation" aria-label="Menu principal">
+              <a class="fr-btn fr-btn--sm fr-px-2w fr-btn--icon-left fr-icon-home-4-fill" href="/">
+                Accueil
+              </a>
+              <a class="fr-btn fr-btn--sm fr-px-2w fr-btn--icon-left fr-icon-road-map-fill" href="/carte">
+                Accéder à l'outil
+              </a>
+              <a class="fr-btn fr-btn--sm fr-px-2w fr-btn--icon-left fr-icon-information-fill" href="/a-propos">
+                À propos
+              </a>
+              <dsfr-tool-link-menu
+                [outline]="false"
+                [labelMenu]="'Aide'"
+                [iconMenu]="'fr-icon-question-fill'"
+              >
+                <ng-template #linksTemplate>
+                  <ul>
+                    <dsfr-link
+                      [link]="'/guide-d-utilisation'"
+                      [label]="'Présentation de l’outil et guide d’utilisation'"
+                      [icon]="'fr-icon-book-2-line'"
+                      [customClass]="'fr-nav__link'"
+                      [iconPosition]="'left'"
+                    ></dsfr-link>
+                    <dsfr-link
+                      [link]="'/foire-aux-questions'"
+                      [label]="'Foire aux questions'"
+                      [icon]="'fr-icon-question-mark'"
+                      [customClass]="'fr-nav__link'"
+                      [iconPosition]="'left'"
+                    ></dsfr-link>
+                    <dsfr-link
+                      [link]="'/nous-contacter'"
+                      [label]="'Nous contacter'"
+                      [icon]="'fr-icon-mail-line'"
+                      [customClass]="'fr-nav__link'"
+                      [iconPosition]="'left'"
+                    ></dsfr-link>
+                  </ul>
+                </ng-template>
+              </dsfr-tool-link-menu>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="fr-header__menu fr-modal" id="modal-csp-menu" aria-labelledby="button-csp-menu">
+    <div class="fr-container">
+      <button class="fr-btn--close fr-btn" type="button" aria-controls="modal-csp-menu" title="Fermer">
+        Fermer
+      </button>
+      <div class="fr-header__menu-links"></div>
+    </div>
+  </div>
+</header>
+<div class="fr-notice fr-notice--info fr-notice--reduced"> 
+  <div class="fr-notice__body">
+      <p>
+          <span class="fr-notice__title">Ce site est en phase de lancement :</span>
+          <span class="fr-notice__desc">certaines informations peuvent être manquantes, imprécises ou en cours de mise à jour</span>
+      </p>
+      <button title="Masquer le message" (click)="hideNotice()" type="button" class="fr-btn--close fr-btn">Masquer le message</button>
+  </div>
+</div>
+} @else {
+  <dsfr-header
+    [serviceTitle]="'La cartographie des services publics'"
+    [logoLink]="'/'"
+    [menu]="[]"
+  >
+    <ng-template #toolsLinksTemplate>
+      <li>
+        <a class="fr-btn fr-btn--sm header__menu__button fr-btn--icon-left fr-icon-home-4-fill" href="/">
+          Accueil
+        </a>
+      </li>
+      <li>
+        <a class="fr-btn fr-btn--sm header__menu__button fr-btn--icon-left fr-icon-road-map-fill" href="/carte">
+          Accéder à l'outil
+        </a>
+      </li>
+      <li>
+        <a class="fr-btn fr-btn--sm header__menu__button fr-btn--icon-left fr-icon-information-fill" href="/a-propos">
+          À propos
+        </a>
+      </li>
+      <li>
+        <dsfr-tool-link-menu
+          [outline]="false"
+          [labelMenu]="'Aide'"
+          [iconMenu]="'fr-icon-question-fill'"
+        >
+          <ng-template #linksTemplate>
+            <ul>
+              <dsfr-link
+                [link]="'/guide-d-utilisation'"
+                [label]="'Présentation de l’outil et guide d’utilisation'"
+                [icon]="'fr-icon-book-2-line'"
+                [customClass]="'fr-nav__link'"
+                [iconPosition]="'left'"
+              ></dsfr-link>
+              <dsfr-link
+                [link]="'/foire-aux-questions'"
+                [label]="'Foire aux questions'"
+                [icon]="'fr-icon-question-mark'"
+                [customClass]="'fr-nav__link'"
+                [iconPosition]="'left'"
+              ></dsfr-link>
+              <dsfr-link
+                [link]="'/nous-contacter'"
+                [label]="'Nous contacter'"
+                [icon]="'fr-icon-mail-line'"
+                [customClass]="'fr-nav__link'"
+                [iconPosition]="'left'"
+              ></dsfr-link>
+            </ul>
+          </ng-template>
+        </dsfr-tool-link-menu>
+      </li>
+    </ng-template>  
+  </dsfr-header>
+  <div class="fr-notice fr-notice--info">
+      <div class="fr-container">
+          <div class="fr-notice__body">
+              <p>
+                  <span class="fr-notice__title">Ce site est en phase de lancement :</span>
+                  <span class="fr-notice__desc">certaines informations peuvent être manquantes, imprécises ou en cours de mise à jour</span>
+              </p>
+          </div>
+      </div>
+  </div>
 }
-]"
-[headerToolsLinks]="[]"
-[beta]="true"
-></dsfr-header>
-  <main class="main">
-    <router-outlet></router-outlet>
-  </main>
-<dsfr-footer
-  [presentation]="
-    'Carto SP est un projet coordonné par la Direction interministérielle de la transformation publique (DITP) en lien avec l’Institut national de l’information géographique et forestière (IGN). Le site s’appuie sur la Géoplateforme, la nouvelle infrastructure publique, ouverte et collaborative des données géographiques.'
-  "
-  [institutionalLinks]="[
-    {
-      label: 'info.gouv.fr',
-      link: 'https://info.gouv.fr',
-      tooltipMessage: 'info.gouv.fr - ouvre une nouvelle fenêtre',
-      target: '_blank'
-    },
-    {
-      label: 'service-public.fr',
-      link: 'https://service-public.fr',
-      tooltipMessage: 'service-public.fr- ouvre une nouvelle fenêtre',
-      target: '_blank'
-    },
-    {
-      label: 'legifrance.gouv.fr',
-      link: 'https://legifrance.gouv.fr',
-      tooltipMessage: 'legifrance.gouv.fr - ouvre une nouvelle fenêtre',
-      target: '_blank'
-    },
-    {
-      label: 'data.gouv.fr',
-      link: 'https://data.gouv.fr',
-      tooltipMessage: 'data.gouv.fr - ouvre une nouvelle fenêtre',
-      target: '_blank'
+<main [class]="mapPage ? 'main main--info-reduce' : 'main-home'">
+  <router-outlet></router-outlet>
+</main>
+<div *ngIf="!footerExpanded" id="small-footer">
+  <ul class="fr-footer__bottom-list small-footer__bottom-list">
+    @for (item of mandatoryLinks; track item.link) {
+      <li class="fr-footer__bottom-item">
+        <a class="fr-footer__bottom-link" [routerLink]="item.link">{{ item.label }}</a>
+      </li>
     }
-  ]"
-  [mandatoryLinks]="[
-    { label: 'Plan du site', link: '/plan-du-site' },
-    {
-      label: 'Accessibilité: partiellement conforme',
-      link: '/accessibilite'
-    },
-    {
-      label: 'Conditions générales d’utilisation',
-      link: '/cgu'
-    },
-    {
-      label: 'Mentions légales',
-      link: '/mentions-legales'
-    },
-    {
-      label: 'Données personnelles',
-      link: '/donnees-personnelles'
-    }
-  ]"
-  [partnerMain]="{imagePath: 'assets/images/logos/ditp.svg', imageAlt: 'logo DITP', link: 'https://www.modernisation.gouv.fr/'}"
-  [partnersSub]="[
-    {
-      imagePath: 'assets/images/logos/ign.svg',
-      imageAlt: 'logo IGN',
-      link: 'https://www.ign.fr'
-    }
-  ]"
-  [reboundLinks]="[]"
-  [license]="
-    'Sauf mention explicite de propriété intellectuelle détenue par
-  des tiers, les contenus de ce site sont proposés sous &#60;a href=&#34;https://github.com/etalab/licence-ouverte/blob/master/LO.md&#34; target=&#34;_blank&#34; title=&#34;licence etalab-2.0 - ouvre une nouvelle fenêtre&#34;&#62;licence etalab-2.0&#60;/a&#62;'
-  "
-  [display]="true"
-></dsfr-footer>
+    <li class="fr-footer__bottom-item">
+      <button
+        type="button"
+        class="fr-footer__bottom-link fr-fi-theme-fill fr-link--icon-left"
+        [attr.aria-controls]="displayModalId"
+        data-fr-opened="false"
+      >
+        {{ footerDisplayLabel }}
+      </button>
+    </li>
+  </ul>
+  <button id="btn-expand-footer" class="fr-btn fr-btn--sm btn-expand-footer fr-btn--tertiary-no-outline" type="button" title="Afficher plus" (click)="expandFooter()">
+    <span class="fr-icon-arrow-up-s-line"></span>
+  </button>
+  <dsfr-display [displayId]="displayModalId"></dsfr-display>
+</div>
+<div *ngIf="footerExpanded" style="position: relative;">
+  @if (mapPage) {
+    <button
+      class="fr-btn fr-btn--sm fr-btn--tertiary-no-outline fr-btn--close fr-btn--icon-right"
+      style="position: absolute; top: 1rem; right: 1rem; z-index: 10;"
+      type="button"
+      title="Fermer"
+      (click)="collapseFooter()"
+    >
+      Fermer
+    </button>
+  }
+  <dsfr-footer
+    [presentation]="
+      'La cartographie des services publics est un projet coordonné par la Direction interministérielle de la transformation publique (DITP) en lien avec l’Institut national de l’information géographique et forestière (IGN). Le site s’appuie sur la Géoplateforme, la nouvelle infrastructure publique, ouverte et collaborative des données géographiques.'
+    "
+    [institutionalLinks]="[
+      {
+        label: 'info.gouv.fr',
+        link: 'https://info.gouv.fr',
+        tooltipMessage: 'info.gouv.fr - ouvre une nouvelle fenêtre',
+        target: '_blank'
+      },
+      {
+        label: 'service-public.fr',
+        link: 'https://service-public.fr',
+        tooltipMessage: 'service-public.fr- ouvre une nouvelle fenêtre',
+        target: '_blank'
+      },
+      {
+        label: 'legifrance.gouv.fr',
+        link: 'https://legifrance.gouv.fr',
+        tooltipMessage: 'legifrance.gouv.fr - ouvre une nouvelle fenêtre',
+        target: '_blank'
+      },
+      {
+        label: 'data.gouv.fr',
+        link: 'https://data.gouv.fr',
+        tooltipMessage: 'data.gouv.fr - ouvre une nouvelle fenêtre',
+        target: '_blank'
+      }
+    ]"
+    [mandatoryLinks]="mandatoryLinks"
+    [partnerMain]="{imagePath: 'assets/images/logos/ditp.svg', imageAlt: 'logo DITP', link: 'https://www.modernisation.gouv.fr/'}"
+    [partnersSub]="[
+      {
+        imagePath: 'assets/images/logos/ign.svg',
+        imageAlt: 'logo IGN',
+        link: 'https://www.ign.fr'
+      }
+    ]"
+    [reboundLinks]="[]"
+    [license]="
+      'Sauf mention explicite de propriété intellectuelle détenue par
+    des tiers, les contenus de ce site sont proposés sous &#60;a href=&#34;https://github.com/etalab/licence-ouverte/blob/master/LO.md&#34; target=&#34;_blank&#34; title=&#34;licence etalab-2.0 - ouvre une nouvelle fenêtre&#34;&#62;licence etalab-2.0&#60;/a&#62;'
+    "
+    [display]="true"
+  ></dsfr-footer>
+</div>
 
 
 

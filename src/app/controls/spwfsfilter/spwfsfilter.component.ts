@@ -5,11 +5,10 @@ import Control from 'ol/control/Control';
 import { WfsFilter } from "geopf-extensions-openlayers/src";
 
 @Component({
-  selector: 'app-spwfsfilter',
-  standalone: true,
-  imports: [],
-  template: '',
-  styles: []
+    selector: 'app-spwfsfilter',
+    imports: [],
+    template: '',
+    styles: []
 })
 export class SpwfsfilterComponent implements OnInit {
   @Input() map!: Map;
@@ -26,32 +25,35 @@ export class SpwfsfilterComponent implements OnInit {
                 "Conseil départemental",
                 "France services",
                 "Mairie",
-                "Maison départementale des solidarités (MDS)",
                 "Point d'accueil numérique (Préfecture et Sous-préfecture)",
                 "Préfecture",
-                "Sous-préfecture",
+                "Sous-préfecture"
             ]
         },
-        "Social, santé" : {
-            markerPath: "assets/images/mapmarker/social-sante/",
+        "Santé" : {
+            markerPath: "assets/images/mapmarker/sante/",
             topologies: [
-                "Caisse commune de Sécurité sociale (CCSS)",
+                "Centre de Santé",
+                "Centre hospitalier (CH)",
+                "Centre hospitalier régional (CHR)",
+                "Centre hospitalier universitaire (CHU)",
+                "France Santé",
+                "Maison de santé"        
+            ]
+        },
+        "Social" : {
+            markerPath: "assets/images/mapmarker/social/",
+            topologies: [
                 "Caisse d'allocations familiales (Caf)",
                 "Caisse d'assurance retraite et de la santé au travail (Carsat)",
-                "Caisse primaire d'assurance maladie (CPAM)",
+                "Caisse primaire d’assurance maladie (CPAM)",
                 "Centre communal d'action sociale (CCAS)",
-                "Centre de Santé",
-                "Centre Hospitalier (C.H.)",
-                "Centre Hospitalier Régional (C.H.R.)",
-                "Centre hospitalier universitaire (CHU)",
-                "Centres Locaux Information Coordination P.A .(C.L.I.C.)",
-                "Centres sociaux",
-                "Communautés professionnelles territoriales de santé (CPTS)",
+                "Centre local information coordination P.A (Clic)",
+                "Centre social",
                 "Maison départementale des personnes handicapées (MDPH)",
+                "Maison départementale des solidarités (MDS)",
                 "Mutualité sociale agricole (MSA)",
-                "Service d’aide médicale urgente (Samu)",
-                "Union de recouvrement des cotisations de sécurité sociale et d’allocations familiales (Urssaf)",
-                "Maison de santé (L.6223-3)"              
+                "Union de recouvrement des cotisations de sécurité sociale et d’allocations familiales (Urssaf)"        
             ]
         },
         "Travail, emploi, formation": {
@@ -64,26 +66,28 @@ export class SpwfsfilterComponent implements OnInit {
         "Economie, finances, consommation" : {
             markerPath: "assets/images/mapmarker/finance/",
             topologies: [
-                "Direction départementale des finances publiques (DDFIP)",
+                "Service de gestion comptable ou trésorerie",
+                "Service départemental des impôts foncier (SDIF)",
                 "Service des impôts des entreprises (SIE)",
-                "Service des impôts des particuliers (SIP)",
-                "Trésorerie"
+                "Service des impôts des particuliers (SIP)"
             ]
         },
         "Droit, justice": {
             markerPath: "assets/images/mapmarker/droit-justice/",
             topologies: [
                 "Bureau d'aide aux victimes du tribunal judiciaire",
-                "Conseil départemental d'accès au droit (CDAD)",
+                "Maison de justice",
                 "Point-justice",
+                "Tribunal de proximité",
                 "Tribunal judiciaire"
+
             ]
         },
         "Environnement, logement, transports":  {
             markerPath: "assets/images/mapmarker/environnement/",
             topologies: [
                 "Agence départementale d'information sur le logement (Adil)",
-                "Agence nationale de l'habitat (ANAH)",
+                "Agence nationale de l'habitat (ANAH) - réseau local",
                 "Espace conseil France rénov'"
             ]
         },
@@ -93,14 +97,26 @@ export class SpwfsfilterComponent implements OnInit {
                 "Brigade de gendarmerie",
                 "Commissariat de police"
             ]
+        },
+        "Enseignement": {
+            markerPath: "assets/images/mapmarker/enseignement/",
+            topologies: [
+                "Collège",
+                "Direction de services départementaux de l'Éducation nationale (Dsden) ",
+                "École maternelle",
+                "École primaire",
+                "Lycée",
+                "Rectorat"
+            ]
         }
     };
 
     this.control = new WfsFilter({
       position: "top-left",
       panel: true,
-      cartospLayerName: "services_publics_test_20250925:carto_sp_interne",
-      cartospThemesInfo: ThemesInfo
+      cartospLayerName: "IGNF_CARTO-SP_SERVICES-PUBLICS:__infos",
+      cartospThemesInfo: ThemesInfo,
+      collapsed: false,
     });
 
     this.map.addControl(this.control);

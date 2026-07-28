@@ -1,0 +1,94 @@
+.gpf-panel__territories {
+    display: none;
+}
+
+#GPterritoriesPanel-territoires {
+    left: 32px !important;
+    top: 80px !important;
+    width: 380px !important;
+    box-shadow: 0 2px 6px 0 rgba(0, 0, 18, 0.16) !important;
+    border-radius: 4px !important;
+    background: #FFF !important;
+}
+
+.gpf-widget-button:has(> .gpf-btn-icon[aria-pressed="true"])::after {
+    background-color: unset !important;
+}
+
+#GPshowTerritoriesPicto-territoires, div[id^="GPterritoriesterritoires-"] {
+    width: 238px !important;
+    max-width: unset !important;
+}
+
+.fr-btn--tertiary {
+    --hover: inherit;
+    --active: inherit;
+    background-color: transparent;
+    box-shadow: inset 0 0 0 1px var(--border-default-grey);
+    color: var(--text-action-high-blue-france);
+}
+
+.gpf-btn-icon-territories::after{
+    mask: revert-rule !important;
+    -webkit-mask: revert-rule !important;
+}
+
+#GPshowTerritoriesPicto-territoires[aria-pressed="true"], #gpf-territories-button-open-views-id[aria-pressed="true"] {
+    background-color: var(--hover-tint) !important;
+}
+
+.gpf-tile{
+    height: 132px;
+    width: 132px;
+}
+
+.fr-tile{
+    margin: 4px;
+    border-radius: 4px;
+    border: 1px solid var(--light-decisions-border-border-default-grey, #DDD);
+    box-shadow: unset !important;
+    border: none;
+    height: 112px;
+    width: 112px;
+}
+
+.territories-entries {
+    background-color: var(--hover);
+    padding: 8px;
+    border-radius: 0px 0px 4px 4px;
+}
+
+.fr-tile:not(.fr-tile--no-border):not(.fr-tile--shadow) {
+    background-image: unset !important;
+}
+
+.fr-tile__title > .fr-label {
+    font-size: 12px !important;
+    line-height: 1rem !important;
+    color: var(--text-action-high-blue-france) !important;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+}
+
+.fr-tile:hover, .fr-tile__title > .fr-label:hover {
+    cursor: pointer;
+}
+
+.fr-tile--sm {
+  padding: 1rem 1rem 1rem 1rem;
+}
+
+.fr-tile__header {
+  margin-bottom: 4px;
+}
+
+#territories > .GPwidget {
+    padding: 0px !important;
+}
+
+.gpf-panel__menuviews_territories {
+    display: none;
+}

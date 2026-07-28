@@ -8,6 +8,7 @@
     border-left: 1px solid var(--border-default-grey);
     position: sticky;
     background-color: var(--background-default-grey);
+    padding-top: 15px;
 }
 
 :host > .rightpanel-body-container{
@@ -17,7 +18,7 @@
 /* affichage plein écran sur petit écran */
 @media screen and (max-width: 576px) {
     :host.is-expanded {
-        width: 95%;
+        width: 96%;
         transition: width 0.4s cubic-bezier(0.02, 0.68, 0.63, 0.98);
     }
     :host.is-expanded > .rightpanel-body-container{
@@ -29,7 +30,7 @@
 /* sur tout petit écran, on force 2 colonnes max */
 @media screen and (max-width: 382px) {
     :host.is-expanded {
-        width: 95%;
+        width: 96%;
         transition: width 0.4s cubic-bezier(0.02, 0.68, 0.63, 0.98);
     }
     :host.is-expanded > .rightpanel-body-container{
@@ -38,7 +39,19 @@
     }
 }
 
-@media screen and (min-width: 576px) {
+/* Tablet mode: use same width as mobile (96%) for 576px to 900px */
+@media screen and (min-width: 576px) and (max-width: 900px) {
+    :host.is-expanded {
+        width: 96%;
+        transition: width 0.4s cubic-bezier(0.02, 0.68, 0.63, 0.98);
+    }
+    :host.is-expanded > .rightpanel-body-container{
+        opacity: 100;
+        transition: opacity 0.8s ease-in-out;
+    }
+}
+
+@media screen and (min-width: 900px) {
     :host.is-expanded {
         width: 650px;
         transition: width 0.4s cubic-bezier(0.02, 0.68, 0.63, 0.98);
@@ -52,22 +65,20 @@
 .rightpanel-body-container {
     overflow-y: auto;
     height: 100%;
-    padding: 16px;
     box-sizing: border-box;
 }
 
 .rightpanel-body {
     width: 100%;
+    height: 100%;
     overflow-x: hidden;
-    max-height: 95%;
+    max-height: 100%;
     overflow-y: scroll;
 }
 
 #rightpanel-content {
     width: 100%;
     display: inline-block;
-    padding-top: 20px;
-    height: 100%;
 }
 
 .toggle-button {

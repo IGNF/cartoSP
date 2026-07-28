@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class ApicartospService {
 
-    private apiUrl = '/api';
+    public apiUrl = '/api';
 
     constructor(private http: HttpClient) {}
 
@@ -24,6 +24,11 @@ export class ApicartospService {
     // Get epci info
     getEpciInfos(query: string): Observable<any> {
         return this.http.get(this.apiUrl + "/epci/" + query);
+    }
+
+    // Get moyenne by type
+    getMoyennesInfo(query: string): Observable<any> {
+        return this.http.get(this.apiUrl + "/moyennes/" + query);
     }
 
     // Get SP type count
@@ -49,9 +54,21 @@ export class ApicartospService {
     }
 
     // Get SP type count
-    getIsochroneData(options: any): Observable<any> {
-        return this.http.get(this.apiUrl + "/isochrone",{
+    getIsochroneStatistiques(options: any): Observable<any> {
+        return this.http.get(this.apiUrl + "/isochrone-statistique",{
             params: options
         });
+    }
+
+    // Get SP statistics by typologie and departement
+    getSpStatistiques(options: any): Observable<any> {
+        return this.http.get(this.apiUrl + "/services_publics/statistiques",{
+            params: options
+        });
+    }
+
+    // Get SP accessibility by uuid
+    getSpAccessibilite(query: any): Observable<any> {
+        return this.http.get(this.apiUrl + "/services_publics/accessibilite/" + query);
     }
 }

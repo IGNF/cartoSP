@@ -21,6 +21,19 @@ export class GeocodageService {
 
   constructor(private http: HttpClient) {}
 
+  // Search departementsautocomplete
+  searchDepartement(query: string): Observable<any> {
+    return this.http.get(this.apiUrl, {
+      params: {
+        q: query,
+        limit: 5,
+        index:"poi",
+        category: "département",
+        returntruegeometry: false
+      }
+    });
+  }
+
   // Geometry
   getSearchTrueGeometry(query: string): Observable<any> {
     return this.http.get(this.apiUrl,{
@@ -39,7 +52,7 @@ export class GeocodageService {
     if(type === "departement") {
       req = Object.assign(this.defaultParams, {
         TYPENAME: "ADMINEXPRESS-COG.LATEST:departement",
-        cql_filter:"nom_officiel='"+query+"'"
+        cql_filter:"code_insee='"+query+"'"
       });
     } else if(type === "epci") {
       req = Object.assign(this.defaultParams, {
@@ -59,4 +72,16 @@ export class GeocodageService {
       params: req
     });
   }
+
+  getAdminExpressDepartementGeometry(query: string): Observable<any> {
+    var req = Object.assign(this.defaultParams, {
+        TYPENAME: "ADMINEXPRESS-COG.LATEST:departement",
+        cql_filter:"code_insee='"+query+"'"
+    });
+    
+    return this.http.get(this.apiExpressUrl,{
+      params: req
+    });
+  }
+
 }

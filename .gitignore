@@ -41,3 +41,4 @@ testem.log
 .DS_Store
 Thumbs.db
 /src/assets/customConfig-dev.json
+/src/assets/customConfig-prod.json

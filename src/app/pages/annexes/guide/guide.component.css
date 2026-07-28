@@ -1,7 +1,32 @@
+:host {
+    display: block;
+    height: 100%;
+    min-height: 0;
+}
+
+.guide-scroll {
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
 .margin-content {
     margin: 20px 0px;
 }
 
 .margin-title {
     margin: 24px 0px;
+}
+
+.guide-figure-centered {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 70%;
+}
+
+.group-figure {
+    display: flex;
+    justify-content: center;
+    width: auto;
 }

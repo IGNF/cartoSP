@@ -7,11 +7,10 @@ import { LayerWFS as GeoportalLayerWFS, LayerMapBox as GeoportalLayerTMS } from 
 import Overlay from 'ol/Overlay';
 
 @Component({
-  selector: 'app-carte',
-  template: '',
-  styleUrl: './carte.component.css',
-  imports:[],
-  standalone: true,
+    selector: 'app-carte',
+    template: '',
+    styleUrl: './carte.component.css',
+    imports: []
 })
 export class CarteComponent implements OnInit {
   @Input() map!: Map;
@@ -23,17 +22,17 @@ export class CarteComponent implements OnInit {
     this.map.setLayers([
       new GeoportalLayerTMS({
         layer: "PLAN.IGN",
-        style: "desatured-ign"
-      }),
+        style: "desaturated-ign"
+      }, {declutter: true}),
       new GeoportalLayerTMS({
         layer: "ADMIN_EXPRESS",
         style: "simpleadminexpress"
       }),
       new GeoportalLayerWFS({
-        layer: "services_publics_test_20250925:carto_sp_interne",
+        layer: "IGNF_CARTO-SP_SERVICES-PUBLICS:__infos",
         maxFeatures: 3000,
         olParams : {
-          minZoom: 9,
+          minZoom: 8,
           style: function(feature: Feature){
             return undefined;
           },
@@ -51,6 +50,7 @@ export class CarteComponent implements OnInit {
       element: document.getElementById("tooltip-feature")
     });
     
+    // Event pour afficher le tooltip lorsque la souris passe sur un point SP
     this.map.on('pointermove', function (evt) {
       var feature = evt.map.forEachFeatureAtPixel(evt.pixel, function(feature, layer) {
         if (evt.dragging) {
@@ -60,7 +60,7 @@ export class CarteComponent implements OnInit {
           return null;
         }
         //@ts-ignore
-        if(layer.name === "services_publics_test_20250925:carto_sp_interne"){
+        if(layer.name === "IGNF_CARTO-SP_SERVICES-PUBLICS:__infos"){
           return feature;
         }else{
           return null;
@@ -72,10 +72,10 @@ export class CarteComponent implements OnInit {
         //@ts-ignore
         if(feature.values_.type_structure == "Permanence"){
           //@ts-ignore
-          document.getElementById("tooltip-feature").innerHTML = '<div>' + feature.values_.permanence_nom + '</div>';
+          document.getElementById("tooltip-feature").innerHTML = '<div>' + feature.values_.nom + '</div>';
         }else{
           //@ts-ignore
-          document.getElementById("tooltip-feature").innerHTML = '<div>' + feature.values_.service_nom + '</div>';
+          document.getElementById("tooltip-feature").innerHTML = '<div>' + feature.values_.nom + '</div>';
         }
         
         overlay.setPosition(coordinate);
@@ -91,6 +91,7 @@ export class CarteComponent implements OnInit {
       }
     });
 
+    // event pour cacher le tooltip lorsque la souris quitte le point SP
     this.map.getTargetElement().addEventListener('pointerleave', function () {
       //@ts-ignore
       document.getElementById("tooltip-feature").style.visibility = 'hidden';

@@ -8,11 +8,10 @@ import Map from 'ol/Map';
 import Control from 'ol/control/Control';
 
 @Component({
-  selector: 'app-rightpanel',
-  standalone: true,
-  imports: [RightpanelContentAreaDirective],
-  templateUrl: './rightpanel.component.html',
-  styleUrl: './rightpanel.component.css',
+    selector: 'app-rightpanel',
+    imports: [RightpanelContentAreaDirective],
+    templateUrl: './rightpanel.component.html',
+    styleUrl: './rightpanel.component.css'
 })
 export class RightpanelComponent implements AfterViewInit {
   @Input() map!: Map;

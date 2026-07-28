@@ -1,0 +1,20 @@
+:host{
+    min-height: 100vh;
+}
+
+#presentation {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+.card-home {
+    padding: 32px !important;
+}
+
+.card-link::after {
+    -webkit-mask-image: url(../../../node_modules/@gouvfr/dsfr/dist/icons/arrows/arrow-right-line.svg);
+    mask-image: url(../../../node_modules/@gouvfr/dsfr/dist/icons/arrows/arrow-right-line.svg);
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+    content: open-quote !important;
+}

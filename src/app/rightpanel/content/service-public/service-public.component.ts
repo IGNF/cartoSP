@@ -1,4 +1,4 @@
-import { Component, Input, OnInit  } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, HostListener, Input, OnInit, ViewChild } from '@angular/core';
 
 import {TitleCasePipe} from '@angular/common';
 
@@ -21,15 +21,18 @@ interface responseListType {
 }
 
 @Component({
-  selector: 'app-service-public',
-  standalone: true,
-  imports: [DsfrTabsModule, DsfrAccordionModule, DsfrButtonModule, TitleCasePipe],
-  templateUrl: './service-public.component.html',
-  styleUrl: './service-public.component.css'
+    selector: 'app-service-public',
+    imports: [DsfrTabsModule, DsfrAccordionModule, DsfrButtonModule, TitleCasePipe],
+    templateUrl: './service-public.component.html',
+    styleUrl: './service-public.component.css'
 })
-export class ServicePublicComponent implements OnInit {
+export class ServicePublicComponent implements OnInit, AfterViewInit {
   
-  constructor(private rightpanelService: RightpanelService, private apicartospService: ApicartospService) {}
+  constructor(
+    private rightpanelService: RightpanelService,
+    private apicartospService: ApicartospService,
+    private cdr: ChangeDetectorRef
+  ) {}
 
   @Input() data!: any;    
   selectedTabIndex = 0;
@@ -39,59 +42,126 @@ export class ServicePublicComponent implements OnInit {
   serviceOpeningHours?: any|null;
   responseList?: any|null;
   serviceName?: string|null;
+  websiteUrls: string[] = [];
+  accessibilityLink: string | null = null;
+  readonly modaliteDetailsMaxHeight = 100;
+  isModaliteDetailsExpanded = false;
+  isModaliteDetailsOverflowing = false;
+  @ViewChild('modaliteDetailsContent') modaliteDetailsContent?: ElementRef<HTMLDivElement>;
 
   ngOnInit() {
     this.serviceName = null;
     this.responseList = null;
     this.typeStructure = this.data.selectedSP.type_structure;
+    this.websiteUrls = this.extractWebsiteUrls(this.data.selectedSP.site_internet);
+    this.fetchAccessibilityLink(this.data.selectedSP.identifiants_sources);
 
     switch (this.typeStructure) {
       case "Implantation":
-        this.getResponseList(this.data.selectedSP.service_id);
-        this.serviceOpeningHours = this.buildTimeTable(this.data.selectedSP.service_horaires_ouverture);
+        this.getResponseList(this.data.selectedSP.id_position);
+        this.serviceOpeningHours = this.buildTimeTable(this.data.selectedSP.horaires_ouverture);
         break;
       case "Permanence":
-        this.getServiceName(this.data.selectedSP.service_id);
-        this.getResponseList(this.data.selectedSP.service_id);
-        this.serviceOpeningHours = this.buildTimeTable(this.data.selectedSP.permanence_horaires);
+        this.getServiceName(this.data.selectedSP.id_position);
+        this.getResponseList(this.data.selectedSP.id_position);
+        this.serviceOpeningHours = this.buildTimeTable(this.data.selectedSP.horaires_ouverture);
         break;
       default:
-        this.getResponseList(this.data.selectedSP.service_id);
-        this.serviceOpeningHours = this.buildTimeTable(this.data.selectedSP.service_horaires_ouverture);
+        this.getResponseList(this.data.selectedSP.id_structure);
+        this.serviceOpeningHours = this.buildTimeTable(this.data.selectedSP.horaires_ouverture);
       ;
     }
+  }
+
+  ngAfterViewInit(): void {
+    this.updateModaliteDetailsOverflow();
+  }
+
+  @HostListener('window:resize')
+  onWindowResize(): void {
+    this.updateModaliteDetailsOverflow();
+  }
+
+  // Normalisation des URLs pour garantir qu'elles sont valides et sécurisées
+  private normalizeWebsiteUrl(rawUrl: string | null | undefined): string | null {
+    if (!rawUrl) {
+      return null;
+    }
+
+    let normalizedUrl = rawUrl.trim();
+    if (!normalizedUrl) {
+      return null;
+    }
+
+    normalizedUrl = normalizedUrl.replace(/^(https?):(?!\/\/)/i, '$1://');
+
+    if (!/^[a-z][a-z0-9+.-]*:\/\//i.test(normalizedUrl)) {
+      normalizedUrl = `https://${normalizedUrl}`;
+    }
+
+    try {
+      const parsedUrl = new URL(normalizedUrl);
+      if (parsedUrl.protocol !== 'http:' && parsedUrl.protocol !== 'https:') {
+        return null;
+      }
+      return parsedUrl.toString();
+    } catch {
+      return null;
+    }
+  }
+
+  // Extraction et normalisation de toutes les URLs présentes dans le champ site_internet
+  private extractWebsiteUrls(rawUrls: string | null | undefined): string[] {
+    if (!rawUrls) {
+      return [];
+    }
+
+    const chunks = rawUrls
+      .split(/[\n\r\t,;|]+/)
+      .flatMap((chunk) => chunk.trim().split(/\s+/))
+      .flatMap((chunk) => chunk.split(/(?=https?:)/i))
+      .map((chunk) => chunk.trim())
+      .map((chunk) => chunk.replace(/[),.;]+$/, ''))
+      .filter((chunk) => !!chunk);
+
+    const normalizedUrls = chunks
+      .map((chunk) => this.normalizeWebsiteUrl(chunk))
+      .filter((url): url is string => !!url);
+
+    return [...new Set(normalizedUrls)];
   }
 
   getServiceName(service_code: string) {
     this.apicartospService.getServiceImplantation(service_code).subscribe({
       next : (response: any) => {
-        if(response) this.serviceName = response.service_nom;
+        if(response) this.serviceName = response.nom;
       },
       error : (error: any) => { console.error('Error fetching service name:', error) }
     });
   }
 
-  getResponseList(service_code: string) {
+  // id = id_position ou id_service en fonction du type de structure
+  getResponseList(id: string) {
     this.responseList = null;
     if(this.typeStructure == "Itinérance") {
-      this.apicartospService.getCircuitItinerants(service_code).subscribe({
+      this.apicartospService.getCircuitItinerants(id).subscribe({
         next : (response: Array<any>) => {
           if(response.length != 0) {
             this.responseList = [];
             response.forEach((entry) =>{
-              this.responseList?.push({name: entry.lieu_adresse, openinghours : this.buildTimeTable(entry.service_horaires_ouverture)});
+              this.responseList?.push({name: entry.adresse, openinghours : this.buildTimeTable(entry.horaires_ouverture)});
             })
           }  
         },
         error : (error: any) => { console.error('Error fetching circuit:', error) }
       });
     }else{
-      this.apicartospService.getServicePermanences(service_code).subscribe({
+      this.apicartospService.getServicePermanences(id).subscribe({
         next : (response: Array<any>) => {
           if(response.length != 0) {
             this.responseList = [];
             response.forEach((entry) =>{
-              this.responseList?.push({name: entry.permanence_nom, openinghours : this.buildTimeTable(entry.service_horaires_ouverture)});
+              this.responseList?.push({name: entry.nom, openinghours : this.buildTimeTable(entry.horaires_ouverture)});
             })
           } 
         },
@@ -102,6 +172,33 @@ export class ServicePublicComponent implements OnInit {
 
   onButtonBackLocationClic(){
     this.rightpanelService.setContent(LocalisationComponent, this.data.map, "location");
+  }
+
+  fetchAccessibilityLink(dila_id: string) {
+    if(!dila_id) {
+      this.accessibilityLink = null;
+      return;
+    }
+
+    dila_id = dila_id.trim();
+
+    if(!dila_id.startsWith('DILA:')) {
+      this.accessibilityLink = null;
+      return;
+    }
+
+    dila_id = dila_id.replace(/^DILA:/, '').replace(/\/.*/, '');
+
+    this.apicartospService.getSpAccessibilite(dila_id).subscribe({
+      next : (response: any) => {
+        if(response && response.count > 0 && response.results[0].web_url) {
+          this.accessibilityLink = response.results[0].web_url;
+        } else {
+          this.accessibilityLink =  null;
+        }
+      },
+      error : (error: any) => { this.accessibilityLink =  null; console.error('Error fetching accessibility link:', error) }
+    });
   }
 
   buildTimeTable(data: string){
@@ -164,17 +261,20 @@ export class ServicePublicComponent implements OnInit {
   }
 
   getMonday(d: Date) {
-    var date = new Date(d)
-    const day = date.getDay()
-    const diff = date.getDate() - day + (day === 0 ? -6 : 1)
-    return new Date(d.setDate(diff))
+    const date = new Date(d);
+    const day = date.getDay();
+    const diff = date.getDate() - day + (day === 0 ? -6 : 1);
+    date.setDate(diff);
+    date.setHours(0, 0, 0, 0);
+    return date;
   }
 
   getThisWeek() {
-    const monday = this.getMonday(new Date())
-    const sunday = new Date(monday)
-    sunday.setDate(sunday.getDate() + 6)
-    return { monday, sunday }
+    const monday = this.getMonday(new Date());
+    const sunday = new Date(monday);
+    sunday.setDate(sunday.getDate() + 6);
+    sunday.setHours(23, 59, 59, 999);
+    return { monday, sunday };
   }
 
   showTime(e: any): void {    
@@ -183,18 +283,42 @@ export class ServicePublicComponent implements OnInit {
       if (element.style.display === "none" || element.style.display === "") {
         element.style.display = "inline-block";
         if(e.target.getAttribute("name") == "datetime") {
-          e.target.innerHTML = e.target.innerHTML.replace("Voir les dates ˅", "Voirs moins ˄");
+          e.target.innerHTML = e.target.innerHTML.replace("Voir les dates ˅", "Voir moins ˄");
         } else {
-          e.target.innerHTML = e.target.innerHTML.replace("Voir les horaires ˅", "Voirs moins ˄");
+          e.target.innerHTML = e.target.innerHTML.replace("Voir les horaires ˅", "Voir moins ˄");
         }
       } else {
         element.style.display = "none";
         if(e.target.getAttribute("name") == "datetime") {
-          e.target.innerHTML = e.target.innerHTML.replace("Voirs moins ˄", "Voir les dates ˅");
+          e.target.innerHTML = e.target.innerHTML.replace("Voir moins ˄", "Voir les dates ˅");
         } else {
-          e.target.innerHTML = e.target.innerHTML.replace("Voirs moins ˄", "Voir les horaires ˅");
+          e.target.innerHTML = e.target.innerHTML.replace("Voir moins ˄", "Voir les horaires ˅");
         }
       }
+    }
+  }
+
+  toggleModaliteDetails(): void {
+    this.isModaliteDetailsExpanded = !this.isModaliteDetailsExpanded;
+  }
+
+  private updateModaliteDetailsOverflow(): void {
+    const detailsContent = this.modaliteDetailsContent?.nativeElement;
+
+    if (!detailsContent) {
+      return;
+    }
+
+    const hasOverflow = detailsContent.scrollHeight > this.modaliteDetailsMaxHeight;
+    const overflowChanged = hasOverflow !== this.isModaliteDetailsOverflowing;
+
+    this.isModaliteDetailsOverflowing = hasOverflow;
+    if (!hasOverflow) {
+      this.isModaliteDetailsExpanded = false;
+    }
+
+    if (overflowChanged) {
+      this.cdr.detectChanges();
     }
   }
 }
