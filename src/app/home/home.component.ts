@@ -47,6 +47,7 @@ export class HomeComponent implements OnInit {
 
   map!: Map;
   GpServiceError: boolean = false;
+  mapLoading: boolean = true;
   defaultView: View = new View({
     center: [288074.8449901076, 5900000.515792289],
     zoom: 6,
@@ -103,6 +104,10 @@ export class HomeComponent implements OnInit {
       .find((item: any) => item.values_?.name === 'highlight') as VectorLayer | undefined;
 
     return layer ?? null;
+  }
+
+  onMapLoadingComplete(): void {
+    this.mapLoading = false;
   }
 
   private applyHighlight(features: any[], retries: number = 12): void {

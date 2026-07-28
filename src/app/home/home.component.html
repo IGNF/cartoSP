@@ -1,7 +1,14 @@
 <div id="app-content">
     @if (map){    
         <div id="map-container">
-            <app-carte [map]="map"></app-carte>
+            <app-carte [map]="map" (loadingComplete)="onMapLoadingComplete()"></app-carte>
+            @if (mapLoading) {
+                <div id="map-loading-overlay" class="loading-overlay">
+                    <div class="loading-spinner">
+                        <span class="fr-icon--lg fr-icon-refresh-line rotate" aria-hidden="true"></span>
+                    </div>
+                </div>
+            }
             <app-search [map]="map"></app-search>
             <app-spwfsfilter [map]="map"></app-spwfsfilter>
             <app-indicatorselector [map]="map"></app-indicatorselector>
