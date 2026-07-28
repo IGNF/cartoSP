@@ -47,9 +47,9 @@ export class CarteComponent implements OnInit {
     this.map.setTarget(this.elementRef.nativeElement);
 
     // Signal loading complete when map finishes initial render
-    this.map.once('loadend', () => {
+    /*this.map.once('loadend', () => {
       this.loadingComplete.emit();
-    });
+    });*/
 
     const overlay = new Overlay({
       //@ts-ignore

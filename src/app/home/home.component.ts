@@ -47,7 +47,7 @@ export class HomeComponent implements OnInit {
 
   map!: Map;
   GpServiceError: boolean = false;
-  mapLoading: boolean = true;
+  mapLoading: boolean = false;
   defaultView: View = new View({
     center: [288074.8449901076, 5900000.515792289],
     zoom: 6,
