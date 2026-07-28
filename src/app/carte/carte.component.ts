@@ -46,10 +46,12 @@ export class CarteComponent implements OnInit {
 
     this.map.setTarget(this.elementRef.nativeElement);
 
-    // Signal loading complete after a short delay to ensure initial render
-    setTimeout(() => {
+    // Signal loading complete when map finishes initial render
+    const renderCompleteListener = () => {
       this.loadingComplete.emit();
-    }, 1500);
+      this.map.un('loadend', renderCompleteListener);
+    };
+    this.map.once('loadend', renderCompleteListener);
 
     const overlay = new Overlay({
       //@ts-ignore

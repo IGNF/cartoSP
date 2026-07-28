@@ -3,9 +3,10 @@
         <div id="map-container">
             <app-carte [map]="map" (loadingComplete)="onMapLoadingComplete()"></app-carte>
             @if (mapLoading) {
-                <div id="map-loading-overlay" class="loading-overlay">
+                <div id="map-loading-overlay" class="loading-overlay" role="status" aria-live="polite" aria-label="Chargement de la carte en cours">
                     <div class="loading-spinner">
                         <span class="fr-icon--lg fr-icon-refresh-line rotate" aria-hidden="true"></span>
+                        <span class="sr-only">Chargement de la carte...</span>
                     </div>
                 </div>
             }
