@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ElementRef } from '@angular/core';
+import { Component, OnInit, Input, ElementRef, Output, EventEmitter } from '@angular/core';
 
 import Map from 'ol/Map';
 import Feature from 'ol/Feature';
@@ -14,6 +14,7 @@ import Overlay from 'ol/Overlay';
 })
 export class CarteComponent implements OnInit {
   @Input() map!: Map;
+  @Output() loadingComplete = new EventEmitter<void>();
 
   constructor(private elementRef: ElementRef) {}
 
@@ -44,6 +45,11 @@ export class CarteComponent implements OnInit {
     ]); 
 
     this.map.setTarget(this.elementRef.nativeElement);
+
+    // Signal loading complete when map finishes initial render
+    this.map.once('loadend', () => {
+      this.loadingComplete.emit();
+    });
 
     const overlay = new Overlay({
       //@ts-ignore
