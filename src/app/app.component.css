@@ -150,6 +150,15 @@
     height: calc(100vh - 3.5rem - 2.625rem - 2.525rem);
 }
 
+@media screen and (max-width: 825px) {
+    .fr-notice--reduced {
+        display: none;
+    }
+    .main--info-reduce {
+        height: calc(100vh - 3.5rem - 2.825rem);
+    }
+}
+
 .fr-notice--reduced {
     padding-top: 0.3rem;
     padding-bottom: 0.3rem;

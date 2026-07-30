@@ -71,3 +71,21 @@
     position: absolute;
     top: 3px;
 }
+
+#nav-local {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    padding-left:16px; 
+    padding-right:16px;
+}
+
+#mobile-nav-local-close {
+    display: none;
+}
+
+@media screen and (max-width: 825px) {
+    #mobile-nav-local-close {
+        display: block;
+    }
+}

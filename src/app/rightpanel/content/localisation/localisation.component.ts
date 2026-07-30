@@ -45,7 +45,7 @@ export interface Commune {
 })
 export class LocalisationComponent implements OnInit, AfterViewInit {
 
-  constructor(private WfsService: WfsService, private GeocodageService: GeocodageService, private rightpanelService: RightpanelService) {}
+  constructor(private WfsService: WfsService, private GeocodageService: GeocodageService, public rightpanelService: RightpanelService) {}
 
   @Input() data!: any;
   selectedTabIndex = 0;

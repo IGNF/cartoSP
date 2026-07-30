@@ -111,13 +111,19 @@ export class SpwfsfilterComponent implements OnInit {
         }
     };
 
-    this.control = new WfsFilter({
-      position: "top-left",
-      panel: true,
-      cartospLayerName: "IGNF_CARTO-SP_SERVICES-PUBLICS:__infos",
-      cartospThemesInfo: ThemesInfo,
-      collapsed: false,
-    });
+    let options = {
+            position: "top-left",
+            panel: true,
+            cartospLayerName: "IGNF_CARTO-SP_SERVICES-PUBLICS:__infos",
+            cartospThemesInfo: ThemesInfo,
+            collapsed: false,
+    };
+    
+    if (typeof window !== 'undefined' && window.innerWidth < 825) {
+        options.collapsed = true;
+    }
+
+    this.control = new WfsFilter(options);
 
     this.map.addControl(this.control);
   }

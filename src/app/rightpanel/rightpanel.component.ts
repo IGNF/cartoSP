@@ -29,6 +29,10 @@ export class RightpanelComponent implements AfterViewInit {
     this.rightpanelService.setDynamicContentArea(this.rightpanelContentArea);
     this.rightpanelService.setContent(LocalisationComponent, this.map, "location");
     this.cd.detectChanges();
+
+    if (typeof window !== 'undefined' && window.innerWidth < 825) {
+      this.rightpanelService.toggleRightpanel();
+    }
   }
 
   @HostBinding('class.is-expanded')
