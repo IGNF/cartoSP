@@ -37,7 +37,6 @@
 }
 
 .date-title {
-    color: #000;
     font-family: Marianne;
     font-size: 20px;
     font-style: normal;
@@ -211,7 +210,24 @@
 }
 
 #buttonBackLocation{
-    padding-bottom: 30px;
     display: block;
-    padding: 0px 16px 16px 16px;
+}
+
+#nav-sp-panel {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    margin-bottom: 1rem; 
+    padding-left:16px; 
+    padding-right:16px;
+}
+
+#mobile-nav-sp-panel-close {
+    display: none;
+}
+
+@media screen and (max-width: 825px) {
+    #mobile-nav-sp-panel-close {
+        display: block;
+    }
 }

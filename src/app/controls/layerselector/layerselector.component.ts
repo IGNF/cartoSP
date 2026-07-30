@@ -8,7 +8,7 @@ import { Layerselector } from "geopf-extensions-openlayers/src";
     selector: 'app-layerselector',
     imports: [],
     template: '',
-    styles: ['::ng-deep dialog[id^="GPcatalogPanel-"] { top: unset !important; bottom:3px!important; }']
+    styles: ['::ng-deep dialog[id^="GPcatalogPanel-"] { top: unset !important; bottom:3px!important; } ::ng-deep button[id^="GPshowLayerselectorPicto-"][aria-pressed="true"] + dialog { height: 140px !important; }']
 })
 export class LayerselectorComponent implements OnInit {
   @Input() map!: Map;

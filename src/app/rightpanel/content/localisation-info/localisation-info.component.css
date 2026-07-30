@@ -25,6 +25,25 @@
     }
 }
 
+#nav-local-info {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    margin-bottom: 1rem; 
+    padding-left:16px; 
+    padding-right:16px;
+}
+
+#mobile-nav-local-info-close {
+    display: none;
+}
+
+@media screen and (max-width: 825px) {
+    #mobile-nav-local-info-close {
+        display: block;
+    }
+}
+
 /* tableaux */
 .fr-tabble--hidden {
     visibility: hidden;

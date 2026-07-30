@@ -29,7 +29,7 @@ interface responseListType {
 export class ServicePublicComponent implements OnInit, AfterViewInit {
   
   constructor(
-    private rightpanelService: RightpanelService,
+    public rightpanelService: RightpanelService,
     private apicartospService: ApicartospService,
     private cdr: ChangeDetectorRef
   ) {}

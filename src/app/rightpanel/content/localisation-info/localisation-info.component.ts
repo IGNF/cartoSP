@@ -16,7 +16,7 @@ import { DecimalPipe } from '@angular/common';
 })
 export class LocalisationInfoComponent implements OnInit, OnDestroy {
 
-  constructor(private rightpanelService: RightpanelService, private apicartospService: ApicartospService, private ngZone: NgZone, private cdr: ChangeDetectorRef) {}
+  constructor(public rightpanelService: RightpanelService, private apicartospService: ApicartospService, private ngZone: NgZone, private cdr: ChangeDetectorRef) {}
 
   @Input() data!: any;
   private layerListeners: Array<{ layer: any; listener: any }> = [];
