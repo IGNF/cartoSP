@@ -41,7 +41,7 @@ export const IGNORED_LAYERS: string[] = [
 ];
 
 export const SELECTED_FIELDS_BY_LAYER = new Map<string, LayerFieldConfig[]>([
-  ['IGNF_CARTO-SP_INDICATEUR-FRAGILITE-NUMERIQUE', [{ field: 'total', label: 'TOTAL' }]],
+  ['IGNF_CARTO-SP_INDICATEUR-FRAGILITE-NUMERIQUE', [{ field: 'total', label: 'NOMBRE' }]],
   ['IGNF_CARTO-SP_QUARTIERS-PRIORITAIRES-VILLE', [{ field: 'nom_quartier', label: 'NOM' }]],
   ['IGNF_CARTO-SP_PPR_MEDECINS', [{ field: 'nb_generalistes', label: 'NOMBRE' }]],
   ['IGNF_CARTO-SP_PPR_INFIRMIERS', [{ field: 'nb_infirmiers_31122025', label: 'NOMBRE' }]],
