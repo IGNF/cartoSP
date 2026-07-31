@@ -1,0 +1,42 @@
+@if (visible) {
+  <div class="GPpanel gpf-panel gfi-panel">
+    <div class="GPpanelBody fr-modal__body">
+      <div class="GPpanelHeader gpf-panel__header_gfi">
+        <label class="GPpanelIcon gpf-btn-header_gfi gpf-btn-icon-header_gfi" title="Get Feature Info"></label>
+        <div class="GPpanelTitle gpf-panel__title_gfi fr-modal__title">Infos sur les couches</div>
+        <button class="GPpanelClose GPcloseGetFeatureInfo gpf-btn gpf-btn-icon-close fr-btn--close fr-btn fr-btn--tertiary-no-outline"
+                title="Fermer le panneau" (click)="close()">
+          <span class="GPelementHidden gpf-visible">Fermer</span>
+        </button>
+      </div>
+      <div class="gfi-results-list">
+        @if (!hasVisibleResultsState && !hasPendingResultsState) {
+            <div id="getfeature-no-results">
+                <h6>Aucune informations disponibles</h6>
+                <p>Veuillez sélectionner des indicateurs et des zones contenant des données</p>
+            </div>
+        }
+        @for (result of layerResults; track result.name) {
+          @if (!result.excluded) {
+            <section class="gfi-result-item">
+              <p class="gfi-result-title">{{ result.name }}</p>
+              <div class="gfi-result-content">
+                @if (result.loading) {
+                  <p class="fr-mb-0">Chargement...</p>
+                } @else {
+                  <div class="result-content-text">
+                    @for (property of result.properties; track property.key + property.value) {
+                      <p class="gfi-result-row">
+                        <strong>{{ property.key }}</strong> : {{ property.value }}
+                      </p>
+                    }
+                  </div>
+                }
+              </div>
+            </section>
+          }
+        }
+      </div>
+    </div>
+  </div>
+}
