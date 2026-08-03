@@ -29,7 +29,19 @@
         @for (result of layerResults; track result.name) {
           @if (!result.excluded) {
             <section class="gfi-result-item">
-              <p class="gfi-result-title">{{ result.name }}</p>
+              <p class="gfi-result-title">
+                {{ result.name }}
+                @if (result.meta) {
+                  <button class="fr-btn--tooltip fr-btn" type="button"
+                          [id]="'gfi-meta-btn-' + $index"
+                          [attr.aria-describedby]="'gfi-meta-tip-' + $index">
+                    Informations
+                  </button>
+                  <span class="fr-tooltip fr-placement"
+                        [id]="'gfi-meta-tip-' + $index"
+                        role="tooltip" aria-hidden="true">{{ getMetaTooltip(result.meta) }}</span>
+                }
+              </p>
               <div class="gfi-result-content">
                 @if (result.loading) {
                   <p class="fr-mb-0">Chargement...</p>
@@ -37,7 +49,11 @@
                   <div class="result-content-text">
                     @for (property of result.properties; track property.key + property.value) {
                       <p class="gfi-result-row">
-                        <strong>{{ property.key }}</strong> : {{ property.value }}
+                        @if (property.key) {
+                          <strong>{{ property.key }}</strong> : {{ property.value }}
+                        } @else {
+                          {{ property.value }}
+                        }
                       </p>
                     }
                   </div>

@@ -12,8 +12,10 @@ import {
   GFI_INFO_FORMAT,
   IGNORED_LAYERS,
   INVALID_GFI_RESPONSE_MARKERS,
+  LayerConfig,
   LayerFieldConfig,
   LayerLike,
+  LayerMetaConfig,
   LayerProperties,
   MARKER_HEIGHT_PX,
   MARKER_OFFSET,
@@ -33,6 +35,7 @@ export interface LayerResult {
   properties: LayerProperty[];
   loading: boolean;
   excluded: boolean;
+  meta: LayerMetaConfig | null;
 }
 
 @Component({
@@ -52,10 +55,10 @@ export class GetfeatureinfoComponent implements OnInit, OnDestroy {
   departement: string | null = null;
   readonly ignoredLayers = IGNORED_LAYERS;
   private readonly ignoredLayerNames = new Set(this.ignoredLayers.map((layerName) => this.normalizeLayerName(layerName)));
-  private readonly selectedFieldsByLayerNormalized = new Map<string, LayerFieldConfig[]>(
-    Array.from(SELECTED_FIELDS_BY_LAYER.entries()).map(([layerName, fields]) => [
+  private readonly selectedFieldsByLayerNormalized = new Map<string, LayerConfig>(
+    Array.from(SELECTED_FIELDS_BY_LAYER.entries()).map(([layerName, config]) => [
       this.normalizeLayerName(layerName),
-      fields,
+      config,
     ])
   );
 
@@ -89,11 +92,12 @@ export class GetfeatureinfoComponent implements OnInit, OnDestroy {
       this.visible = true;
       this.commune = null;
       this.departement = null;
-      this.layerResults = wmsLayers.map(({ layer }) => ({
+      this.layerResults = wmsLayers.map(({ layer, source }) => ({
         name: this.getLayerTitle(layer),
         properties: [],
         loading: true,
         excluded: false,
+        meta: this.getMetaForSource(source),
       }));
       this.updateResultState();
       this.cdr.detectChanges();
@@ -370,11 +374,41 @@ export class GetfeatureinfoComponent implements OnInit, OnDestroy {
     return value !== undefined && value !== null && value !== '';
   }
 
-  private getSelectedFieldsForLayerName(normalizedLayerName: string): LayerFieldConfig[] | null {
+  private getLayerConfigForLayerName(normalizedLayerName: string): LayerConfig | null {
     if (!normalizedLayerName) return null;
     return this.selectedFieldsByLayerNormalized.get(normalizedLayerName)
       ?? this.selectedFieldsByLayerNormalized.get(normalizedLayerName.split('__')[0])
       ?? null;
+  }
+
+  private getSelectedFieldsForLayerName(normalizedLayerName: string): LayerFieldConfig[] | null {
+    return this.getLayerConfigForLayerName(normalizedLayerName)?.fields ?? null;
+  }
+
+  private getMetaForLayerName(normalizedLayerName: string): LayerMetaConfig | null {
+    const meta = this.getLayerConfigForLayerName(normalizedLayerName)?.meta;
+    return meta?.source || meta?.maillage ? (meta as LayerMetaConfig) : null;
+  }
+
+  private getMetaForSource(source: TileWMS | ImageWMS): LayerMetaConfig | null {
+    const layersParam: unknown = source.getParams?.()?.LAYERS;
+    if (typeof layersParam === 'string' && layersParam) {
+      const firstLayer = layersParam.split(',')[0]?.trim();
+      const meta = firstLayer ? this.getMetaForLayerName(this.normalizeLayerName(firstLayer)) : null;
+      if (meta) return meta;
+    }
+    const sourceName: unknown = (source as any).name;
+    return typeof sourceName === 'string' && sourceName
+      ? this.getMetaForLayerName(this.normalizeLayerName(sourceName))
+      : null;
+  }
+
+  getMetaTooltip(meta: LayerMetaConfig | null): string {
+    if (!meta) return '';
+    const parts: string[] = [];
+    if (meta.source) parts.push(`Source : ${meta.source}`);
+    if (meta.maillage) parts.push(`Maillage : ${meta.maillage}`);
+    return parts.join('\n');
   }
 
   private updateResultState(): void {

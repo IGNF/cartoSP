@@ -106,3 +106,8 @@
 .gfi-location-row > strong {
   text-transform: uppercase;
 }
+
+.fr-tooltip {
+  white-space: pre-line;
+  z-index: 1500;
+}
