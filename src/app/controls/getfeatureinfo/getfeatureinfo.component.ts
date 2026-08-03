@@ -1,5 +1,6 @@
 import { Component, Input, OnInit, OnDestroy, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { firstValueFrom } from 'rxjs';
 
 import OlMap from 'ol/Map';
 import Overlay from 'ol/Overlay';
@@ -20,6 +21,7 @@ import {
   SELECTED_FIELDS_BY_LAYER,
   VisibleWmsLayer,
 } from './getfeatureinfo.config';
+import { GeocodageService } from '../../services/geocodage.service';
 
 export interface LayerProperty {
   key: string;
@@ -46,6 +48,8 @@ export class GetfeatureinfoComponent implements OnInit, OnDestroy {
   layerResults: LayerResult[] = [];
   hasVisibleResultsState = false;
   hasPendingResultsState = false;
+  commune: string | null = null;
+  departement: string | null = null;
   readonly ignoredLayers = IGNORED_LAYERS;
   private readonly ignoredLayerNames = new Set(this.ignoredLayers.map((layerName) => this.normalizeLayerName(layerName)));
   private readonly selectedFieldsByLayerNormalized = new Map<string, LayerFieldConfig[]>(
@@ -59,7 +63,7 @@ export class GetfeatureinfoComponent implements OnInit, OnDestroy {
   private legendToggleHandler!: (evt: Event) => void;
   private markerOverlay!: Overlay;
 
-  constructor(private cdr: ChangeDetectorRef) {}
+  constructor(private cdr: ChangeDetectorRef, private geocodageService: GeocodageService) {}
 
   ngOnInit(): void {
     if (!this.map) return;
@@ -83,6 +87,8 @@ export class GetfeatureinfoComponent implements OnInit, OnDestroy {
       this.closeLegendPanel();
 
       this.visible = true;
+      this.commune = null;
+      this.departement = null;
       this.layerResults = wmsLayers.map(({ layer }) => ({
         name: this.getLayerTitle(layer),
         properties: [],
@@ -254,7 +260,12 @@ export class GetfeatureinfoComponent implements OnInit, OnDestroy {
       }
 
       const selectedFields = this.getSelectedFieldsForSource(source);
-      const properties = this.extractSelectedProperties(responseText, selectedFields);
+      let properties = this.extractSelectedProperties(responseText, selectedFields);
+
+      const codeInsee = this.getCodeInseeFromResponse(responseText);
+      if (codeInsee) {
+        await this.fetchLocationProperties(codeInsee);
+      }
 
       if (!properties || properties.length === 0) {
         this.excludeLayerResult(index);
@@ -302,14 +313,57 @@ export class GetfeatureinfoComponent implements OnInit, OnDestroy {
     const features = Array.isArray(data?.features) ? data.features : [];
     if (!features.length) return null;
 
-    const rows: LayerProperty[] = features.flatMap((feature: any) => {
-      const props = feature?.properties ?? {};
-      return selectedFields
-        .filter(fieldCfg => this.hasDisplayValue(props[fieldCfg.field]))
-        .map(fieldCfg => ({ key: fieldCfg.label, value: String(props[fieldCfg.field]) }));
-    });
+    const props = features[0]?.properties ?? {};
+    const rows: LayerProperty[] = selectedFields
+      .filter(fieldCfg => this.hasDisplayValue(props[fieldCfg.field]))
+      .map(fieldCfg => ({ key: fieldCfg.label, value: String(props[fieldCfg.field]) }));
 
     return rows.length > 0 ? rows : null;
+  }
+
+  private getCodeInseeFromResponse(responseText: string): string | null {
+    try {
+      const data = JSON.parse(responseText);
+      const features = Array.isArray(data?.features) ? data.features : [];
+      const codeInsee = features[0]?.properties?.code_insee;
+      return typeof codeInsee === 'string' && codeInsee ? codeInsee : null;
+    } catch {
+      return null;
+    }
+  }
+
+  private async fetchLocationProperties(codeInsee: string): Promise<void> {
+    try {
+      const communeData = await firstValueFrom(this.geocodageService.getCommuneByCodeInsee(codeInsee));
+      const communeFeatures = communeData?.features;
+      if (!Array.isArray(communeFeatures) || !communeFeatures.length) return;
+
+      const communeProps = communeFeatures[0]?.properties ?? {};
+      if (communeProps.nom_officiel) {
+        this.commune = String(communeProps.nom_officiel);
+      }
+
+      const codeDep: string =
+        (typeof communeProps.code_dep === 'string' && communeProps.code_dep)
+          ? communeProps.code_dep
+          : codeInsee.startsWith('97') ? codeInsee.substring(0, 3) : codeInsee.substring(0, 2);
+
+      if (codeDep) {
+        const deptData = await firstValueFrom(this.geocodageService.getDepartementByCode(codeDep));
+        const deptFeatures = deptData?.features;
+        if (Array.isArray(deptFeatures) && deptFeatures.length) {
+          const deptProps = deptFeatures[0]?.properties ?? {};
+          const deptName = deptProps.nom_officiel;
+          const deptCode = deptProps.code_insee;
+          if (deptName) {
+            this.departement = deptCode ? `${String(deptName)} - ${String(deptCode)}` : String(deptName);
+          }
+        }
+      }
+    } catch {
+      // silently ignore enrichment failures
+    }
+    this.cdr.detectChanges();
   }
 
   private hasDisplayValue(value: unknown): boolean {

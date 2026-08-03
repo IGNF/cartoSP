@@ -10,6 +10,16 @@
         </button>
       </div>
       <div class="gfi-results-list">
+        @if (commune || departement) {
+          <div class="gfi-location-header">
+            @if (commune) {
+              <p class="gfi-location-row"><strong>Commune</strong> : {{ commune }}</p>
+            }
+            @if (departement) {
+              <p class="gfi-location-row"><strong>Département</strong> : {{ departement }}</p>
+            }
+          </div>
+        }
         @if (!hasVisibleResultsState && !hasPendingResultsState) {
             <div id="getfeature-no-results">
                 <h6>Aucune information disponible</h6>
