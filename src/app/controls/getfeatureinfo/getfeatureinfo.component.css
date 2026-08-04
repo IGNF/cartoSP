@@ -37,7 +37,6 @@
 .gfi-results-list {
   display: flex;
   flex-direction: column;
-  padding: 4px 12px 4px 12px;
 }
 
 .gfi-result-item {
@@ -50,7 +49,6 @@
 }
 
 .gfi-result-title {
-  overflow: hidden;
   text-overflow: ellipsis;
   font-family: Marianne;
   font-size: 16px;
@@ -58,6 +56,10 @@
   font-weight: 400;
   line-height: 24px;
   margin-bottom: 8px;
+}
+
+.gfi-result-title > .fr-btn--tooltip::before {
+  mask-image: url("/artwork/pictograms/system/information-line.svg");
 }
 
 .gfi-result-content {
@@ -88,15 +90,23 @@
 }
 
 .gfi-location-header {
-  padding: 10px 16px 6px 16px;
-  margin-bottom: 4px;
+  padding: 8px 16px 8px 16px;
+  background-color: var(--background-alt-grey);
 }
 
 .gfi-location-row {
   margin-bottom: 4px;
   font-family: Marianne;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 22px;
+}
+
+.gfi-location-commune {
+  font-family: Marianne;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 28px; /* 140% */
 }
 
 .gfi-location-row:last-child {

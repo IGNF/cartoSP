@@ -1,6 +1,7 @@
 export type LayerFieldConfig = {
   field: string;
   label: string;
+  valueMap?: Record<string, string>;
 };
 
 export type LayerMetaConfig = {
@@ -76,7 +77,7 @@ export const SELECTED_FIELDS_BY_LAYER = new Map<string, LayerConfig>([
     meta: { source: 'Atlasanté 2025', maillage: 'Commune' },
   }],
   ['IGNF_CARTO-SP_PPR_ORTHOPHONISTES', {
-    fields: [{ field: 'nb_orthophonistes_31122025', label: 'NOMBRE' }],
+    fields: [{ field: 'nb_orthophonistes', label: 'NOMBRE' }],
     meta: { source: 'Atlasanté 2025', maillage: 'Commune' },
   }],
   ['IGNF_CARTO-SP_PPR_SAGES_FEMMES', {
@@ -92,7 +93,15 @@ export const SELECTED_FIELDS_BY_LAYER = new Map<string, LayerConfig>([
     meta: { source: 'Observatoire des territoires - ANCT', maillage: 'Commune' },
   }],
   ['IGNF_CARTO-SP_ACCESSIBILITE-SOINS-PREMIER-RECOURS', {
-    fields: [{ field: 'typologie', label: '' }],
+    fields: [{ field: 'typologie', label: '', valueMap: {
+      '1': 'Communes avec la moins bonne accessibilité aux soins tous services confondus',
+      '2': 'Communes avec une faible accessibilité aux soins, en désertification médicale et avec de forts besoins',
+      '3': 'Communes avec une faible accessibilité aux soins de proximité et favorisées aux plans socio-économique et sanitaire',
+      '4': 'Communes maintenant une bonne accessibilité aux médecins généralistes mais avec une faible accessibilité aux autres soins',
+      '5': 'Communes avec une accessibilité aux soins relativement bonne qui se raréfie et avec de forts besoins',
+      '6': 'Communes favorisées sur le plan socio-sanitaire avec une bonne accessibilité aux soins',
+      '7': 'Communes avec l\'accessibilité aux soins la plus élevée pour tous types de soins',
+    }}],
     meta: { source: 'Observatoire des territoires - ANCT', maillage: 'Commune' },
   }],
   ['IGNF_CARTO-SP_ZONAGE-CPTS', {

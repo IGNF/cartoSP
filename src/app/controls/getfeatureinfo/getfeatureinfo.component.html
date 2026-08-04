@@ -13,10 +13,10 @@
         @if (commune || departement) {
           <div class="gfi-location-header">
             @if (commune) {
-              <p class="gfi-location-row"><strong>Commune</strong> : {{ commune }}</p>
+              <p class="gfi-location-row gfi-location-commune"><strong>{{ commune }}</strong></p>
             }
             @if (departement) {
-              <p class="gfi-location-row"><strong>Département</strong> : {{ departement }}</p>
+              <p class="gfi-location-row">{{ departement }}</p>
             }
           </div>
         }

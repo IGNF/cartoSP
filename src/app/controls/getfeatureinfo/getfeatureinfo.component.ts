@@ -320,7 +320,10 @@ export class GetfeatureinfoComponent implements OnInit, OnDestroy {
     const props = features[0]?.properties ?? {};
     const rows: LayerProperty[] = selectedFields
       .filter(fieldCfg => this.hasDisplayValue(props[fieldCfg.field]))
-      .map(fieldCfg => ({ key: fieldCfg.label, value: String(props[fieldCfg.field]) }));
+      .map(fieldCfg => {
+        const raw = String(props[fieldCfg.field]);
+        return { key: fieldCfg.label, value: fieldCfg.valueMap?.[raw] ?? raw };
+      });
 
     return rows.length > 0 ? rows : null;
   }
