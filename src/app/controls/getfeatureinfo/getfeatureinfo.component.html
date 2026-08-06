@@ -23,7 +23,7 @@
         @if (!hasVisibleResultsState && !hasPendingResultsState) {
             <div id="getfeature-no-results">
                 <h6>Aucune information disponible</h6>
-                <p>Veuillez sélectionner des indicateurs et cliquez sur les zones contenant des données</p>
+                <p>Veuillez sélectionner des indicateurs marqués de <span class="gpf-btn-icon-header_gfi gfi-icon-text"></span> et cliquez sur les zones contenant des données</p>
             </div>
         }
         @for (result of layerResults; track result.name) {

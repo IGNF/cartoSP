@@ -53,8 +53,8 @@ export const IGNORED_LAYERS: string[] = [
 
 export const SELECTED_FIELDS_BY_LAYER = new Map<string, LayerConfig>([
   ['IGNF_CARTO-SP_INDICATEUR-FRAGILITE-NUMERIQUE', {
-    fields: [{ field: 'total', label: 'NOMBRE' }],
-    meta: { source: '', maillage: 'Commune' },
+    fields: [{ field: 'total', label: 'VALEUR', valueMap: { 'null': 'N/A' } }],
+    meta: { source: 'Mednum', maillage: 'Commune' },
   }],
   ['IGNF_CARTO-SP_QUARTIERS-PRIORITAIRES-VILLE', {
     fields: [{ field: 'nom_quartier', label: 'NOM' }],
@@ -85,11 +85,11 @@ export const SELECTED_FIELDS_BY_LAYER = new Map<string, LayerConfig>([
     meta: { source: 'Atlasanté 2025', maillage: 'Commune' },
   }],
   ['IGNF_CARTO-SP_DENSITE-MEDECINS', {
-    fields: [{ field: 'densite_medecins_2024', label: 'DENSITÉ' }],
+    fields: [{ field: 'densite_medecins_2024', label: 'DENSITÉ', valueMap: { 'null': 'N/A' } }],
     meta: { source: 'Observatoire des territoires - ANCT', maillage: 'Commune' },
   }],
   ['IGNF_CARTO-SP_MOYENNE-AGE-MEDECINS', {
-    fields: [{ field: 'moyenne_age_medecins_2025', label: "MOYENNE D'ÂGE" }],
+    fields: [{ field: 'moyenne_age_medecins_2025', label: "MOYENNE D'ÂGE", valueMap: { 'null': 'N/A' } }],
     meta: { source: 'Observatoire des territoires - ANCT', maillage: 'Commune' },
   }],
   ['IGNF_CARTO-SP_ACCESSIBILITE-SOINS-PREMIER-RECOURS', {
@@ -101,6 +101,7 @@ export const SELECTED_FIELDS_BY_LAYER = new Map<string, LayerConfig>([
       '5': 'Communes avec une accessibilité aux soins relativement bonne qui se raréfie et avec de forts besoins',
       '6': 'Communes favorisées sur le plan socio-sanitaire avec une bonne accessibilité aux soins',
       '7': 'Communes avec l\'accessibilité aux soins la plus élevée pour tous types de soins',
+      'null': 'N/A'
     }}],
     meta: { source: 'Observatoire des territoires - ANCT', maillage: 'Commune' },
   }],

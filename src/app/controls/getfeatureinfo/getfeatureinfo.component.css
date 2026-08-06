@@ -121,3 +121,10 @@
   white-space: pre-line;
   z-index: 1500;
 }
+
+.gfi-icon-text {
+  display: inline-block;
+  margin-left: 4px;
+  margin-right: 4px;
+  vertical-align: center;
+}
