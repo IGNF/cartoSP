@@ -1,0 +1,68 @@
+@if (visible) {
+  <div class="GPpanel gpf-panel gfi-panel">
+    <div class="GPpanelBody fr-modal__body">
+      <div class="GPpanelHeader gpf-panel__header_gfi">
+        <label class="GPpanelIcon gpf-btn-header_gfi gpf-btn-icon-header_gfi" title="Get Feature Info"></label>
+        <div class="GPpanelTitle gpf-panel__title_gfi fr-modal__title">Infos sur les couches</div>
+        <button class="GPpanelClose GPcloseGetFeatureInfo gpf-btn gpf-btn-icon-close fr-btn--close fr-btn fr-btn--tertiary-no-outline"
+                title="Fermer le panneau" (click)="close()">
+          <span class="GPelementHidden gpf-visible">Fermer</span>
+        </button>
+      </div>
+      <div class="gfi-results-list">
+        @if (commune || departement) {
+          <div class="gfi-location-header">
+            @if (commune) {
+              <p class="gfi-location-row gfi-location-commune"><strong>{{ commune }}</strong></p>
+            }
+            @if (departement) {
+              <p class="gfi-location-row">{{ departement }}</p>
+            }
+          </div>
+        }
+        @if (!hasVisibleResultsState && !hasPendingResultsState) {
+            <div id="getfeature-no-results">
+                <h6>Aucune information disponible</h6>
+                <p>Veuillez sélectionner des indicateurs marqués de <span class="gpf-btn-icon-header_gfi gfi-icon-text"></span> et cliquez sur les zones contenant des données</p>
+            </div>
+        }
+        @for (result of layerResults; track result.name) {
+          @if (!result.excluded) {
+            <section class="gfi-result-item">
+              <p class="gfi-result-title">
+                {{ result.name }}
+                @if (result.meta) {
+                  <button class="fr-btn--tooltip fr-btn" type="button"
+                          [id]="'gfi-meta-btn-' + $index"
+                          [attr.aria-describedby]="'gfi-meta-tip-' + $index">
+                    Informations
+                  </button>
+                  <span class="fr-tooltip fr-placement"
+                        [id]="'gfi-meta-tip-' + $index"
+                        role="tooltip" aria-hidden="true">{{ getMetaTooltip(result.meta) }}</span>
+                }
+              </p>
+              <div class="gfi-result-content">
+                @if (result.loading) {
+                  <p class="fr-mb-0">Chargement...</p>
+                } @else {
+                  <div class="result-content-text">
+                    @for (property of result.properties; track property.key + property.value) {
+                      <p class="gfi-result-row">
+                        @if (property.key) {
+                          <strong>{{ property.key }}</strong> : {{ property.value }}
+                        } @else {
+                          {{ property.value }}
+                        }
+                      </p>
+                    }
+                  </div>
+                }
+              </div>
+            </section>
+          }
+        }
+      </div>
+    </div>
+  </div>
+}

@@ -53,6 +53,11 @@
                 "glob": "ovoid.svg",
                 "input": "./node_modules/@gouvfr/dsfr/dist/artwork/background",
                 "output": "artwork/background"
+              },
+              {
+                "glob": "information-line.svg",
+                "input": "./node_modules/@gouvfr/dsfr/dist/icons/system",
+                "output": "artwork/pictograms/system"
               }
             ],
             "styles": [

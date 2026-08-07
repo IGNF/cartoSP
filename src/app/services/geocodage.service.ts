@@ -84,4 +84,24 @@ export class GeocodageService {
     });
   }
 
+  getCommuneByCodeInsee(codeInsee: string): Observable<any> {
+    const params = {
+      ...this.defaultParams,
+      TYPENAME: 'ADMINEXPRESS-COG.LATEST:commune',
+      cql_filter: `code_insee='${codeInsee}'`,
+      COUNT: '1',
+    };
+    return this.http.get(this.apiExpressUrl, { params });
+  }
+
+  getDepartementByCode(codeDep: string): Observable<any> {
+    const params = {
+      ...this.defaultParams,
+      TYPENAME: 'ADMINEXPRESS-COG.LATEST:departement',
+      cql_filter: `code_insee='${codeDep}'`,
+      COUNT: '1',
+    };
+    return this.http.get(this.apiExpressUrl, { params });
+  }
+
 }

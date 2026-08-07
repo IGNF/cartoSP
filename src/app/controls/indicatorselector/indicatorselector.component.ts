@@ -37,31 +37,31 @@ export class IndicatorselectorComponent implements OnInit {
         {
             thematique: "Fragilité numérique",
             indicators: [
-                {title:"Indicateur de fragilité numérique", layername: "IGNF_CARTO-SP_INDICATEUR-FRAGILITE-NUMERIQUE__VALID", opacity: 1},
+                {title:"Indicateur de fragilité numérique", layername: "IGNF_CARTO-SP_INDICATEUR-FRAGILITE-NUMERIQUE__VALID", opacity: 1, getFeatureInfo: true},
             ]
         },
         {
             thematique: "Zonage",
             indicators: [
                 {title:"Bassin de vie", layername: "IGNF_CARTO-SP_BASSINS-VIE__VALID", opacity: 1},
-                {title:"Quartiers prioritaires de la ville", layername: "IGNF_CARTO-SP_QUARTIERS-PRIORITAIRES-VILLE", opacity: 1},
+                {title:"Quartiers prioritaires de la ville", layername: "IGNF_CARTO-SP_QUARTIERS-PRIORITAIRES-VILLE", opacity: 1, getFeatureInfo: true},
             ]
         },
         {
             thematique: "Santé et accès aux soins",
             indicators: [
                 // {title:"Professionnels de premier recours", layername: ""}, // sous-theme
-                {title:"Médecins généralistes", layername: "IGNF_CARTO-SP_PPR_MEDECINS__VALID", opacity: 1},
-                {title:"Infirmiers", layername: "IGNF_CARTO-SP_PPR_INFIRMIERS__VALID", opacity: 1},
-                {title:"Kinésithérapeutes", layername: "IGNF_CARTO-SP_PPR_KINESITHERAPEUTES__VALID", opacity: 1},
-                {title:"Chirurgiens-dentistes", layername: "IGNF_CARTO-SP_PPR_DENTISTES__VALID", opacity: 1},
-                {title:"Orthophonistes", layername: "IGNF_CARTO-SP_PPR_ORTHOPHONISTES__VALID", opacity: 1},
-                {title:"Sages-femmes", layername: "IGNF_CARTO-SP_PPR_SAGES_FEMMES__VALID", opacity: 1},
+                {title:"Médecins généralistes", layername: "IGNF_CARTO-SP_PPR_MEDECINS__VALID", opacity: 1, getFeatureInfo: true},
+                {title:"Infirmiers", layername: "IGNF_CARTO-SP_PPR_INFIRMIERS__VALID", opacity: 1, getFeatureInfo: true},
+                {title:"Kinésithérapeutes", layername: "IGNF_CARTO-SP_PPR_KINESITHERAPEUTES__VALID", opacity: 1, getFeatureInfo: true},
+                {title:"Chirurgiens-dentistes", layername: "IGNF_CARTO-SP_PPR_DENTISTES__VALID", opacity: 1, getFeatureInfo: true},
+                {title:"Orthophonistes", layername: "IGNF_CARTO-SP_PPR_ORTHOPHONISTES__VALID", opacity: 1, getFeatureInfo: true},
+                {title:"Sages-femmes", layername: "IGNF_CARTO-SP_PPR_SAGES_FEMMES__VALID", opacity: 1, getFeatureInfo: true},
                 {title:"Territoire", layername: ""}, // sous-theme
-                {title:"Densité médicale", layername: "IGNF_CARTO-SP_DENSITE-MEDECINS__VALID", opacity: 1},
-                {title:"Moyenne d'âge des médecins", layername: "IGNF_CARTO-SP_MOYENNE-AGE-MEDECINS__VALID", opacity: 1},
-                {title:"Accessibilité aux soins de premier recours", layername: "IGNF_CARTO-SP_ACCESSIBILITE-SOINS-PREMIER-RECOURS__VALID", opacity: 1},
-                {title:"Zonage CPTS", layername: "IGNF_CARTO-SP_ZONAGE-CPTS", opacity: 1},
+                {title:"Densité médicale", layername: "IGNF_CARTO-SP_DENSITE-MEDECINS__VALID", opacity: 1, getFeatureInfo: true},
+                {title:"Moyenne d'âge des médecins", layername: "IGNF_CARTO-SP_MOYENNE-AGE-MEDECINS__VALID", opacity: 1, getFeatureInfo: true},
+                {title:"Accessibilité aux soins de premier recours", layername: "IGNF_CARTO-SP_ACCESSIBILITE-SOINS-PREMIER-RECOURS__VALID", opacity: 1, getFeatureInfo: true},
+                {title:"Zonage CPTS", layername: "IGNF_CARTO-SP_ZONAGE-CPTS", opacity: 1, getFeatureInfo: true},
             ]
         }
     ];
