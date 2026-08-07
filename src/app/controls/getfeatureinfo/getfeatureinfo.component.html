@@ -1,12 +1,11 @@
 @if (visible) {
   <div class="GPpanel gpf-panel gfi-panel">
     <div class="GPpanelBody fr-modal__body">
-      <div class="GPpanelHeader gpf-panel__header_gfi">
-        <label class="GPpanelIcon gpf-btn-header_gfi gpf-btn-icon-header_gfi" title="Get Feature Info"></label>
-        <div class="GPpanelTitle gpf-panel__title_gfi fr-modal__title">Infos sur les couches</div>
-        <button class="GPpanelClose GPcloseGetFeatureInfo gpf-btn gpf-btn-icon-close fr-btn--close fr-btn fr-btn--tertiary-no-outline"
+      <div class="GPpanelHeader gpf-panel__header fr-p-1w">
+	      <span class="gpf-btn-icon-header_gfi fr-icon--sm fr-mr-1w"></span>
+	      <span class="GPpanelTitle gpf-panel__title">Infos sur les couches</span>
+        <button class="GPpanelClose fr-btn fr-btn--sm fr-icon-close-line fr-btn--tertiary-no-outline fr-ml-auto"
                 title="Fermer le panneau" (click)="close()">
-          <span class="GPelementHidden gpf-visible">Fermer</span>
         </button>
       </div>
       <div class="gfi-results-list">

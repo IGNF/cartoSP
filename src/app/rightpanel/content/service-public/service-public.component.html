@@ -1,20 +1,6 @@
 <!-- Boutton de navigation -->
  <div id="nav-sp-panel">
-    <dsfr-button
-    [label]="'Sélectionner une autre zone'"
-    [type]="'button'"
-    [tooltipMessage]="'Sélectionner une autre zone géographique'"
-    [variant]="'primary'"
-    [size]="'SM'"
-    [icon]="'fr-icon-arrow-left-line'"
-    [iconPosition]="'left'"
-    [disabled]="false"
-    [ariaLabel]="'Sélectionner une autre zone'"
-    [invertedOutlineContrast]="false"
-    [id]="'buttonBackLocation'"
-    id="buttonBackLocation"
-    (click)="onButtonBackLocationClic()"
-    ></dsfr-button>
+    <button id="buttonBackLocation" (click)="onButtonBackLocationClic()" aria-label="Retour" href="#" class="fr-link fr-link--icon-left fr-icon-arrow-left-line">Retour</button>
     <button id="mobile-nav-sp-panel-close" class="gpf-btn fr-btn--close fr-btn fr-btn--tertiary-no-outline" (click)="this.rightpanelService.toggleRightpanel()">Fermer </button>
  </div>
 

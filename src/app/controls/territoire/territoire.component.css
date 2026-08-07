@@ -92,3 +92,7 @@
 .gpf-panel__menuviews_territories {
     display: none;
 }
+
+#GPterritoriesPanel-territoires > .GPpanelHeader {
+    display: none;
+}

@@ -3,13 +3,12 @@ import { Component, Input, LOCALE_ID, OnInit, OnDestroy, inject, NgZone, ChangeD
 import { RightpanelService } from '../../rightpanel.service';
 import { ApicartospService } from './../../../services/apicartosp.service';
 import { LocalisationComponent } from '../../content/localisation/localisation.component';
-import { DsfrTabsModule, DsfrAccordionModule, DsfrButtonModule, DsfrFormSelectModule } from '@edugouvfr/ngx-dsfr';
-import { HttpParams } from '@angular/common/http';
+import { DsfrTabsModule, DsfrAccordionModule, DsfrFormSelectModule } from '@edugouvfr/ngx-dsfr';
 import { DecimalPipe } from '@angular/common';
 
 @Component({
     selector: 'app-localisation-info',
-    imports: [DsfrButtonModule, DsfrTabsModule, DsfrAccordionModule, DsfrFormSelectModule],
+    imports: [DsfrTabsModule, DsfrAccordionModule, DsfrFormSelectModule],
     templateUrl: './localisation-info.component.html',
     styleUrl: './localisation-info.component.css',
     providers: [ApicartospService, DecimalPipe, { provide: LOCALE_ID, useValue: "fr-Fr" }]
