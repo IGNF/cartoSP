@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { DsfrResponseModule } from '@edugouvfr/ngx-dsfr';
@@ -10,8 +10,8 @@ import { DsfrResponseModule } from '@edugouvfr/ngx-dsfr';
     styleUrl: './notfound.component.css'
 })
 export class NotfoundComponent {
+  private router = inject(Router);
 
-  constructor(private router: Router) { }
 
   contactSelect() {
     this.router.navigate(['/nous-contacter']);

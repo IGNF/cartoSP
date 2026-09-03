@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, AfterViewInit } from '@angular/core';
+import { Component, OnInit, Input, AfterViewInit, inject } from '@angular/core';
 
 import { DsfrTabsModule, DsfrButtonModule, DsfrSearchBarModule } from '@edugouvfr/ngx-dsfr';
 
@@ -44,8 +44,10 @@ export interface Commune {
     providers: [WfsService, GeocodageService]
 })
 export class LocalisationComponent implements OnInit, AfterViewInit {
+  private WfsService = inject(WfsService);
+  private GeocodageService = inject(GeocodageService);
+  rightpanelService = inject(RightpanelService);
 
-  constructor(private WfsService: WfsService, private GeocodageService: GeocodageService, public rightpanelService: RightpanelService) {}
 
   @Input() data!: any;
   selectedTabIndex = 0;
@@ -85,7 +87,7 @@ export class LocalisationComponent implements OnInit, AfterViewInit {
   private highlightRequestId = 0;
   private selectionHighlightActive = false;
   private highlightLayer = new VectorLayer({
-    //@ts-ignore
+    //@ts-expect-error The vector layer does not have a 'name' property in its type definition, but we are using it for identification purposes.
     name: "highlight",
     source: this.highlightSource,
     visible: false,
@@ -100,9 +102,9 @@ export class LocalisationComponent implements OnInit, AfterViewInit {
    * Initialise la couche de surbrillance et charge la liste des localisations visibles.
    */
   ngOnInit() {
-    var self = this;
+    const self = this;
 
-    var highlightLayerExists = false;
+    let highlightLayerExists = false;
     
     this.data.getLayers().forEach((layer : any) => {
       if (layer.values_?.name === "highlight") {
@@ -126,7 +128,7 @@ export class LocalisationComponent implements OnInit, AfterViewInit {
     self.searchLocations(this.data);
 
     // Ajout event on moveend de la carte pour charger les listes de localisation
-    this.data.on('moveend', function(e: any){
+    this.data.on('moveend', function(){
       self.searchLocations(self.data);
     });
   }
@@ -224,7 +226,7 @@ export class LocalisationComponent implements OnInit, AfterViewInit {
   /**
    * Retire la surbrillance temporaire si aucune selection n'est verrouillee.
    */
-  unhighlightLocation(name: any) {
+  unhighlightLocation() {
     if (this.selectionHighlightActive) {
       return;
     }
@@ -242,7 +244,7 @@ export class LocalisationComponent implements OnInit, AfterViewInit {
    * Recharge les listes (departements, EPCI, communes) selon l'emprise et le zoom de la carte.
    */
   searchLocations(e: any) {
-    var self = this;
+    const self = this;
 
     if(self.rightpanelService.isExpanded && self.rightpanelService.currentView == "location"){
       if (self.currentTab == "epci"){

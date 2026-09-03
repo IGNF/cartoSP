@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ElementRef } from '@angular/core';
+import { Component, OnInit, Input, ElementRef, inject } from '@angular/core';
 
 import Map from 'ol/Map';
 import Control from 'ol/control/Control';
@@ -21,10 +21,14 @@ import { catchError, forkJoin, of } from 'rxjs';
   styles: []
 })
 export class IsochroneSimpleComponent implements OnInit {
+  private elementRef = inject(ElementRef);
+  private rightpanelService = inject(RightpanelService);
+  private apicartospService = inject(ApicartospService);
+  private geocodageService = inject(GeocodageService);
+  private isochroneStatsService = inject(IsochroneStatsService);
+
   @Input() map!: Map;
   control!: Control;
-
-  constructor(private elementRef: ElementRef, private rightpanelService: RightpanelService, private apicartospService: ApicartospService, private geocodageService: GeocodageService, private isochroneStatsService: IsochroneStatsService) {}
 
   ngOnInit() {
     this.control = new CartospIsocurve({
@@ -147,8 +151,8 @@ export class IsochroneSimpleComponent implements OnInit {
     });
 
     this.control.addEventListener("isochrone:add",  (e: any) => {
-      let isochrones = e.layer.values_.source.getFeatures();
-      let location = e.target._typologyLocationSelected;
+      const isochrones = e.layer.values_.source.getFeatures();
+      const location = e.target._typologyLocationSelected;
 
       // Set loading state immediately and open the panel before the API call
       e.layer.set('totalsDepartement', { loading: true });

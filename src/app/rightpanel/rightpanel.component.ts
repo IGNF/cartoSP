@@ -1,4 +1,4 @@
-import { Component, HostBinding, ViewChild, Input, AfterViewInit, ChangeDetectorRef } from '@angular/core';
+import { Component, HostBinding, ViewChild, Input, AfterViewInit, ChangeDetectorRef, inject } from '@angular/core';
 
 import { RightpanelService } from './rightpanel.service';
 import { RightpanelContentAreaDirective } from './rightpanel-content-area.directive';
@@ -14,13 +14,14 @@ import Control from 'ol/control/Control';
     styleUrl: './rightpanel.component.css'
 })
 export class RightpanelComponent implements AfterViewInit {
+  rightpanelService = inject(RightpanelService);
+  private cd = inject(ChangeDetectorRef);
+
   @Input() map!: Map;
   control!: Control;
 
   @ViewChild(RightpanelContentAreaDirective)
   rightpanelContentArea?: RightpanelContentAreaDirective;
-
-  constructor(public rightpanelService: RightpanelService, private cd: ChangeDetectorRef ) {}
 
   ngAfterViewInit() {
     if (!this.rightpanelContentArea) {

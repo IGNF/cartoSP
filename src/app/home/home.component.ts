@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
@@ -31,7 +31,7 @@ import { SimpleGeometry } from 'ol/geom';
 import VectorLayer from 'ol/layer/Vector';
 import VectorSource from 'ol/source/Vector';
 
-// @ts-ignore
+// @ts-expect-error The Gp object is not recognized by TypeScript, but it is available in the global scope.
 import Gp from 'geoportal-access-lib';
 
 @Component({
@@ -42,12 +42,14 @@ import Gp from 'geoportal-access-lib';
     providers: [GeocodageService]
 })
 export class HomeComponent implements OnInit {
+  private GeocodageService = inject(GeocodageService);
+  private activatedRoute = inject(ActivatedRoute);
+  private rightpanelService = inject(RightpanelService);
 
-  constructor(private GeocodageService: GeocodageService, private activatedRoute: ActivatedRoute, private rightpanelService: RightpanelService) {}
 
   map!: Map;
-  GpServiceError: boolean = false;
-  mapLoading: boolean = false;
+  GpServiceError = false;
+  mapLoading = false;
   defaultView: View = new View({
     center: [288074.8449901076, 5900000.515792289],
     zoom: 6,
@@ -110,7 +112,7 @@ export class HomeComponent implements OnInit {
     this.mapLoading = false;
   }
 
-  private applyHighlight(features: any[], retries: number = 12): void {
+  private applyHighlight(features: any[], retries = 12): void {
     const highlightLayer = this.getHighlightLayer();
     if (!highlightLayer) {
       if (retries <= 0) {

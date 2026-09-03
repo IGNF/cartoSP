@@ -1,7 +1,6 @@
-import { Component, OnInit, Input, ElementRef, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, ElementRef, Output, EventEmitter, inject } from '@angular/core';
 
 import Map from 'ol/Map';
-import Feature from 'ol/Feature';
 import { bbox as bboxStrategy } from 'ol/loadingstrategy';
 import { LayerWFS as GeoportalLayerWFS, LayerMapBox as GeoportalLayerTMS } from "geopf-extensions-openlayers/src";  
 import Overlay from 'ol/Overlay';
@@ -13,10 +12,10 @@ import Overlay from 'ol/Overlay';
     imports: []
 })
 export class CarteComponent implements OnInit {
+  private elementRef = inject(ElementRef);
+
   @Input() map!: Map;
   @Output() loadingComplete = new EventEmitter<void>();
-
-  constructor(private elementRef: ElementRef) {}
 
   ngOnInit() {
 
@@ -34,7 +33,7 @@ export class CarteComponent implements OnInit {
         maxFeatures: 3000,
         olParams : {
           minZoom: 8,
-          style: function(feature: Feature){
+          style: function(){
             return undefined;
           },
           sourceParams: {
@@ -52,20 +51,20 @@ export class CarteComponent implements OnInit {
     });*/
 
     const overlay = new Overlay({
-      //@ts-ignore
+      //@ts-expect-error The overlay element is not recognized by TypeScript, but it exists in the DOM.
       element: document.getElementById("tooltip-feature")
     });
     
     // Event pour afficher le tooltip lorsque la souris passe sur un point SP
     this.map.on('pointermove', function (evt) {
-      var feature = evt.map.forEachFeatureAtPixel(evt.pixel, function(feature, layer) {
+      const feature = evt.map.forEachFeatureAtPixel(evt.pixel, function(feature, layer) {
         if (evt.dragging) {
-          //@ts-ignore
+          //@ts-expect-error The tooltip element is not recognized by TypeScript, but it exists in the DOM.
           document.getElementById("tooltip-feature").style.visibility = 'hidden';
           evt.map.getTargetElement().style.cursor = '';
           return null;
         }
-        //@ts-ignore
+        //@ts-expect-error The layer object does not have a 'name' property in its type definition, but we are using it for identification purposes.
         if(layer.name === "IGNF_CARTO-SP_SERVICES-PUBLICS:__infos"){
           return feature;
         }else{
@@ -75,23 +74,23 @@ export class CarteComponent implements OnInit {
       
       if(feature){
         const coordinate = evt.coordinate;
-        //@ts-ignore
+        //@ts-expect-error The feature object does not have a 'values_' property in its type definition, but we are using it for identification purposes.
         if(feature.values_.type_structure == "Permanence"){
-          //@ts-ignore
+          //@ts-expect-error The feature object does not have a 'values_' property in its type definition, but we are using it for identification purposes.
           document.getElementById("tooltip-feature").innerHTML = '<div>' + feature.values_.nom + '</div>';
         }else{
-          //@ts-ignore
+          //@ts-expect-error The feature object does not have a 'values_' property in its type definition, but we are using it for identification purposes.
           document.getElementById("tooltip-feature").innerHTML = '<div>' + feature.values_.nom + '</div>';
         }
         
         overlay.setPosition(coordinate);
         overlay.setOffset([10,12]);
 
-        //@ts-ignore
+        //@ts-expect-error The tooltip element is not recognized by TypeScript, but it exists in the DOM.
         document.getElementById("tooltip-feature").style.visibility = 'visible';
         evt.map.getTargetElement().style.cursor = 'pointer';
       }else{
-        //@ts-ignore
+        //@ts-expect-error The tooltip element is not recognized by TypeScript, but it exists in the DOM.
         document.getElementById("tooltip-feature").style.visibility = 'hidden';
         evt.map.getTargetElement().style.cursor = '';
       }
@@ -99,7 +98,7 @@ export class CarteComponent implements OnInit {
 
     // event pour cacher le tooltip lorsque la souris quitte le point SP
     this.map.getTargetElement().addEventListener('pointerleave', function () {
-      //@ts-ignore
+      //@ts-expect-error The tooltip element is not recognized by TypeScript, but it exists in the DOM.
       document.getElementById("tooltip-feature").style.visibility = 'hidden';
     });
 

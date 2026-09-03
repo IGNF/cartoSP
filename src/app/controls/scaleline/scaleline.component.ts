@@ -14,8 +14,6 @@ export class ScalelineComponent implements OnInit {
   @Input() map!: Map;
   control!: Control;
 
-  constructor() {}
-
   ngOnInit() {
     this.control = new ScaleLine();
     this.map.addControl(this.control);

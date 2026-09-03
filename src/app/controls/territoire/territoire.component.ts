@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ElementRef, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, Input, ElementRef, ViewEncapsulation, inject } from '@angular/core';
 
 import Map from 'ol/Map';
 import Control from 'ol/control/Control';
@@ -13,6 +13,9 @@ import { RightpanelService } from '../../../app/rightpanel/rightpanel.service';
   encapsulation: ViewEncapsulation.None 
 })
 export class TerritoireComponent implements OnInit {
+  private elementRef = inject(ElementRef);
+  private rightpanelService = inject(RightpanelService);
+
   @Input() map!: Map;
   control!: Control;
 
@@ -151,8 +154,6 @@ export class TerritoireComponent implements OnInit {
       icon: "assets/images/locations/Illustration_ProvenceAlpesCoteDAzur.svg",
     }
   ];
-
-  constructor(private elementRef: ElementRef, private rightpanelService: RightpanelService) {}
 
   ngOnInit() {
     this.control = new Territories({

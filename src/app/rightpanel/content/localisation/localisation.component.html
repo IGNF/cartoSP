@@ -1,5 +1,5 @@
 <div id="nav-local">
-    <button id="mobile-nav-local-close" class="gpf-btn fr-btn--close fr-btn fr-btn--tertiary-no-outline" (click)="this.rightpanelService.toggleRightpanel()">Fermer </button>
+    <button type="button" id="mobile-nav-local-close" class="gpf-btn fr-btn--close fr-btn fr-btn--tertiary-no-outline" (click)="this.rightpanelService.toggleRightpanel()">Fermer </button>
 </div>
 
 <h1 class="fr-h5">Zones visibles sur la carte :</h1>
@@ -25,9 +25,9 @@
       @if (searchResults.length > 0) {
         <div class="search-dropdown-results">
           @for (result of searchResults; track result.properties.id) {
-            <div (click)="selectSearchResult(result)" class="search-dropdown-item">
+            <button type="button" (click)="selectSearchResult(result)" class="search-dropdown-item">
               {{ result.properties.toponym }} ({{ result.properties.citycode[0]}})
-            </div>
+            </button>
           }
         </div>
       }
@@ -38,9 +38,9 @@
           @if (region.departments.length > 0) {
             <p class="fr-mb-1w fr-mt-2w"><strong>{{region.name}}</strong></p>
             @for (departement of region.departments; track departement.number) {
-              <p (mouseenter)="highlightLocation(departement.number)" (mouseleave)="unhighlightLocation(departement.id)" (click)="selectLocation(departement)" class="GPautoCompleteProposal gpf-panel__items gpf-panel__items_searchengine arrow-pull-right fr-icon-arrow-right-s-line">
+              <button type="button" (mouseenter)="highlightLocation(departement.number)" (mouseleave)="unhighlightLocation()" (click)="selectLocation(departement)" class="GPautoCompleteProposal gpf-panel__items gpf-panel__items_searchengine arrow-pull-right fr-icon-arrow-right-s-line">
                 {{departement.name}} ({{departement.number}})
-              </p>
+              </button>
             }
           }
         }
@@ -55,9 +55,9 @@
     >
     <div class="gpf-select">
       @for (epci of epcis; track epci.name) {
-        <p (mouseenter)="highlightLocation(epci.name)" (mouseleave)="unhighlightLocation(epci.name)" (click)="selectLocation(epci)" class="GPautoCompleteProposal gpf-panel__items gpf-panel__items_searchengine arrow-pull-right fr-icon-arrow-right-s-line">
+        <button type="button" (mouseenter)="highlightLocation(epci.name)" (mouseleave)="unhighlightLocation()" (click)="selectLocation(epci)" class="GPautoCompleteProposal gpf-panel__items gpf-panel__items_searchengine arrow-pull-right fr-icon-arrow-right-s-line">
           {{epci.name}}
-        </p>
+        </button>
       }
       @empty {
         <p>Zoomez et déplacez-vous sur la carte afin de faire apparaitre des epci</p>
@@ -70,9 +70,9 @@
     >
     <div class="gpf-select">
       @for (commune of communes; track commune.name) {
-        <p (mouseenter)="highlightLocation(commune.name)" (mouseleave)="unhighlightLocation(commune.name)" (click)="selectLocation(commune)" class="GPautoCompleteProposal gpf-panel__items gpf-panel__items_searchengine arrow-pull-right fr-icon-arrow-right-s-line">
+        <button type="button" (mouseenter)="highlightLocation(commune.name)" (mouseleave)="unhighlightLocation()" (click)="selectLocation(commune)" class="GPautoCompleteProposal gpf-panel__items gpf-panel__items_searchengine arrow-pull-right fr-icon-arrow-right-s-line">
           {{commune.name}}
-        </p>
+        </button>
       }
       @empty {
         <p>Zoomez et déplacez-vous sur la carte afin de faire apparaitre des communes</p>

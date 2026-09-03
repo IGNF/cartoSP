@@ -1,4 +1,4 @@
-import { Component, Input, ElementRef, OnInit } from '@angular/core';
+import { Component, Input, ElementRef, OnInit, inject } from '@angular/core';
 
 import Map from 'ol/Map';
 import Style, { StyleLike } from 'ol/style/Style';
@@ -17,17 +17,18 @@ import { ServicePublicComponent } from '../../rightpanel/content/service-public/
     template: ''
 })
 export class SpselectorComponent implements OnInit {
+  private elementRef = inject(ElementRef);
+  private rightpanelService = inject(RightpanelService);
+
   @Input() map!: Map;
   control!: Select;
 
-  constructor(private elementRef: ElementRef, private rightpanelService: RightpanelService) {}
-
   ngOnInit() {
-    var oldfeature: Feature;
-    var oldstyle: StyleLike | undefined;
+    let oldfeature: Feature;
+    let oldstyle: StyleLike | undefined;
     
     // marker style select
-    var selectStyle = new Style({
+    const selectStyle = new Style({
       image: new Icon({
         anchor: [0.5, 37],
         anchorXUnits: 'fraction',
@@ -36,18 +37,17 @@ export class SpselectorComponent implements OnInit {
       })
     });
 
-    var splayer = this.map.getAllLayers()[2];
+    const splayer = this.map.getAllLayers()[2];
 
     this.map.on('click', evt => {
-      let features = this.map.getFeaturesAtPixel(evt.pixel, {
+      const features = this.map.getFeaturesAtPixel(evt.pixel, {
           layerFilter: (layer) => {
               return splayer == layer;
           },
       });
       
       if(features[0]){
-        var newfeature = features[0] as Feature;
-        var data = {selectedSP: "", map: ""};
+        const newfeature = features[0] as Feature;
         
         // restore old style
         if(oldfeature){

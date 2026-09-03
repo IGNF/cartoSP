@@ -1,4 +1,4 @@
-import { Component, ViewChild, AfterViewInit, ElementRef } from '@angular/core';
+import { Component, ViewChild, AfterViewInit, ElementRef, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { RouterModule } from '@angular/router';
 import { DsfrDownloadComponent } from '@edugouvfr/ngx-dsfr';
@@ -10,9 +10,9 @@ import { DsfrDownloadComponent } from '@edugouvfr/ngx-dsfr';
     styleUrl: './guide.component.css'
 })
 export class GuideComponent implements AfterViewInit {
-  @ViewChild('guideScroll') guideScroll: ElementRef | undefined;
+  private activatedRoute = inject(ActivatedRoute);
 
-  constructor(private activatedRoute: ActivatedRoute) {}
+  @ViewChild('guideScroll') guideScroll: ElementRef | undefined;
 
   ngAfterViewInit(): void {
     this.activatedRoute.fragment.subscribe((fragment) => {

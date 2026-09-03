@@ -1,13 +1,13 @@
 <!-- Boutton de navigation -->
  <div id="nav-sp-panel">
-    <button id="buttonBackLocation" (click)="onButtonBackLocationClic()" aria-label="Retour" href="#" class="fr-link fr-link--icon-left fr-icon-arrow-left-line">Retour</button>
-    <button id="mobile-nav-sp-panel-close" class="gpf-btn fr-btn--close fr-btn fr-btn--tertiary-no-outline" (click)="this.rightpanelService.toggleRightpanel()">Fermer </button>
+    <button id="buttonBackLocation" type="button" (click)="onButtonBackLocationClic()" aria-label="Retour" href="#" class="fr-link fr-link--icon-left fr-icon-arrow-left-line">Retour</button>
+    <button id="mobile-nav-sp-panel-close" type="button" class="gpf-btn fr-btn--close fr-btn fr-btn--tertiary-no-outline" (click)="this.rightpanelService.toggleRightpanel()">Fermer </button>
  </div>
 
 <!-- Tag de classification -->
-@if (data.selectedSP.type_structure == "Itinérance") {
+@if (data.selectedSP.type_structure === "Itinérance") {
     <p class="fr-tag fr-tag--md tag-itinerant fr-icon-itinerant fr-tag--icon-left">Itinérant</p>
-} @else if (data.selectedSP.type_structure == "Permanence") {
+} @else if (data.selectedSP.type_structure === "Permanence") {
     <p class="fr-tag fr-tag--md tag-permanence fr-icon-user-add-fill fr-tag--icon-left">Permanence</p>
 } @else {
     <p class="fr-tag fr-tag--md tag-implantation fr-icon-map-pin-2-fill fr-tag--icon-left">Implantation</p>
@@ -36,10 +36,10 @@
     [disabled]="false"
   >
     <!-- Nom du service parent pour les permanences-->
-    @if (typeStructure == "Permanence" && serviceName != null) {
+    @if (typeStructure === "Permanence" && serviceName != null) {
         <div class="permanence-hebergement">Permanence hébergée dans les locaux de</div>
         <p>{{ serviceName }}</p>
-    }@else if (typeStructure == "Permanence" && serviceName == null) {
+    }@else if (typeStructure === "Permanence" && serviceName == null) {
         <p>Permanence non référencée dans une implantation existante</p>
     }
     
@@ -108,7 +108,7 @@
     <!-- Modalités d'accès -->
     <div class="info-list info-modalite">
         <span class="fr-icon-calendar-event-fill fr-icon--md info-icon" aria-hidden="true"></span>
-        @if (typeStructure == "Permanence") {
+        @if (typeStructure === "Permanence") {
             <div class="info-content"> {{ data.selectedSP.modalite_d_accueil || "Aucune information sur les modalités d'accueil" }}</div>
         } @else {
             <div class="info-content"> {{ data.selectedSP.modalite_d_accueil || "Aucune information sur les modalités d'accueil" }}</div>
@@ -132,9 +132,9 @@
             </div>
     }
     <!-- Horaires -->
-    @if (data.selectedSP.type_structure == "Itinérance") {
+    @if (data.selectedSP.type_structure === "Itinérance") {
         <h6 class="date-title">Dates & horaires de l'étape</h6>
-    } @else if (data.selectedSP.type_structure == "Permanence") {
+    } @else if (data.selectedSP.type_structure === "Permanence") {
         <h6 class="date-title">Horaires de la permanence</h6>
     } @else {
         <h6 class="date-title">Horaires</h6>
@@ -218,7 +218,7 @@
                                                 </div>
                                             } 
                                         </div>
-                                        <button name="hourtime" (click)="showTime($event)" value="opentimes-{{ idx }}" class="fr-link margin-link opentimes-btn">Voir les horaires ˅</button>
+                                        <button type="button" name="hourtime" (click)="showTime($event)" value="opentimes-{{ idx }}" class="fr-link margin-link opentimes-btn">Voir les horaires ˅</button>
                                     }@else {
                                         <div id="opentimes-{{ idx }}" class="opentimes">
                                             <div class="spopening">
@@ -238,7 +238,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <button name="daytime" (click)="showTime($event)" value="opentimes-{{ idx }}" class="fr-link margin-link opentimes-btn">Voir les dates ˅</button>
+                                        <button type="button" name="daytime" (click)="showTime($event)" value="opentimes-{{ idx }}" class="fr-link margin-link opentimes-btn">Voir les dates ˅</button>
                                     }
                                 }@else{
                                     <div id="opentimes-{{ idx }}" class="opentimes">
@@ -246,7 +246,7 @@
                                             Information indisponible pour ce service
                                         </div> 
                                     </div>
-                                    <button name="nonetime" (click)="showTime($event)" value="opentimes-{{ idx }}" class="fr-link margin-link opentimes-btn">Voir les horaires ˅</button>
+                                    <button type="button" name="nonetime" (click)="showTime($event)" value="opentimes-{{ idx }}" class="fr-link margin-link opentimes-btn">Voir les horaires ˅</button>
                                 }
                             }
                         } 
@@ -293,7 +293,7 @@
                                             </div>
                                         } 
                                     </div>
-                                    <button name="hourtime" (click)="showTime($event)" value="opentimes-{{ idx }}" class="fr-link margin-link opentimes-btn">Voir les horaires ˅</button>
+                                    <button type="button" name="hourtime" (click)="showTime($event)" value="opentimes-{{ idx }}" class="fr-link margin-link opentimes-btn">Voir les horaires ˅</button>
                                 }@else {
                                     <div id="opentimes-{{ idx }}" class="opentimes">
                                         <div class="spopening">
@@ -313,7 +313,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <button name="datetime" (click)="showTime($event)" value="opentimes-{{ idx }}" class="fr-link margin-link opentimes-btn">Voir les dates ˅</button>
+                                    <button type="button" name="datetime" (click)="showTime($event)" value="opentimes-{{ idx }}" class="fr-link margin-link opentimes-btn">Voir les dates ˅</button>
                                 }
                             }@else{
                                 <div id="opentimes-{{ idx }}" class="opentimes">
@@ -321,7 +321,7 @@
                                         Information indisponible pour ce service
                                     </div> 
                                 </div>
-                                <button name="nonetime" (click)="showTime($event)" value="opentimes-{{ idx }}" class="fr-link margin-link opentimes-btn">Voir les horaires ˅</button>
+                                <button type="button" name="nonetime" (click)="showTime($event)" value="opentimes-{{ idx }}" class="fr-link margin-link opentimes-btn">Voir les horaires ˅</button>
                             }
                     } 
                 </dsfr-tab>
@@ -355,7 +355,7 @@
                                         </div>
                                     } 
                                 </div>
-                                <button name="hourtime" (click)="showTime($event)" value="opentimes-{{ idx }}" class="fr-link margin-link opentimes-btn">Voir les horaires ˅</button>
+                                <button type="button" name="hourtime" (click)="showTime($event)" value="opentimes-{{ idx }}" class="fr-link margin-link opentimes-btn">Voir les horaires ˅</button>
                             }@else {
                                 <div id="opentimes-{{ idx }}" class="opentimes">
                                     <div class="spopening">
@@ -375,7 +375,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <button name="datetime" (click)="showTime($event)" value="opentimes-{{ idx }}" class="fr-link margin-link opentimes-btn">Voir les dates ˅</button>
+                                <button type="button" name="datetime" (click)="showTime($event)" value="opentimes-{{ idx }}" class="fr-link margin-link opentimes-btn">Voir les dates ˅</button>
                             }
                         }@else{
                             <div id="opentimes-{{ idx }}" class="opentimes">
@@ -383,7 +383,7 @@
                                     Information indisponible pour ce service
                                 </div> 
                             </div>
-                            <button name="nonetime" (click)="showTime($event)" value="opentimes-{{ idx }}" class="fr-link margin-link opentimes-btn">Voir les horaires ˅</button>
+                            <button type="button" name="nonetime" (click)="showTime($event)" value="opentimes-{{ idx }}" class="fr-link margin-link opentimes-btn">Voir les horaires ˅</button>
                         }
                     } 
                 </dsfr-tab>

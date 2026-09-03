@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ElementRef } from '@angular/core';
+import { Component, OnInit, Input, ElementRef, inject } from '@angular/core';
 
 import Map from 'ol/Map';
 import Control from 'ol/control/Control';
@@ -11,10 +11,10 @@ import { Legends } from "geopf-extensions-openlayers/src";
   styles: ['::ng-deep .legend-entry-show { border: none !important; }']
 })
 export class LegendeComponent implements OnInit {
+  private elementRef = inject(ElementRef);
+
   @Input() map!: Map;
   control!: Control;
-
-  constructor(private elementRef: ElementRef) {}
 
   ngOnInit() {
     this.control = new Legends({

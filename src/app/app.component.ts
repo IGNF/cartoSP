@@ -1,8 +1,8 @@
 
-import { Component, AfterViewInit } from '@angular/core';
+import { Component, AfterViewInit, inject } from '@angular/core';
 import { RouterLink, RouterOutlet, Router } from '@angular/router';
 import { NgIf } from '@angular/common';
-import { DsfrDisplayComponent, DsfrFooterModule, DsfrHeaderModule, DsfrTooltipDirective } from '@edugouvfr/ngx-dsfr';
+import { DsfrDisplayComponent, DsfrFooterModule, DsfrHeaderModule } from '@edugouvfr/ngx-dsfr';
 import { DsfrToolLinkMenuComponent, DsfrLinkComponent } from '@edugouvfr/ngx-dsfr';
 
 @Component({
@@ -12,11 +12,11 @@ import { DsfrToolLinkMenuComponent, DsfrLinkComponent } from '@edugouvfr/ngx-dsf
     styleUrl: './app.component.css'
 })
 export class AppComponent implements AfterViewInit {
+  private router = inject(Router);
+
   title = 'cartosp';
   footerExpanded = false;
   mapPage = false;
-  
-  constructor(private router: Router) {}
 
   readonly displayModalId = 'theme-modal-id';
   readonly footerDisplayLabel = "Paramètres d'affichage";
@@ -33,7 +33,7 @@ export class AppComponent implements AfterViewInit {
   ];
 
   ngAfterViewInit(): void {
-      this.router.events.subscribe((res) => { 
+      this.router.events.subscribe(() => { 
           if (this.router.url.startsWith('/carte')) {
             this.footerExpanded = false;
             this.mapPage = true;
