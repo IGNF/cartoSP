@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
@@ -6,10 +6,9 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ApicartospService {
+    private http = inject(HttpClient);
 
     public apiUrl = '/api';
-
-    constructor(private http: HttpClient) {}
 
     // Get commune infos
     getCommuneInfos(query: string): Observable<any> {

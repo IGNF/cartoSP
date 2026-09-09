@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
     template: `<p>hello</p>`,
-    standalone: false
+    standalone: true
 })
 export class DefaultComponent implements OnInit {
   @Input() data!: any;    

@@ -3,23 +3,25 @@ import { Component, Input, LOCALE_ID, OnInit, OnDestroy, inject, NgZone, ChangeD
 import { RightpanelService } from '../../rightpanel.service';
 import { ApicartospService } from './../../../services/apicartosp.service';
 import { LocalisationComponent } from '../../content/localisation/localisation.component';
-import { DsfrTabsModule, DsfrAccordionModule, DsfrButtonModule, DsfrFormSelectModule } from '@edugouvfr/ngx-dsfr';
-import { HttpParams } from '@angular/common/http';
+import { DsfrTabsModule, DsfrAccordionModule, DsfrFormSelectModule } from '@edugouvfr/ngx-dsfr';
 import { DecimalPipe } from '@angular/common';
 
 @Component({
     selector: 'app-localisation-info',
-    imports: [DsfrButtonModule, DsfrTabsModule, DsfrAccordionModule, DsfrFormSelectModule],
+    imports: [DsfrTabsModule, DsfrAccordionModule, DsfrFormSelectModule],
     templateUrl: './localisation-info.component.html',
     styleUrl: './localisation-info.component.css',
     providers: [ApicartospService, DecimalPipe, { provide: LOCALE_ID, useValue: "fr-Fr" }]
 })
 export class LocalisationInfoComponent implements OnInit, OnDestroy {
+  rightpanelService = inject(RightpanelService);
+  private apicartospService = inject(ApicartospService);
+  private ngZone = inject(NgZone);
+  private cdr = inject(ChangeDetectorRef);
 
-  constructor(public rightpanelService: RightpanelService, private apicartospService: ApicartospService, private ngZone: NgZone, private cdr: ChangeDetectorRef) {}
 
   @Input() data!: any;
-  private layerListeners: Array<{ layer: any; listener: any }> = [];
+  private layerListeners: { layer: any; listener: any }[] = [];
   selectedTabIndex = 0;
   tabsAriaLabel = "Onglets informations SP"
   fullViewport = true;
@@ -218,7 +220,7 @@ export class LocalisationInfoComponent implements OnInit, OnDestroy {
   }
 
   selectSpChange(e: any){
-    var options = {};
+    let options = {};
 
     options = Object.assign(options, {typologie: e});
     
@@ -230,7 +232,7 @@ export class LocalisationInfoComponent implements OnInit, OnDestroy {
       options = Object.assign(options, {code_insee: this.data.location.number});
     }
 
-    var totalOptions = Object.assign({}, options);
+    const totalOptions = Object.assign({}, options);
 
     this.apicartospService.getTypeCount(Object.assign(options, {type_structure: "Implantation"})).subscribe({
       next : (response: any) => {

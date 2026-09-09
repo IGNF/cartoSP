@@ -9,8 +9,6 @@ import type { Type as Component } from '@angular/core';
 })
 export class RightpanelService {
 
-  constructor() {}
-
   isExpanded = true;
 
   currentView: "location" | "locationinfo" | "spinfos" = "location";

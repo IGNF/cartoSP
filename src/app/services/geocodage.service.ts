@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class GeocodageService {
+  private http = inject(HttpClient);
 
   private apiUrl = 'https://data.geopf.fr/geocodage/search';
 
@@ -18,8 +19,6 @@ export class GeocodageService {
     VERSION: "2.0.0",
     SERVICE: "WFS"
   };
-
-  constructor(private http: HttpClient) {}
 
   // Search departementsautocomplete
   searchDepartement(query: string): Observable<any> {
@@ -48,7 +47,7 @@ export class GeocodageService {
 
   // Get adminexpress geometry
   getAdminExpressGeometry(query: string, type: string): Observable<any> {
-    var req;
+    let req;
     if(type === "departement") {
       req = Object.assign(this.defaultParams, {
         TYPENAME: "ADMINEXPRESS-COG.LATEST:departement",
@@ -74,7 +73,7 @@ export class GeocodageService {
   }
 
   getAdminExpressDepartementGeometry(query: string): Observable<any> {
-    var req = Object.assign(this.defaultParams, {
+    const req = Object.assign(this.defaultParams, {
         TYPENAME: "ADMINEXPRESS-COG.LATEST:departement",
         cql_filter:"code_insee='"+query+"'"
     });

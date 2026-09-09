@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class WfsService {
+  private http = inject(HttpClient);
 
   private apiUrl = 'https://data.geopf.fr/wfs/ows';
 
@@ -17,10 +18,8 @@ export class WfsService {
     SERVICE: "WFS"
   };
 
-  constructor(private http: HttpClient) {}
-
   getCommuneFromBbox(bbox: string): Observable<any> {
-    var req = Object.assign(this.defaultParams, {
+    const req = Object.assign({}, this.defaultParams, {
         TYPENAME: "ADMINEXPRESS-COG.LATEST:commune",
         BBOX: bbox + ",EPSG:3857"
     });
@@ -32,7 +31,7 @@ export class WfsService {
 
   // Geometry
   getEpciFromBbox(bbox: string): Observable<any> {
-    var req = Object.assign(this.defaultParams, {
+    const req = Object.assign({}, this.defaultParams, {
         TYPENAME: "ADMINEXPRESS-COG.LATEST:epci",
         PROPERTYNAME: "cleabs,nom_officiel,code_siren",
         BBOX: bbox + ",EPSG:3857"
@@ -44,7 +43,7 @@ export class WfsService {
   }
 
   getDepartementFromBbox(bbox: string): Observable<any> {
-    var req = Object.assign(this.defaultParams, {
+    const req = Object.assign({}, this.defaultParams, {
         TYPENAME: "ADMINEXPRESS-COG.LATEST:departement",
         PROPERTYNAME: "cleabs,nom_officiel,code_insee,code_insee_de_la_region",
         BBOX: bbox + ",EPSG:3857"
@@ -56,7 +55,7 @@ export class WfsService {
   }
 
   getDepartementFromId(name: string): Observable<any> {
-    var req = Object.assign(this.defaultParams, {
+    const req = Object.assign({}, this.defaultParams, {
         TYPENAME: "ADMINEXPRESS-COG.LATEST:departement",
         PROPERTYNAME: "id,nom,insee_dep,geom",
         cql_filter:"name="+name

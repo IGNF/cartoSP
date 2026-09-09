@@ -1,4 +1,4 @@
-import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, HostListener, Input, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, HostListener, Input, OnInit, ViewChild, inject } from '@angular/core';
 
 import {TitleCasePipe} from '@angular/common';
 
@@ -12,13 +12,13 @@ import opening_hours from 'opening_hours';
 
 interface days {
   day: string;
-  time: Array<String>;
+  time: string[];
 }
 
-interface responseListType {
+/*interface responseListType {
   name : string,
-  openinghours: {weekstable: boolean, openingHours: Array<days>}|{weekstable: boolean, openingHours: Array<{ dates: Array<String>, time: Array<String>}>}|null
-}
+  openinghours: {weekstable: boolean, openingHours: days[]}|{weekstable: boolean, openingHours: { dates: string[], time: string[]}[]}|null
+}*/
 
 @Component({
     selector: 'app-service-public',
@@ -27,12 +27,10 @@ interface responseListType {
     styleUrl: './service-public.component.css'
 })
 export class ServicePublicComponent implements OnInit, AfterViewInit {
-  
-  constructor(
-    public rightpanelService: RightpanelService,
-    private apicartospService: ApicartospService,
-    private cdr: ChangeDetectorRef
-  ) {}
+  rightpanelService = inject(RightpanelService);
+  private apicartospService = inject(ApicartospService);
+  private cdr = inject(ChangeDetectorRef);
+
 
   @Input() data!: any;    
   selectedTabIndex = 0;
@@ -145,7 +143,7 @@ export class ServicePublicComponent implements OnInit, AfterViewInit {
     this.responseList = null;
     if(this.typeStructure == "Itinérance") {
       this.apicartospService.getCircuitItinerants(id).subscribe({
-        next : (response: Array<any>) => {
+        next : (response: any[]) => {
           if(response.length != 0) {
             this.responseList = [];
             response.forEach((entry) =>{
@@ -157,7 +155,7 @@ export class ServicePublicComponent implements OnInit, AfterViewInit {
       });
     }else{
       this.apicartospService.getServicePermanences(id).subscribe({
-        next : (response: Array<any>) => {
+        next : (response: any[]) => {
           if(response.length != 0) {
             this.responseList = [];
             response.forEach((entry) =>{
@@ -203,12 +201,11 @@ export class ServicePublicComponent implements OnInit, AfterViewInit {
 
   buildTimeTable(data: string){
     if(data){
-      var openingHours = new opening_hours(data);
-      var weekstable = openingHours.isWeekStable();
+      const openingHours = new opening_hours(data);
+      const weekstable = openingHours.isWeekStable();
       if(weekstable) {
         const { monday, sunday } = this.getThisWeek();
-        var days : Array<days>;
-        days = [
+        const days: days[] = [
           {day: "lundi", time: []},
           {day: "mardi", time: []},
           {day: "mercredi", time: []},
@@ -217,11 +214,11 @@ export class ServicePublicComponent implements OnInit, AfterViewInit {
           {day: "samedi", time: []},
           {day: "dimanche", time: []},
         ];
-        var list = openingHours.getOpenIntervals(monday, sunday);
-        var daydata: string;
-        var starthour;
-        var endhour;
-        var foundentry;
+        const list = openingHours.getOpenIntervals(monday, sunday);
+        let daydata: string;
+        let starthour;
+        let endhour;
+        let foundentry;
                 
         list.forEach((entry : any) => {      
           daydata = new Intl.DateTimeFormat("fr-FR", { weekday: "long" }).format(entry[0]);
@@ -233,12 +230,11 @@ export class ServicePublicComponent implements OnInit, AfterViewInit {
         return {openingHours : days, weekstable: weekstable};
       } else {
         // itinerant date specifiques
-        var dayspecific : any;
-        dayspecific = {dates: [], time: []};
-        var starthour;
-        var endhour;
-        var currentYear = new Date().getFullYear();
-        var list = openingHours.getOpenIntervals(new Date("01 Jan" + currentYear), new Date("31 Dec" + currentYear));
+        const dayspecific: any = {dates: [], time: []};
+        let starthour;
+        let endhour;
+        const currentYear = new Date().getFullYear();
+        const list = openingHours.getOpenIntervals(new Date("01 Jan" + currentYear), new Date("31 Dec" + currentYear));
         const options = {
           weekday: "long",
           month: "long",
@@ -278,7 +274,7 @@ export class ServicePublicComponent implements OnInit, AfterViewInit {
   }
 
   showTime(e: any): void {    
-    var element = document.getElementById(e.target.value);
+    const element = document.getElementById(e.target.value);
     if (element){
       if (element.style.display === "none" || element.style.display === "") {
         element.style.display = "inline-block";

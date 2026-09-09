@@ -1,32 +1,32 @@
-export type LayerFieldConfig = {
+export interface LayerFieldConfig {
   field: string;
   label: string;
   valueMap?: Record<string, string>;
-};
+}
 
-export type LayerMetaConfig = {
+export interface LayerMetaConfig {
   source?: string;
   maillage?: string;
-};
+}
 
-export type LayerConfig = {
+export interface LayerConfig {
   fields: LayerFieldConfig[];
   meta?: LayerMetaConfig;
-};
+}
 
 export type LayerProperties = Record<string, unknown>;
 
-export type LayerLike = {
+export interface LayerLike {
   name?: string;
   getVisible: () => boolean;
   getSource?: () => unknown;
   getProperties?: () => LayerProperties;
-};
+}
 
-export type VisibleWmsLayer<S> = {
+export interface VisibleWmsLayer<S> {
   layer: LayerLike;
   source: S;
-};
+}
 
 export const GFI_INFO_FORMAT = 'application/json';
 export const GFI_FEATURE_COUNT = 10;

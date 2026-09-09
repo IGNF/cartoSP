@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, OnDestroy, ChangeDetectorRef } from '@angular/core';
+import { Component, Input, OnInit, OnDestroy, ChangeDetectorRef, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { firstValueFrom } from 'rxjs';
 
@@ -45,6 +45,9 @@ export interface LayerResult {
   styleUrl: './getfeatureinfo.component.css',
 })
 export class GetfeatureinfoComponent implements OnInit, OnDestroy {
+  private cdr = inject(ChangeDetectorRef);
+  private geocodageService = inject(GeocodageService);
+
   @Input() map!: OlMap;
 
   visible = false;
@@ -65,8 +68,6 @@ export class GetfeatureinfoComponent implements OnInit, OnDestroy {
   private contextMenuHandler!: (evt: Event) => void;
   private legendToggleHandler!: (evt: Event) => void;
   private markerOverlay!: Overlay;
-
-  constructor(private cdr: ChangeDetectorRef, private geocodageService: GeocodageService) {}
 
   ngOnInit(): void {
     if (!this.map) return;
@@ -264,7 +265,7 @@ export class GetfeatureinfoComponent implements OnInit, OnDestroy {
       }
 
       const selectedFields = this.getSelectedFieldsForSource(source);
-      let properties = this.extractSelectedProperties(responseText, selectedFields);
+      const properties = this.extractSelectedProperties(responseText, selectedFields);
 
       const codeInsee = this.getCodeInseeFromResponse(responseText);
       if (codeInsee) {
@@ -307,7 +308,7 @@ export class GetfeatureinfoComponent implements OnInit, OnDestroy {
   private extractSelectedProperties(responseText: string, selectedFields: LayerFieldConfig[] | null): LayerProperty[] | null {
     if (!selectedFields?.length) return null;
 
-    let data: { features?: Array<{ properties?: LayerProperties }> };
+    let data: { features?: { properties?: LayerProperties }[] };
     try {
       data = JSON.parse(responseText);
     } catch {

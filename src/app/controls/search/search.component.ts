@@ -1,8 +1,8 @@
-import { Component, OnInit, Input, ElementRef } from '@angular/core';
+import { Component, OnInit, Input, ElementRef, inject } from '@angular/core';
 
 import Map from 'ol/Map';
 import Control from 'ol/control/Control';
-import { SearchEngine, Searchdialog, SearchEngineAdvanced, LocationAdvancedSearch} from "geopf-extensions-openlayers/src";
+import { Searchdialog, SearchEngineAdvanced} from "geopf-extensions-openlayers/src";
 
 @Component({
   selector: 'app-search',
@@ -11,11 +11,11 @@ import { SearchEngine, Searchdialog, SearchEngineAdvanced, LocationAdvancedSearc
   styles: ['::ng-deep .geolocatebutton { left: 2px; background-color: var(--background-default-grey); border-radius: 4px; } ::ng-deep .GPSearchBar { display: flex !important; padding: unset !important; }']
 })
 export class SearchComponent implements OnInit {
+  private elementRef = inject(ElementRef);
+
   @Input() map!: Map;
   search!: Control;
   dialog!: Control;
-
-  constructor(private elementRef: ElementRef) {}
 
   ngOnInit() {
 
@@ -59,10 +59,9 @@ export class SearchComponent implements OnInit {
       geolocatebutton.classList.remove("fr-m-1w", "fr-btn--secondary");
       geolocatebutton.setAttribute('title', "Activer la géolocalisation");
     }*/
-    //@ts-ignore
     //document.getElementById("position-container-bottom-right")?.appendChild(geolocatebutton);
 
-    var location = new LocationAdvancedSearch({})
+    // const location = new LocationAdvancedSearch({})
 
     this.search = new SearchEngineAdvanced({
       advancedSearch : false,
@@ -73,7 +72,7 @@ export class SearchComponent implements OnInit {
 
     // move searchEngine
     const searchinput = document.querySelector('[id^=GPsearchEngine-Advanced-]');
-    //@ts-ignore
+    // @ts-expect-error The search input element is not recognized by TypeScript, but it exists in the DOM.
     document.getElementById("searchmodal")?.appendChild(searchinput);
   }
 }

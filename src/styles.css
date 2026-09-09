@@ -142,3 +142,12 @@ app-home{
   background-color: var(--background-open-blue-france) !important;
   box-shadow: inset 0 0 0 4px var(--background-default-grey);
 }
+
+.dsfr-container {
+    max-width: 792px;
+    margin: auto;
+}
+
+button[id^="GPshowLayerselectorPicto-"][aria-pressed="true"] + dialog {
+  height: 165px !important;
+}

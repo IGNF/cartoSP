@@ -6,13 +6,14 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "lint": "ng lint"
   },
   "private": true,
   "dependencies": {
     "@edugouvfr/ngx-dsfr": "^1.16.2",
     "@gouvfr/dsfr": "^1.15.*",
-    "geopf-extensions-openlayers": "./lib/geopf-extensions-openlayers-1.0.0-beta.12-568.tgz",
+    "geopf-extensions-openlayers": "./lib/geopf-extensions-openlayers-1.0.0-beta.13-575.tgz",
     "geoportal-access-lib": "^3.4.4",
     "ol": "^10.3.1",
     "opening_hours": "^3.8.0",
@@ -28,7 +29,10 @@
     "@angular/forms": "^20.3.*",
     "@angular/platform-browser": "^20.3.*",
     "@angular/router": "^20.3.*",
+    "@eslint/js": "^9.39.5",
     "@types/jasmine": "~5.1.0",
+    "angular-eslint": "^20.7.0",
+    "eslint": "^9.39.5",
     "jasmine-core": "~5.1.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.2.0",
@@ -38,6 +42,7 @@
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "typescript": "~5.8.3",
+    "typescript-eslint": "8.67.0",
     "zone.js": "~0.15.1"
   },
   "overrides": {

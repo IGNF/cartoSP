@@ -1,17 +1,18 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, from, firstValueFrom } from 'rxjs';
 import { Extent, getCenter, intersects } from 'ol/extent';
 import { Feature } from 'ol';
 import GeoJSON from 'ol/format/GeoJSON';
 
-type Totals = { population: number; nb_plus_65: number; nb_men_pauv: number };
-type StatsResult = { totals: Totals; intersectingTotals: Totals; percentages: Totals };
+interface Totals { population: number; nb_plus_65: number; nb_men_pauv: number }
+interface StatsResult { totals: Totals; intersectingTotals: Totals; percentages: Totals }
 
 @Injectable({
   providedIn: 'root'
 })
 export class IsochroneStatsService {
+    private http = inject(HttpClient);
 
     public apiUrl = 'https://data.geopf.fr/wfs/ows';
     
@@ -23,8 +24,6 @@ export class IsochroneStatsService {
         SERVICE: "WFS",
         typename: "IGNF_CARTO-SP_CARREAU-200m:indicateurs"
     };
-    
-    constructor(private http: HttpClient) {}
 
     getIsochroneStatsByBbox(options: any, isochrones: Feature[]): Observable<StatsResult> {
         return from(this.fetchAllPages(options, isochrones));

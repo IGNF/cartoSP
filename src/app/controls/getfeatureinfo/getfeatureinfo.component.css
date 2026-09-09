@@ -128,3 +128,7 @@
   margin-right: 4px;
   vertical-align: center;
 }
+
+.gpf-btn-icon-header_gfi {
+  margin-left: unset;
+}

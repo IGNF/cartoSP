@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ElementRef } from '@angular/core';
+import { Component, OnInit, Input, ElementRef, inject } from '@angular/core';
 
 import Map from 'ol/Map';
 import Control from 'ol/control/Control';
@@ -11,14 +11,14 @@ import { WfsFilter } from "geopf-extensions-openlayers/src";
     styles: []
 })
 export class SpwfsfilterComponent implements OnInit {
+  private elementRef = inject(ElementRef);
+
   @Input() map!: Map;
   control!: Control;
 
-  constructor(private elementRef: ElementRef) {}
-
   ngOnInit() {
 
-    var ThemesInfo = {
+    const ThemesInfo = {
         "Administration locale": {
             markerPath: "assets/images/mapmarker/administrations-locales/",
             topologies: [
@@ -111,7 +111,7 @@ export class SpwfsfilterComponent implements OnInit {
         }
     };
 
-    let options = {
+    const options = {
             position: "top-left",
             panel: true,
             cartospLayerName: "IGNF_CARTO-SP_SERVICES-PUBLICS:__infos",

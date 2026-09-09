@@ -1,5 +1,6 @@
 .GPautoCompleteProposal{
     color: var(--text-action-high-blue-france);
+    text-align: left;
 }
 
 .GPautoCompleteProposal:hover{
@@ -49,11 +50,18 @@
 }
 
 .search-dropdown-item {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
     padding: 8px 16px;
     cursor: pointer;
     color: var(--text-action-high-blue-france);
+    background: transparent;
+    border: 0;
     border-bottom: 1px solid #eee;
+    font-family: inherit;
     font-size: 0.9rem;
+    text-align: left !important;
 }
 
 .search-dropdown-item:last-child {

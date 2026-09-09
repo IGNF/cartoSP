@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ElementRef } from '@angular/core';
+import { Component, OnInit, Input, ElementRef, inject } from '@angular/core';
 
 import Map from 'ol/Map';
 import Control from 'ol/control/Control';
@@ -8,16 +8,16 @@ import { Layerselector } from "geopf-extensions-openlayers/src";
     selector: 'app-layerselector',
     imports: [],
     template: '',
-    styles: ['::ng-deep dialog[id^="GPcatalogPanel-"] { top: unset !important; bottom:3px!important; } ::ng-deep button[id^="GPshowLayerselectorPicto-"][aria-pressed="true"] + dialog { height: 140px !important; }']
+    styles: ['::ng-deep dialog[id^="GPcatalogPanel-"] { top: unset !important; bottom:3px!important; } ::ng-deep button[id^="GPshowLayerselectorPicto-"][aria-pressed="true"] + dialog { height: 170px !important; } ::ng-deep .layerselector-entries {padding-top: 20px}']
 })
 export class LayerselectorComponent implements OnInit {
+  private elementRef = inject(ElementRef);
+
   @Input() map!: Map;
   control!: Control;
 
-  constructor(private elementRef: ElementRef) { }
-
   ngOnInit() {
-    var LayerSelectorList = [
+    const LayerSelectorList = [
       {layername : "PLAN.IGN", title : "Gris", layertype : "TMS", style : "desaturated-ign", img: "assets/images/layerselector/Gris.png" },
       {layername : "ORTHOIMAGERY.ORTHOPHOTOS", title : "Aérienne", layertype : "WMS", style : null, img: "assets/images/layerselector/Aérienne.png" }, 
       {layername : "GEOGRAPHICALGRIDSYSTEMS.PLANIGNV2", title : "Relief", layertype : "WMS", style : null, img: "assets/images/layerselector/Relief.png" }   
