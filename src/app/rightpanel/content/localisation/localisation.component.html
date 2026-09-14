@@ -32,13 +32,13 @@
         </div>
       }
     </div>
-    <div class="gpf-select">
+    <div class="gpf-select" role="list">
       @if (departements.length > 0) {
         @for (region of regions; track region.number) {
           @if (region.departments.length > 0) {
             <p class="fr-mb-1w fr-mt-2w"><strong>{{region.name}}</strong></p>
             @for (departement of region.departments; track departement.number) {
-              <button type="button" (mouseenter)="highlightLocation(departement.number)" (mouseleave)="unhighlightLocation()" (click)="selectLocation(departement)" class="GPautoCompleteProposal gpf-panel__items gpf-panel__items_searchengine arrow-pull-right fr-icon-arrow-right-s-line">
+              <button type="button" ariaLabel="Département {{departement.name}} {{departement.number}}" role="listitem" (mouseenter)="highlightLocation(departement.number)" (mouseleave)="unhighlightLocation()" (click)="selectLocation(departement)" class="GPautoCompleteProposal gpf-panel__items gpf-panel__items_searchengine arrow-pull-right fr-icon-arrow-right-s-line">
                 {{departement.name}} ({{departement.number}})
               </button>
             }
@@ -53,9 +53,9 @@
   tabId="epci"
   label="EPCI"
     >
-    <div class="gpf-select">
+    <div class="gpf-select" role="list">
       @for (epci of epcis; track epci.name) {
-        <button type="button" (mouseenter)="highlightLocation(epci.name)" (mouseleave)="unhighlightLocation()" (click)="selectLocation(epci)" class="GPautoCompleteProposal gpf-panel__items gpf-panel__items_searchengine arrow-pull-right fr-icon-arrow-right-s-line">
+        <button type="button" ariaLabel="EPCI {{epci.name}}" role="listitem" (mouseenter)="highlightLocation(epci.name)" (mouseleave)="unhighlightLocation()" (click)="selectLocation(epci)" class="GPautoCompleteProposal gpf-panel__items gpf-panel__items_searchengine arrow-pull-right fr-icon-arrow-right-s-line">
           {{epci.name}}
         </button>
       }
@@ -68,9 +68,9 @@
   tabId="commune"
   label="Commune"
     >
-    <div class="gpf-select">
+    <div class="gpf-select" role="list">
       @for (commune of communes; track commune.name) {
-        <button type="button" (mouseenter)="highlightLocation(commune.name)" (mouseleave)="unhighlightLocation()" (click)="selectLocation(commune)" class="GPautoCompleteProposal gpf-panel__items gpf-panel__items_searchengine arrow-pull-right fr-icon-arrow-right-s-line">
+        <button type="button" ariaLabel="Commune {{commune.name}}" role="listitem" (mouseenter)="highlightLocation(commune.name)" (mouseleave)="unhighlightLocation()" (click)="selectLocation(commune)" class="GPautoCompleteProposal gpf-panel__items gpf-panel__items_searchengine arrow-pull-right fr-icon-arrow-right-s-line">
           {{commune.name}}
         </button>
       }
