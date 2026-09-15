@@ -5,6 +5,14 @@
     box-shadow: unset !important;
 }
 
+:host-context(:root[data-fr-theme="light"]) .ditp-logo {
+    color-scheme: light;
+}
+
+:host-context(:root[data-fr-theme="dark"]) .ditp-logo {
+    color-scheme: dark;
+}
+
 :host {
     display: block;
     overflow-x: hidden;
