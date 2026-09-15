@@ -79,13 +79,13 @@
       </div>
     }
     <!-- Informations socio économique -->
-    <h6 class="fr-h6">Démographie</h6>
+    <h6 id="demographie" class="fr-h6">Démographie</h6>
     <div class="fr-table fr-table--bordered fr-table--infos">
         <div class="fr-table__wrapper fr-table-wrapper-cartosp">
             <div class="fr-table__container">
                 <div class="fr-table__content">
                   <!-- Nombre d'habitants -->
-                  <table>
+                  <table aria-labelledby="demographie">
                     <thead>
                       <tr>
                         <th class="th-left">
@@ -126,7 +126,7 @@
                     </tbody>
                   </table>
                   <!-- Densité -->
-                  <table>
+                  <table aria-labelledby="demographie">
                     <thead>
                       <tr>
                         <th class="th-left">
@@ -149,7 +149,7 @@
                     </tbody>
                   </table>
                   <!-- Vieillissement -->
-                  <table>
+                  <table aria-labelledby="demographie">
                     <thead>
                       <tr>
                         <th class="th-left">
@@ -195,14 +195,14 @@
     </div>
 
     <!-- Informations socio économique -->
-    <h6 class="fr-h6">Données socio-économiques</h6>
+    <h6 id="socio-economiques" class="fr-h6">Données socio-économiques</h6>
 
     <div class="fr-table fr-table--bordered fr-table--infos">
         <div class="fr-table__wrapper fr-table-wrapper-cartosp">
             <div class="fr-table__container">
                 <div class="fr-table__content">
                   <!-- Taux de pauvreté -->
-                  <table>
+                  <table aria-labelledby="socio-economiques">
                     <thead>
                       <tr>
                         <th class="th-left">
@@ -226,7 +226,7 @@
                   </table>
                   <!-- Taux de chomage -->
                   @if (data.type === "departement"){ 
-                    <table>
+                    <table aria-labelledby="socio-economiques">
                       <thead>
                         <tr>
                           <th class="th-left">
@@ -250,7 +250,7 @@
                     </table>
                   }
                   <!-- Nbr. de bénéficiaires du RSA -->
-                  <table>
+                  <table aria-labelledby="socio-economiques">
                     <thead>
                       <tr>
                         <th class="th-left">
@@ -273,7 +273,7 @@
                     </tbody>
                   </table>
                   <!-- Nbr. de familles monoparentales -->
-                  <table>
+                  <table aria-labelledby="socio-economiques">
                     <thead>
                       <tr>
                         <th class="th-left">
@@ -296,7 +296,7 @@
                     </tbody>
                   </table>
                   <!-- QPV -->
-                  <table>
+                  <table aria-labelledby="socio-economiques">
                     <thead>
                       <tr>
                         <th class="th-left">
@@ -338,13 +338,13 @@
     ></dsfr-form-select>
     <br>
 
-    <h6 class="fr-h6">Données administratives</h6>
+    <h6 id="donnees-administratives" class="fr-h6">Données administratives</h6>
 
     <div class="fr-table fr-table--bordered fr-table--infos fr-tables--infos-nomargin">
         <div class="fr-table__wrapper fr-table-wrapper-cartosp">
             <div class="fr-table__container">
                 <div class="fr-table__content">
-                    <table>
+                    <table aria-labelledby="donnees-administratives">
                       <thead class="thead-ajust-height">
                         <tr>
                           <th class="th-left th-left-sp">
@@ -379,7 +379,7 @@
         <div class="fr-table__wrapper fr-table-wrapper-cartosp">
             <div class="fr-table__container">
                 <div class="fr-table__content">
-                    <table>
+                    <table aria-labelledby="donnees-administratives">
                       <thead>
                         <tr>
                           <th class="th-left th-left-sp">
@@ -418,7 +418,7 @@
           <div class="fr-table__wrapper fr-table-wrapper-cartosp">
               <div class="fr-table__container">
                   <div class="fr-table__content">
-                      <table>
+                      <table aria-labelledby="donnees-administratives">
                         <thead>
                           <tr>
                             <th class="th-left th-left-sp">
