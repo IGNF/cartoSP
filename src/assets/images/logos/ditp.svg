@@ -1,4 +1,9 @@
 <svg width="155" height="90" viewBox="0 0 155 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+<style>
+@media (prefers-color-scheme: dark) {
+	path[fill="black"] { fill: white; }
+}
+</style>
 <rect width="31.9936" height="11.634" transform="translate(1)" fill="white"/>
 <path d="M11.0468 10.4144C11.0506 10.4144 11.0545 10.4087 11.0545 10.4087C11.0854 10.3859 11.1163 10.3574 11.1433 10.3231C11.1395 10.3231 11.1356 10.3231 11.1317 10.3174C11.1047 10.3459 11.0738 10.3802 11.0468 10.4144Z" fill="#000091"/>
 <path d="M15.3265 8.97238L15.2589 9.03057C15.2975 9.02088 15.3265 9.01118 15.3265 8.97238Z" fill="#000091"/>

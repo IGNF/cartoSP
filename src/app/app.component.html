@@ -189,7 +189,6 @@
   <button id="btn-expand-footer" class="fr-btn fr-btn--sm btn-expand-footer fr-btn--tertiary-no-outline" type="button" title="Afficher plus" (click)="expandFooter()">
     <span class="fr-icon-arrow-up-s-line"></span>
   </button>
-  <dsfr-display [displayId]="displayModalId"></dsfr-display>
 </div>
 <div *ngIf="footerExpanded" style="position: relative;">
   @if (mapPage) {
@@ -203,53 +202,83 @@
       Fermer
     </button>
   }
-  <dsfr-footer
-    [presentation]="
-      'La cartographie des services publics est un projet coordonné par la Direction interministérielle de la transformation publique (DITP) en lien avec l’Institut national de l’information géographique et forestière (IGN). Le site s’appuie sur la Géoplateforme, la nouvelle infrastructure publique, ouverte et collaborative des données géographiques.'
-    "
-    [institutionalLinks]="[
-      {
-        label: 'info.gouv.fr',
-        link: 'https://info.gouv.fr',
-        tooltipMessage: 'info.gouv.fr - ouvre une nouvelle fenêtre',
-        target: '_blank'
-      },
-      {
-        label: 'service-public.gouv.fr',
-        link: 'https://service-public.gouv.fr',
-        tooltipMessage: 'service-public.gouv.fr - ouvre une nouvelle fenêtre',
-        target: '_blank'
-      },
-      {
-        label: 'legifrance.gouv.fr',
-        link: 'https://legifrance.gouv.fr',
-        tooltipMessage: 'legifrance.gouv.fr - ouvre une nouvelle fenêtre',
-        target: '_blank'
-      },
-      {
-        label: 'data.gouv.fr',
-        link: 'https://data.gouv.fr',
-        tooltipMessage: 'data.gouv.fr - ouvre une nouvelle fenêtre',
-        target: '_blank'
-      }
-    ]"
-    [mandatoryLinks]="mandatoryLinks"
-    [partnerMain]="{imagePath: 'assets/images/logos/ditp.svg', imageAlt: 'logo DITP', link: 'https://www.modernisation.gouv.fr/'}"
-    [partnersSub]="[
-      {
-        imagePath: 'assets/images/logos/ign.svg',
-        imageAlt: 'logo IGN',
-        link: 'https://www.ign.fr'
-      }
-    ]"
-    [reboundLinks]="[]"
-    [license]="
-      'Sauf mention explicite de propriété intellectuelle détenue par
-    des tiers, les contenus de ce site sont proposés sous &#60;a href=&#34;https://github.com/etalab/licence-ouverte/blob/master/LO.md&#34; target=&#34;_blank&#34; title=&#34;licence etalab-2.0 - ouvre une nouvelle fenêtre&#34;&#62;licence etalab-2.0&#60;/a&#62;'
-    "
-    [display]="true"
-  ></dsfr-footer>
+  <footer class="fr-footer" role="contentinfo" id="footer">
+    <div class="fr-container">
+      <div class="fr-footer__body">
+        <div class="fr-footer__brand fr-enlarge-link">
+          <a id="brand-link" aria-label="République Française – Liberté, Égalité, Fraternité. Retour à l'accueil du site - La cartographie des services publics." title="Retour à l'accueil du site - La cartographie des services publics - République Française" href="/">
+            <p class="fr-logo"> République <br>Française </p>
+          </a>
+        </div>
+        <div class="fr-footer__content">
+          <p class="fr-footer__content-desc">La cartographie des services publics est un projet coordonné par la Direction interministérielle de la transformation publique (DITP) en lien avec l’Institut national de l’information géographique et forestière (IGN). Le site s’appuie sur la Géoplateforme, la nouvelle infrastructure publique, ouverte et collaborative des données géographiques.</p>
+          <ul class="fr-footer__content-list">
+            <li class="fr-footer__content-item">
+              <a title="info.gouv.fr - nouvelle fenêtre" id="footer__content-link-0" href="https://info.gouv.fr" target="_blank" rel="noopener external" class="fr-footer__content-link">info.gouv.fr</a>
+            </li>
+            <li class="fr-footer__content-item">
+              <a title="service-public.gouv.fr - nouvelle fenêtre" id="footer__content-link-1" href="https://service-public.gouv.fr" target="_blank" rel="noopener external" class="fr-footer__content-link">service-public.gouv.fr</a>
+            </li>
+            <li class="fr-footer__content-item">
+              <a title="legifrance.gouv.fr - nouvelle fenêtre" id="footer__content-link-2" href="https://legifrance.gouv.fr" target="_blank" rel="noopener external" class="fr-footer__content-link">legifrance.gouv.fr</a>
+            </li>
+            <li class="fr-footer__content-item">
+              <a title="data.gouv.fr - nouvelle fenêtre" id="footer__content-link-3" href="https://data.gouv.fr" target="_blank" rel="noopener external" class="fr-footer__content-link">data.gouv.fr</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="fr-footer__partners">
+        <h2 class="fr-footer__partners-title">Nos partenaires</h2>
+        <div class="fr-footer__partners-logos">
+          <div class="fr-footer__partners-main">
+            <a class="fr-footer__partners-link" href="https://www.modernisation.gouv.fr/">
+              <img class="fr-footer__logo ditp-logo" style="height: 5.625rem" src="assets/images/logos/ditp.svg" alt="logo DITP - Direction interministérielle de la transformation publique Liberté, égalité, fraternité" />
+              <!-- L’alternative de l’image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n’apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
+            </a>
+          </div>
+          <div class="fr-footer__partners-sub">
+            <ul>
+              <li>
+                <a class="fr-footer__partners-link" href="https://www.ign.fr">
+                  <img class="fr-footer__logo" style="height: 5.625rem" src="assets/images/logos/ign.svg" alt="logo IGN – Institut national de l’information géographique et forestière" />
+                  <!-- L’alternative de l’image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n’apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="fr-footer__bottom">
+        <ul class="fr-footer__bottom-list">
+          <li class="fr-footer__bottom-item">
+            <a id="footer__bottom-link-64" href="/plan-du-site" class="fr-footer__bottom-link">Plan du site</a>
+          </li>
+          <li class="fr-footer__bottom-item">
+            <a id="footer__bottom-link-65" href="/accessibilite" class="fr-footer__bottom-link">Accessibilité : partiellement conforme</a>
+          </li>
+          <li class="fr-footer__bottom-item">
+            <a id="footer__bottom-link-66" href="/mentions-legales" class="fr-footer__bottom-link">Mentions légales</a>
+          </li>
+          <li class="fr-footer__bottom-item">
+            <button
+              type="button"
+              class="fr-footer__bottom-link fr-fi-theme-fill fr-link--icon-left"
+              [attr.aria-controls]="displayModalId"
+              data-fr-opened="false"
+            >
+              {{ footerDisplayLabel }}
+            </button>
+          </li>
+        </ul>
+        <div class="fr-footer__bottom-copy">
+          <p>Sauf mention explicite de propriété intellectuelle détenue par des tiers, les contenus de ce site sont proposés sous <a href="https://github.com/etalab/licence-ouverte/blob/master/LO.md" target="_blank" rel="noopener external" title="Licence etalab - nouvelle fenêtre">licence etalab-2.0</a></p>
+        </div>
+      </div>
+    </div>
+  </footer>
 </div>
+<dsfr-display [displayId]="displayModalId"></dsfr-display>
 
 
 
