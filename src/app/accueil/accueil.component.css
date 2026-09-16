@@ -11,10 +11,26 @@
     padding: 32px !important;
 }
 
-.card-link::after {
+.card-link {
+    display: block;
+    color: var(--text-default-grey);
+}
+
+.card-link .fr-card__title {
+    color: var(--text-action-high-blue-france);
+}
+
+.card-link .fr-card__title::after {
     -webkit-mask-image: url(../../../node_modules/@gouvfr/dsfr/dist/icons/arrows/arrow-right-line.svg);
     mask-image: url(../../../node_modules/@gouvfr/dsfr/dist/icons/arrows/arrow-right-line.svg);
     -webkit-mask-size: 100% 100%;
     mask-size: 100% 100%;
-    content: open-quote !important;
+    display: inline-block;
+    position: absolute;
+    right: 1.5rem;
+    bottom: 1.5rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    background-color: currentColor;
+    content: "";
 }
