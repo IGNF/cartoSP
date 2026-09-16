@@ -78,6 +78,23 @@
     font-weight: 700;
 }
 
+.row-th {
+    font-family: Marianne;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px; /* 171.429% */
+    padding-top: 4px;
+    padding-bottom: 4px;
+    background-color: unset;
+    border: none;
+    background-image: unset;
+}
+
+.row-td {
+    background-color: var(--background-alt-grey);
+}
+
 .td-left-sp {
     /* color: var(--light-decisions-text-text-title-grey, #3A3A3A); */
     /* 2.Corps de texte/SM - Texte détail/Desktop & Mobile - Regular */
