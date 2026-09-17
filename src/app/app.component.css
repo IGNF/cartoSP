@@ -124,6 +124,10 @@
     content: none;
 }
 
+.csp-header__actions > ul {
+    display: flex;
+}
+
 .csp-header .csp-header__actions {
     display: flex;
     align-items: center;
@@ -242,6 +246,10 @@
         flex-direction: column;
         align-items: stretch;
         gap: .5rem;
+    }
+
+    .csp-header__actions > ul {
+        flex-direction: column;
     }
 
     .csp-header .fr-header__service,

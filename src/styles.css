@@ -151,3 +151,9 @@ app-home{
 button[id^="GPshowLayerselectorPicto-"][aria-pressed="true"] + dialog {
   height: 165px !important;
 }
+
+@media (max-width: 61.98em) {
+  .fr-menu__list {
+      width: unset !important;
+  }
+}
