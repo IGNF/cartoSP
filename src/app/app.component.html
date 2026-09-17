@@ -31,48 +31,58 @@
         </div>
         <div class="fr-header__tools">
           <div class="fr-header__tools-links">
-            <div class="csp-header__actions" role="navigation" aria-label="Menu principal">
-              <a class="fr-btn fr-btn--sm fr-px-2w fr-btn--icon-left fr-icon-home-4-fill" href="/">
-                Accueil
-              </a>
-              <a class="fr-btn fr-btn--sm fr-px-2w fr-btn--icon-left fr-icon-road-map-fill" href="/carte">
-                Accéder à l'outil
-              </a>
-              <a class="fr-btn fr-btn--sm fr-px-2w fr-btn--icon-left fr-icon-information-fill" href="/a-propos">
-                À propos
-              </a>
-              <dsfr-tool-link-menu
-                [outline]="false"
-                [labelMenu]="'Aide'"
-                [iconMenu]="'fr-icon-question-fill'"
-              >
-                <ng-template #linksTemplate>
-                  <ul>
-                    <dsfr-link
-                      [link]="'/guide-d-utilisation'"
-                      [label]="'Présentation de l’outil et guide d’utilisation'"
-                      [icon]="'fr-icon-book-2-line'"
-                      [customClass]="'fr-nav__link'"
-                      [iconPosition]="'left'"
-                    ></dsfr-link>
-                    <dsfr-link
-                      [link]="'/foire-aux-questions'"
-                      [label]="'Foire aux questions'"
-                      [icon]="'fr-icon-question-mark'"
-                      [customClass]="'fr-nav__link'"
-                      [iconPosition]="'left'"
-                    ></dsfr-link>
-                    <dsfr-link
-                      [link]="'/nous-contacter'"
-                      [label]="'Nous contacter'"
-                      [icon]="'fr-icon-mail-line'"
-                      [customClass]="'fr-nav__link'"
-                      [iconPosition]="'left'"
-                    ></dsfr-link>
-                  </ul>
-                </ng-template>
-              </dsfr-tool-link-menu>
-            </div>
+            <nav class="csp-header__actions fr-nav" role="navigation" aria-label="Navigation principale">
+              <ul>
+                <li>
+                  <a class="fr-btn fr-btn--sm fr-px-2w fr-btn--icon-left fr-icon-home-4-fill" href="/">
+                    Accueil
+                  </a>
+                </li>
+                <li>
+                  <a class="fr-btn fr-btn--sm fr-px-2w fr-btn--icon-left fr-icon-road-map-fill" href="/carte">
+                    Accéder à l'outil
+                  </a>
+                </li>
+                <li>
+                  <a class="fr-btn fr-btn--sm fr-px-2w fr-btn--icon-left fr-icon-information-fill" href="/a-propos">
+                    À propos
+                  </a>
+                </li>
+                <li>
+                  <dsfr-tool-link-menu
+                    [outline]="false"
+                    [labelMenu]="'Aide'"
+                    [iconMenu]="'fr-icon-question-fill'"
+                  >
+                    <ng-template #linksTemplate>
+                      <ul>
+                        <dsfr-link
+                          [link]="'/guide-d-utilisation'"
+                          [label]="'Présentation de l’outil et guide d’utilisation'"
+                          [icon]="'fr-icon-book-2-line'"
+                          [customClass]="'fr-nav__link'"
+                          [iconPosition]="'left'"
+                        ></dsfr-link>
+                        <dsfr-link
+                          [link]="'/foire-aux-questions'"
+                          [label]="'Foire aux questions'"
+                          [icon]="'fr-icon-question-mark'"
+                          [customClass]="'fr-nav__link'"
+                          [iconPosition]="'left'"
+                        ></dsfr-link>
+                        <dsfr-link
+                          [link]="'/nous-contacter'"
+                          [label]="'Nous contacter'"
+                          [icon]="'fr-icon-mail-line'"
+                          [customClass]="'fr-nav__link'"
+                          [iconPosition]="'left'"
+                        ></dsfr-link>
+                      </ul>
+                    </ng-template>
+                  </dsfr-tool-link-menu>
+                </li>
+              </ul>
+            </nav>
           </div>
         </div>
       </div>
@@ -104,54 +114,58 @@
     [menu]="[]"
   >
     <ng-template #toolsLinksTemplate>
-      <li>
-        <a class="fr-btn fr-btn--sm header__menu__button fr-btn--icon-left fr-icon-home-4-fill" href="/">
-          Accueil
-        </a>
-      </li>
-      <li>
-        <a class="fr-btn fr-btn--sm header__menu__button fr-btn--icon-left fr-icon-road-map-fill" href="/carte">
-          Accéder à l'outil
-        </a>
-      </li>
-      <li>
-        <a class="fr-btn fr-btn--sm header__menu__button fr-btn--icon-left fr-icon-information-fill" href="/a-propos">
-          À propos
-        </a>
-      </li>
-      <li>
-        <dsfr-tool-link-menu
-          [outline]="false"
-          [labelMenu]="'Aide'"
-          [iconMenu]="'fr-icon-question-fill'"
-        >
-          <ng-template #linksTemplate>
-            <ul>
-              <dsfr-link
-                [link]="'/guide-d-utilisation'"
-                [label]="'Présentation de l’outil et guide d’utilisation'"
-                [icon]="'fr-icon-book-2-line'"
-                [customClass]="'fr-nav__link'"
-                [iconPosition]="'left'"
-              ></dsfr-link>
-              <dsfr-link
-                [link]="'/foire-aux-questions'"
-                [label]="'Foire aux questions'"
-                [icon]="'fr-icon-question-mark'"
-                [customClass]="'fr-nav__link'"
-                [iconPosition]="'left'"
-              ></dsfr-link>
-              <dsfr-link
-                [link]="'/nous-contacter'"
-                [label]="'Nous contacter'"
-                [icon]="'fr-icon-mail-line'"
-                [customClass]="'fr-nav__link'"
-                [iconPosition]="'left'"
-              ></dsfr-link>
-            </ul>
-          </ng-template>
-        </dsfr-tool-link-menu>
-      </li>
+      <nav class="csp-header__actions fr-nav" role="navigation" aria-label="Navigation principale">
+        <ul>
+          <li>
+            <a class="fr-btn fr-btn--sm header__menu__button fr-btn--icon-left fr-icon-home-4-fill" href="/">
+              Accueil
+            </a>
+          </li>
+          <li>
+            <a class="fr-btn fr-btn--sm header__menu__button fr-btn--icon-left fr-icon-road-map-fill" href="/carte">
+              Accéder à l'outil
+            </a>
+          </li>
+          <li>
+            <a class="fr-btn fr-btn--sm header__menu__button fr-btn--icon-left fr-icon-information-fill" href="/a-propos">
+              À propos
+            </a>
+          </li>
+          <li>
+            <dsfr-tool-link-menu
+              [outline]="false"
+              [labelMenu]="'Aide'"
+              [iconMenu]="'fr-icon-question-fill'"
+            >
+              <ng-template #linksTemplate>
+                <ul>
+                  <dsfr-link
+                    [link]="'/guide-d-utilisation'"
+                    [label]="'Présentation de l’outil et guide d’utilisation'"
+                    [icon]="'fr-icon-book-2-line'"
+                    [customClass]="'fr-nav__link'"
+                    [iconPosition]="'left'"
+                  ></dsfr-link>
+                  <dsfr-link
+                    [link]="'/foire-aux-questions'"
+                    [label]="'Foire aux questions'"
+                    [icon]="'fr-icon-question-mark'"
+                    [customClass]="'fr-nav__link'"
+                    [iconPosition]="'left'"
+                  ></dsfr-link>
+                  <dsfr-link
+                    [link]="'/nous-contacter'"
+                    [label]="'Nous contacter'"
+                    [icon]="'fr-icon-mail-line'"
+                    [customClass]="'fr-nav__link'"
+                    [iconPosition]="'left'"
+                  ></dsfr-link>
+                </ul>
+              </ng-template>
+            </dsfr-tool-link-menu>
+          </li>
+        </ul>
+      </nav>
     </ng-template>  
   </dsfr-header>
   <div class="fr-notice fr-notice--info">
@@ -169,23 +183,25 @@
   <router-outlet></router-outlet>
 </main>
 <div *ngIf="!footerExpanded" id="small-footer">
-  <ul class="fr-footer__bottom-list small-footer__bottom-list">
-    @for (item of mandatoryLinks; track item.link) {
+  <nav role="navigation" aria-label="Navigation du pied de page">
+    <ul class="fr-footer__bottom-list small-footer__bottom-list">
+      @for (item of mandatoryLinks; track item.link) {
+        <li class="fr-footer__bottom-item">
+          <a class="fr-footer__bottom-link" [routerLink]="item.link">{{ item.label }}</a>
+        </li>
+      }
       <li class="fr-footer__bottom-item">
-        <a class="fr-footer__bottom-link" [routerLink]="item.link">{{ item.label }}</a>
+        <button
+          type="button"
+          class="fr-footer__bottom-link fr-fi-theme-fill fr-link--icon-left"
+          [attr.aria-controls]="displayModalId"
+          data-fr-opened="false"
+        >
+          {{ footerDisplayLabel }}
+        </button>
       </li>
-    }
-    <li class="fr-footer__bottom-item">
-      <button
-        type="button"
-        class="fr-footer__bottom-link fr-fi-theme-fill fr-link--icon-left"
-        [attr.aria-controls]="displayModalId"
-        data-fr-opened="false"
-      >
-        {{ footerDisplayLabel }}
-      </button>
-    </li>
-  </ul>
+    </ul>
+  </nav>
   <button id="btn-expand-footer" class="fr-btn fr-btn--sm btn-expand-footer fr-btn--tertiary-no-outline" type="button" title="Afficher plus" (click)="expandFooter()">
     <span class="fr-icon-arrow-up-s-line"></span>
   </button>
@@ -250,27 +266,29 @@
         </div>
       </div>
       <div class="fr-footer__bottom">
-        <ul class="fr-footer__bottom-list">
-          <li class="fr-footer__bottom-item">
-            <a id="footer__bottom-link-64" href="/plan-du-site" class="fr-footer__bottom-link">Plan du site</a>
-          </li>
-          <li class="fr-footer__bottom-item">
-            <a id="footer__bottom-link-65" href="/accessibilite" class="fr-footer__bottom-link">Accessibilité : partiellement conforme</a>
-          </li>
-          <li class="fr-footer__bottom-item">
-            <a id="footer__bottom-link-66" href="/mentions-legales" class="fr-footer__bottom-link">Mentions légales</a>
-          </li>
-          <li class="fr-footer__bottom-item">
-            <button
-              type="button"
-              class="fr-footer__bottom-link fr-fi-theme-fill fr-link--icon-left"
-              [attr.aria-controls]="displayModalId"
-              data-fr-opened="false"
-            >
-              {{ footerDisplayLabel }}
-            </button>
-          </li>
-        </ul>
+        <nav role="navigation" aria-label="Navigation du pied de page">
+          <ul class="fr-footer__bottom-list">
+            <li class="fr-footer__bottom-item">
+              <a id="footer__bottom-link-64" href="/plan-du-site" class="fr-footer__bottom-link">Plan du site</a>
+            </li>
+            <li class="fr-footer__bottom-item">
+              <a id="footer__bottom-link-65" href="/accessibilite" class="fr-footer__bottom-link">Accessibilité : partiellement conforme</a>
+            </li>
+            <li class="fr-footer__bottom-item">
+              <a id="footer__bottom-link-66" href="/mentions-legales" class="fr-footer__bottom-link">Mentions légales</a>
+            </li>
+            <li class="fr-footer__bottom-item">
+              <button
+                type="button"
+                class="fr-footer__bottom-link fr-fi-theme-fill fr-link--icon-left"
+                [attr.aria-controls]="displayModalId"
+                data-fr-opened="false"
+              >
+                {{ footerDisplayLabel }}
+              </button>
+            </li>
+          </ul>
+        </nav>
         <div class="fr-footer__bottom-copy">
           <p>Sauf mention explicite de propriété intellectuelle détenue par des tiers, les contenus de ce site sont proposés sous <a href="https://github.com/etalab/licence-ouverte/blob/master/LO.md" target="_blank" rel="noopener external" title="Licence etalab - nouvelle fenêtre">licence etalab-2.0</a></p>
         </div>
