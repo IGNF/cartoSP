@@ -1,5 +1,5 @@
 
-import { Component, AfterViewInit, inject } from '@angular/core';
+import { Component, AfterViewInit, ElementRef, OnDestroy, ViewChild, inject } from '@angular/core';
 import { RouterLink, RouterOutlet, Router } from '@angular/router';
 import { NgIf } from '@angular/common';
 import { DsfrDisplayComponent, DsfrFooterModule, DsfrHeaderModule } from '@edugouvfr/ngx-dsfr';
@@ -11,8 +11,23 @@ import { DsfrToolLinkMenuComponent, DsfrLinkComponent } from '@edugouvfr/ngx-dsf
     templateUrl: './app.component.html',
     styleUrl: './app.component.css'
 })
-export class AppComponent implements AfterViewInit {
+export class AppComponent implements AfterViewInit, OnDestroy {
   private router = inject(Router);
+  private footerResizeObserver?: ResizeObserver;
+
+  // Tracks the actual rendered height of #small-footer since it can wrap onto several lines on narrow screens
+  @ViewChild('smallFooter') set smallFooterRef(ref: ElementRef<HTMLElement> | undefined) {
+    this.footerResizeObserver?.disconnect();
+    if (ref) {
+      this.footerResizeObserver = new ResizeObserver((entries) => {
+        const height = entries[0]?.contentRect.height;
+        if (height) {
+          document.documentElement.style.setProperty('--small-footer-height', `${height}px`);
+        }
+      });
+      this.footerResizeObserver.observe(ref.nativeElement);
+    }
+  }
 
   title = 'cartosp';
   footerExpanded = false;
@@ -76,5 +91,9 @@ export class AppComponent implements AfterViewInit {
     notice?.parentNode?.removeChild(notice);
     const mainInfoReduce = document.getElementsByClassName('main--info-reduce')[0] as HTMLElement;
     mainInfoReduce?.classList.remove('main--info-reduce');
+  }
+
+  ngOnDestroy(): void {
+    this.footerResizeObserver?.disconnect();
   }
 }
