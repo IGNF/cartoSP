@@ -38,7 +38,6 @@
     flex: 1 1 auto;
     width: auto;
     padding: .25rem 0;
-    white-space: nowrap;
     overflow-x: auto;
     overflow-y: hidden;
     scrollbar-width: thin;
@@ -153,13 +152,14 @@
 .main {
     position: relative;
     z-index: 1;
-    height: calc(100vh - 3.5rem - 2.625rem);
+    /* --small-footer-height is measured at runtime since the footer can wrap onto several lines on narrow screens */
+    height: calc(100vh - 3.5rem - var(--small-footer-height, 2.625rem));
     overflow-y: hidden;
     overflow-x: hidden;
 }
 
 .main--info-reduce {
-    height: calc(100vh - 3.5rem - 2.625rem - 2.525rem);
+    height: calc(100vh - 3.5rem - var(--small-footer-height, 2.625rem) - 2.325rem);
 }
 
 @media screen and (max-width: 825px) {
@@ -167,7 +167,7 @@
         display: none;
     }
     .main--info-reduce {
-        height: calc(100vh - 3.5rem - 2.825rem);
+        height: calc(100vh - 3.5rem - var(--small-footer-height, 2.625rem));
     }
 }
 

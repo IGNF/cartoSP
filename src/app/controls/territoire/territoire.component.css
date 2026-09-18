@@ -11,6 +11,14 @@
     background: #FFF !important;
 }
 
+@media screen and (max-width: 1200px) {
+    #GPterritoriesPanel-territoires {
+        left: 4px !important;
+        top: 75px !important;
+        width: 100% !important;
+    }
+}
+
 .gpf-widget-button:has(> .gpf-btn-icon[aria-pressed="true"])::after {
     background-color: unset !important;
 }
