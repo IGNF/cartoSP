@@ -1,3 +1,18 @@
+<div class="fr-skiplinks">
+    <nav role="navigation" aria-label="Accès rapide" class="fr-container">
+        <ul class="fr-skiplinks__list">
+            <li>
+              <a class="fr-link" href="#contenu-principal" (click)="skipTo('contenu-principal', $event)">Contenu principal</a>
+            </li>
+            <li>
+              <a class="fr-link" href="#navigation-principale" (click)="skipTo('navigation-principale', $event)">Navigation principale</a>
+            </li>
+            <li>
+              <a class="fr-link" href="#footer-navigation" (click)="skipTo('footer-navigation', $event)">Navigation du pied de page</a>
+            </li>
+        </ul>
+  </nav>
+</div>
 @if (mapPage) {
 <header role="banner" class="fr-header fr-header--compact csp-header">
   <div class="fr-header__body">
@@ -31,7 +46,7 @@
         </div>
         <div class="fr-header__tools">
           <div class="fr-header__tools-links">
-            <nav class="csp-header__actions fr-nav" role="navigation" aria-label="Navigation principale">
+            <nav id="navigation-principale" tabindex="-1" class="csp-header__actions fr-nav" role="navigation" aria-label="Navigation principale">
               <ul>
                 <li>
                   <a class="fr-btn fr-btn--sm fr-px-2w fr-btn--icon-left fr-icon-home-4-fill" href="/">
@@ -114,7 +129,7 @@
     [menu]="[]"
   >
     <ng-template #toolsLinksTemplate>
-      <nav class="csp-header__actions fr-nav" role="navigation" aria-label="Navigation principale">
+      <nav id="navigation-principale" tabindex="-1" class="csp-header__actions fr-nav" role="navigation" aria-label="Navigation principale">
         <ul>
           <li>
             <a class="fr-btn fr-btn--sm header__menu__button fr-btn--icon-left fr-icon-home-4-fill" href="/">
@@ -179,11 +194,11 @@
       </div>
   </div>
 }
-<main [class]="mapPage ? 'main main--info-reduce' : 'main-home'">
+<main id="contenu-principal" role="main" tabindex="-1" [class]="mapPage ? 'main main--info-reduce' : 'main-home'">
   <router-outlet></router-outlet>
 </main>
-<div *ngIf="!footerExpanded" id="small-footer" #smallFooter>
-  <nav role="navigation" aria-label="Navigation du pied de page">
+<div *ngIf="!footerExpanded" id="pied-de-page" #smallFooter>
+  <nav id="footer-navigation" tabindex="-1" role="navigation" aria-label="Navigation du pied de page">
     <ul class="fr-footer__bottom-list small-footer__bottom-list">
       @for (item of mandatoryLinks; track item.link) {
         <li class="fr-footer__bottom-item">
@@ -206,7 +221,7 @@
     <span class="fr-icon-arrow-up-s-line"></span>
   </button>
 </div>
-<div *ngIf="footerExpanded" style="position: relative;">
+<div *ngIf="footerExpanded" id="pied-de-page" tabindex="-1" style="position: relative;">
   @if (mapPage) {
     <button
       class="fr-btn fr-btn--sm fr-btn--tertiary-no-outline fr-btn--close fr-btn--icon-right"
@@ -218,7 +233,7 @@
       Fermer
     </button>
   }
-  <footer class="fr-footer" role="contentinfo" id="footer">
+  <footer class="fr-footer" id="footer" role="footer">
     <div class="fr-container">
       <div class="fr-footer__body">
         <div class="fr-footer__brand fr-enlarge-link">
@@ -266,7 +281,7 @@
         </div>
       </div>
       <div class="fr-footer__bottom">
-        <nav role="navigation" aria-label="Navigation du pied de page">
+        <nav id="footer-navigation" tabindex="-1" role="navigation" aria-label="Navigation du pied de page">
           <ul class="fr-footer__bottom-list">
             <li class="fr-footer__bottom-item">
               <a id="footer__bottom-link-64" href="/plan-du-site" class="fr-footer__bottom-link">Plan du site</a>

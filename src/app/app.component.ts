@@ -71,6 +71,19 @@ export class AppComponent implements AfterViewInit, OnDestroy {
     document.body.classList.remove('fr-no-scroll');
   }
 
+  skipTo(targetId: string, event: Event): void {
+    event.preventDefault();
+
+    const target = document.getElementById(targetId);
+    if (!target) {
+      return;
+    }
+
+    window.history.replaceState(null, '', `${window.location.pathname}${window.location.search}#${targetId}`);
+    target.focus({ preventScroll: true });
+    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
   expandFooter(): void {
     this.footerExpanded = true;
     setTimeout(() => {
