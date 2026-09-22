@@ -1,11 +1,10 @@
 import { Component, ViewChild, AfterViewInit, ElementRef, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { RouterModule } from '@angular/router';
-import { DsfrDownloadComponent } from '@edugouvfr/ngx-dsfr';
 
 @Component({
     selector: 'app-guide',
-    imports: [RouterModule, DsfrDownloadComponent],
+    imports: [RouterModule],
     templateUrl: './guide.component.html',
     styleUrl: './guide.component.css'
 })
