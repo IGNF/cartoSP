@@ -36,7 +36,7 @@
       @if (departements.length > 0) {
         @for (region of regions; track region.number) {
           @if (region.departments.length > 0) {
-            <p class="fr-mb-1w fr-mt-2w"><strong>{{region.name}}</strong></p>
+            <h2 class="small-h2 fr-mb-1w fr-mt-2w"><strong>{{region.name}}</strong></h2>
             @for (departement of region.departments; track departement.number) {
               <button type="button" ariaLabel="Département {{departement.name}} {{departement.number}}" role="listitem" (mouseenter)="highlightLocation(departement.number)" (mouseleave)="unhighlightLocation()" (click)="selectLocation(departement)" class="GPautoCompleteProposal gpf-panel__items gpf-panel__items_searchengine arrow-pull-right fr-icon-arrow-right-s-line">
                 {{departement.name}} ({{departement.number}})

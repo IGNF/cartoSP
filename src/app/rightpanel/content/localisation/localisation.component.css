@@ -80,6 +80,12 @@
     top: 3px;
 }
 
+.small-h2 {
+    font-size: 1rem;
+    line-height: 1.5rem;
+    color: var(--text-default-grey);
+}
+
 #nav-local {
     display: flex; 
     justify-content: space-between; 
