@@ -21,6 +21,15 @@ export class GuideComponent implements AfterViewInit {
           // Scroll vers l'élément après un petit délai
           setTimeout(() => {
             element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            // Rend la cible focusable si nécessaire pour déplacer le focus clavier/lecteur d'écran dessus
+            const hadTabindex = element.hasAttribute('tabindex');
+            if (!hadTabindex) {
+              element.setAttribute('tabindex', '-1');
+            }
+            element.focus({ preventScroll: true });
+            if (!hadTabindex) {
+              element.addEventListener('blur', () => element.removeAttribute('tabindex'), { once: true });
+            }
           }, 0);
         }
       }

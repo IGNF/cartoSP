@@ -21,14 +21,10 @@
 
             <div id="tutorial">
                 <div class="fr-col-12">
-                    <nav class="fr-summary" role="navigation" aria-label="Navigation secondaire">
+                    <nav class="fr-summary" role="navigation" aria-label="Sommaire">
                         <h2 class="fr-summary__title fr-text--md" id="fr-summary-title">Table des matières</h2>
                         <ol>
-                            <li><a class="fr-summary__link fr-text--md" routerLink="." fragment="presentation">Présentation</a>
-                                <ol>
-                                    <li><a class="fr-summary__link" routerLink="." fragment="fig-1">Figure 1 : Page d'accueil de l'outil</a></li>
-                                </ol>
-                            </li>
+                            <li><a class="fr-summary__link fr-text--md" routerLink="." fragment="presentation">Présentation</a></li>
                             <li><a class="fr-summary__link fr-text--md" routerLink="." fragment="interface-generale">Interface générale</a>
                                 <ol>
                                     <li><a class="fr-summary__link" routerLink="." fragment="fig-2">Figure 2 : Organisation générale de l'interface</a></li>
@@ -93,8 +89,6 @@
                         </ul>       
                     </div>
                     <br>
-                    <h3 id="fig-1" class="fr-primary fr-h4">Figure 1 : Page d'accueil de l'outil</h3>
-                    <img src="/assets/images/guide/figure1.jpg" alt="Guide figure 1" class="fr-responsive-img fr-my-2w guide-figure-centered">
 
                     <!-- Section 2 : Organisation generale de l'interface -->
                     <h2 id="interface-generale">2 - Interface générale</h2>
@@ -108,7 +102,48 @@
                         <p><strong>Bon à savoir :</strong> les éléments sélectionnés dans les volets information et fonctionnalités apparaissent sur la carte interactive.</p>
                     </div>
                     <h3 id="fig-2" class="fr-primary fr-h4">Figure 2 : Organisation générale de l'interface</h3>
-                    <img src="/assets/images/guide/figure2.jpg" alt="Guide figure 2" class="fr-responsive-img fr-my-2w guide-figure-centered">
+                    <img src="/assets/images/guide/figure2.jpg" alt="Guide figure 2. Description détaillée de l'image disponible dans l'accordéon ci-dessous." class="fr-responsive-img fr-my-2w guide-figure-centered">
+                    <div class="fr-accordions-group guide-figure-description">
+                        <section class="fr-accordion">
+                            <h4 class="fr-accordion__title">
+                                <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-fig-2">Description détaillée de la figure 2</button>
+                            </h4>
+                            <div id="accordion-fig-2" class="fr-collapse">
+                                <p>Capture d'écran de l'interface utilisateur de l'outil de cartographie, divisée en trois zones principales.</p>
+                                <h5>Structure</h5>
+                                <ol>
+                                    <li><strong>Carte interactive (zone centrale)</strong> :
+                                        <ul>
+                                            <li>Représentation d'une carte géographique (ex. : France ou territoire sélectionné).</li>
+                                            <li>Outils de navigation en bas à droite : zoom (+/-), mode plein écran.</li>
+                                            <li>Légende des indicateurs en bas à droite.</li>
+                                            <li>Modification du fonds de plan en bas à gauche.</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>Volet de sélection et description des territoires (volet de droite)</strong> :
+                                        <ul>
+                                            <li>Onglets pour sélectionner un département, un EPCI (Établissement Public de Coopération Intercommunale), ou une commune.</li>
+                                            <li>Champ de saisie prédictive pour rechercher un territoire (ex. : « Paris », « Hauts-de-Seine »).</li>
+                                            <li>Contient les informations associées au territoire sélectionné (ex. : département, commune, EPCI).</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>Volet de fonctionnalités (volet de gauche)</strong> : regroupe les outils de sélection, de filtrage et d'analyse :
+                                        <ul>
+                                            <li>Section « Services publics » : filtres par typologie (santé, emploi, justice, etc.), modalité d'accueil (avec/sans rendez-vous), et volume horaire.</li>
+                                            <li>Section « Indicateurs » : liste déroulante pour superposer des données (ex. : précarité, fragilité numérique).</li>
+                                            <li>Section « Isochrones » : outil pour calculer les zones de couverture (ex. : « 20 minutes en voiture »).</li>
+                                        </ul>
+                                    </li>
+                                </ol>
+                                <h5>Relation entre les éléments</h5>
+                                <ul>
+                                    <li>Les éléments sélectionnés dans les volets de droite ou de gauche apparaissent automatiquement sur la carte interactive.</li>
+                                    <li>Exemple : sélectionner un département dans le volet de droite met en évidence ce territoire sur la carte.</li>
+                                </ul>
+                                <p><strong>Couleurs :</strong> fond blanc, volets gris clair, boutons bleus.</p>
+                            </div>
+                        </section>
+                    </div>
                     <br>
 
                     <!-- Section 3 : Navigation territoriale dans le volet droit -->
@@ -127,18 +162,259 @@
                         <img style="height: 50%;" src="/assets/images/guide/figure312.jpg" alt="Guide figure 3-1-2" class="fr-responsive-img fr-my-2w">
                         <img src="/assets/images/guide/figure313.jpg" alt="Guide figure 3-1-3" class="fr-responsive-img fr-my-2w">
                     </div>
-                    <img src="/assets/images/guide/figure314.jpg" alt="Guide figure 3-1-4" class="fr-responsive-img fr-my-2w guide-figure-centered">
+                    <img src="/assets/images/guide/figure314.jpg" alt="Guide figure 3-1-4. Description détaillée de l'image disponible dans l'accordéon ci-dessous." class="fr-responsive-img fr-my-2w guide-figure-centered">
+                    <div class="fr-accordions-group guide-figure-description">
+                        <section class="fr-accordion">
+                            <h4 class="fr-accordion__title">
+                                <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-fig-3-1">Description détaillée de la figure 3-1</button>
+                            </h4>
+                            <div id="accordion-fig-3-1" class="fr-collapse">
+                                <p>Capture d'écran montrant la fonctionnalité de zoom sur un territoire, située dans le volet de droite.</p>
+                                <h5>Éléments visibles</h5>
+                                <p>La première partie de l'image est composée de trois captures d'écran illustrant les trois possibilités pour sélectionner un territoire :</p>
+                                <ul>
+                                    <li>En saisissant le nom d'un département dans la barre de recherche.</li>
+                                    <li>En choisissant une région parmi différentes cartes de France mettant en surbrillance chacune des régions.</li>
+                                    <li>En faisant défiler la liste de départements pour sélectionner le département souhaité.</li>
+                                </ul>
+                                <p>La seconde partie de l'image est une capture d'écran montrant le résultat de cette sélection :</p>
+                                <ul>
+                                    <li>Le département Cher, n°18, a été sélectionné.</li>
+                                    <li>La carte interactive (volet central) affiche en gros plan le département du Cher ainsi que ses contours par une ligne rouge ainsi que le nom des communes principales.</li>
+                                    <li>Le volet de droite affiche des informations administratives, démographiques et socio-économiques concernant le département.</li>
+                                </ul>
+                                <p><strong>Remarque :</strong> cette figure illustre l'interaction utilisateur avec la carte pour une analyse territoriale précise.</p>
+                                <h5 id="tableau-fig-3-1">Tableau de données</h5>
+                                <div class="fr-table fr-table--bordered">
+                                    <div class="fr-table__wrapper">
+                                        <div class="fr-table__container">
+                                            <div class="fr-table__content">
+                                                <table aria-labelledby="tableau-fig-3-1">
+                                                    <thead><tr><th scope="col">Nombre de communes</th><th scope="col">Nombre d'EPCI</th></tr></thead>
+                                                    <tbody><tr><td>286</td><td>18</td></tr></tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <h6 id="demo-fig-3-1">Démographie</h6>
+                                <div class="fr-table fr-table--bordered">
+                                    <div class="fr-table__wrapper">
+                                        <div class="fr-table__container">
+                                            <div class="fr-table__content">
+                                                <table aria-labelledby="demo-fig-3-1">
+                                                    <thead><tr><th scope="col">Nombre d'habitants</th><th scope="col">Moy. nat.</th></tr></thead>
+                                                    <tbody><tr><td>299 496</td><td>677 606</td></tr></tbody>
+                                                </table>
+                                                <table aria-labelledby="demo-fig-3-1">
+                                                    <thead><tr><th scope="col">Nombre d'habitants, projection 2070</th><th scope="col">Moy. nat.</th></tr></thead>
+                                                    <tbody><tr><td>249 900</td><td>674 294</td></tr></tbody>
+                                                </table>
+                                                <table aria-labelledby="demo-fig-3-1">
+                                                    <thead><tr><th scope="col">Densité (habitants/km2)</th><th scope="col">Val. nat.</th></tr></thead>
+                                                    <tbody><tr><td>41,4</td><td>107,7</td></tr></tbody>
+                                                </table>
+                                                <table aria-labelledby="demo-fig-3-1">
+                                                    <thead><tr><th scope="col">Indice de vieillissement</th><th scope="col">Val. nat.</th></tr></thead>
+                                                    <tbody><tr><td>127</td><td>89</td></tr></tbody>
+                                                </table>
+                                                <table aria-labelledby="demo-fig-3-1">
+                                                    <thead><tr><th scope="col">Indice de vieillissement, projection 2070</th><th scope="col">Val. nat.</th></tr></thead>
+                                                    <tbody><tr><td>249</td><td>188</td></tr></tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <h6 id="socioeco-fig-3-1">Données socio-économiques</h6>
+                                <div class="fr-table fr-table--bordered">
+                                    <div class="fr-table__wrapper">
+                                        <div class="fr-table__container">
+                                            <div class="fr-table__content">
+                                                <table aria-labelledby="socioeco-fig-3-1">
+                                                    <thead><tr><th scope="col">Taux de pauvreté (%)</th><th scope="col">Val. nat.</th></tr></thead>
+                                                    <tbody><tr><td>14,7%</td><td>15,5%</td></tr></tbody>
+                                                </table>
+                                                <table aria-labelledby="socioeco-fig-3-1">
+                                                    <thead><tr><th scope="col">Taux de chômage (%)</th><th scope="col">Val. nat.</th></tr></thead>
+                                                    <tbody><tr><td>7,6%</td><td>7,7%</td></tr></tbody>
+                                                </table>
+                                                <table aria-labelledby="socioeco-fig-3-1">
+                                                    <thead><tr><th scope="col">Nombre de bénéficiaires du RSA</th><th scope="col">Moy. nat.</th></tr></thead>
+                                                    <tbody><tr><td>8 611</td><td>17 912</td></tr></tbody>
+                                                </table>
+                                                <table aria-labelledby="socioeco-fig-3-1">
+                                                    <thead><tr><th scope="col">Nombre de familles monoparentales</th><th scope="col">Moy. nat.</th></tr></thead>
+                                                    <tbody><tr><td>12 914</td><td>32 191</td></tr></tbody>
+                                                </table>
+                                                <table aria-labelledby="socioeco-fig-3-1">
+                                                    <thead><tr><th scope="col">Nombre de QPV</th><th scope="col">Moy. nat.</th></tr></thead>
+                                                    <tbody><tr><td>4</td><td>14,78</td></tr></tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
                     <h3 id="fig-3-2" class="fr-primary fr-h4">Figure 3-2 : Saisie prédictive du nom de département</h3>
                     <div class="group-figure">
                         <img style="width: 30%; height: 80%;" src="/assets/images/guide/figure321.jpg" alt="Guide figure 3-2-1" class="fr-responsive-img fr-my-2w guide-figure-centered">
-                        <img src="/assets/images/guide/figure322.jpg" alt="Guide figure 3-2-2" class="fr-responsive-img fr-my-2w guide-figure-centered">
+                        <img src="/assets/images/guide/figure322.jpg" alt="Guide figure 3-2-2. Description détaillée de l'image disponible dans l'accordéon ci-dessous." class="fr-responsive-img fr-my-2w guide-figure-centered">
+                    </div>
+                    <div class="fr-accordions-group guide-figure-description">
+                        <section class="fr-accordion">
+                            <h4 class="fr-accordion__title">
+                                <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-fig-3-2">Description détaillée de la figure 3-2</button>
+                            </h4>
+                            <div id="accordion-fig-3-2" class="fr-collapse">
+                                <p>Capture d'écran montrant la fonctionnalité de recherche prédictive pour sélectionner un département.</p>
+                                <h5>Éléments visibles</h5>
+                                <ul>
+                                    <li><strong>Suggestions automatiques :</strong> au fur et à mesure de la saisie (ex. : taper « ari » affiche « ariège »).</li>
+                                    <li><strong>Sélection :</strong> en cliquant sur une suggestion, la carte se recentre automatiquement sur le département choisi.</li>
+                                    <li><strong>Indicateurs associés :</strong> une fois sélectionné, un encadré à droite affiche :
+                                        <ul>
+                                            <li>Nom et numéro du département (ex. : « Ariège, 09 »).</li>
+                                            <li>Informations administratives, démographiques et socio-économiques concernant le département.</li>
+                                            <li>Comparaison nationale (ex. : « Densité : +20 % vs moyenne française »).</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                                <h5 id="tableau-fig-3-2">Tableau de données</h5>
+                                <div class="fr-table fr-table--bordered">
+                                    <div class="fr-table__wrapper">
+                                        <div class="fr-table__container">
+                                            <div class="fr-table__content">
+                                                <table aria-labelledby="tableau-fig-3-2">
+                                                    <thead><tr><th scope="col">Nombre de communes</th><th scope="col">Nombre d'EPCI</th></tr></thead>
+                                                    <tbody><tr><td>325</td><td>8</td></tr></tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <h6 id="demo-fig-3-2">Démographie</h6>
+                                <div class="fr-table fr-table--bordered">
+                                    <div class="fr-table__wrapper">
+                                        <div class="fr-table__container">
+                                            <div class="fr-table__content">
+                                                <table aria-labelledby="demo-fig-3-2">
+                                                    <thead><tr><th scope="col">Nombre d'habitants</th><th scope="col">Moy. nat.</th></tr></thead>
+                                                    <tbody><tr><td>155 399</td><td>677 606</td></tr></tbody>
+                                                </table>
+                                                <table aria-labelledby="demo-fig-3-2">
+                                                    <thead><tr><th scope="col">Nombre d'habitants, projection 2070</th><th scope="col">Moy. nat.</th></tr></thead>
+                                                    <tbody><tr><td>155 600</td><td>674 294</td></tr></tbody>
+                                                </table>
+                                                <table aria-labelledby="demo-fig-3-2">
+                                                    <thead><tr><th scope="col">Densité (habitants/km2)</th><th scope="col">Val. nat.</th></tr></thead>
+                                                    <tbody><tr><td>31,8</td><td>107,7</td></tr></tbody>
+                                                </table>
+                                                <table aria-labelledby="demo-fig-3-2">
+                                                    <thead><tr><th scope="col">Indice de vieillissement</th><th scope="col">Val. nat.</th></tr></thead>
+                                                    <tbody><tr><td>137</td><td>89</td></tr></tbody>
+                                                </table>
+                                                <table aria-labelledby="demo-fig-3-2">
+                                                    <thead><tr><th scope="col">Indice de vieillissement, projection 2070</th><th scope="col">Val. nat.</th></tr></thead>
+                                                    <tbody><tr><td>324</td><td>188</td></tr></tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
                     </div>
                     <h3 id="fig-3-3" class="fr-primary fr-h4">Figure 3-3 : Sélection d'un établissement public de coopération intercommunale (EPCI)</h3>
                     <div class="group-figure">
                         <img style="height: 50%;" src="/assets/images/guide/figure331.jpg" alt="Guide figure 3-3-1" class="fr-responsive-img fr-my-2w guide-figure-centered">
                         <img style="width: 90%; height: 80%;" src="/assets/images/guide/figure332.jpg" alt="Guide figure 3-3-2" class="fr-responsive-img fr-my-2w guide-figure-centered">
                     </div>
-                    <img src="/assets/images/guide/figure333.jpg" alt="Guide figure 3-3-3" class="fr-responsive-img fr-my-2w guide-figure-centered">
+                    <img src="/assets/images/guide/figure333.jpg" alt="Guide figure 3-3-3. Description détaillée de l'image disponible dans l'accordéon ci-dessous." class="fr-responsive-img fr-my-2w guide-figure-centered">
+                    <div class="fr-accordions-group guide-figure-description">
+                        <section class="fr-accordion">
+                            <h4 class="fr-accordion__title">
+                                <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-fig-3-3">Description détaillée de la figure 3-3</button>
+                            </h4>
+                            <div id="accordion-fig-3-3" class="fr-collapse">
+                                <p>Capture d'écran illustrant la fonctionnalité de sélection d'un Établissement Public de Coopération Intercommunale (EPCI).</p>
+                                <h5>Éléments visibles</h5>
+                                <p>La première partie de l'image montre la fonctionnalité de sélection d'un EPCI :</p>
+                                <ul>
+                                    <li>Pour sélectionner un « EPCI », il convient de sélectionner le champ « EPCI » dans le volet de droite, à côté des onglets « Département » et « Commune ».</li>
+                                    <li>Il est alors demandé de zoomer et se déplacer sur la carte afin de faire apparaître la liste des EPCI visibles dans le volet de droite (ex : CC Piège Lauragais Malepère, CC Carcassonne Agglo, CC Castelnaudary Lauragais Audois, CC Pyrénées Audoises, etc.).</li>
+                                    <li>L'utilisateur choisit dans la liste l'EPCI qu'il souhaite afficher.</li>
+                                </ul>
+                                <p>La seconde partie de l'image est une capture d'écran montrant le résultat de cette sélection :</p>
+                                <ul>
+                                    <li>L'EPCI CC Pyrénées Audoises a été sélectionné.</li>
+                                    <li>La carte interactive (volet central) affiche en gros plan le territoire de CC Pyrénées Audoises ainsi que ses contours par une ligne rouge ainsi que le nom des communes principales.</li>
+                                    <li>Le volet de droite affiche des informations administratives, démographiques et socio-économiques concernant cet EPCI.</li>
+                                </ul>
+                                <h5 id="tableau-fig-3-3">Tableau de données</h5>
+                                <div class="fr-table fr-table--bordered">
+                                    <div class="fr-table__wrapper">
+                                        <div class="fr-table__container">
+                                            <div class="fr-table__content">
+                                                <table aria-labelledby="tableau-fig-3-3">
+                                                    <thead><tr><th scope="col">Nombre de communes</th></tr></thead>
+                                                    <tbody><tr><td>61</td></tr></tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <h6 id="demo-fig-3-3">Démographie</h6>
+                                <div class="fr-table fr-table--bordered">
+                                    <div class="fr-table__wrapper">
+                                        <div class="fr-table__container">
+                                            <div class="fr-table__content">
+                                                <table aria-labelledby="demo-fig-3-3">
+                                                    <thead><tr><th scope="col">Nombre d'habitants</th><th scope="col">Moy. nat.</th></tr></thead>
+                                                    <tbody><tr><td>13 522</td><td>54 203</td></tr></tbody>
+                                                </table>
+                                                <table aria-labelledby="demo-fig-3-3">
+                                                    <thead><tr><th scope="col">Densité (habitants/km2)</th><th scope="col">Val. nat.</th></tr></thead>
+                                                    <tbody><tr><td>14,6</td><td>107,7</td></tr></tbody>
+                                                </table>
+                                                <table aria-labelledby="demo-fig-3-3">
+                                                    <thead><tr><th scope="col">Indice de vieillissement</th><th scope="col">Val. nat.</th></tr></thead>
+                                                    <tbody><tr><td>255</td><td>89</td></tr></tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <h6 id="socioeco-fig-3-3">Données socio-économiques</h6>
+                                <div class="fr-table fr-table--bordered">
+                                    <div class="fr-table__wrapper">
+                                        <div class="fr-table__container">
+                                            <div class="fr-table__content">
+                                                <table aria-labelledby="socioeco-fig-3-3">
+                                                    <thead><tr><th scope="col">Taux de pauvreté (%)</th><th scope="col">Val. nat.</th></tr></thead>
+                                                    <tbody><tr><td>28,1%</td><td>15,5%</td></tr></tbody>
+                                                </table>
+                                                <table aria-labelledby="socioeco-fig-3-3">
+                                                    <thead><tr><th scope="col">Nombre de bénéficiaires du RSA</th><th scope="col">Moy. nat.</th></tr></thead>
+                                                    <tbody><tr><td>860</td><td>1 451</td></tr></tbody>
+                                                </table>
+                                                <table aria-labelledby="socioeco-fig-3-3">
+                                                    <thead><tr><th scope="col">Nombre de familles monoparentales</th><th scope="col">Moy. nat.</th></tr></thead>
+                                                    <tbody><tr><td>670</td><td>2 575</td></tr></tbody>
+                                                </table>
+                                                <table aria-labelledby="socioeco-fig-3-3">
+                                                    <thead><tr><th scope="col">Nombre de QPV</th><th scope="col">Moy. nat.</th></tr></thead>
+                                                    <tbody><tr><td>0</td><td>1,20</td></tr></tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
                     <h3 id="fig-3-4" class="fr-primary fr-h4">Figure 3-4 : Sélection d'une commune</h3>
                     <p>La procédure est identique à la précédente. Il convient simplement de sélectionner l’onglet commune, de vous déplacer sur la carte et de zoomer.</p>
                     <h3 id="fig-3-5" class="fr-primary fr-h4">Figure 3-5 : Affichage des services publics présents et indicateurs associés</h3>
@@ -148,7 +424,53 @@
                         <img src="/assets/images/guide/figure352.jpg" alt="Guide figure 3-5-2" class="fr-responsive-img fr-my-2w guide-figure-centered">
                     </div>
                     <p>Choix d’un service public et indicateurs le concernant, avec comparaison à la maille nationale.</p>
-                    <img style="width: 50%;" src="/assets/images/guide/figure353.jpg" alt="Guide figure 3-5-3" class="fr-responsive-img fr-my-2w guide-figure-centered">
+                    <img style="width: 50%;" src="/assets/images/guide/figure353.jpg" alt="Guide figure 3-5-3. Description détaillée de l'image disponible dans l'accordéon ci-dessous." class="fr-responsive-img fr-my-2w guide-figure-centered">
+                    <div class="fr-accordions-group guide-figure-description">
+                        <section class="fr-accordion">
+                            <h4 class="fr-accordion__title">
+                                <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-fig-3-5">Description détaillée de la figure 3-5</button>
+                            </h4>
+                            <div id="accordion-fig-3-5" class="fr-collapse">
+                                <p>Capture d'écran de l'affichage des services publics et indicateurs pour un territoire sélectionné (ex. : département de l'Ariège).</p>
+                                <h5>Éléments visibles</h5>
+                                <p>La première partie de l'image montre le fonctionnement de l'onglet « services publics » situé dans le volet de droite.</p>
+                                <ul>
+                                    <li>Lorsqu'une zone géographique a été sélectionnée (ici, le département de l'Ariège), la sélection de l'onglet « services publics », situé dans le volet de droite entre les onglets « présentation » et « isochrones », permet d'afficher des informations quantitatives sur les services publics présents dans le département.</li>
+                                    <li>Une barre de recherche permet de sélectionner parmi une liste la typologie de service public à analyser.</li>
+                                    <li>Si aucune typologie de service n'est choisie, des informations s'affichent pour l'ensemble des services du département. Par exemple pour l'Ariège :
+                                        <ul>
+                                            <li>808 points d'accueil</li>
+                                            <li>Dont 753 implantations</li>
+                                            <li>Dont 53 permanences</li>
+                                            <li>Dont 2 dispositifs itinérants</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                                <p>La seconde partie de l'image montre les informations qui s'affichent lorsqu'une typologie de services publics a été sélectionnée. Ici, la Caisse d'allocations familiales (CAF).</p>
+                                <h5 id="tableau-fig-3-5">Tableau de données</h5>
+                                <div class="fr-table fr-table--bordered">
+                                    <div class="fr-table__wrapper">
+                                        <div class="fr-table__container">
+                                            <div class="fr-table__content">
+                                                <table aria-labelledby="tableau-fig-3-5">
+                                                    <thead><tr><th scope="col">Nombre de points d'accueil</th><th scope="col">Implantations</th><th scope="col">Permanences</th><th scope="col">Dispositif itinérant</th></tr></thead>
+                                                    <tbody><tr><td>6</td><td>2</td><td>4</td><td>0</td></tr></tbody>
+                                                </table>
+                                                <table aria-labelledby="tableau-fig-3-5">
+                                                    <thead><tr><th scope="col">Nombre de points d'accueil pour 100 000 habitants</th><th scope="col">Val. nat.</th><th scope="col">Min</th><th scope="col">Max</th></tr></thead>
+                                                    <tbody><tr><td>3,86</td><td>2,75</td><td>0,19</td><td>13,16</td></tr></tbody>
+                                                </table>
+                                                <table aria-labelledby="tableau-fig-3-5">
+                                                    <thead><tr><th scope="col">Volume d'ouverture hebdomadaire moyen</th><th scope="col">Val. nat.</th><th scope="col">Min</th><th scope="col">Max</th></tr></thead>
+                                                    <tbody><tr><td>30,00</td><td>23,18</td><td>3,80</td><td>40,00</td></tr></tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
 
                     <!-- Section 4 : Filtrage et selection des services publics -->
                     <h2 id="services-publics">4 - Services publics</h2>
@@ -169,9 +491,63 @@
                         </ul>       
                     </div>
                     <h3 id="fig-4-1" class="fr-primary fr-h4">Figure 4-1 : Application des filtres</h3>
-                    <img style="width: 40%;" src="/assets/images/guide/figure41.jpg" alt="Guide figure 4-1" class="fr-responsive-img fr-my-2w guide-figure-centered">
+                    <img style="width: 40%;" src="/assets/images/guide/figure41.jpg" alt="Guide figure 4-1. Description détaillée de l'image disponible dans l'accordéon ci-dessous." class="fr-responsive-img fr-my-2w guide-figure-centered">
+                    <div class="fr-accordions-group guide-figure-description">
+                        <section class="fr-accordion">
+                            <h4 class="fr-accordion__title">
+                                <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-fig-4-1">Description détaillée de la figure 4-1</button>
+                            </h4>
+                            <div id="accordion-fig-4-1" class="fr-collapse">
+                                <p>Capture d'écran du panneau de filtres pour affiner la recherche de services publics.</p>
+                                <h5>Éléments visibles</h5>
+                                <ul>
+                                    <li>Le volet de gauche comporte une section « Filtres » qui permet de sélectionner les caractéristiques des services publics à afficher sur la carte. Ce volet peut être fermé pour laisser plus de place à la carte. Le nombre de filtres sélectionné s'affiche en haut à droite du volet de gauche et il est possible de réinitialiser ces filtres.</li>
+                                    <li>Les filtres proposés sont les suivants :
+                                        <ul>
+                                            <li>Caractéristique de service : implantation, permanence, dispositif itinérant.</li>
+                                            <li>Volume horaire (par semaine) : moins de 10 heures, entre 10 et 24 heures, plus de 24 heures.</li>
+                                            <li>Modalité d'accueil : avec rendez-vous, sans rendez-vous, avec et sans rendez-vous.</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </section>
+                    </div>
                     <h3 id="fig-4-2" class="fr-primary fr-h4">Figure 4-2 : Sélection des typologies de service public</h3>
-                    <img src="/assets/images/guide/figure42.jpg" alt="Guide figure 4-2" class="fr-responsive-img fr-my-2w guide-figure-centered">
+                    <img src="/assets/images/guide/figure42.jpg" alt="Guide figure 4-2. Description détaillée de l'image disponible dans l'accordéon ci-dessous." class="fr-responsive-img fr-my-2w guide-figure-centered">
+                    <div class="fr-accordions-group guide-figure-description">
+                        <section class="fr-accordion">
+                            <h4 class="fr-accordion__title">
+                                <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-fig-4-2">Description détaillée de la figure 4-2</button>
+                            </h4>
+                            <div id="accordion-fig-4-2" class="fr-collapse">
+                                <p>Capture d'écran de la liste des typologies de services publics à afficher sur la carte.</p>
+                                <h5>Éléments visibles</h5>
+                                <ul>
+                                    <li>Le volet de gauche comporte une liste des typologies de services publics pouvant être affichées sur la carte, regroupées en catégories.</li>
+                                    <li>L'utilisateur peut sélectionner parmi cette liste les typologies qu'il souhaite afficher.</li>
+                                    <li>Le nombre de typologies sélectionnées s'affiche en haut à droite du volet de gauche et il est possible de réinitialiser cette sélection.</li>
+                                    <li>Liste à cocher (volet de gauche) :
+                                        <ul>
+                                            <li>Administration locale</li>
+                                            <li>Santé</li>
+                                            <li>Social</li>
+                                            <li>Travail, emploi, formation
+                                                <ul>
+                                                    <li>France Travail</li>
+                                                    <li>Mission locale pour l'insertion professionnelle et sociale des jeunes (16-25 ans)</li>
+                                                </ul>
+                                            </li>
+                                            <li>Economie, finances, consommation</li>
+                                            <li>Droit, justice</li>
+                                            <li>Etc. (les autres catégories ne sont pas visibles sur l'image)</li>
+                                        </ul>
+                                    </li>
+                                    <li>La partie droite de l'image montre ce qui s'affiche lorsqu'une catégorie est sélectionnée (ici, France Travail), éventuellement avec les filtres choisis. Ici, les trois points d'accueil France Travail de la zone sélectionnée sont affichés avec un pictogramme violet.</li>
+                                </ul>
+                            </div>
+                        </section>
+                    </div>
 
                     <!-- Section 5 : Lecture des fiches d'identite des points d'accueil -->
                     <h2 id="fiches-identite">5 - Fiches d'identité des points d'accueil</h2>
@@ -186,16 +562,151 @@
                         <li>Lorsqu'il s'agit d'un point d'arrêt d'un dispositif itinérant, le circuit avec les autres arrêts du même dispositif.</li>
                     </ul>
                     <h3 id="fig-5-1" class="fr-primary fr-h4">Figure 5-1 : Fiche d'identité d'une implantation</h3>
-                    <img src="/assets/images/guide/figure51.jpg" alt="Guide figure 5-1" class="fr-responsive-img fr-my-2w guide-figure-centered">
+                    <img src="/assets/images/guide/figure51.jpg" alt="Guide figure 5-1. Description détaillée de l'image disponible dans l'accordéon ci-dessous." class="fr-responsive-img fr-my-2w guide-figure-centered">
+                    <div class="fr-accordions-group guide-figure-description">
+                        <section class="fr-accordion">
+                            <h4 class="fr-accordion__title">
+                                <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-fig-5-1">Description détaillée de la figure 5-1</button>
+                            </h4>
+                            <div id="accordion-fig-5-1" class="fr-collapse">
+                                <p>Exemple de fiche détaillée pour une implantation d'un service public (ici, le service des impôts des particuliers d'Argenton-sur-Creuse).</p>
+                                <h5>Éléments visibles</h5>
+                                <p>L'image est une capture d'écran représentant :</p>
+                                <ul>
+                                    <li>Dans le volet de gauche, la sélection de la typologie de service public qui a été effectuée (ici, la typologie « services des impôts des particuliers » a été cochée dans la liste).</li>
+                                    <li>Au centre, la visualisation cartographique correspondant à cette sélection sur la zone sélectionnée (ici, le département de l'Indre) : on visualise le département de l'Indre et son contour rouge et s'affichent par des pictogrammes verts l'ensemble des points d'accueil correspondant à la typologie « services des impôts des particuliers ». Une des implantations a été sélectionnée sur la carte.</li>
+                                    <li>Dans le volet de droite, s'affiche une fiche détaillée apportant des informations relatives au point d'accueil sélectionné.</li>
+                                </ul>
+                                <h5>Contenu de la fiche</h5>
+                                <p><strong>En-tête :</strong></p>
+                                <ul>
+                                    <li>Nature du point d'accueil : Implantation</li>
+                                    <li>Nom du service : Service des Impôts des Particuliers (SIP) - Argenton-sur-Creuse</li>
+                                    <li>Typologie du service : Service des impôts des particuliers (SIP)</li>
+                                    <li>Catégorie du service : Economie, finances, consommation</li>
+                                </ul>
+                                <p><strong>Présentation :</strong></p>
+                                <ul>
+                                    <li>Adresse : 10 route de Châteauroux, Argenton-sur-Creuse</li>
+                                    <li>Numéro de téléphone : 0 809 401 401 / 02 54 01 56 59</li>
+                                    <li>Email : aucune information</li>
+                                    <li>Site internet : impots.gouv.fr</li>
+                                    <li>Lien vers la fiche Accès Libre du point d'accueil</li>
+                                    <li>Modalités d'accueil : aucune information sur les modalités d'accueil</li>
+                                </ul>
+                                <p><strong>Horaires :</strong></p>
+                                <ul>
+                                    <li>Lundi : fermé</li>
+                                    <li>Mardi : 09:00 - 12:00</li>
+                                    <li>Mercredi : 09:00 - 12:00</li>
+                                    <li>Jeudi : 09:00 - 12:00</li>
+                                    <li>Vendredi : fermé</li>
+                                    <li>Samedi : fermé</li>
+                                </ul>
+                            </div>
+                        </section>
+                    </div>
                     <h3 id="fig-5-2" class="fr-primary fr-h4">Figure 5-2 : Fiche d'identité d'une permanence</h3>
                     <div class="group-figure">
                         <img src="/assets/images/guide/figure521.jpg" alt="Guide figure 5-2-1" class="fr-responsive-img fr-my-2w guide-figure-centered">
-                        <img style="width: 40%; height: 80%;" src="/assets/images/guide/figure522.jpg" alt="Guide figure 5-2-2" class="fr-responsive-img fr-my-2w guide-figure-centered">
+                        <img style="width: 40%; height: 80%;" src="/assets/images/guide/figure522.jpg" alt="Guide figure 5-2-2. Description détaillée de l'image disponible dans l'accordéon ci-dessous." class="fr-responsive-img fr-my-2w guide-figure-centered">
+                    </div>
+                    <div class="fr-accordions-group guide-figure-description">
+                        <section class="fr-accordion">
+                            <h4 class="fr-accordion__title">
+                                <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-fig-5-2">Description détaillée de la figure 5-2</button>
+                            </h4>
+                            <div id="accordion-fig-5-2" class="fr-collapse">
+                                <p>Exemple de fiche détaillée pour une permanence d'un service public (ici, une permanence du service des impôts des particuliers dans l'Indre).</p>
+                                <h5>Éléments visibles</h5>
+                                <p>L'image est une capture d'écran représentant :</p>
+                                <ul>
+                                    <li>Au centre, la visualisation cartographique correspondant à la sélection de services sur la zone sélectionnée (ici, le département de l'Indre) : on visualise le département de l'Indre et son contour rouge et s'affichent par des pictogrammes verts l'ensemble des points d'accueil correspondant à la typologie « services des impôts des particuliers ». Une des permanences a été sélectionnée sur la carte.</li>
+                                    <li>Dans le volet de droite, s'affichent :
+                                        <ul>
+                                            <li>une fiche détaillée apportant des informations relatives à la permanence sélectionnée (onglet « Présentation »).</li>
+                                            <li>une fiche apportant des informations concernant les autres permanences présentes dans le même point d'accueil (onglet « Autres permanences »).</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                                <h5>Contenu de la fiche « Présentation » de la permanence</h5>
+                                <p><strong>En-tête :</strong></p>
+                                <ul>
+                                    <li>Nature du point d'accueil : Permanence</li>
+                                    <li>Nom du service organisateur de la permanence : Finances publiques (DDFIP)</li>
+                                    <li>Typologie du service : Service des impôts des particuliers (SIP)</li>
+                                    <li>Catégorie du service : Economie, finances, consommation</li>
+                                </ul>
+                                <p><strong>Présentation :</strong></p>
+                                <ul>
+                                    <li>Permanence hébergée dans les locaux de : France services La Poste de Neuvy-Saint-Sépulchre</li>
+                                    <li>Adresse : 2 rue Gardie, Neuvy-Saint-Sépulchre</li>
+                                    <li>Numéro de téléphone : 02 54 06 10 28</li>
+                                    <li>Email : neuvy-saint-sepulchre@france-services.gouv.fr</li>
+                                    <li>Site internet : france-services.gouv.fr</li>
+                                    <li>Pas de fiche sur Accès Libre</li>
+                                    <li>Modalités d'accueil : avec et sans rendez-vous</li>
+                                    <li>Commentaire : deux fois par mois ; avec et sans RDV ; premier jeudi du mois en visio et troisième jeudi du mois en présentiel</li>
+                                </ul>
+                                <p><strong>Horaires :</strong></p>
+                                <ul>
+                                    <li>Jeudi 1 janvier</li>
+                                    <li>Jeudi 15 janvier</li>
+                                    <li>Jeudi 5 février</li>
+                                </ul>
+                                <h5>Contenu de la fiche « Autres permanences »</h5>
+                                <ul>
+                                    <li>Autre(s) permanence(s) hébergée(s) dans ce lieu : Mutualité sociale agricole (MSA)</li>
+                                    <li>Bouton cliquable « Voir les horaires »</li>
+                                </ul>
+                            </div>
+                        </section>
                     </div>
                     <h3 id="fig-5-3" class="fr-primary fr-h4">Figure 5-3 : Fiche d'identité d'un point d'itérance</h3>
                     <div class="group-figure">
                         <img style="height: 80%;" src="/assets/images/guide/figure531.jpg" alt="Guide figure 5-3-1" class="fr-responsive-img fr-my-2w guide-figure-centered">
-                        <img style="width: 40%; height: 80%;" src="/assets/images/guide/figure532.jpg" alt="Guide figure 5-3-2" class="fr-responsive-img fr-my-2w guide-figure-centered">
+                        <img style="width: 40%; height: 80%;" src="/assets/images/guide/figure532.jpg" alt="Guide figure 5-3-2. Description détaillée de l'image disponible dans l'accordéon ci-dessous." class="fr-responsive-img fr-my-2w guide-figure-centered">
+                    </div>
+                    <div class="fr-accordions-group guide-figure-description">
+                        <section class="fr-accordion">
+                            <h4 class="fr-accordion__title">
+                                <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-fig-5-3">Description détaillée de la figure 5-3</button>
+                            </h4>
+                            <div id="accordion-fig-5-3" class="fr-collapse">
+                                <p>Exemple de fiche détaillée pour un point d'arrêt d'un dispositif itinérant (ici, un point d'arrêt du bus la Ruralinette, dans l'Indre).</p>
+                                <h5>Éléments visibles</h5>
+                                <p>L'image est une capture d'écran représentant :</p>
+                                <ul>
+                                    <li>Au centre, la visualisation cartographique correspondant à la sélection de services sur la zone sélectionnée (ici, les points d'accueil France Services dans le département de l'Indre) : on visualise le département de l'Indre et son contour rouge et s'affichent par des pictogrammes bleus l'ensemble des points d'accueil correspondant à la typologie « France services ». Ces points d'accueil sont soit des implantations France Services, soit des points d'arrêt des dispositifs itinérants tels que les bus France services. Un de ces points d'arrêt a été sélectionné sur la carte.</li>
+                                    <li>Dans le volet de droite, s'affichent :
+                                        <ul>
+                                            <li>une fiche détaillée apportant des informations relatives au point d'arrêt sélectionné (onglet « Présentation »).</li>
+                                            <li>une fiche apportant des informations concernant les autres points d'arrêt du dispositif itinérant concerné (onglet « Circuit »).</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                                <h5>Contenu de la fiche « Présentation » du point d'arrêt</h5>
+                                <p><strong>En-tête :</strong></p>
+                                <ul>
+                                    <li>Nature du point d'accueil : Itinérance</li>
+                                    <li>Nom du dispositif itinérant : France services itinérante – Ruralinette 2</li>
+                                    <li>Typologie du service : France services</li>
+                                    <li>Catégorie du service : Administration locale</li>
+                                </ul>
+                                <p><strong>Présentation :</strong></p>
+                                <ul>
+                                    <li>Adresse : 13 place de la mairie</li>
+                                    <li>Numéro de téléphone : aucune information</li>
+                                    <li>Email : aucune information</li>
+                                    <li>Site internet : aucune information</li>
+                                    <li>Pas de fiche sur Accès Libre</li>
+                                    <li>Modalités d'accueil : avec et sans rendez-vous</li>
+                                    <li>Commentaire : premier et cinquième mardis du mois de 10h à 12h30 et de 13h30 à 16h, à côté de l'église. Tout savoir sur la Rur@linette : indre.famillesrurales.org</li>
+                                </ul>
+                                <h5>Contenu de la fiche « Circuit »</h5>
+                                <p>Cette fiche liste les autres points d'arrêt du dispositif itinérant et les horaires correspondants.</p>
+                            </div>
+                        </section>
                     </div>
 
                     <!-- Section 6 : Utilisation des indicateurs thematiques -->
@@ -214,7 +725,25 @@
                     </div>
 
                     <h3 id="fig-6" class="fr-primary fr-h4">Figure 6 : Affichage d'un indicateur</h3>
-                    <img src="/assets/images/guide/figure6.jpg" alt="Guide figure 6" class="fr-responsive-img fr-my-2w guide-figure-centered">
+                    <img src="/assets/images/guide/figure6.jpg" alt="Guide figure 6. Description détaillée de l'image disponible dans l'accordéon ci-dessous." class="fr-responsive-img fr-my-2w guide-figure-centered">
+                    <div class="fr-accordions-group guide-figure-description">
+                        <section class="fr-accordion">
+                            <h4 class="fr-accordion__title">
+                                <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-fig-6">Description détaillée de la figure 6</button>
+                            </h4>
+                            <div id="accordion-fig-6" class="fr-collapse">
+                                <p>Capture d'écran montrant l'affichage d'un indicateur territorial superposé à la carte.</p>
+                                <h5>Éléments visibles</h5>
+                                <ul>
+                                    <li>Dans le volet de gauche, le menu « Indicateurs » a été sélectionné.</li>
+                                    <li>Au sein de ce menu, se trouve la liste des indicateurs pouvant être affichés sur la carte, regroupés par catégories. Les catégories sont : démographie, précarité, fragilité numérique, zonage, santé et accès aux soins.</li>
+                                    <li>La catégorie Démographie est sélectionnée, les indicateurs correspondants sont : densité de population, part des plus de 65 ans, part des moins de 18 ans.</li>
+                                    <li>L'indicateur « Densité de population » a été sélectionné. Cet indicateur s'affiche sur la carte par une représentation au niveau du carreau de 200m sur 200m. Un code couleur permet de voir les zones présentant les plus fortes densités de population.</li>
+                                    <li>Le menu légende, présent en bas à droite de la carte, permet d'afficher la légende de l'indicateur. Pour cet indicateur, les carreaux les plus clairs correspondent à une densité de 1 à 80 habitants par carreau. Les carreaux les plus foncés correspondent à une densité de 2600 à 7600 habitants par carreau.</li>
+                                </ul>
+                            </div>
+                        </section>
+                    </div>
 
                     <!-- Section 7 : Superposition et ordre des couches cartographiques -->
                     <h2 id="gestionnaire-couches">7 - Gestionnaire de couches</h2>
@@ -226,7 +755,35 @@
                         <li>Régler la transparence.</li>
                     </ul>
                     <h3 id="fig-7" class="fr-primary fr-h4">Figure 7 : Gestionnaire de couche</h3>
-                    <img src="/assets/images/guide/figure7.jpg" alt="Guide figure 7" class="fr-responsive-img fr-my-2w guide-figure-centered">
+                    <img src="/assets/images/guide/figure7.jpg" alt="Guide figure 7. Description détaillée de l'image disponible dans l'accordéon ci-dessous." class="fr-responsive-img fr-my-2w guide-figure-centered">
+                    <div class="fr-accordions-group guide-figure-description">
+                        <section class="fr-accordion">
+                            <h4 class="fr-accordion__title">
+                                <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-fig-7">Description détaillée de la figure 7</button>
+                            </h4>
+                            <div id="accordion-fig-7" class="fr-collapse">
+                                <p>Capture d'écran du gestionnaire de couches (outil pour personnaliser l'affichage des couches de données sur la carte).</p>
+                                <h5>Éléments visibles</h5>
+                                <ul>
+                                    <li>Dans le volet de gauche, le menu « Gestionnaire de couches » a été sélectionné.</li>
+                                    <li>La liste des couches affichées sur la carte apparaît ainsi que leur nombre : 3. Dans cet exemple il s'agit de :
+                                        <ul>
+                                            <li>La part des personnes âgées de moins de 18 ans, représentée sur la carte par des carreaux de teinte bleue plus ou moins foncée selon la part représentée par les moins de 18 ans dans la population du carreau.</li>
+                                            <li>Les bassins de vie 2022, représentés par des lignes vertes délimitant chacun des bassins de vie.</li>
+                                            <li>Le plan IGN (style plan IGN simplifié), qui est le fond de carte affiché par défaut dans l'outil.</li>
+                                        </ul>
+                                    </li>
+                                    <li>Les différentes fonctionnalités du gestionnaire de couche sont représentées :
+                                        <ul>
+                                            <li>Un curseur qui permet d'ajuster le niveau de transparence de chaque couche.</li>
+                                            <li>Un bouton « infos » qui permet d'accéder à la présentation détaillée de l'indicateur. Pour l'indicateur « part des personnes âgées de moins de 18 ans », l'explication fournie est : « Cette couche permet d'afficher la part des moins de 18 ans par carreau de 200 mètres en France métropolitaine, Réunion et Martinique, d'après les données 2021 du Dispositif fichier localisé social et fiscal (Filosofi) de l'Insee ».</li>
+                                            <li>Un bouton qui permet de choisir l'ordre dans lequel s'affichent les différentes couches (quelle couche est au premier plan, au second, etc.).</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </section>
+                    </div>
 
                     <!-- Section 8 : Calcul de couverture via les isochrones -->
                     <h2 id="isochrones">8 - Isochrones</h2>
@@ -251,10 +808,93 @@
                     <h3 id="fig-8-1" class="fr-primary fr-h4">Figure 8-1 : Isochrone à l'adresse</h3>
                     <div class="group-figure">
                         <img src="/assets/images/guide/figure811.jpg" alt="Guide figure 8-1-1" class="fr-responsive-img fr-my-2w guide-figure-centered">
-                        <img style="width: 80%; height: 80%;" src="/assets/images/guide/figure812.jpg" alt="Guide figure 8-1-2" class="fr-responsive-img fr-my-2w guide-figure-centered">
+                        <img style="width: 80%; height: 80%;" src="/assets/images/guide/figure812.jpg" alt="Guide figure 8-1-2. Description détaillée de l'image disponible dans l'accordéon ci-dessous." class="fr-responsive-img fr-my-2w guide-figure-centered">
+                    </div>
+                    <div class="fr-accordions-group guide-figure-description">
+                        <section class="fr-accordion">
+                            <h4 class="fr-accordion__title">
+                                <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-fig-8-1">Description détaillée de la figure 8-1</button>
+                            </h4>
+                            <div id="accordion-fig-8-1" class="fr-collapse">
+                                <p>Capture d'écran de l'outil isochrone par adresse permettant de calculer la zone accessible depuis une adresse.</p>
+                                <h5>Éléments visibles</h5>
+                                <p>La partie gauche de l'image montre la configuration du menu de calcul d'isochrone :</p>
+                                <ul>
+                                    <li>Dans le volet de gauche, le menu « Calcul d'isochrones » a été sélectionné.</li>
+                                    <li>Au sein de ce menu, l'option « par adresse » a été cochée.</li>
+                                    <li>Le mode de déplacement « voiture » a été choisi. L'autre mode possible est piéton.</li>
+                                    <li>Un champ permet de saisir l'adresse à partir de laquelle calculer l'isochrone. L'adresse saisie dans l'exemple est : « Place de la mairie, 68000 Colmar ».</li>
+                                    <li>Le mode « durée » a été choisi. L'autre mode possible est « distance ».</li>
+                                    <li>Un champ permet de saisir le temps de trajet à considérer, en saisissant les heures et minutes. Il a été saisi 1h00.</li>
+                                    <li>Un menu déroulant permet de choisir le sens de parcours. Le choix « départ » a été fait.</li>
+                                    <li>Enfin, il est possible de cocher ou décocher les trois types de passage autorisés : « péages », « tunnels », « ponts ». Dans l'exemple, les trois sont cochés.</li>
+                                    <li>Une fois ces choix faits, un bouton cliquable permet de lancer le calcul de l'isochrone.</li>
+                                </ul>
+                                <p>La partie de droite de l'image correspond au résultat de ce calcul d'isochrone affiché sur la carte :</p>
+                                <ul>
+                                    <li>Le point correspondant à l'adresse saisie s'affiche avec un pictogramme jaune.</li>
+                                    <li>L'isochrone correspondant aux différents choix réalisés s'affiche sous la forme d'un polygone vert entourant Colmar, représentant toutes les zones accessibles en maximum 1 heure en voiture.</li>
+                                    <li>Une fenêtre blanche qui s'affiche sur la carte rappelle les choix sélectionnés (isochrone par adresse, en fonction du temps de transport, en voiture etc.).</li>
+                                </ul>
+                            </div>
+                        </section>
                     </div>
                     <h3 id="fig-8-2" class="fr-primary fr-h4">Figure 8-2 : Isochrone par typologie de service</h3>
-                    <img src="/assets/images/guide/figure82.jpg" alt="Guide figure 8-2" class="fr-responsive-img fr-my-2w guide-figure-centered">
+                    <img src="/assets/images/guide/figure82.jpg" alt="Guide figure 8-2. Description détaillée de l'image disponible dans l'accordéon ci-dessous." class="fr-responsive-img fr-my-2w guide-figure-centered">
+                    <div class="fr-accordions-group guide-figure-description">
+                        <section class="fr-accordion">
+                            <h4 class="fr-accordion__title">
+                                <button type="button" class="fr-accordion__btn" aria-expanded="false" aria-controls="accordion-fig-8-2">Description détaillée de la figure 8-2</button>
+                            </h4>
+                            <div id="accordion-fig-8-2" class="fr-collapse">
+                                <p>Capture d'écran de l'outil isochrone par typologie de services permettant de calculer les zones d'un département situées à moins d'une certaine distance d'un type de services publics.</p>
+                                <h5>Éléments visibles</h5>
+                                <p>La partie gauche de l'image montre la configuration du menu de calcul d'isochrone :</p>
+                                <ul>
+                                    <li>Dans le volet de gauche, le menu « Calcul d'isochrones » a été sélectionné.</li>
+                                    <li>Au sein de ce menu, l'option « par typologie de services » a été cochée.</li>
+                                    <li>La typologie de services qui a été sélectionnée s'affiche dans une bulle bleue. Dans cet exemple, il s'agit de la Caisse d'allocations familiales (Caf).</li>
+                                    <li>Un champ permet de saisir la zone à considérer. Dans cet exemple c'est le département de l'Indre, 36, qui a été saisi.</li>
+                                    <li>Un menu déroulant permet de choisir une ou plusieurs typologies de services pour lesquelles on souhaite calculer l'isochrone. Dans cet exemple, une seule typologie a été sélectionnée.</li>
+                                    <li>Le mode de déplacement « voiture » a été choisi. L'autre mode possible est piéton.</li>
+                                    <li>Le temps de trajet « 30 minutes » a été choisi. L'autre temps possible est « 20 minutes ».</li>
+                                    <li>Une fois ces choix faits, un bouton cliquable permet de lancer le calcul de l'isochrone.</li>
+                                </ul>
+                                <p>La partie centrale de l'image correspond au résultat de ce calcul d'isochrone affiché sur la carte :</p>
+                                <ul>
+                                    <li>Les zones couvertes à 30 minutes en voiture ou moins d'un des points d'accueil de la Caf sont représentées par des polygones roses.</li>
+                                    <li>Des flèches indiquent les zones non couvertes à 30 minutes en voiture, qui sont celles qui se trouvent en dehors de ces polygones.</li>
+                                </ul>
+                                <p>La partie de droite de l'image montre les informations qui s'affichent dans le volet de droite, correspondant au résultat de ce calcul d'isochrone :</p>
+                                <ul>
+                                    <li>Au sein du volet de droite, le troisième onglet « isochrones » est ouvert.</li>
+                                    <li>Dans cet onglet s'affichent les informations statistiques correspondant à la population couverte par l'isochrone dans ce département et en comparaison nationale.</li>
+                                    <li>Ces informations s'affichent automatiquement lorsque le calcul d'isochrone par typologie de services est lancé dans le volet de gauche.</li>
+                                </ul>
+                                <h5 id="tableau-fig-8-2">Tableau de données</h5>
+                                <div class="fr-table fr-table--bordered">
+                                    <div class="fr-table__wrapper">
+                                        <div class="fr-table__container">
+                                            <div class="fr-table__content">
+                                                <table aria-labelledby="tableau-fig-8-2">
+                                                    <thead><tr><th scope="col">Pourcentage de la population du département couverte</th><th scope="col">Médiane</th><th scope="col">Min</th><th scope="col">Max</th></tr></thead>
+                                                    <tbody><tr><td>92,70%</td><td>90,53%</td><td>29,47%</td><td>100,00%</td></tr></tbody>
+                                                </table>
+                                                <table aria-labelledby="tableau-fig-8-2">
+                                                    <thead><tr><th scope="col">Pourcentage des ménages pauvres du département couverts</th><th scope="col">Médiane</th><th scope="col">Min</th><th scope="col">Max</th></tr></thead>
+                                                    <tbody><tr><td>92,03%</td><td>90,88%</td><td>21,52%</td><td>100,00%</td></tr></tbody>
+                                                </table>
+                                                <table aria-labelledby="tableau-fig-8-2">
+                                                    <thead><tr><th scope="col">Pourcentage des plus de 65 ans du département couverts</th><th scope="col">Médiane</th><th scope="col">Min</th><th scope="col">Max</th></tr></thead>
+                                                    <tbody><tr><td>92,00%</td><td>90,00%</td><td>23,71%</td><td>100,00%</td></tr></tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
                     <br>
 
                     <!-- Glossaire : Definitions des termes utilises dans le guide -->
