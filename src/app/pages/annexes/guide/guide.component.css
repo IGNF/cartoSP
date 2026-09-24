@@ -30,3 +30,31 @@
     justify-content: center;
     width: auto;
 }
+
+.guide-figure-description {
+    margin: 0 0 2rem 0;
+}
+
+/* Empêche le débordement horizontal des tableaux de données : les cellules
+   se redimensionnent et le texte revient à la ligne plutôt que de forcer un défilement. */
+.guide-figure-description .fr-table__wrapper {
+    overflow-x: hidden;
+}
+
+.guide-figure-description table {
+    table-layout: fixed;
+    width: 100%;
+}
+
+.guide-figure-description th,
+.guide-figure-description td {
+    white-space: normal;
+    overflow-wrap: break-word;
+    word-break: break-word;
+}
+
+@media (max-width: 61.98em) {
+    .dsfr-container {
+        width: 100% !important;
+    }
+}
