@@ -5,6 +5,14 @@
     box-shadow: unset !important;
 }
 
+:host ::ng-deep dsfr-header.csp-header--operator-logo .fr-header__logo {
+    display: none;
+}
+
+:host ::ng-deep dsfr-header.csp-header--operator-logo .fr-header__operator {
+    max-width: 6.925rem;
+}
+
 :host-context(:root[data-fr-theme="light"]) .ditp-logo {
     color-scheme: light;
 }
