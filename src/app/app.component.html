@@ -124,8 +124,13 @@
 </div>
 } @else {
   <dsfr-header
+    class="csp-header--operator-logo"
     [serviceTitle]="'Cartographie des services publics'"
-    [logoLink]="'/'"
+    [logo]="{
+      imagePath: 'assets/images/logos/republique.svg',
+      imageAlt: 'République française – Liberté, Égalité, Fraternité',
+      navigation: { link: '/' }
+    }"
     [menu]="[]"
   >
     <ng-template #toolsLinksTemplate>
@@ -197,120 +202,122 @@
 <main id="contenu-principal" role="main" tabindex="-1" [class]="mapPage ? 'main main--info-reduce' : 'main-home'">
   <router-outlet></router-outlet>
 </main>
-<div *ngIf="!footerExpanded" id="pied-de-page" #smallFooter>
-  <nav id="footer-navigation" tabindex="-1" role="navigation" aria-label="Navigation du pied de page">
-    <ul class="fr-footer__bottom-list small-footer__bottom-list">
-      @for (item of mandatoryLinks; track item.link) {
+<footer role="contentinfo">
+  <div *ngIf="!footerExpanded" id="pied-de-page" #smallFooter>
+    <nav id="footer-navigation" tabindex="-1" role="navigation" aria-label="Navigation du pied de page">
+      <ul class="fr-footer__bottom-list small-footer__bottom-list">
+        @for (item of mandatoryLinks; track item.link) {
+          <li class="fr-footer__bottom-item">
+            <a class="fr-footer__bottom-link" [routerLink]="item.link">{{ item.label }}</a>
+          </li>
+        }
         <li class="fr-footer__bottom-item">
-          <a class="fr-footer__bottom-link" [routerLink]="item.link">{{ item.label }}</a>
+          <button
+            type="button"
+            class="fr-footer__bottom-link fr-fi-theme-fill fr-link--icon-left"
+            [attr.aria-controls]="displayModalId"
+            data-fr-opened="false"
+          >
+            {{ footerDisplayLabel }}
+          </button>
         </li>
-      }
-      <li class="fr-footer__bottom-item">
-        <button
-          type="button"
-          class="fr-footer__bottom-link fr-fi-theme-fill fr-link--icon-left"
-          [attr.aria-controls]="displayModalId"
-          data-fr-opened="false"
-        >
-          {{ footerDisplayLabel }}
-        </button>
-      </li>
-    </ul>
-  </nav>
-  <button id="btn-expand-footer" class="fr-btn fr-btn--sm btn-expand-footer fr-btn--tertiary-no-outline" type="button" title="Afficher plus" (click)="expandFooter()">
-    <span class="fr-icon-arrow-up-s-line"></span>
-  </button>
-</div>
-<div *ngIf="footerExpanded" id="pied-de-page" tabindex="-1" style="position: relative;">
-  @if (mapPage) {
-    <button
-      class="fr-btn fr-btn--sm fr-btn--tertiary-no-outline fr-btn--close fr-btn--icon-right"
-      style="position: absolute; top: 1rem; right: 1rem; z-index: 10;"
-      type="button"
-      title="Fermer"
-      (click)="collapseFooter()"
-    >
-      Fermer
+      </ul>
+    </nav>
+    <button id="btn-expand-footer" class="fr-btn fr-btn--sm btn-expand-footer fr-btn--tertiary-no-outline" type="button" title="Afficher plus" (click)="expandFooter()">
+      <span class="fr-icon-arrow-up-s-line"></span>
     </button>
-  }
-  <footer class="fr-footer" id="footer" role="footer">
-    <div class="fr-container">
-      <div class="fr-footer__body">
-        <div class="fr-footer__brand fr-enlarge-link">
-          <a id="brand-link" aria-label="République Française – Liberté, Égalité, Fraternité. Retour à l'accueil du site - La cartographie des services publics." title="Retour à l'accueil du site - La cartographie des services publics - République Française" href="/">
-            <p class="fr-logo"> République <br>Française </p>
-          </a>
-        </div>
-        <div class="fr-footer__content">
-          <p class="fr-footer__content-desc">La cartographie des services publics est un projet coordonné par la Direction interministérielle de la transformation publique (DITP) en lien avec l’Institut national de l’information géographique et forestière (IGN). Le site s’appuie sur la Géoplateforme, la nouvelle infrastructure publique, ouverte et collaborative des données géographiques.</p>
-          <ul class="fr-footer__content-list">
-            <li class="fr-footer__content-item">
-              <a title="info.gouv.fr - nouvelle fenêtre" id="footer__content-link-0" href="https://info.gouv.fr" target="_blank" rel="noopener external" class="fr-footer__content-link">info.gouv.fr</a>
-            </li>
-            <li class="fr-footer__content-item">
-              <a title="service-public.gouv.fr - nouvelle fenêtre" id="footer__content-link-1" href="https://service-public.gouv.fr" target="_blank" rel="noopener external" class="fr-footer__content-link">service-public.gouv.fr</a>
-            </li>
-            <li class="fr-footer__content-item">
-              <a title="legifrance.gouv.fr - nouvelle fenêtre" id="footer__content-link-2" href="https://legifrance.gouv.fr" target="_blank" rel="noopener external" class="fr-footer__content-link">legifrance.gouv.fr</a>
-            </li>
-            <li class="fr-footer__content-item">
-              <a title="data.gouv.fr - nouvelle fenêtre" id="footer__content-link-3" href="https://data.gouv.fr" target="_blank" rel="noopener external" class="fr-footer__content-link">data.gouv.fr</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div class="fr-footer__partners">
-        <h2 class="fr-footer__partners-title">Nos partenaires</h2>
-        <div class="fr-footer__partners-logos">
-          <div class="fr-footer__partners-main">
-            <a class="fr-footer__partners-link" href="https://www.modernisation.gouv.fr/">
-              <img class="fr-footer__logo ditp-logo" style="height: 5.625rem" src="assets/images/logos/ditp.svg" alt="logo DITP - Direction interministérielle de la transformation publique Liberté, égalité, fraternité" />
-              <!-- L’alternative de l’image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n’apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
+  </div>
+  <div *ngIf="footerExpanded" id="pied-de-page" tabindex="-1" style="position: relative;">
+    @if (mapPage) {
+      <button
+        class="fr-btn fr-btn--sm fr-btn--tertiary-no-outline fr-btn--close fr-btn--icon-right"
+        style="position: absolute; top: 1rem; right: 1rem; z-index: 10;"
+        type="button"
+        title="Fermer"
+        (click)="collapseFooter()"
+      >
+        Fermer
+      </button>
+    }
+    <div class="fr-footer" id="footer" role="footer">
+      <div class="fr-container">
+        <div class="fr-footer__body">
+          <div class="fr-footer__brand fr-enlarge-link">
+            <a id="brand-link" aria-label="République Française – Liberté, Égalité, Fraternité. Retour à l'accueil du site - La cartographie des services publics." title="Retour à l'accueil du site - La cartographie des services publics - République Française" href="/">
+              <p class="fr-logo"> République <br>Française </p>
             </a>
           </div>
-          <div class="fr-footer__partners-sub">
-            <ul>
-              <li>
-                <a class="fr-footer__partners-link" href="https://www.ign.fr">
-                  <img class="fr-footer__logo" style="height: 5.625rem" src="assets/images/logos/ign.svg" alt="logo IGN – Institut national de l’information géographique et forestière" />
-                  <!-- L’alternative de l’image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n’apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
-                </a>
+          <div class="fr-footer__content">
+            <p class="fr-footer__content-desc">La cartographie des services publics est un projet coordonné par la Direction interministérielle de la transformation publique (DITP) en lien avec l’Institut national de l’information géographique et forestière (IGN). Le site s’appuie sur la Géoplateforme, la nouvelle infrastructure publique, ouverte et collaborative des données géographiques.</p>
+            <ul class="fr-footer__content-list">
+              <li class="fr-footer__content-item">
+                <a title="info.gouv.fr - nouvelle fenêtre" id="footer__content-link-0" href="https://info.gouv.fr" target="_blank" rel="noopener external" class="fr-footer__content-link">info.gouv.fr</a>
+              </li>
+              <li class="fr-footer__content-item">
+                <a title="service-public.gouv.fr - nouvelle fenêtre" id="footer__content-link-1" href="https://service-public.gouv.fr" target="_blank" rel="noopener external" class="fr-footer__content-link">service-public.gouv.fr</a>
+              </li>
+              <li class="fr-footer__content-item">
+                <a title="legifrance.gouv.fr - nouvelle fenêtre" id="footer__content-link-2" href="https://legifrance.gouv.fr" target="_blank" rel="noopener external" class="fr-footer__content-link">legifrance.gouv.fr</a>
+              </li>
+              <li class="fr-footer__content-item">
+                <a title="data.gouv.fr - nouvelle fenêtre" id="footer__content-link-3" href="https://data.gouv.fr" target="_blank" rel="noopener external" class="fr-footer__content-link">data.gouv.fr</a>
               </li>
             </ul>
           </div>
         </div>
-      </div>
-      <div class="fr-footer__bottom">
-        <nav id="footer-navigation" tabindex="-1" role="navigation" aria-label="Navigation du pied de page">
-          <ul class="fr-footer__bottom-list">
-            <li class="fr-footer__bottom-item">
-              <a id="footer__bottom-link-64" href="/plan-du-site" class="fr-footer__bottom-link">Plan du site</a>
-            </li>
-            <li class="fr-footer__bottom-item">
-              <a id="footer__bottom-link-65" href="/accessibilite" class="fr-footer__bottom-link">Accessibilité : partiellement conforme</a>
-            </li>
-            <li class="fr-footer__bottom-item">
-              <a id="footer__bottom-link-66" href="/mentions-legales" class="fr-footer__bottom-link">Mentions légales</a>
-            </li>
-            <li class="fr-footer__bottom-item">
-              <button
-                type="button"
-                class="fr-footer__bottom-link fr-fi-theme-fill fr-link--icon-left"
-                [attr.aria-controls]="displayModalId"
-                data-fr-opened="false"
-              >
-                {{ footerDisplayLabel }}
-              </button>
-            </li>
-          </ul>
-        </nav>
-        <div class="fr-footer__bottom-copy">
-          <p>Sauf mention explicite de propriété intellectuelle détenue par des tiers, les contenus de ce site sont proposés sous <a href="https://github.com/etalab/licence-ouverte/blob/master/LO.md" target="_blank" rel="noopener external" title="Licence etalab - nouvelle fenêtre">licence etalab-2.0</a></p>
+        <div class="fr-footer__partners">
+          <h2 class="fr-footer__partners-title">Nos partenaires</h2>
+          <div class="fr-footer__partners-logos">
+            <div class="fr-footer__partners-main">
+              <a class="fr-footer__partners-link" href="https://www.modernisation.gouv.fr/">
+                <img class="fr-footer__logo ditp-logo" style="height: 5.625rem" src="assets/images/logos/ditp.svg" alt="logo DITP - Direction interministérielle de la transformation publique Liberté, égalité, fraternité" />
+                <!-- L’alternative de l’image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n’apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
+              </a>
+            </div>
+            <div class="fr-footer__partners-sub">
+              <ul>
+                <li>
+                  <a class="fr-footer__partners-link" href="https://www.ign.fr">
+                    <img class="fr-footer__logo" style="height: 5.625rem" src="assets/images/logos/ign.svg" alt="logo IGN – Institut national de l’information géographique et forestière" />
+                    <!-- L’alternative de l’image (attribut alt) doit toujours être présente, sa valeur peut-être vide (image n’apportant pas de sens supplémentaire au contexte) ou non (porteuse de texte ou apportant du sens) selon votre contexte -->
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="fr-footer__bottom">
+          <nav id="footer-navigation" tabindex="-1" role="navigation" aria-label="Navigation du pied de page">
+            <ul class="fr-footer__bottom-list">
+              <li class="fr-footer__bottom-item">
+                <a id="footer__bottom-link-64" href="/plan-du-site" class="fr-footer__bottom-link">Plan du site</a>
+              </li>
+              <li class="fr-footer__bottom-item">
+                <a id="footer__bottom-link-65" href="/accessibilite" class="fr-footer__bottom-link">Accessibilité : partiellement conforme</a>
+              </li>
+              <li class="fr-footer__bottom-item">
+                <a id="footer__bottom-link-66" href="/mentions-legales" class="fr-footer__bottom-link">Mentions légales</a>
+              </li>
+              <li class="fr-footer__bottom-item">
+                <button
+                  type="button"
+                  class="fr-footer__bottom-link fr-fi-theme-fill fr-link--icon-left"
+                  [attr.aria-controls]="displayModalId"
+                  data-fr-opened="false"
+                >
+                  {{ footerDisplayLabel }}
+                </button>
+              </li>
+            </ul>
+          </nav>
+          <div class="fr-footer__bottom-copy">
+            <p>Sauf mention explicite de propriété intellectuelle détenue par des tiers, les contenus de ce site sont proposés sous <a href="https://github.com/etalab/licence-ouverte/blob/master/LO.md" target="_blank" rel="noopener external" title="Licence etalab - nouvelle fenêtre">licence etalab-2.0</a></p>
+          </div>
         </div>
       </div>
     </div>
-  </footer>
-</div>
+  </div>
+</footer>
 <dsfr-display [displayId]="displayModalId"></dsfr-display>
 
 
