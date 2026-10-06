@@ -1,9 +1,9 @@
 ARG registry=docker.io
-FROM ${registry}/library/node:24.15.0-slim AS nodebuild
+FROM ${registry}/library/node:24.21.0-trixie-slim AS nodebuild
 
 RUN apt-get update
 RUN npm install -g npm
-RUN npm install -g @angular/cli@20.3.30
+RUN npm install -g @angular/cli@21.2.25
 
 RUN mkdir /opt/cartosp && chown -R node:node /opt/cartosp
 WORKDIR /opt/cartosp
@@ -13,7 +13,7 @@ RUN ng build
 RUN chown -R node /opt/cartosp/dist/cartosp/browser
 USER node
 
-FROM ${registry}/nginxinc/nginx-unprivileged:stable
+FROM ${registry}/nginxinc/nginx-unprivileged:trixie-perl
 
 COPY --from=nodebuild /opt/cartosp/dist/cartosp/browser/ /usr/share/nginx/html
 COPY --from=nodebuild /opt/cartosp/.docker/nginx.apps.conf /etc/nginx/conf.d/default.conf
