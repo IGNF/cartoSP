@@ -74,18 +74,27 @@ jobs:
           file: Dockerfile
           pull: true
           push: ${{ github.event_name != 'pull_request' }}
+          load: ${{ github.event_name == 'pull_request' }}
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
-      # Scan Trivy for vulnerabilities in the repository
-      # Scan informatif (ne bloque pas la CI en cas d'alertes levées). Si l'image est poussée : scan par digest (même artefact);
-      # sinon : scan local par image ID (insensible aux tags multiples).
-      - name: Run Trivy vulnerability scanner
+      # Scan the published image by digest, or the locally loaded PR image by tag.
+      - name: Run Trivy vulnerability scanner (published image)
+        if: github.event_name != 'pull_request'
         uses: aquasecurity/trivy-action@ed142fd0673e97e23eac54620cfb913e5ce36c25 # v0.36.0
         with:
-          image-ref: '${{ env.REGISTRY }}/${{ steps.image-name.outputs.value }}@${{ steps.build-and-push.outputs.digest }}'
+          image-ref: ${{ env.REGISTRY }}/${{ steps.image-name.outputs.value }}@${{ steps.build-and-push.outputs.digest }}
+          format: "sarif"
+          output: 'trivy-results.sarif'
+          severity: 'CRITICAL,HIGH'
+
+      - name: Run Trivy vulnerability scanner (pull request image)
+        if: github.event_name == 'pull_request'
+        uses: aquasecurity/trivy-action@ed142fd0673e97e23eac54620cfb913e5ce36c25 # v0.36.0
+        with:
+          image-ref: ${{ steps.meta.outputs.tags }}
           format: "sarif"
           output: 'trivy-results.sarif'
           severity: 'CRITICAL,HIGH'
