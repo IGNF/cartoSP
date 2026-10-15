@@ -4,6 +4,10 @@
     min-height: 0;
 }
 
+#guide-video {
+    margin-bottom: 10px;
+}
+
 .guide-scroll {
     height: 100%;
     overflow-y: auto;
