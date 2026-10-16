@@ -108,6 +108,14 @@ export class SpwfsfilterComponent implements OnInit {
                 "Lycée",
                 "Rectorat"
             ]
+        },
+        "Service de proximité": {
+            markerPath: "assets/images/mapmarker/service-proximite/",
+            topologies: [
+                "Bureau de poste",
+                "Agence postale",
+                "La Poste relais"
+            ]
         }
     };
 
