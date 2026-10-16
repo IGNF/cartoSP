@@ -129,6 +129,11 @@ export class LocalisationInfoComponent implements OnInit, OnDestroy {
       {label: "Lycée", value: "Lycée"},
       {label: "Rectorat", value: "Rectorat"}
     ]},
+    {label: "Service de proximité", options: [
+      {label: "Bureau de poste", value: "Bureau de poste"},
+      {label: "Agence postale", value: "Agence postale"},
+      {label: "La Poste relais", value: "La Poste relais"}
+    ]},
   ];
 
   ngOnInit(): void {
