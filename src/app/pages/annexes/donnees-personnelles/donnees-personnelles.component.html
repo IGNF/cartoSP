@@ -68,8 +68,12 @@
             <h2 class="margin-title">Votre droit d’opposition (opt-out)</h2>
             <p>Bien que ces cookies Matomo soient exemptés de consentement, vous disposez d’un droit d’opposition total à leur utilisation. Si vous choisissez de vous opposer, un cookie technique anonyme sera déposé sur votre navigateur pour mémoriser votre choix, de manière à ce qu’aucune donnée de navigation ne soit collectée lors de vos prochaines visites.</p>
             <p><strong>Utilisez le module ci-dessous pour activer votre option de refus :</strong></p>
-            <div id="matomo-opt-out"></div>
-            <script src="https://matomo.ign.fr/index.php?module=CoreAdminHome&action=optOutJS&divId=matomo-opt-out&language=auto&showIntro=1"></script>
+            <div id="matomo-opt-out" #optOutContainer></div>
+            @if (optOutLoadFailed()) {
+                <div class="fr-alert fr-alert--error" role="alert">
+                    <p>Le module d’opposition Matomo n’a pas pu être chargé. Veuillez réessayer en rechargeant la page.</p>
+                </div>
+            }
             <div class="fr-alert fr-alert--info">
                 <p class="fr-alert__desc">Ce choix est lié au navigateur et à l’appareil que vous utilisez actuellement. Si vous effacez vos cookies, changez de navigateur ou utilisez un autre appareil, vous devrez renouveler votre opposition.</p>
             </div>
