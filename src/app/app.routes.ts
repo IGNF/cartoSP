@@ -11,6 +11,7 @@ import { AccessibiliteComponent } from './pages/annexes/accessibilite/accessibil
 import { NotfoundComponent } from './pages/errors/notfound/notfound.component';
 import { ExceptionComponent } from './pages/errors/exception/exception.component';
 import { AllowedLocation } from './app.routes.guard';
+import { DonneesPersonnellesComponent } from './pages/annexes/donnees-personnelles/donnees-personnelles.component';
 
 export const routes: Routes = [ 
   { path: '', title: 'Cartographie des services publics - Accueil', component: AccueilComponent },
@@ -22,6 +23,7 @@ export const routes: Routes = [
   { path: 'mentions-legales', title: 'Cartographie des services publics - Mentions légales', component: MentionsLegalesComponent },
   { path: 'plan-du-site', title: 'Cartographie des services publics - Plan du site', component: PlanDuSiteComponent },
   { path: 'accessibilite', title: 'Cartographie des services publics - Accessibilité', component: AccessibiliteComponent },
+  { path: 'donnees-personnelles', title: 'Cartographie des services publics - Données personnelles', component: DonneesPersonnellesComponent },
   { path: 'carte/departement/:location',
     title: (route: ActivatedRouteSnapshot) => `Cartographie des services publics - Département - ${route.paramMap.get('location')}`,
     component: HomeComponent, 

@@ -44,6 +44,10 @@ export class AppComponent implements AfterViewInit, OnDestroy {
     {
       label: 'Mentions légales',
       link: '/mentions-legales'
+    },
+    {
+      label: 'Données personnelles',
+      link: '/donnees-personnelles'
     }
   ];
 
