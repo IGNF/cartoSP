@@ -49,7 +49,7 @@ Exemple d'utilisation de openlayers sur angular :
 
 ### CSP et Matomo
 
-La configuration `security.autoCsp` reste activée : Angular génère une politique CSP à base de hachages dans le HTML compilé. L'initialisation Matomo est chargée depuis `src/assets/matomo-init.js` par le chargeur autorisé généré par Angular, sans script Matomo inline. Le module d'opposition est chargé dynamiquement par le composant de la page « Données personnelles », une fois son conteneur affiché.
+La configuration `security.autoCsp` reste activée : Angular génère une politique CSP à base de hachages dans le HTML compilé. L'initialisation Matomo est chargée depuis `src/assets/matomo-init.js` avec le nonce dynamique injecté par Nginx, sans script Matomo inline. Le module d'opposition est chargé dynamiquement par le composant de la page « Données personnelles », une fois son conteneur affiché.
 
 La politique Nginx s'applique également. Elle doit autoriser les scripts locaux et `matomo.ign.fr`. La substitution de `random_nonce_value` dans le HTML doit être conservée pour autoriser le chargeur Angular et transmettre le nonce aux styles Angular et au script du module d'opposition. Ne pas ajouter de scripts inline dans les templates Angular ni modifier manuellement les hachages du HTML compilé.
 
