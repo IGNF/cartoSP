@@ -28,6 +28,7 @@
             },
             "assets": [
               "src/favicon.ico",
+              "src/robots.txt",
               "src/assets",
               {
                 "glob": "sun.svg",
