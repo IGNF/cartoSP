@@ -13,7 +13,7 @@ RUN ng build
 RUN chown -R node /opt/cartosp/dist/cartosp/browser
 USER node
 
-FROM ${registry}/nginxinc/nginx-unprivileged:trixie-perl
+FROM ${registry}/nginx/nginx-unprivileged:alpine-perl
 
 COPY --from=nodebuild /opt/cartosp/dist/cartosp/browser/ /usr/share/nginx/html
 COPY --from=nodebuild /opt/cartosp/.docker/nginx.apps.conf /etc/nginx/conf.d/default.conf
