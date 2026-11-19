@@ -22,9 +22,9 @@ export class TerritoireComponent implements OnInit {
   territoriesList = [
     {
       id: "FMP",
-      title: "France métropolitaine",
+      title: "France hexagonale",
       bbox: [-5.2, 41.3, 9.8, 51.2],
-      description: "France métropolitaine",
+      description: "France hexagonale",
       icon: "assets/images/locations/Illustration_France.svg",
     },
     {
