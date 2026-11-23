@@ -25,13 +25,14 @@
                 <section class="fr-accordion">
                   <h3 class="fr-accordion__title">
                     <button type="button" class="fr-accordion__btn" aria-expanded="false" [attr.aria-controls]="'accordion-' + i">
-                      Version {{ release.tag_name }}
-                      {{ release.published_at | date:'dd/MM/yyyy'}}
+                      <span class="release-title">
+                        <span>Version <b>{{ release.tag_name }}</b></span>
+                        <span class=""release-date>{{ release.published_at | date:'dd/MM/yyyy'}}</span>
+                      </span>
                     </button>
                   </h3>
                   <div [id]="'accordion-' + i" class="fr-collapse">
-                    <h4 class="fr-h4">Évolutions {{ release.tag_name }}</h4>
-                    <p class=""release-body>{{ release.body || 'Aucune description disponible' }}</p>
+                    <markdown class="release-body" [data]="release.body || 'Aucune description disponible.'"></markdown>
                   </div>
                 </section>
               } @empty {
