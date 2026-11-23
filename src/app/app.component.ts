@@ -48,7 +48,11 @@ export class AppComponent implements AfterViewInit, OnDestroy {
     {
       label: 'Données personnelles',
       link: '/donnees-personnelles'
-    }
+    },
+    {
+      label: 'Note de versions',
+      link: '/note-de-versions'
+    },
   ];
 
   ngAfterViewInit(): void {
