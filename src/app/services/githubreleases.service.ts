@@ -14,7 +14,7 @@ export interface GitHubRelease {
 })
 export class ReleaseService {
     private http = inject(HttpClient);
-    private releasesUrl = 'https://api.github.com/repos/IGNF/cartoSP/releases';
+    private releasesUrl = 'https://api.github.com/repos/IGNF/cartoSP/releases?per_page=100';
     private cacheKey = 'cartosp.releases';
     private ttl= 60 * 60 * 1000;
 
