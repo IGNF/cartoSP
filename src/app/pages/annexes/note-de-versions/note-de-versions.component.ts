@@ -11,6 +11,6 @@ import { GitHubRelease, ReleaseService } from "src/app/services/githubreleases.s
 })
 export class NoteDeVersionsComponent{
     releases$ = inject(ReleaseService)
-        .getAllReleaseNames()
+        .getAllReleases()
         .pipe(catchError(() => of([] as GitHubRelease[])));
 }
