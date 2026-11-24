@@ -4,6 +4,9 @@ import { RouterLink, RouterOutlet, Router } from '@angular/router';
 import { NgIf } from '@angular/common';
 import { DsfrDisplayComponent, DsfrFooterModule, DsfrHeaderModule } from '@edugouvfr/ngx-dsfr';
 import { DsfrToolLinkMenuComponent, DsfrLinkComponent } from '@edugouvfr/ngx-dsfr';
+import { ReleaseService } from './services/githubreleases.service';
+import { catchError, map, of } from 'rxjs';
+import { toSignal } from '@angular/core/rxjs-interop';
 
 @Component({
     selector: 'app-root',
@@ -117,4 +120,13 @@ export class AppComponent implements AfterViewInit, OnDestroy {
   ngOnDestroy(): void {
     this.footerResizeObserver?.disconnect();
   }
+
+  private releaseService = inject(ReleaseService);
+
+  readonly latestRelease = toSignal(
+    this.releaseService.getAllReleases().pipe(
+      map((releases) => releases[0] ?? null),
+      catchError(() => of(null))
+    )
+  )
 }
