@@ -27,18 +27,24 @@ export class NoteDeVersionsComponent{
         return this.releases()?.slice(start, start + this.pageSize) ?? [];
     });
     
-    readonly pages = computed (() => {
+    readonly pages = computed(() => {
         const total = this.totalPages();
-        const currentPageIndex = this.currentPageIndex();
-        const pages: (number | null)[] = [];
-        for (let p = 1; p <= total; p++) {
-            if (p === 1 || p === total || Math.abs(p - currentPageIndex) <= 1) {
-                pages.push(p);
-            }
-            else if (pages.at(-1) !== null){
-                pages.push(null);
-            }
+        const current = this.currentPageIndex();
+
+        if (total <= 7) {
+            return Array.from({ length: total }, (_, i) => i + 1);
         }
+
+        let start = current - 1;
+        let end = current + 1;
+        if (current <= 4) { start = 2; end = 5; }
+        if (current >= total - 3) { start = total - 4; end = total - 1; }
+
+        const pages: (number | null)[] = [1];
+        if (start > 2) pages.push(null);
+        for (let p = start; p <= end; p++) pages.push(p);
+        if (end < total - 1) pages.push(null);
+        pages.push(total);
         return pages;
     });
 
