@@ -28,7 +28,9 @@
                     @let id = 'accordion-' + ((currentPageIndex() - 1) * pageSize + i);
                     <section class="fr-accordion">
                       <h3 class="fr-accordion__title">
-                        <button type="button" class="fr-accordion__btn" aria-expanded="false" [attr.aria-controls]="id">
+                        <button type="button" class="fr-accordion__btn" 
+                            [attr.aria-expanded]="i === 0" 
+                            [attr.aria-controls]="id">
                           <span class="release-title">
                             <span>Version <b>{{ release.tag_name }}</b></span>
                             <span class="release-date">({{ release.published_at | date:'dd/MM/yyyy'}})</span>

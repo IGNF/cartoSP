@@ -1,4 +1,4 @@
-import { Component, computed, inject, signal } from "@angular/core";
+import { Component, Injector, afterNextRender, computed, inject, signal } from "@angular/core";
 import { toSignal } from '@angular/core/rxjs-interop';
 import { DatePipe } from '@angular/common';
 import { catchError, of} from 'rxjs';
@@ -48,10 +48,22 @@ export class NoteDeVersionsComponent{
         return pages;
     });
 
+    private injector = inject(Injector);
+
     goTo(page: number, event: Event): void {
         event.preventDefault();
         if (page < 1 || page > this.totalPages() || page === this.currentPageIndex()) return;
         this.currentPageIndex.set(page);
+
+        if (page === 1) {
+        afterNextRender(() => {
+            setTimeout(() => {
+                const panel = document.getElementById('accordion-0');
+                (window as any).dsfr?.(panel)?.collapse?.disclose();
+            });
+        }, { injector: this.injector });
+    }
+
         document.getElementById('releases-title')?.scrollIntoView({ behavior: 'smooth'});
     }
 
