@@ -1,6 +1,6 @@
 import { Injectable, inject } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
-import { Observable, tap, map} from "rxjs";
+import { Observable, tap, map, EMPTY, expand, reduce, of} from "rxjs";
 
 export interface GitHubRelease {
     tag_name: string;
@@ -15,17 +15,28 @@ export interface GitHubRelease {
 export class ReleaseService {
     private http = inject(HttpClient);
     private releasesUrl = 'https://api.github.com/repos/IGNF/cartoSP/releases?per_page=100';
+    private perPage = 100;
     private cacheKey = 'cartosp.releases';
     private ttl= 60 * 60 * 1000;
 
     getAllReleases(): Observable<GitHubRelease[]> {
-        // const cached = this.readCache();
-        // if (cached) return of(cached);
+        const cached = this.readCache();
+        if (cached) return of(cached);
 
-        return this.http.get<GitHubRelease[]>(this.releasesUrl).pipe(
+        return this.fetchPage(1).pipe(
+            expand(({ page, releases }) =>
+                releases.length === this.perPage ? this.fetchPage(page + 1) : EMPTY
+            ),
+            reduce((all, { releases }) => [...all, ...releases], [] as GitHubRelease[]),
             map((releases) => releases.filter((r) => r.tag_name?.toLowerCase().startsWith('v'))),
             tap((releases) => this.writeCache(releases))
         );
+    }
+
+    private fetchPage(page: number): Observable<{page: number ; releases: GitHubRelease[]}> {
+        return this.http
+            .get<GitHubRelease[]>(this.releasesUrl, { params : { per_page: this.perPage, page}})
+            .pipe(map((releases) => ({page, releases})))
     }
 
     private readCache(): GitHubRelease[] | null {
