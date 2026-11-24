@@ -1,6 +1,6 @@
 import { Injectable, inject } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
-import { Observable, of, tap} from "rxjs";
+import { Observable, of, tap, map} from "rxjs";
 
 export interface GitHubRelease {
     tag_name: string;
@@ -19,10 +19,11 @@ export class ReleaseService {
     private ttl= 60 * 60 * 1000;
 
     getAllReleases(): Observable<GitHubRelease[]> {
-        const cached = this.readCache();
-        if (cached) return of(cached);
+        // const cached = this.readCache();
+        // if (cached) return of(cached);
 
         return this.http.get<GitHubRelease[]>(this.releasesUrl).pipe(
+            map((releases) => releases.filter((r) => r.tag_name?.toLowerCase().startsWith('v'))),
             tap((releases) => this.writeCache(releases))
         );
     }
