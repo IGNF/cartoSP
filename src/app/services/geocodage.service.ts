@@ -47,21 +47,22 @@ export class GeocodageService {
 
   // Get adminexpress geometry
   getAdminExpressGeometry(query: string, type: string): Observable<any> {
+    const escapedQuery = query.replace(/'/g, "''");
     let req;
     if(type === "departement") {
-      req = Object.assign(this.defaultParams, {
+      req = Object.assign({}, this.defaultParams, {
         TYPENAME: "ADMINEXPRESS-COG.LATEST:departement",
-        cql_filter:"code_insee='"+query+"'"
+        cql_filter:"code_insee='"+escapedQuery+"'"
       });
     } else if(type === "epci") {
-      req = Object.assign(this.defaultParams, {
+      req = Object.assign({}, this.defaultParams, {
         TYPENAME: "ADMINEXPRESS-COG.LATEST:epci",
-        cql_filter:"nom_officiel='"+query+"'"
+        cql_filter:"nom_officiel='"+escapedQuery+"'"
       });
     } else if(type === "commune") {
-      req = Object.assign(this.defaultParams, {
+      req = Object.assign({}, this.defaultParams, {
         TYPENAME: "ADMINEXPRESS-COG.LATEST:commune",
-        cql_filter:"nom_officiel='"+query+"'"
+        cql_filter:"nom_officiel='"+escapedQuery+"'"
       });
     } else {
       throw new Error("Type non supporté pour la géométrie AdminExpress");
