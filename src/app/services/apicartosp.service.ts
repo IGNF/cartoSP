@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 export class ApicartospService {
     private http = inject(HttpClient);
 
-    public apiUrl = 'http://localhost:8000/api';
+    public apiUrl = '/api';
 
     // Get commune infos
     getCommuneInfos(query: string): Observable<any> {
