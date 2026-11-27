@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 export class ApicartospService {
     private http = inject(HttpClient);
 
-    public apiUrl = '/api';
+    public apiUrl = 'http://localhost:8000/api';
 
     // Get commune infos
     getCommuneInfos(query: string): Observable<any> {
@@ -53,8 +53,14 @@ export class ApicartospService {
     }
 
     // Get SP type count
-    getIsochroneStatistiques(options: any): Observable<any> {
+    /*getIsochroneStatistiques(options: any): Observable<any> {
         return this.http.get(this.apiUrl + "/isochrone-statistique",{
+            params: options
+        });
+    }*/
+
+    getIsochroneStatistiques(options: any): Observable<any> {
+        return this.http.get(this.apiUrl + "/isochrone-statistique-automated",{
             params: options
         });
     }

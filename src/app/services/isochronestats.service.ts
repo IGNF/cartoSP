@@ -6,7 +6,13 @@ import { Feature } from 'ol';
 import GeoJSON from 'ol/format/GeoJSON';
 
 interface Totals { population: number; nb_plus_65: number; nb_men_pauv: number }
-interface StatsResult { totals: Totals; intersectingTotals: Totals; percentages: Totals }
+interface StatsResult { totals: Totals; intersectingTotals: Totals }
+
+/*
+    Service to fetch and calculate statistics for isochrones based on bounding boxes.
+    It supports pagination and filtering by department prefix.
+    It's not used in the current implementation but can be utilized for future isochrone-based statistics calculations.
+*/
 
 @Injectable({
   providedIn: 'root'
@@ -178,13 +184,7 @@ export class IsochroneStatsService {
             }
         }
 
-        const percentages = {
-            population: totals.population > 0 ? (intersectingTotals.population / totals.population) * 100 : 0,
-            nb_plus_65: totals.nb_plus_65 > 0 ? (intersectingTotals.nb_plus_65 / totals.nb_plus_65) * 100 : 0,
-            nb_men_pauv: totals.nb_men_pauv > 0 ? (intersectingTotals.nb_men_pauv / totals.nb_men_pauv) * 100 : 0
-        };
-
-        return { totals, intersectingTotals, percentages };
+        return { totals, intersectingTotals };
     };
 
 }

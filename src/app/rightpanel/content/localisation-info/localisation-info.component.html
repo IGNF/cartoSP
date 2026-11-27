@@ -484,8 +484,7 @@
           <dsfr-accordion [expanded]="true">
             <ng-container heading>{{isochrone.layername}} ({{isochrone.name_location}} - {{isochrone.location}}; {{isochrone.time}}; {{isochrone.ride}}) </ng-container>
             <ng-container content>
-              @if(isochrone.totalsDepartement.percentages){
-                @if(isochrone.totalsDepartement.percentages.pauv){
+              @if(isochrone.totalsDepartement.percentages?.pop && isochrone.totalsDepartement.percentages?.pauv && isochrone.totalsDepartement.percentages?.plus_65){
                   <div class="fr-table fr-table--bordered fr-table--infos fr-tables--infos-nomargin">
                       <div class="fr-table__wrapper fr-table-wrapper-cartosp">
                           <div class="fr-table__container">
@@ -502,7 +501,7 @@
                                             <span class="fr-tooltip fr-placement" id="tooltip-pop-cov-{{idx}}" role="tooltip" aria-hidden="true">Médiane correspond à la médiane nationale. Min et max correspondent aux départements avec la plus faible et la plus grande valeur.</span>
                                           </div>
                                         </th>
-                                        <td class="th-right-sp row-td">{{formatNumberReal(isochrone.totalsDepartement.percentages.population,'1.2-2')}}%</td>
+                                        <td class="th-right-sp row-td">{{formatNumberReal(isochrone.totalsDepartement.percentages.pop.pourcentage_population_couverte,'1.2-2')}}%</td>
                                       </tr>
                                     </thead>
                                     <tbody>
@@ -540,7 +539,7 @@
                                             <span class="fr-tooltip fr-placement" id="tooltip-per-men-{{idx}}" role="tooltip" aria-hidden="true">Médiane correspond à la médiane nationale. Min et max correspondent aux départements avec la plus faible et la plus grande valeur.</span>
                                           </div>
                                         </th>
-                                        <td class="th-right-sp row-td">{{formatNumberReal(isochrone.totalsDepartement.percentages.nb_men_pauv,'1.2-2')}}%</td>
+                                        <td class="th-right-sp row-td">{{formatNumberReal(isochrone.totalsDepartement.percentages.pauv.pourcentage_menages_pauvres_couverts,'1.2-2')}}%</td>
                                       </tr>
                                     </thead>
                                     <tbody>
@@ -578,7 +577,7 @@
                                             <span class="fr-tooltip fr-placement" id="tooltip-per-65-{{idx}}" role="tooltip" aria-hidden="true">Médiane correspond à la médiane nationale. Min et max correspondent aux départements avec la plus faible et la plus grande valeur.</span>
                                           </div>
                                         </th>
-                                        <td class="th-right-sp row-td">{{formatNumberReal(isochrone.totalsDepartement.percentages.nb_plus_65 ,'1.2-2') }}%</td>
+                                        <td class="th-right-sp row-td">{{formatNumberReal(isochrone.totalsDepartement.percentages.plus_65.pourcentage_population_couverte,'1.2-2') }}%</td>
                                       </tr>
                                     </thead>
                                     <tbody>
@@ -600,11 +599,6 @@
                           </div>
                       </div>
                   </div>
-                } @else {
-                  <p class="isochronetext"><strong>{{formatNumberReal(isochrone.totalsDepartement.percentages.population,'1.2-2')}}%</strong> de la population du département couverte</p>
-                  <p class="isochronetext"><strong>{{formatNumberReal(isochrone.totalsDepartement.percentages.nb_men_pauv,'1.2-2')}}%</strong> des ménages pauvres du département couverte</p>
-                  <p class="isochronetext"><strong>{{formatNumberReal(isochrone.totalsDepartement.percentages.nb_plus_65 ,'1.2-2') }}%</strong> des + 65ans du département couverte</p>
-                }
               } @else {
                 <p>Aucune données pour cet isochrone.</p>
               }

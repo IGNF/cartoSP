@@ -2,7 +2,6 @@ import { Component, OnInit, Input, ElementRef, inject } from '@angular/core';
 
 import Map from 'ol/Map';
 import Control from 'ol/control/Control';
-import { transform } from 'ol/proj';
 import { Feature } from 'ol';
 import GeoJSON from 'ol/format/GeoJSON';
 import VectorSource from 'ol/source/Vector';
@@ -11,8 +10,7 @@ import { RightpanelService } from '../../rightpanel/rightpanel.service';
 import { LocalisationInfoComponent } from '../../rightpanel/content/localisation-info/localisation-info.component';
 import { ApicartospService } from '../../services/apicartosp.service';
 import { GeocodageService } from '../../services/geocodage.service';
-import { IsochroneStatsService } from '../../services/isochronestats.service';
-import { catchError, forkJoin, of } from 'rxjs';
+import { catchError, of } from 'rxjs';
 
 @Component({
   selector: 'app-isochrone-simple',
@@ -25,7 +23,6 @@ export class IsochroneSimpleComponent implements OnInit {
   private rightpanelService = inject(RightpanelService);
   private apicartospService = inject(ApicartospService);
   private geocodageService = inject(GeocodageService);
-  private isochroneStatsService = inject(IsochroneStatsService);
 
   @Input() map!: Map;
   control!: Control;
@@ -151,14 +148,36 @@ export class IsochroneSimpleComponent implements OnInit {
     });
 
     this.control.addEventListener("isochrone:add",  (e: any) => {
-      const isochrones = e.layer.values_.source.getFeatures();
       const location = e.target._typologyLocationSelected;
 
       // Set loading state immediately and open the panel before the API call
       e.layer.set('totalsDepartement', { loading: true });
       this.rightpanelService.setContent(LocalisationInfoComponent,{map : this.map, location: {name: e.layer.values_.name_location,number: e.layer.values_.location}, type: "departement", isochronecall: true}, "locationinfo");
 
-      // get location bbox in EPSG:4326 for isochrone statistics API call
+      this.apicartospService.getIsochroneStatistiques({
+        code_dep: location,
+        temps: e.layer.values_.time,
+        typologie: e.layer.values_.layername
+      }).pipe(
+        catchError((error: any) => {
+          console.error('Error fetching isochrone statistiques:', error);
+          return of(null);
+        })
+      ).subscribe({
+        next : (isochroneStatistiques: any) => {
+          e.layer.set('totalsDepartement', {
+            percentages: isochroneStatistiques
+          });
+          const TARGET_LAYER_NAME = "IGNF_CARTO-SP_SERVICES-PUBLICS:__infos";
+          const layers = this.map.getLayers().getArray();
+          const targetLayer = layers.find((l: any) => l.name === TARGET_LAYER_NAME);
+          if (targetLayer) {
+            const maxZIndex = layers.reduce((max: number, l: any) => Math.max(max, l.getZIndex() ?? 0), 0);
+            targetLayer.setZIndex(maxZIndex + 1);
+          }
+        }
+      });
+
       this.geocodageService.getAdminExpressDepartementGeometry(location).subscribe({
         next : (response: any) => {
           if (response?.features?.[0]?.geometry) {
@@ -174,44 +193,6 @@ export class IsochroneSimpleComponent implements OnInit {
               highlightLayer.setVisible(true);
               this.map.getView().fit(locationGeom.getExtent(), { padding: [30, 30, 30, 30] });
             }
-            const extent3857 = locationGeom.getExtent();
-            const [minLon, minLat] = transform([extent3857[0], extent3857[1]], 'EPSG:3857', 'EPSG:4326');
-            const [maxLon, maxLat] = transform([extent3857[2], extent3857[3]], 'EPSG:3857', 'EPSG:4326');
-            const BBOX = `${minLat},${minLon},${maxLat},${maxLon}`;
-
-            forkJoin({
-              totalsDepartement: this.isochroneStatsService.getIsochroneStatsByBbox({location_code: location, bbox: BBOX}, isochrones),
-              isochroneStatistiques: this.apicartospService.getIsochroneStatistiques({
-                code_dep: location,
-                temps: e.layer.values_.time,
-                typologie: e.layer.values_.layername
-              }).pipe(
-                catchError((error: any) => {
-                  console.error('Error fetching isochrone statistiques:', error);
-                  return of(null);
-                })
-              )
-            }).subscribe({
-              next : ({ totalsDepartement, isochroneStatistiques }: any) => {
-                const mergedTotalsDepartement = {
-                  ...totalsDepartement,
-                  percentages: {
-                    ...(totalsDepartement?.percentages ?? {}),
-                    ...(isochroneStatistiques ?? {})
-                  }
-                };
-                e.layer.set('totalsDepartement', mergedTotalsDepartement);
-                console.log("Isochrone statistics totals:", mergedTotalsDepartement);
-                const TARGET_LAYER_NAME = "IGNF_CARTO-SP_SERVICES-PUBLICS:__infos";
-                const layers = this.map.getLayers().getArray();
-                const targetLayer = layers.find((l: any) => l.name === TARGET_LAYER_NAME);
-                if (targetLayer) {
-                  const maxZIndex = layers.reduce((max: number, l: any) => Math.max(max, l.getZIndex() ?? 0), 0);
-                  targetLayer.setZIndex(maxZIndex + 1);
-                }
-              },
-              error : (error: any) => { console.error('Error fetching isochrone statistics:', error) }
-            });
           } else {
             console.error('No geometry found for location:', location);
           }
