@@ -1,0 +1,100 @@
+<div class="fr-container">
+    <div class="fr-grid-row margin-content">
+        <nav role="navigation" class="fr-breadcrumb fr-col-12" aria-label="Navigation secondaire">
+            <button type="button" class="fr-breadcrumb__button" aria-expanded="false" aria-controls="breadcrumb">Voir le fil d&#39;arianne</button>
+            <div class="fr-collapse" id="breadcrumb">
+              <ol class="fr-breadcrumb__list">
+                <li>
+                  <a class="fr-breadcrumb__link" id="segment-0" aria-label="Retour à la page d'accueil" href="/">Accueil</a>
+                </li>
+                <li>
+                  <a class="fr-breadcrumb__link" id="segment-1" aria-current="page">Note de versions</a>
+                </li>
+              </ol>
+            </div>
+        </nav>
+
+        <div class="dsfr-container fr-col-8">
+          <div>
+            <h1 class="fr-h1" id="releases-title">Note de versions</h1>
+            <p class="fr-text--lead">
+              <strong>Description des évolutions du site.</strong>
+            </p>
+
+            @if (releases() ; as all) {
+              @if (all.length) {
+                <div class="fr-accordions-group">
+                  @for (release of pagedReleases(); track release.tag_name; let i = $index) {
+                    @let id = 'accordion-' + ((currentPageIndex() - 1) * pageSize + i);
+                    <section class="fr-accordion">
+                      <h3 class="fr-accordion__title">
+                        <button type="button" class="fr-accordion__btn" 
+                            [attr.aria-expanded]="i === 0" 
+                            [attr.aria-controls]="id">
+                          <span class="release-title">
+                            <span>Version <b>{{ release.tag_name }}</b></span>
+                            <span class="release-date">({{ release.published_at | date:'dd/MM/yyyy'}})</span>
+                          </span>
+                        </button>
+                      </h3>
+                      <div [id]="id" class="fr-collapse">
+                        <markdown class="release-body" [data]="release.body || 'Aucune description disponible.'"></markdown>
+                      </div>
+                    </section>
+              }
+              </div>
+
+              @if (totalPages() > 1 ){
+                <nav role="navigation" class="fr-pagination fr-mt-4w" aria-label="Pagination">
+                  <ul class="fr-pagination__list">
+                    <li>
+                      <a class="fr-pagination__link fr-pagination__link--prev fr-pagination__link--first" role="link"
+                        [attr.href]="currentPageIndex() > 1 ? '#' : null"
+                        [attr.aria-disabled]="currentPageIndex() === 1 || null"
+                        (click)="goTo(1, $event)">Première page</a>
+                    </li>
+                    <li>
+                      <a class="fr-pagination__link fr-pagination__link--prev fr-pagination__link--lg-label" role="link"
+                        [attr.href]="currentPageIndex() > 1 ? '#' : null"
+                        [attr.aria-disabled]="currentPageIndex() === 1 || null"
+                        (click)="goTo(currentPageIndex() - 1, $event)">Page précédente</a>
+                    </li>
+
+                    @for (p of pages(); track $index) {
+                      <li>
+                        @if (p === null) {
+                          <a class="fr-pagination__link fr-displayed-lg">…</a>
+                        } @else {
+                          <a class="fr-pagination__link" [title]="'Page ' + p"
+                            [attr.href]="p === currentPageIndex() ? null : '#'"
+                            [attr.aria-current]="p === currentPageIndex() ? 'page' : null"
+                            (click)="goTo(p, $event)">{{ p }}</a>
+                        }
+                      </li>
+                    }
+
+                    <li>
+                      <a class="fr-pagination__link fr-pagination__link--next fr-pagination__link--lg-label" role="link"
+                        [attr.href]="currentPageIndex() < totalPages() ? '#' : null"
+                        [attr.aria-disabled]="currentPageIndex() === totalPages() || null"
+                        (click)="goTo(currentPageIndex() + 1, $event)">Page suivante</a>
+                    </li>
+                    <li>
+                      <a class="fr-pagination__link fr-pagination__link--last" role="link"
+                        [attr.href]="currentPageIndex() < totalPages() ? '#' : null"
+                        [attr.aria-disabled]="currentPageIndex() === totalPages() || null"
+                        (click)="goTo(totalPages(), $event)">Dernière page</a>
+                    </li>
+                  </ul>
+                </nav>
+              }
+            } @else {
+                <p>Aucune version disponible pour le moment.</p>
+              }
+            } @else {
+              <p>Chargement des versions…</p>
+            }
+          </div>
+        </div>
+    </div>
+</div>
